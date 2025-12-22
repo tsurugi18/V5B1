@@ -139,7 +139,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 respectively.
 \end{notation}
 \begin{definition}
-Let $\underline{a}\in\C^n$ and $\underline{r}\in(0,\infty)^n$. We define a poly disk around $a$ to be
+Let $\underline{a}\in\C^n$ and $\underline{r}\in(0,\infty)^n$. We define a polydisk around $\underline{a}$ to be
 \begin{equation*}
 D_{\underline{r}}(\underline{a}) = \{\underline{z}\in\C^n\:|\: \forall 1\leq j\leq n, \vert z_j-a_j\vert <r_j\}.
 \end{equation*}
@@ -153,20 +153,6 @@ In particular, when $r=1$ and $\underline{a}=\underline{o}$, we define the unit 
 \end{equation*}
 \end{definition}
 
-\begin{definition}
-Let $\underline{a}\in\C^n$ and $\underline{r}\in(0,\infty)^n$. We define a poly disk around $a$ to be
-\begin{equation*}
-D_{\underline{r}}(\underline{a}) = \{\underline{z}\in\C^n\:|\: \forall 1\leq j\leq n, \vert z_j-a_j\vert <r_j\}.
-\end{equation*}
-We also define for $r\in(0,\infty)$,
-\begin{equation*}
-D_{r}(\underline{a}) = \{\underline{z}\in\C^n\:|\: \forall 1\leq j\leq n, \vert z_j-a_j\vert <r\}.
-\end{equation*}
-In particular, when $r=1$ and $\underline{a}=\underline{o}$, we define the unit polydisk
-\begin{equation*}
-\mathbb{D} = D_1(\underline{o}).
-\end{equation*}
-\end{definition}
 
 \begin{definition}
 The unit ball around the origin is 
@@ -315,7 +301,7 @@ $f:U\to\C$ is holomorphic if and only if for each $1\leq i\leq n$ and fixed $z_1
 \end{remark}
 
 \begin{definition}
-A complex line is a function $l:\C\to\C^n$ such that there exists $\underline{a},\underline{w}\in\C^n,w\not=\underline{o}$, such that 
+A complex line is a function $l:\C\to\C^n$ for some $\underline{a},\underline{w}\in\C^n,w\not=\underline{o}$, we have
 \begin{equation*}
 l(t) = \underline{a}+t\underline{w}.
 \end{equation*}
@@ -338,7 +324,7 @@ Using the chain rule, we see
 
 \subsection{Cauchy Integrals}
 
-We will consider a holomorphic function $f:U\to\C$ where $U$ is a neighborhood of the closure of $D=D_{\underline{r}}(\underline{a})$. Without the loss of generality we assume $\underline{a}=\underline{o}$. Let $\underline{z}\in D$, applying the Cauchy integral to the first variable, we see that
+We will consider a holomorphic function $f:U\to\C$ where $U$ is a neighborhood of the closure of $D=D_{\underline{r}}(\underline{a})$. Without loss of generality we assume $\underline{a}=\underline{o}$. Let $\underline{z}\in D$, applying the Cauchy integral to the first variable, we see that
 
 \begin{equation*}
 f(z_1,\cdots,z_n) = {\frac 1 {2\pi i}}\int_{\vert \zeta_1\vert = r_1}{\frac {f(\zeta_1,z_2,\cdots,z_n)} {\zeta_1-z_1}}d\zeta_1.
@@ -354,7 +340,7 @@ This is valid on the disk $D$. Motivated by the above equation, we have,
 \begin{definition}
 The Cauchy kernel in $\C^n$ is 
 \begin{equation*}
-C(\underline{\zeta},\underline{z}) = \left({\frac 1 {2\pi i}}\right)^n{\frac {d\zeta_1\wedge\cdots\wedge d\zeta_n} {(\zeta_1-z_1)\cdots(\zeta_n-z_n}}.
+C(\underline{\zeta},\underline{z}) = \left({\frac 1 {2\pi i}}\right)^n{\frac {d\zeta_1\wedge\cdots\wedge d\zeta_n} {(\zeta_1-z_1)\cdots(\zeta_n-z_n)}}.
 \end{equation*}
 \end{definition}
 
@@ -370,7 +356,7 @@ where $T=\partial_0D$, the distinguished boundary of the poly disk $D$.
 \begin{proposition}
 Suppose $h$ is a continuous function on $T=\partial_0D$ for some disk $D$, then the function
 \begin{equation*}
-F(z) = \int_Th(\underline{\zeta}C(\underline{\zeta},z),
+F(z) = \int_Th(\underline{\zeta})C(\underline{\zeta},z),
 \end{equation*}
 is holomorphic on $D$
 \end{proposition}
@@ -389,7 +375,7 @@ This theorem tells us moreover all the local properties about the holomorphic fu
 $f$ is holomorphic on an open set $U$ that is smooth. Then all the derivatives are again holomorphic. 
 \end{theorem}
 
-\begin{proof}[sketch]
+\begin{proof}[Sketch of the Proof]
 Since an open set contains a disk, we can use the Cauchy integral on that disk. Since holomorphicness is a local property, we obtain the statement.
 \end{proof}
 
@@ -413,13 +399,13 @@ A domain is an open connected subset of $\C^n$.
 \end{definition}
 
 \begin{theorem}[Maximal Principle]
-Let $f$ be holomorphic on the domain $U$. If $\vert f\vert$ attains a local maximal then $f\equiv c$ to some constant $c\in \C$.
+Let $f$ be holomorphic on a domain $U$. If $\vert f\vert$ attains a local maximal then $f\equiv c$ for some constant $c\in \C$.
 \end{theorem}
 
 \begin{theorem}
 Suppose $f$ is holomorphic on a closure $\overline{D}$ of some polydisk $D=D_r(\underline{z}_0)$. For $\underline{z}\in D$, 
 \begin{equation*}
-\left({\frac 1 {2\pi i}}\right)\int\cdots\int_T {\frac {f(\underline{z})} {(\underline{\zeta}-\underline{z})}}d\underline{\zeta}.
+\left({\frac 1 {2\pi i}}\right)\int\cdots\int_T {\frac {f(\underline{z})} {(\underline{\zeta}-\underline{z})}}d\underline{\zeta}. %later
 \end{equation*}
 We develop this into a geometric series, and interchange the summation, we get
 
@@ -440,17 +426,18 @@ f(z) = \sum a_{\underline{\alpha}}(\underline{z}-\underline{z}_0)^{\underline{\a
 \end{equation*}
 where for each $\underline{\alpha}\in\N_0^n$,
 \begin{equation*}
-a_{\underline{\alpha}} = {\frac {D^{\underline{\alpha}f(\underline{z}_0}} {\underline{\alpha}!}}.
+a_{\underline{\alpha}} = {\frac {D^{\underline{\alpha}}f(\underline{z}_0)} {\underline{\alpha}!}}.
 \end{equation*}
-Series converges at least in the largest polydisk about $D_r(\underline{z}_0)\subset U$ (the boundary is contained in $U$).
+Series converges at least in the largest polydisk about $D_r(\underline{z}_0)\compembed U$ (the boundary is contained in $U$).
 \end{theorem}
 
 \begin{theorem}
-Holomorphic functions are analytic, in other words, locally developable into a power series.
+Holomorphic functions are analytic, in other words, it can be locally developable into a power series.
 \end{theorem}
 
 \begin{theorem}[Identity Theorem]
-If $f$ is holomorphic on a domain $U$, and if $f$ is identically $0$ in a non-empty open neighborhood $V$ in $U$, then $f$ is identically $0$ on $U$.
+  \label{identity_theorem}
+If $f$ is holomorphic on a domain $U$, and it is identically $0$ in a non-empty open neighborhood $V$ in $U$, then $f$ is identically $0$ on $U$.
 \end{theorem}
 
 \begin{theorem}
@@ -468,8 +455,8 @@ Let $\mathcal{G}$ be a domain. We define $\mathcal{O}(\mathcal{G})$ to be the se
 \begin{proposition}
 $\mathcal{O}(\mathcal{G})$ is a $\C$-algebra. Furthermore, the following properties hold,
 \begin{enumerate}[1).]
-\item $\mathcal{O}(\mathcal{G})$ has no zero divisors. (Follows from Identity theorem).
-\item We can in
+\item $\mathcal{O}(\mathcal{G})$ has no zero divisors. (Follows from Theorem \ref{identity_theorem}).
+\item We can in %later
 \end{enumerate}
 \end{proposition}
 
@@ -499,10 +486,10 @@ Let $f$ be a function which is holomorphic in each variable separately then $f$ 
 \end{theorem}
 
 \begin{proof}
-See [Hörmander 2.2.8]
+See \cite{Hom}.
 \end{proof}
 
-\begin{theorem}[Hartogs's Kugelsatz]
+\begin{theorem}[Hartogs's Kugelsatz]%later
 Suppose $n>0$. Let $K\subset U$ be a compact subset of an open set such that $U\backslash K$ is connected. If $f$ is holomorphic on $U\backslash K$, then $f$ extends holomorphically to the whole $U$. 
 \end{theorem}
 
@@ -511,23 +498,23 @@ Will be shown later.
 \end{proof}
 
 \begin{remark}
-Using the theorem above, we conclude that there are no isolated singularities and isolated $0$s. (ie. a holomorphic function on a punctured domain can be extended to that point). The latter follows that if $f(\underline{z}) = 0$, then ${\frac 1 f}(\underline{z})$ has an isolated singularity.
+Using the theorem above, we conclude that there are no isolated singularities and isolated zeroes. (ie. a holomorphic function on a punctured domain can be extended to that point). The latter follows that if $f(\underline{z}) = 0$, then ${\frac 1 f}(\underline{z})$ has an isolated singularity.
 \end{remark}
 
 \begin{proposition}
-Let $f\not\equiv0$ be a holomorphic function on a domain $\mathcal{G}$. We have
+Let $f\not\equiv0$ be a holomorphic function on a domain $\mathcal{G}$. Then the set
 \begin{equation*}
-V(f) = \{z\in\mathcal{G}\:|\: f(z) = 0\}
+V(f) \defeq \{z\in\mathcal{G}\:|\: f(z) = 0\}
 \end{equation*}
 has no interior points and has Lebesgue measure $0$. 
 \end{proposition}
 
 \subsection{Holomorphic Maps and Differential Forms}
 
-Recommended literature : Range Holomorphic functions and integral representation for several complex variables.
+For this subsection, we follow \cite{Ra}.
 
 \begin{definition}
-Let $F:\C^n\supset U\to V\subset \C^m$ be a function given by $F=(f_1,\cdots,f_m)$ is holomorphic if $f_i$ is holomorphic for each $i$. Or equivalently for any $f\in\mathcal{O}(V)$ , the pullback $f\circ F$ is holomorphic on $U$. 
+Let $F:\C^n\supset U\to V\subset \C^m$ be a function given by $F=(f_1,\cdots,f_m)$. It is holomorphic if $f_i$ is holomorphic for each $i$. Or equivalently for any $f\in\mathcal{O}(V)$ , the pullback $f\circ F$ is holomorphic on $U$. 
 \end{definition}
 
 \begin{corollary}
@@ -544,14 +531,14 @@ We define the real Jacobian by
 J^\R_F = \begin{pmatrix}
 \pd{g_i}{x_j}&\pd{h_i}{x_j}\\
 \pd{g_i}{y_j}&\pd{h_i}{y_j}
-\end{pmatrix}_{1\leq i,j\leq n}.\in\R^{2n\times 2n},
+\end{pmatrix}_{1\leq i,j\leq n}\in\R^{2n\times 2n},
 \end{equation*}
 and the complex Jacobian by
 \begin{equation*}
 J^\C_F = \begin{pmatrix}
 \pd{f_i}{z_j}&\pd{\overline{f}_i}{z_j}\\
 \pd{f_i}{\overline{z}_j}&\pd{\overline{f}_i}{\overline{z}_j}
-\end{pmatrix}_{1\leq i,j\leq n}.\in\C^{2n\times 2n}.
+\end{pmatrix}_{1\leq i,j\leq n}\in\C^{2n\times 2n}.
 \end{equation*}
 Furthermore, if $f$ is holomorphic we have the holomorphic Jacobian
 \begin{equation*}
@@ -574,12 +561,12 @@ O& \overline{J_F^h}.
 \end{equation*}
 In particular
 \begin{equation*}
-\det J_F^\C = \vert\det J_F^2\vert ^2\geq 0.
+\det J_F^\C = \vert\det J_F^h\vert ^2\geq 0.
 \end{equation*}
 \end{proposition}
 
 \begin{proof}
-exercise.
+exercise. %later
 \end{proof}
 
 \begin{definition}
@@ -634,7 +621,7 @@ Let $F:U\to V$ be a holomorphic bijective such that $J_F^h$ is everywhere regula
   \begin{align*}
     MA = E, MB = 0.
   \end{align*}
-  Thus we concluder $A = M^{-1},B=O$. We get a Cauchy-Riemann equations.
+  Thus we conclude $A = M^{-1},B=O$ which gives us the Cauchy-Riemann equations.
 \end{proof}
 
 \begin{theorem}[Osgood's Theorem]
@@ -642,7 +629,7 @@ Suppose $F:U\to V$ be bijective holomorphic function where $U,V\subset\C^n$. The
 \end{theorem}
 
 \begin{proof}
-Range's book I chapter 2.5.
+\cite{Ra} chapter 2.5.
 \end{proof}
 
 \subsection{Differential Forms}
@@ -679,10 +666,9 @@ Range's book I chapter 2.5.
 \end{proof}
 
 \begin{definition}
-  $D$ is called a tangent vector to $\underline{x}_0\in\R^N$, if 
+  A linear map $D:\mathcal{D}(\underline{x}_0)\to\R$ is called a tangent vector to $\underline{x}_0\in\R^N$, if 
   \begin{enumerate}[1).]
-    \item $D:\mathcal{D}(\underline{x}_0)\to\R$ is a linear map,
-    \item $D1 = 0$
+    \item $D(1) = 0$
     \item For any $f,g\in\mathcal{D}(\underline{x}_0)$, such that $f(\underline{x}_0) = g(\underline{x}_0)=0$, then $D(fg) = 0$. 
   \end{enumerate}
 \end{definition}
@@ -701,7 +687,7 @@ Range's book I chapter 2.5.
 \end{proof}
 
 \begin{definition}
-  The vector space of tangent vectors at $\underline{x}0$ is called the tangent space at $\underline{x}_0$ and denoted by $T_{\underline{x}_0}$. Its dual space
+  The vector space of tangent vectors at $\underline{x}_0$ is called the tangent space at $\underline{x}_0$ and denoted by $T_{\underline{x}_0}$. Its dual space
   is called the cotangent space and denoted by $T_{\underline{x}_0}^*$. 
 \end{definition}
 
@@ -710,7 +696,7 @@ Range's book I chapter 2.5.
   \begin{equation*}
     df:T_{\underline{x_0}}\to \R,\quad df(D) = Df,
   \end{equation*}
-  is an element of the contangent space called the total differentiation.
+  is an element of the contangent space called a total differentiation.
 \end{example}
 
 \begin{proposition}
@@ -728,7 +714,7 @@ Range's book I chapter 2.5.
 \end{definition}
 
 \begin{remark}
-$1$-forms on $M$ a module over $E^0(M)$, where $E^0(M)$ is a ring of functions.
+The set of $1$-forms on $M$ which is denoted by $E^1(M)$ is a module over $E^0(M)$, where $E^0(M)$ is a ring of functions.
 \end{remark}
 
 \begin{definition}[Exterior Products]
@@ -799,7 +785,7 @@ Let $a$ be a $p$-form. At each $x\in M$, we have a $p$-covector
   \end{equation*}
 \end{definition}
 
-Lieb 3 chapter number 3 
+More details will be found in \cite{Lieb}Chapter 3.
 
 \begin{theorem}
   \begin{equation*}
@@ -864,7 +850,7 @@ Lieb 3 chapter number 3
   
 \end{theorem}
 
-Lieb volume 3 chapter 3 integration \\
+\cite{Lieb} volume 3 chapter 3 integration \\
 \par Now we define these notions in terms of complex analysis.
 
 \begin{definition}
@@ -937,27 +923,27 @@ Lieb volume 3 chapter 3 integration \\
     \item $d = \partial +\overline{\partial}$,
     \item $d\circ d = 0$, $\partial\overline{\partial}+\overline{\partial}\partial = \partial\circ\partial = \overline{\partial}\circ\overline{\partial}= 0$.
     \item Let $f$ be a function, $f$ is holomorphic if and only if $\overline{\partial}f=0$
-    \item commutativetiy for $\wedge$ holds,
+    \item Commutativity for $\wedge$ holds.
     \item Leipniz rules hold for $\partial (f\wedge g)$.
   \end{enumerate}
 \end{proposition}
 
 \begin{example}
   \begin{equation*}
-    dx_1\wedge dy_1\wedge\cdots\wedge dx_n\wedge dy_n = -({\frac 1 {n}})^n dz_1\wedge d\overline{z}_1\wedge\cdots\wedge dz_n\wedge d\overline{z}_n.
+    dx_1\wedge dy_1\wedge\cdots\wedge dx_n\wedge dy_n = -\left({\frac 1 {n}}\right)^n dz_1\wedge d\overline{z}_1\wedge\cdots\wedge dz_n\wedge d\overline{z}_n.
   \end{equation*}
   This is called the volume form $dV$. 
   \begin{equation*}
-    \int_MdV = \int d\lambda(z) = \lambda(M),
+    \int_MdV = \int_M d\lambda(z) = \lambda(M),
   \end{equation*}
   where $\lambda$ is the Lebesgue measure.
 \end{example}
 
-\begin{example} The Cauchy kernel.
+\begin{example} Recall the Cauchy kernel.
   \begin{equation*}
     C(\underline{\zeta},\underline{z}) = \left({\frac 1 {2\pi i}}\right)^n {\frac {d\underline{\zeta}} {(\underline{\zeta}-\underline{z})}}.
   \end{equation*}
-  This is. a form of type $(n,0)$ in $\underline{\zeta}$. 
+  This is a form of type $(n,0)$ in $\underline{\zeta}$ defined on the open set
   \begin{equation*}
     \C^n\times \C^n - \Delta,
   \end{equation*}
@@ -967,7 +953,7 @@ Lieb volume 3 chapter 3 integration \\
 \begin{proposition}[Transformation Rules]
   Let $F:U\to V$ be holomorphic where $U\subset\C^n$ and $V\subset\C^m$. For $a\in E^{p,q}(V)$, 
   \begin{equation*}
-    a\circ F = (\sum_{I,J} a_{I,J} dw^I\wedge d\overline{w}^J)\circ F  = \sum_{I,J} a_{I,J}\circ F (dw^I\circ F)\wedge (d\overline{w}^J\circ)
+    a\circ F = \left(\sum_{I,J} a_{I,J} dw^I\wedge d\overline{w}^J\right)\circ F  = \sum_{I,J} a_{I,J}\circ F (dw^I\circ F)\wedge (d\overline{w}^J\circ)
   \end{equation*}
   where $F=(f_1,\cdots f_n)$ and 
   \begin{equation*}
@@ -1773,7 +1759,7 @@ Let $g\in H_n$ be $z_n$-regular of order $k$. Then for each $f \in H_n$, there a
 \end{equation*}
 \end{theorem}
 \begin{proof}
-  By Weierstrass Vorbereitungs satz, we may assume that $g=e\omega$ where $\omega$ is the Weierstrass polynomial of order $k$. Without the loss of genearlity, we may assume $e = 1$. Thus ,we have,
+  By Weierstrass Vorbereitungs satz, we may assume that $g=e\omega$ where $\omega$ is the Weierstrass polynomial of order $k$. Without loss of genearlity, we may assume $e = 1$. Thus ,we have,
   \begin{equation*}
     g = z_n^k\exp(D),
   \end{equation*}
