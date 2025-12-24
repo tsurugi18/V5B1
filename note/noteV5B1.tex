@@ -271,7 +271,7 @@ f(\underline{z})-f(\underline{z}_0) = \sum_{i=1}^n(z_i-z_{0,i})\Delta_i(z).
 \end{equation*}
 $f$ is holomorphic at $\underline{z}_0$ if it is complex differentiable in a neighborhood of $\underline{z}_0$. The values
 \begin{equation*}
-\Delta_i(\underline{z})=\pd{f}{z_i}(\underline{z}_0)
+\Delta_i(\underline{z}_0)=\pd{f}{z_i}(\underline{z}_0)
 \end{equation*}
 are called the complex partial derivatives. 
 \end{definition}
@@ -391,7 +391,7 @@ D^{\underline{\alpha}} f(\underline{z}) = {\frac {\underline{\alpha}!} {(2\pi i)
 \end{remark}
 
 \begin{theorem}[Weierstrass]
-Let $(f_n)_{n\in\N}$ be a sequence of holomorphic functions uniformly converging to $f$. Then $f$ is holomorphic and all derivatives of $f_i$ are also uniformly converging to the ones of $f$.
+Let $(f_n:D\to\C)_{n\in\N}$ be a sequence of holomorphic functions uniformly converging to $f:D\to\C$ where $D$ is compact. Then $f$ is holomorphic and all derivatives of $f_i$ are also uniformly converging to the ones of $f$.
 \end{theorem}
 
 \begin{definition}
@@ -402,10 +402,14 @@ A domain is an open connected subset of $\C^n$.
 Let $f$ be holomorphic on a domain $U$. If $\vert f\vert$ attains a local maximal then $f\equiv c$ for some constant $c\in \C$.
 \end{theorem}
 
+\begin{corollary}
+  Let $f$ be a non-constant holomorphic function on a domain $U$. If $U$ is bounded then $\vert f\vert$ attains the maximum in $\overline{U}$. More specifically, the maximum must be attained at boundary point of $U$.
+\end{corollary}
+
 \begin{theorem}
 Suppose $f$ is holomorphic on a closure $\overline{D}$ of some polydisk $D=D_r(\underline{z}_0)$. For $\underline{z}\in D$, 
 \begin{equation*}
-\left({\frac 1 {2\pi i}}\right)\int\cdots\int_T {\frac {f(\underline{z})} {(\underline{\zeta}-\underline{z})}}d\underline{\zeta}. %later
+\left({\frac 1 {2\pi i}}\right)^n\int\cdots\int_T {\frac {f(\underline{z})} {(\underline{\zeta}-\underline{z})}}d\underline{\zeta}. %later
 \end{equation*}
 We develop this into a geometric series, and interchange the summation, we get
 
@@ -414,7 +418,7 @@ f(\underline{z}) = \sum_{\alpha\in\N_0^n}a_{\underline{\alpha}}(\underline{z}-\u
 \end{equation*}
 where for each $\underline{\alpha}\in\N_0^n$,
 \begin{equation*}
-a_{\underline{\alpha}} = {\frac {D^{\underline{\alpha}f(\underline{z}_0}} {\underline{\alpha}!}}.
+a_{\underline{\alpha}} = {\frac {D^{\underline{\alpha}}f(\underline{z}_0)} {\underline{\alpha}!}}.
 \end{equation*}
 The series is moreover uniformly convergent on $D$.
 \end{theorem}
@@ -838,16 +842,15 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   parametrizes $M$ where $Q$ is some cube.
   \begin{equation*}
-    \int_M a = \int_Q a\circ F.
+    \int_M a = \int_QF^*a\defeq \int_Q a\circ F.
   \end{equation*}
 \end{definition}
 \begin{theorem}[Stokes]
-  Let $\mathcal{G}\subset\subset\R^N$ be a relatively compact domain such that $\partial \mathcal{G}$ is $N-1$ dimensional sufficiently smooth. 
-  A $N-1$-form defined and continuously differentiable on $\overline{\mathcal{G}}$, then 
+  Let $\mathcal{G}\subset\subset\R^N$ be a relatively compact domain such that $\partial \mathcal{G}$ is $N-1$ dimensional sufficiently smooth (ie. a union of piecewise smooth, simple(no-crossing), and closed(the initial and the terminal points agree) curves). 
+  Let $a$ be a $N-1$-form defined and continuously differentiable on $\overline{\mathcal{G}}$, then 
   \begin{equation*}
     \int_{\partial \mathcal{G}}a = \int_{\mathcal{G}}da.
   \end{equation*}
-  
 \end{theorem}
 
 \cite{Lieb} volume 3 chapter 3 integration \\
@@ -860,7 +863,7 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   A $p$-form on $M$ is defined as 
   \begin{equation*}
-    a = \sum_{j=1}^n a_jd_{x_j} + \sum_{j=1}^n b_jd_{y_j}
+    a = \sum_{j=1}^n a_jd_{x_j} + i\sum_{j=1}^n b_jd_{y_j}
   \end{equation*}
   where $z_j = x_j+iy_j$ and $a_j,b_j$ are complex-valued functions. 
   \par If we have $f=g+ih$, then we have $df=dg+idh$. In particular ,
