@@ -74,6 +74,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \DeclareMathOperator{\Dol}{Dol}
 %\newcommand*{\name}[\num_arguments][default values]{{\color{#1}\Large #2}}
 \newcommand{\defeq}{\vcentcolon=}
+\newcommand{\fedeq}{=\vcentcolon}
 \newcommand{\norm}[1]{\Vert #1 \Vert}
 \newcommand{\opNorm}[2]{\norm{#1}_{#2\to#2}}
 \newcommand{\normL}[3]{\norm{#1}_{L^{#2}(#3)}}
@@ -460,7 +461,7 @@ Let $\mathcal{G}$ be a domain. We define $\mathcal{O}(\mathcal{G})$ to be the se
 $\mathcal{O}(\mathcal{G})$ is a $\C$-algebra. Furthermore, the following properties hold,
 \begin{enumerate}[1).]
 \item $\mathcal{O}(\mathcal{G})$ has no zero divisors. (Follows from Theorem \ref{identity_theorem}).
-\item We can in %later
+\item We can introduce a topology in this set which is described by the following proposition below.
 \end{enumerate}
 \end{proposition}
 
@@ -502,6 +503,7 @@ Will be shown later.
 \end{proof}
 
 \begin{remark}
+  \label{remark_isolated_zeros}
 Using the theorem above, we conclude that there are no isolated singularities and isolated zeroes. (ie. a holomorphic function on a punctured domain can be extended to that point). The latter follows that if $f(\underline{z}) = 0$, then ${\frac 1 f}(\underline{z})$ has an isolated singularity.
 \end{remark}
 
@@ -516,6 +518,25 @@ has no interior points and has Lebesgue measure $0$.
 \subsection{Holomorphic Maps and Differential Forms}
 
 For this subsection, we follow \cite{Ra}.
+
+Recall that for $f:\C\supseteq U\to \C$, we have,
+\begin{equation*}
+  f(z) = f\left({\frac 1 2}(z+\overline{z}),-i{\frac 1 2}(z-\overline{z})\right)\fedeq f(x+iy)
+\end{equation*}
+
+Note that $\pd{f}{z}$ and $\pd{f}{\overline{z}}$ are defined in the symbolic sense. That is we have,
+\begin{equation*}
+  \pd{f}{z} = {\frac 1 2}\left(\pd{f}{x}-i\pd{f}{y}\right),\pd{f}{z} = {\frac 1 2}\left(\pd{f}{x}+i\pd{f}{y}\right).
+\end{equation*}
+
+\begin{remark}
+  \begin{align*}
+    \pd{\overline{f}}{z} & = {\frac 1 2}\left(\pd{g}{x}-i\pd{h}{x}-i\left(\pd{g}{y}-i\pd{h}{y}\right)\right),\\
+    & = {\frac 1 2}\overline{\left(\pd{g}{x}+i\pd{h}{x}+i\left(\pd{g}{y}+i\pd{h}{y}\right)\right)},\\
+    & = {\frac 1 2}\overline{\left(\pd{f}{\overline{z}}\right)}.
+  \end{align*}
+  \label{remark_conjugate_derivative}
+\end{remark}
 
 \begin{definition}
 Let $F:\C^n\supset U\to V\subset \C^m$ be a function given by $F=(f_1,\cdots,f_m)$. It is holomorphic if $f_i$ is holomorphic for each $i$. Or equivalently for any $f\in\mathcal{O}(V)$ , the pullback $f\circ F$ is holomorphic on $U$. 
@@ -563,14 +584,21 @@ J_F^h&O\\
 O& \overline{J_F^h}.
 \end{pmatrix}
 \end{equation*}
-In particular
+and therefore,
 \begin{equation*}
 \det J_F^\C = \vert\det J_F^h\vert ^2\geq 0.
 \end{equation*}
 \end{proposition}
 
 \begin{proof}
-exercise. %later
+\begin{align*}
+  J_F^\C & = \begin{pmatrix}
+    {\frac 1 2}\left(\pd{g_i}{x_j}-i\pd{g_i}{y_j}\right)+{\frac i 2}\left(\pd{h_i}{x_j}-i\pd{h_i}{y_j}\right) & {\frac 1 2}\left(\pd{g_i}{x_j}-i\pd{g_i}{y_j}\right)-{\frac i 2}\left(\pd{h_i}{x_j}-i\pd{h_i}{y_j}\right)\\
+    {\frac 1 2}\left(\pd{g_i}{x_j}+i\pd{g_i}{y_j}\right)+{\frac i 2}\left(\pd{h_i}{x_j}+i\pd{h_i}{y_j}\right) & {\frac 1 2}\left(\pd{g_i}{x_j}+i\pd{g_i}{y_j}\right)-{\frac i 2}\left(\pd{h_i}{x_j}+i\pd{h_i}{y_j}\right)
+  \end{pmatrix}
+\end{align*}
+By elementary row operations we see this has the same RREF as $J_F^\R$. Thus the first assertion about the rank is proven, furthermore this also shows that their determinants coincide as the operations do not involve multiplying any rows.
+\par The second assertion is clear from Remark \ref{remark_conjugate_derivative}.
 \end{proof}
 
 \begin{definition}
@@ -591,7 +619,7 @@ Biholomorphic functions preserve orientation.
 Recall that if $f:U\to\C$ where $U\subset\C$ is a holomorphic and injective function. Then necessary we have $f'(z)\not=0$.
 
 \begin{proposition}
-Let $F:U\to V$ be a holomorphic bijective such that $J_F^h$ is everywhere regular (ie. its determinant is nowhere $0$). Then $f$ is biholomorphic.  
+Let $F:U\to V$ be a holomorphic bijective such that $J_F^h$ is everywhere regular (ie. its determinant is nowhere $0$). Then $F$ is biholomorphic.  
 \end{proposition}
 
 \begin{proof}
@@ -625,7 +653,7 @@ Let $F:U\to V$ be a holomorphic bijective such that $J_F^h$ is everywhere regula
   \begin{align*}
     MA = E, MB = 0.
   \end{align*}
-  Thus we conclude $A = M^{-1},B=O$ which gives us the Cauchy-Riemann equations.
+  Thus we conclude $A = M^{-1},B=O$(similarly $C=O,D=\overline{M^{-1}}$) which gives us the Cauchy-Riemann equations.
 \end{proof}
 
 \begin{theorem}[Osgood's Theorem]
@@ -641,7 +669,7 @@ Suppose $F:U\to V$ be bijective holomorphic function where $U,V\subset\C^n$. The
 \begin{definition}
   Let $\underline{x_0}\in\R^N$. We set 
   \begin{equation*}
-    \mathcal{S}(\underline{x}_0) = \{f:U_f\to\R\sep \text{ continuous function defined on some neighborhood of $\underline{x}_0$}\}
+    \mathcal{S}(\underline{x}_0) = \{f:U_f\to\R\sep \text{ a continuous function defined on some neighborhood of $\underline{x}_0$}\}
   \end{equation*}
   We can introduce an algebraic structure by for all $f,g\in \mathcal{S}(\underline{x}_0)$ and $c\in\R$,
   \begin{equation*}
@@ -662,11 +690,15 @@ Suppose $F:U\to V$ be bijective holomorphic function where $U,V\subset\C^n$. The
 \end{remark}
 
 \begin{lemma}
-  Let $f\in\mathcal{D}(\underline{x}_0),g\in\mathcal{S}(x_0)$ such that $f(\underline{x}_0) = 0$, then $f\cdot g\in\mathcal{D}(\underline{x}_0)$. 
+  Let $f\in\mathcal{D}(\underline{x}_0),g\in\mathcal{S}(\underline{x}_0)$ such that $f(\underline{x}_0) = 0$, then $f\cdot g\in\mathcal{D}(\underline{x}_0)$. 
 \end{lemma}
 
 \begin{proof}
-  Exercise.
+  Without loss of generality we assume $\underline{x}_0 = x_0 \in\R$. Then 
+  \begin{align*}
+    f(x)g(x) - f(x_0)g(x_0) & = f(x)g(x) - f(x_0)g(x)+f(x_0)g(x) - f(x_0)g(x_0),\\
+    &= (f(x)-f(x_0))(g(x)).
+  \end{align*}
 \end{proof}
 
 \begin{definition}
