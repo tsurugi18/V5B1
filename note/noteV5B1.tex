@@ -129,7 +129,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 
 \begin{document}
 \maketitle
-\section{The Cauchy Integral}
+\section{Calculus on Complex Functions}
 \subsection{Preliminaries}
 
 \begin{notation}Let $z\in\C^n$, we define the max norm and the Euclidean norm as 
@@ -454,7 +454,7 @@ Can be shown using Cauchy's integral formula.
 \end{proof}
 
 \begin{definition}
-Let $\mathcal{G}$ be a domain. We define $\mathcal{O}(\mathcal{G})$ to be the set of all holomorphic functions on $U$. 
+Let $\mathcal{G}$ be a domain. We define $\mathcal{O}(\mathcal{G})$ to be the set of all holomorphic functions on $\G$. 
 \end{definition}
 
 \begin{proposition}
@@ -719,7 +719,17 @@ Suppose $F:U\to V$ be bijective holomorphic function where $U,V\subset\C^n$. The
 \end{proposition}
 
 \begin{proof}
-  Exercise. 
+  \begin{align*}
+    D(fg-f(\underline{x_0})g(\underline{x_0})) = D((f-f(\underline{x_0}))(g-g(\underline{x_0}))+fg(\underline{x_0})+f(\underline{x_0})g).
+  \end{align*}
+  This proves the first assertion. The second is trivial. For the third, observe that 
+  \begin{equation*}
+    f = \sum_{i=1}^N \pd{f}{x_i}(\underline{x_0})(x_i-\underline{x}_{0,i})+f(\underline{x_0}).
+  \end{equation*}
+  Therefore, applying $D$, we get,
+  \begin{equation*}
+    Df = \sum_{i=1}^N Dx_i \pd{f}{x_i}(\underline{x_0}).
+  \end{equation*}
 \end{proof}
 
 \begin{definition}
@@ -730,13 +740,13 @@ Suppose $F:U\to V$ be bijective holomorphic function where $U,V\subset\C^n$. The
 \begin{example}
   Let $f\in\mathcal{D}(\underline{x_0})$, we define 
   \begin{equation*}
-    df:T_{\underline{x_0}}\to \R,\quad df(D) = Df,
+    df:T_{\underline{x}_0}\to \R,\quad df(D) = Df,
   \end{equation*}
   is an element of the contangent space called a total differentiation.
 \end{example}
 
 \begin{proposition}
-  The $dx_i$ where $i=1,\cdots, N$ is a basis for the cotangent space $T^*_{\underline{x}_0}$. Such basis is a dual basis to $\{\pd{}{x_i}\big{|}\}_{i=1,\cdots,N}$.
+  The $dx_i$ where $i=1,\cdots, N$ is a basis for the cotangent space $T^*_{\underline{x}_0}$. Such basis is a dual basis to $\{\pd{}{x_i}\big{|}_{\underline{x}_0}\}_{i=1,\cdots,N}$.
 \end{proposition}
 
 \begin{definition}
@@ -815,7 +825,7 @@ Let $a$ be a $p$-form. At each $x\in M$, we have a $p$-covector
   \begin{equation*}
     a\wedge a = 0.
   \end{equation*}
-  Moreover, 
+  Therefore,
   \begin{equation*}
     dx_i\wedge dx_i = 0.
   \end{equation*}
@@ -842,9 +852,9 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   We define $a\circ F$ to be 
   \begin{equation*}
-    a\circ F = \sum_I a_I\circ F df^I.
+    a\circ F = \sum_I (a_I\circ F) df^I,
   \end{equation*}
-  Then this yields a $p$-form on $U$. We denote this by $F^*a$.
+  where $df^I = df_{i_1}\wedge\cdots\wedge df_{i_{\vert I\vert}}$. Then this yields a $p$-form on $U$. We denote this by $F^*a$.
 \end{definition}
 
 \begin{theorem}
@@ -859,7 +869,7 @@ More details will be found in \cite{Lieb}Chapter 3.
 \begin{definition}
   Let $M\subseteq\R^N$ and $a\in E^N(M)$ such that 
   \begin{equation*}
-    a = \tilde{a}d_1\wedge\cdots \wedge d_N.
+    a = \tilde{a}\cdot d_1\wedge\cdots \wedge d_N.
   \end{equation*}
   We define 
   \begin{equation*}
@@ -895,7 +905,7 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   A $p$-form on $M$ is defined as 
   \begin{equation*}
-    a = \sum_{j=1}^n a_jd_{x_j} + i\sum_{j=1}^n b_jd_{y_j}
+    a = \sum_{j=1}^n a_jd{x_j} + i\sum_{j=1}^n b_jd{y_j}
   \end{equation*}
   where $z_j = x_j+iy_j$ and $a_j,b_j$ are complex-valued functions. 
   \par If we have $f=g+ih$, then we have $df=dg+idh$. In particular ,
@@ -909,9 +919,9 @@ More details will be found in \cite{Lieb}Chapter 3.
 \end{definition}
 
 \begin{remark}
-  Let $a\in E_\C(M)$ then 
+  Let $a\in E_\C(M)\defeq E(M)\tens{E^0(M)}E^0_\C(M)$ then 
   \begin{equation*}
-    a = \sum_{r=p+1, 0\leq r\leq 2n}\sum_{\substack{1\leq i_1\leq\cdots\leq i_p\leq N\\ 1\leq j_1\leq\cdots\leq j_q\leq N}}a_{i_1,\cdots,ip,j_1,\cdots,j_q}dz_{i_1}\wedge\cdots\wedge dz_{i_p}\wedge d\overline{z}_{j_1}\wedge\cdots\wedge d\overline{z}_{j_q}.
+    a = \sum_{r=p+q, 0\leq r\leq 2n}\sum_{\substack{1\leq i_1\leq\cdots\leq i_p\leq N\\ 1\leq j_1\leq\cdots\leq j_q\leq N}}a_{i_1,\cdots,ip,j_1,\cdots,j_q}\cdot dz_{i_1}\wedge\cdots\wedge dz_{i_p}\wedge d\overline{z}_{j_1}\wedge\cdots\wedge d\overline{z}_{j_q}.
   \end{equation*}
   This can also be written as 
   \begin{equation*}
@@ -919,7 +929,7 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   Thus 
   \begin{equation*}
-    E^r(M) = \bigoplus_{p+q=r}E^{p,q},
+    E^r(M) = \bigoplus_{p+q=r}E^{p,q}(M),
   \end{equation*}
   and
   \begin{equation*}
@@ -988,14 +998,14 @@ More details will be found in \cite{Lieb}Chapter 3.
 \begin{proposition}[Transformation Rules]
   Let $F:U\to V$ be holomorphic where $U\subset\C^n$ and $V\subset\C^m$. For $a\in E^{p,q}(V)$, 
   \begin{equation*}
-    a\circ F = \left(\sum_{I,J} a_{I,J} dw^I\wedge d\overline{w}^J\right)\circ F  = \sum_{I,J} a_{I,J}\circ F (dw^I\circ F)\wedge (d\overline{w}^J\circ)
+    F^*a \defeq a\circ F = \left(\sum_{I,J} a_{I,J} dw^I\wedge d\overline{w}^J\right)\circ F  = \sum_{I,J} (a_{I,J}\circ F) (dw^I\circ F)\wedge (d\overline{w}^J\circ F),
   \end{equation*}
   where $F=(f_1,\cdots f_n)$ and 
   \begin{equation*}
-    dw_j\circ F = d(w_j\circ F)=df_j
+    dw_j\circ F = d(w_j\circ F)=df_j,
   \end{equation*}
   for each $j$ and similarly for $d\overline{w}_j$. 
-  \par In particular, we have $a\in E^{p,q}(V)$, $a\circ F \in E^{p,q}(U)$. If $F$ is just differentiable we get $a\circ F\in E^{p+q}(U)$.
+  \par In particular, we have $a\in E^{p,q}(V)$, $F^*a \in E^{p,q}(U)$. If $F$ is just differentiable we get $a\circ F\in E^{p+q}(U)$.
 \end{proposition}
 
 \begin{proposition}
@@ -1026,19 +1036,16 @@ More details will be found in \cite{Lieb}Chapter 3.
 \end{definition}
 
 \begin{theorem}
-  If the domain is convex in the above then the Poincaré equation is solvable. (ie. all the de Rham cohomologies are $r=0$ except the $0$ temr.)
+  If the domain is convex in the above then the Poincaré equation is solvable. (ie. all the de Rham cohomologies are $r=0$ except the $0$ term.)
   \par Furthermore,
   \begin{equation*}
-    Z^r = \{f\in E^r\sep df = 0\},
-  \end{equation*}
-  \begin{equation*}
-    B^r = \{du\sep u\in E^{r-1}\}.
+    Z^r = \{f\in E^r\sep df = 0\}, B^r = \{du\sep u\in E^{r-1}\}.
   \end{equation*}
   We have $B^r\subset Z^r$, $H_{dR}^r(\mathcal{G}) = Z^r/B^r$, gives the de Rham cohomology and 
   \begin{equation*}
-    H_{dR}^0(\mathcal{G}) = \C,
+    H_{dR}^0(\mathcal{G}) = \C.
   \end{equation*}
-  if $r\not=0$, then 
+  If $r\not=0$, then 
   \begin{equation*}
     H_{dR}^r(\mathcal{G}) = 0.
   \end{equation*}
@@ -1046,11 +1053,11 @@ More details will be found in \cite{Lieb}Chapter 3.
 \end{theorem}
 
 \begin{definition}
-  Let $\mathcal{G}\subset\C^n$, $f\in E{p,q}$. Consider the equation,
+  Let $\mathcal{G}\subset\C^n$, $f\in E^{p,q}$. Consider the equation,
   \begin{equation*}
     \overline{\partial}u = f \quad u\in E^{p,q-1}.
   \end{equation*}
-  If such equation holds, then we necessarilyhave $\overline{\partial}f = 0$. We get 
+  If such equation holds, then we necessarily have $\overline{\partial}f = 0$. We get 
   \begin{equation*}
     \overline{\partial}u = f, \overline{\partial}f = 0
   \end{equation*}
@@ -1058,11 +1065,11 @@ More details will be found in \cite{Lieb}Chapter 3.
   \begin{align*}
     Z^{p,q} &= \{f\in E^{p,q}\sep \overline{\partial}f = 0\},\\
     B^{p,q} & = \{\overline{\partial}u \sep u\in E^{p,q-1}\},\\
-    H^{p,q}_{dR}(\mathcal{G})=Z^{p,q}/B^{p,q}\\
+    H^{p,q}_{\Dol}(\mathcal{G})=Z^{p,q}/B^{p,q}\\
   \end{align*}
   This cohomology is called Dolbeault cohomology. This gives 
   \begin{equation*}
-    H^{0,0}(\mathcal{G}) = \mathcal{O}(\mathcal{G})
+    H^{0,0}_{\Dol}(\mathcal{G}) = \mathcal{O}(\mathcal{G})
   \end{equation*}
   the sheaf of holomorphic functions.
 \end{definition}
@@ -1076,14 +1083,14 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   We also define 
   \begin{equation*}
-    B(\underline{\zeta},\underline{z}) = \left({\frac 1 {2\pi i}}\right){\frac {1} {\norm{\underline{\zeta}-\underline{z}}^{2n}}}\beta\wedge(\overline{\partial}_\zeta\beta)^{n-1},
+    B(\underline{\zeta},\underline{z}) = \left({\frac 1 {2\pi i}}\right)^n{\frac {1} {\norm{\underline{\zeta}-\underline{z}}^{2n}}}\beta\wedge(\overline{\partial}_\zeta\beta)^{n-1},
   \end{equation*}
   where 
   \begin{equation*}
-    \overline{\partial}_{\underline{\zeta}}\beta = \sum_{j=1}^n d\overline{\zeta}_j\wedge d\zeta_j = \sum_{j=1}^n \omega_j
+    \overline{\partial}_{\underline{\zeta}}\beta = \sum_{j=1}^n d\overline{\zeta}_j\wedge d\zeta_j = \sum_{j=1}^n \omega_j,
   \end{equation*}
-  where $\omega_j = d\overline{\zeta}_j\wedge d\zeta_j$ and the power means the exterior product. 
-  This $B$ above is called the Bochner-Martinelli formel which is define on $\C^n\times \C^n$ except the diagonall. 
+  such that $\omega_j = d\overline{\zeta}_j\wedge d\zeta_j$ and the power means the exterior product. 
+  This $B$ above is called the Bochner-Martinelli formel which is define on $\C^n\times \C^n$ except the diagonal. 
 \end{definition}
 
 \begin{remark}
