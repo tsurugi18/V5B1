@@ -290,6 +290,7 @@ A function $F:U\to\C^m$ given by $F=(f_1,\cdots,f_m)$ is holomorphic if all $f_i
 \end{definition}
 
 \begin{proposition}
+  \label{proposition_holomorphic_equivalent}
 $F:U\to\C^m$ is holomorphic if and only if for any open subset $V\subset\Image F$ and a holomorphic function $f:V\to\C$, $f\circ F$ is holomorphic.
 \end{proposition}
 
@@ -380,7 +381,7 @@ $f$ is holomorphic on an open set $U$ that is smooth. Then all the derivatives a
 Since an open set contains a disk, we can use the Cauchy integral on that disk. Since holomorphicness is a local property, we obtain the statement.
 \end{proof}
 
-\begin{remark}
+\begin{corollary}
 If $f$ is as in Theorem \ref{cauchy_integral_several_variable}, then for $\underline{\alpha}\in\N_0^n$,
 \begin{equation*}
 D^{\underline{\alpha}} f(\underline{z}) = {\frac {\alpha_1!\cdots\alpha_n!} {(2\pi i)^n}}\int_T{\frac {f(\underline{z})} {(\zeta_1-z_1)^{\alpha_1+1}\cdots(\zeta_n-z_n)^{\alpha_n+1}}}d\zeta_1\cdots d\zeta_n.
@@ -389,7 +390,16 @@ We will denote the above formula as,
 \begin{equation*}
 D^{\underline{\alpha}} f(\underline{z}) = {\frac {\underline{\alpha}!} {(2\pi i)^n}}\int_T{\frac {f(\underline{z})} {(\underline{\zeta}-\underline{z})^{\underline{\alpha}+n}}}d\underline{\zeta}.
 \end{equation*}
-\end{remark}
+\label{corollary_cauchy_derivative}
+\end{corollary}
+
+\begin{corollary}[Cauchy's estimate]
+  Motivated by Corollary \ref{corollary_cauchy_derivative}. If $M$ is the supremum of $\vert f\vert$ in some ball $B(a,r)$, then for any $n\in\N$, we have,
+  \begin{equation*}
+    \vert f^{(n)}(a)\vert\leq {\frac {n!} {r^n}}M.
+  \end{equation*}
+  \label{corollary_cauchy_estimate}
+\end{corollary}
 
 \begin{theorem}[Weierstrass]
 Let $(f_n:D\to\C)_{n\in\N}$ be a sequence of holomorphic functions uniformly converging to $f:D\to\C$ where $D$ is compact. Then $f$ is holomorphic and all derivatives of $f_i$ are also uniformly converging to the ones of $f$.
@@ -458,11 +468,7 @@ Let $\mathcal{G}$ be a domain. We define $\mathcal{O}(\mathcal{G})$ to be the se
 \end{definition}
 
 \begin{proposition}
-$\mathcal{O}(\mathcal{G})$ is a $\C$-algebra. Furthermore, the following properties hold,
-\begin{enumerate}[1).]
-\item $\mathcal{O}(\mathcal{G})$ has no zero divisors. (Follows from Theorem \ref{identity_theorem}).
-\item We can introduce a topology in this set which is described by the following proposition below.
-\end{enumerate}
+$\mathcal{O}(\mathcal{G})$ is a $\C$-algebra. Furthermore, $\mathcal{O}(\mathcal{G})$ has no zero divisors. (Follows from Theorem \ref{identity_theorem}).
 \end{proposition}
 
 \begin{proposition}
@@ -482,6 +488,8 @@ Such $V(K,\varepsilon)$ form a neighborhood basis for $0\in\mathcal{O}(\mathcal{
 are continuous linear maps.
 \end{proposition}
 
+We may say that $\Ouv(\G)$ is a topological $\C$-algebra.
+
 \begin{theorem}[Liouville]
 Let $f$ be a bounded holomorphic function on $\C^n$. Then it is identically constant.
 \end{theorem}
@@ -495,7 +503,7 @@ See \cite{Hom}.
 \end{proof}
 
 \begin{theorem}[Hartogs's Kugelsatz]%later
-Suppose $n>0$. Let $K\subset U$ be a compact subset of an open set such that $U\backslash K$ is connected. If $f$ is holomorphic on $U\backslash K$, then $f$ extends holomorphically to the whole $U$. 
+Suppose $n\geq2$. Let $K\subset U$ be a compact subset of an open set such that $U\backslash K$ is connected. If $f$ is holomorphic on $U\backslash K$, then $f$ extends holomorphically to the whole $U$. 
 \end{theorem}
 
 \begin{proof}
@@ -538,9 +546,11 @@ Note that $\pd{f}{z}$ and $\pd{f}{\overline{z}}$ are defined in the symbolic sen
   \label{remark_conjugate_derivative}
 \end{remark}
 
-\begin{definition}
+Recall Proposition \ref{proposition_holomorphic_equivalent}. Using the notation we introduced, we can rewrite it as 
+
+\begin{proposition}
 Let $F:\C^n\supset U\to V\subset \C^m$ be a function given by $F=(f_1,\cdots,f_m)$. It is holomorphic if $f_i$ is holomorphic for each $i$. Or equivalently for any $f\in\mathcal{O}(V)$ , the pullback $f\circ F$ is holomorphic on $U$. 
-\end{definition}
+\end{proposition}
 
 \begin{corollary}
 Given $U\stackrel{F}{\to}V\stackrel{G}{\to}W$ holomorphic functions, the composition $G\circ F$ is holomorphic. Obviously $\id:U\to U$ is holomorphic.
@@ -760,7 +770,7 @@ Suppose $F:U\to V$ be bijective holomorphic function where $U,V\subset\C^n$. The
 \end{definition}
 
 \begin{remark}
-The set of $1$-forms on $M$ which is denoted by $E^1(M)$ is a module over $E^0(M)$, where $E^0(M)$ is a ring of functions.
+The set of $1$-forms on $M$ which is denoted by $E^1(M)$ is a module over $E^0(M)$, where $E^0(M)=\cinf(M)$ is a ring of functions.
 \end{remark}
 
 \begin{definition}[Exterior Products]
@@ -813,11 +823,11 @@ Let $a$ be a $p$-form. At each $x\in M$, we have a $p$-covector
 \end{equation*}
 
 \begin{definition}
-  An exterior product is $E^p\times E^q\to E^{p+q}$ is such that 
+  For any $p,q\in\N$, we define an exterior product as a bilinear map $E^p\times E^q\to E^{p+q}$ denoted by
   \begin{equation*}
     (a,b)\mapsto a\wedge b.
   \end{equation*}
-  Note that we have
+  such that we have,
   \begin{equation*}
     a\wedge b = (-1)^{p+q}b\wedge a.
   \end{equation*}
@@ -1015,7 +1025,7 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   Furthermore, if $F$ is holomorphic, we have,
   \begin{equation*}
-    \partial (a\circ F) = \partial a\circ F, \overline{\partial}(a\circ F) = \overline{\partial} \circ F.
+    \partial (a\circ F) = \partial a\circ F, \overline{\partial}(a\circ F) = \overline{\partial}a \circ F.
   \end{equation*}
 \end{proposition}
 
@@ -1112,11 +1122,11 @@ More details will be found in \cite{Lieb}Chapter 3.
 \begin{proof}
   For $\mz=0$, we get 
   \begin{equation*}
-    \beta = \sum_j \czeta_j d\zeta_j,\quad \omega^j = d\cz_j\wedge d\zeta_j.
+    \beta = \sum_j \czeta_j d\zeta_j,\quad \omega_j = d\czeta_j\wedge d\zeta_j.
   \end{equation*}
   If $K\subset\{1,\cdots,n\}=N$, then 
   \begin{equation*}
-    \omega^K = \bigwedge_{j\in K}\omega^j.
+    \omega^K = \bigwedge_{j\in K}\omega_j.
   \end{equation*}
   We already know,
   \begin{equation*}
@@ -1124,24 +1134,24 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   and 
   \begin{equation*}
-    (\overline{\bd}\beta)^k = \left(\sum \omega_j\right) = k!\sum_{|K|=k}\omega^K.
+    (\overline{\bd}\beta)^k = \left(\sum \omega_j\right)^k = k!\sum_{|K|=k}\omega^K.
   \end{equation*}
   Furthermore,
   \begin{equation*}
     \overline{\bd}_\zeta\norm{\mzeta}^2 = \overline{\bd}\sum \czeta_j\zeta = \sum \zeta_j d\czeta_j = \overline{\beta}. 
   \end{equation*}
   \begin{align*}
-    (2\pi i)^n\overline{\bd}B(\mzeta,\mz) &= \overline{\bd}(\beta\wedge(\overline{\bd})^{n-1}{\frac 1 {\norm{\zeta}^{2n}}})\\
+    (2\pi i)^n\overline{\bd}B(\mzeta,\mz) &= \overline{\bd}\left(\beta\wedge(\overline{\bd}\beta)^{n-1}{\frac 1 {\norm{\zeta}^{2n}}}\right)\\
     & = {\frac {-n\overline{\beta}} {\norm{\mzeta}^{2n+2}}}\wedge\beta\wedge(\overline{\bd_\zeta}\beta)^{n-1}+{\frac 1 {\norm{\zeta}^{2n}}}(\overline{\partial}\beta)^n\\
     & = {\frac 1 {\norm{\zeta}^{2n}}}\left[{\frac {-n\overline{\beta}\wedge\beta} {\norm{\zeta}^2}}+\overline{\partial}\beta\right]\wedge(\overline{\bd}\beta)^{n-1}.
   \end{align*}
   In particular,
   \begin{equation*}
-    \overline{\beta}\wedge\beta = \sum_{j,k}\zeta_j\czeta_k d\czeta_j\wedge d\zeta_k = \sum_{j\not=k}\zeta_j\czeta_kd\czeta_j d\zeta_k+\sum \vert\zeta_j\vert^2d\omega_j.
+    \overline{\beta}\wedge\beta = \sum_{j,k}\zeta_j\czeta_k d\czeta_j\wedge d\zeta_k = \sum_{j\not=k}\zeta_j\czeta_kd\czeta_j \wedge d\zeta_k+\sum \vert\zeta_j\vert^2\omega_j.
   \end{equation*}
   Thus we get 
   \begin{equation*}
-    \overline{\beta}\wedge\beta\wedge(\overline{\bd}_\zeta\beta)^{n-1} = 0+\sum \vert\zeta_j\vert^2\omega_j(n-1)!\sum_{k=1}^n\omega^{N+k}=(n-1)!\sum_{j=1}^n\vert\zeta_j\vert^2\omega^N = (n-1)!\norm{\mzeta}^2\omega^N.
+    \overline{\beta}\wedge\beta\wedge(\overline{\bd}_\zeta\beta)^{n-1} = 0+\sum \vert\zeta_j\vert^2\omega_j(n-1)!\sum_{k=1}^n\omega^{N\backslash\{k\}}=(n-1)!\sum_{j=1}^n\vert\zeta_j\vert^2\omega^N = (n-1)!\norm{\mzeta}^2\omega^N.
   \end{equation*}
   \begin{equation*}
     (2\pi i)^n\overline{\bd}B(\mzeta,0) = {\frac 1 {\norm{\mzeta}^{2n}}}\left[-n!\omega^N+n!\omega^N\right] = 0.
@@ -1155,14 +1165,14 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   The special case is that for $n= 1$, we have, 
   \begin{equation*}
-    f(z) = {\frac 1 {2\pi i}}\int_{\partial B} {\frac {f(\zeta)} {\zeta-z}}d\zeta + {\frac 1 {2\pi i}}\int_\G \pd{f(\zeta)}{\overline{\zeta}}{\frac 1 {\zeta-z}}d\zeta\wedge d\overline{\zeta}.
+    f(z) = {\frac 1 {2\pi i}}\int_{\partial \G} {\frac {f(\zeta)} {\zeta-z}}d\zeta + {\frac 1 {2\pi i}}\int_\G \pd{f(\zeta)}{\overline{\zeta}}{\frac 1 {\zeta-z}}d\zeta\wedge d\overline{\zeta}.
   \end{equation*}
 \end{theorem}
 \begin{proof}
   Observe that $B$ has a singularity of order ${\frac 1 {\norm{\zeta-z}^{2n-1}}}$ in $\C^n\cong\R^{2n}$ since $\beta$ consists of linear terms.
-  Using the Lemma above, we get and denote $\G_\varepsilon = \G\backslash\overline{B(z,\varepsilon)}$ for sufficiently small $\varepsilon>0$. 
+  Denote $\G_\varepsilon = \G\backslash\overline{B(z,\varepsilon)}$ for sufficiently small $\varepsilon>0$. Using the lemma, we get, %
   \begin{align*}
-    \int_{\G_\varepsilon} \overline{\bd}f(\mzeta)\wedge B(\mzeta,\mz) &= \int_{\G_\varepsilon}\overline{\bd}(f(\mzeta)B(\zeta,z)),\\
+    \int_{\G_\varepsilon} \overline{\bd}f(\mzeta)\wedge B(\mzeta,\mz) &= \int_{\G_\varepsilon}\overline{\bd}(f(\mzeta)B(\mzeta,\mz)),\\
     & = \int_{\G_\varepsilon}d_\zeta(f(\mzeta)B(\mzeta,\mz)),\\
     & = \int_{\bd\G_\varepsilon}f(\mzeta)B(\mzeta,\mz),\\
     & = \int_{\bd\G}f(\mzeta)B(\mzeta,\mz)-\int_{\bd B(z,\varepsilon)}f(\mzeta)B(\mzeta,\mz).
@@ -1189,11 +1199,11 @@ More details will be found in \cite{Lieb}Chapter 3.
 \begin{lemma}
   Let us define,
   \begin{equation*}
-    B^1(\mzeta,\mz) = (n-1)\left({frac 1 {2\pi i}}\right)^n{\frac 1 {(\norm{\mzeta-\mz})^{2n}}}\beta\wedge(\overline{\partial_\zeta}\beta)^{n-2}\overline{\partial_z}\beta
+    B^1(\mzeta,\mz) \defeq (n-1)\left({\frac 1 {2\pi i}}\right)^n{\frac 1 {(\norm{\mzeta-\mz})^{2n}}}\beta\wedge(\overline{\partial_\zeta}\beta)^{n-2}\overline{\partial_z}\beta.
   \end{equation*}
   Then we have 
   \begin{equation*}
-    \overline{\zeta}_zB(\mzeta,\mz) = \overline{\partial}_\zeta B^1(\mzeta,\mz).
+    \overline{\bd}_zB(\mzeta,\mz) = \overline{\partial}_\zeta B^1(\mzeta,\mz).
   \end{equation*}
   \label{lemma_4_3}
 \end{lemma}
@@ -1213,7 +1223,7 @@ where
 \end{equation*}
 That is 
 \begin{equation*}
-  \int_{S_\varepsilon}f(\zeta)\tilde{B}(\zeta,z) = \int_{S_\varepsilon}(f(\zeta)-f(z))\tilde{B}(\zeta,z)+f(z)\int_{S_\varepsilon}\tilde{B}(\zeta,z).
+  \int_{S_\varepsilon}f(\zeta)\tilde{B}(\zeta,z) = \underbrace{\int_{S_\varepsilon}(f(\zeta)-f(z))\tilde{B}(\zeta,z)}_{=I_1}+\underbrace{f(z)\int_{S_\varepsilon}\tilde{B}(\zeta,z)}_{=I_2}.
 \end{equation*}
 Call the integrals on the right hand side $I_1,I_2$, respectively. 
 \par Clearly we have,

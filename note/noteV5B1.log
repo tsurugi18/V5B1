@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.19)  1 JAN 2026 15:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.19)  4 JAN 2026 00:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -487,7 +487,7 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 13
 [5]
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 476--478
+Underfull \hbox (badness 10000) in paragraph at lines 482--484
 
  []
 
@@ -498,7 +498,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 476--478
 [8]
 
 [9]
-Overfull \hbox (11.92934pt too wide) detected at line 673
+Overfull \hbox (11.92934pt too wide) detected at line 683
 \OMS/cmsy/m/n/10 S\OT1/cmr/m/n/10 ([][]) = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 U[] \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R \OMS/cmsy/m/n/10 j []g
  []
 
@@ -510,19 +510,19 @@ Overfull \hbox (11.92934pt too wide) detected at line 673
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 776.
+(amsmath)                 on input line 786.
 
 
 
 [12]
 
 [13]
-Overfull \hbox (1.81221pt too wide) in paragraph at lines 891--893
+Overfull \hbox (1.81221pt too wide) in paragraph at lines 901--903
 \OT1/cmr/m/it/10 smooth, simple(no-crossing), and closed(the ini-tial and the ter-mi-nal points agree)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 908--909
 
  []
 
@@ -535,18 +535,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 898--899
 [16]
 
 [17]
-Overfull \hbox (36.49088pt too wide) detected at line 1145
+
+[18]
+Overfull \hbox (42.64365pt too wide) detected at line 1155
 [] \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 ^^L \OMS/cmsy/m/n/10 ^ \OT1/cmr/m/n/10 ([][]\OML/cmm/m/it/10 ^^L\OT1/cmr/m/n/10 )[] = 0 + [] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^P[]\OMS/cmsy/m/n/10 j[]\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)! [] \OML/cmm/m/it/10 ![] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)! [] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ^^P[]\OMS/cmsy/m/n/10 j[]\OML/cmm/m/it/10 ![] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)!\OMS/cmsy/m/n/10 k[]k[]\OML/cmm/m/it/10 ![]:
  []
 
 
 
-[18]
-
 [19]
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 1254--1255
+Underfull \hbox (badness 10000) in paragraph at lines 1264--1265
 
  []
 
@@ -559,7 +559,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1254--1255
 [23]
 
 [24]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 1461.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 1471.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -581,68 +581,68 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 [32]
 
 [33]
-Overfull \hbox (2.21828pt too wide) in paragraph at lines 1975--1976
+Overfull \hbox (2.21828pt too wide) in paragraph at lines 1985--1986
 []\OT1/cmr/m/it/10 the primes which are also prim-i-tive poly-no-mi-als which are in $\OML/cmm/m/it/10 Q \OT1/cmr/m/n/10 = [](\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 (ie.
  []
 
 
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1993--1994
+Underfull \hbox (badness 10000) in paragraph at lines 2003--2004
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1994--1995
+Underfull \hbox (badness 10000) in paragraph at lines 2004--2005
 
  []
 
 
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 2041--2043
+Underfull \hbox (badness 10000) in paragraph at lines 2051--2053
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2051--2052
+Underfull \hbox (badness 10000) in paragraph at lines 2061--2062
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2070--2072
+Underfull \hbox (badness 10000) in paragraph at lines 2080--2082
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2085--2086
+Underfull \hbox (badness 10000) in paragraph at lines 2095--2096
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2086--2088
+Underfull \hbox (badness 10000) in paragraph at lines 2096--2098
 
  []
 
 
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 2112--2114
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2114--2115
+Underfull \hbox (badness 10000) in paragraph at lines 2124--2125
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2118--2120
+Underfull \hbox (badness 10000) in paragraph at lines 2128--2130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2135--2137
+Underfull \hbox (badness 10000) in paragraph at lines 2145--2147
 
  []
 
@@ -651,14 +651,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 2135--2137
 [37]
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 2202--2204
+Underfull \hbox (badness 10000) in paragraph at lines 2212--2214
 
  []
 
 
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 2243--2245
+Underfull \hbox (badness 10000) in paragraph at lines 2253--2255
 
  []
 
@@ -669,7 +669,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2243--2245
 [41]
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 2432--2434
+Underfull \hbox (badness 10000) in paragraph at lines 2442--2444
 
  []
 
@@ -680,29 +680,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 2432--2434
 [44]
 
 [45]
-Overfull \hbox (18.27592pt too wide) in paragraph at lines 2594--2596
+Overfull \hbox (18.27592pt too wide) in paragraph at lines 2604--2606
 \OT1/cmr/m/n/10 For the other di-rec-tion. Sup-pose $\OML/cmm/m/it/10 f$ \OT1/cmr/m/n/10 is not ir-re-ducible that is $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z; t\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z; t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z; t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2609--2611
+Underfull \hbox (badness 10000) in paragraph at lines 2619--2621
 
  []
 
 
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 2626--2628
+Underfull \hbox (badness 10000) in paragraph at lines 2636--2638
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2628--2629
+Underfull \hbox (badness 10000) in paragraph at lines 2638--2639
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2648--2651
+Underfull \hbox (badness 10000) in paragraph at lines 2658--2661
 
  []
 
@@ -719,12 +719,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 2648--2651
 [51]
 
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 3011--3013
+Underfull \hbox (badness 10000) in paragraph at lines 3021--3023
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3044--3045
+Underfull \hbox (badness 10000) in paragraph at lines 3054--3055
 
  []
 
@@ -737,7 +737,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3044--3045
 [55]
 
 [56]
-Underfull \hbox (badness 10000) in paragraph at lines 3260--3263
+Underfull \hbox (badness 10000) in paragraph at lines 3270--3273
 
  []
 
@@ -746,7 +746,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3260--3263
 [57]
 
 [58]
-Overfull \hbox (1.95074pt too wide) in paragraph at lines 3350--3351
+Overfull \hbox (1.95074pt too wide) in paragraph at lines 3360--3361
 []\OT1/cmr/m/it/10 If $\OML/cmm/m/it/10 '$ \OT1/cmr/m/it/10 is sub-har-monic then for all $\OML/cmm/m/it/10 z[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 U$\OT1/cmr/m/it/10 , and any $\OML/cmm/m/it/10 r[] > \OT1/cmr/m/n/10 0$ \OT1/cmr/m/it/10 such that $\OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Z^^Z
  []
 
@@ -759,7 +759,7 @@ Overfull \hbox (1.95074pt too wide) in paragraph at lines 3350--3351
 [61]
 
 [62]
-Overfull \hbox (2.15202pt too wide) in paragraph at lines 3562--3563
+Overfull \hbox (2.15202pt too wide) in paragraph at lines 3572--3573
 []\OT1/cmr/bx/n/10 Definition 9.12. []$\OML/cmm/m/it/10 '$ \OT1/cmr/m/it/10 is called strictly plurisub-har-monic if its Levi form is positive-
  []
 
@@ -780,7 +780,7 @@ Overfull \hbox (2.15202pt too wide) in paragraph at lines 3562--3563
 [69]
 
 [70]
-Underfull \hbox (badness 10000) in paragraph at lines 3968--3969
+Underfull \hbox (badness 10000) in paragraph at lines 3978--3979
 
  []
 
@@ -791,19 +791,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 3968--3969
 [72]
 
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 4147--4149
+Underfull \hbox (badness 10000) in paragraph at lines 4157--4159
 
  []
 
 
 
 [74]
-Underfull \hbox (badness 10000) in paragraph at lines 4159--4161
+Underfull \hbox (badness 10000) in paragraph at lines 4169--4171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4161--4162
+Underfull \hbox (badness 10000) in paragraph at lines 4171--4172
 
  []
 
@@ -822,7 +822,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4161--4162
 [80]
 
 [81]
-Overfull \hbox (0.99467pt too wide) in paragraph at lines 4560--4561
+Overfull \hbox (0.99467pt too wide) in paragraph at lines 4570--4571
 []\OT1/cmr/bx/n/10 Definition 12.20. []\OT1/cmr/m/it/10 A $\OML/cmm/m/it/10 n$\OT1/cmr/m/it/10 -dimensional com-pact man-i-fold is a ringed space $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 O[]\OT1/cmr/m/n/10 )$
  []
 
@@ -831,7 +831,7 @@ Overfull \hbox (0.99467pt too wide) in paragraph at lines 4560--4561
 [82]
 
 [83]
-Overfull \hbox (13.25998pt too wide) in paragraph at lines 4665--4666
+Overfull \hbox (13.25998pt too wide) in paragraph at lines 4675--4676
 []\OT1/cmr/bx/n/10 Definition 12.25. []\OT1/cmr/m/it/10 A cobound-ary is an $\OMS/cmsy/m/n/10 O[]$\OT1/cmr/m/it/10 -module ho-mo-mor-phism $\OML/cmm/m/it/10 ^^N \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 C[]\OT1/cmr/m/n/10 (\U/rsfs/m/n/10 U\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
  []
 
@@ -848,15 +848,15 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16898 strings out of 473190
- 352135 string characters out of 5715799
- 797518 words of memory out of 5000000
- 39845 multiletter control sequences out of 15000+600000
+ 16901 strings out of 473190
+ 352227 string characters out of 5715799
+ 798603 words of memory out of 5000000
+ 39848 multiletter control sequences out of 15000+600000
  572517 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,18n,121p,639b,1070s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on noteV5B1.pdf (86 pages, 541970 bytes).
+Output written on noteV5B1.pdf (86 pages, 542532 bytes).
 PDF statistics:
  416 PDF objects out of 1000 (max. 8388607)
  273 compressed objects within 3 object streams
