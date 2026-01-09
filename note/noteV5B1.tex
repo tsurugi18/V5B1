@@ -31,6 +31,8 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \newtheorem{example}{Example}[section] 
 \newtheorem{exercise}{Exercise}[section] 
 \newtheorem{problem}{Problem}[section] 
+\newtheorem{claim}{Claim}
+\newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}{\hfill $\blacksquare$}
 
 \DeclareMathOperator{\CR}{CR}
 \DeclareMathOperator{\pre}{pre}
@@ -58,6 +60,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \DeclareMathOperator{\Homk}{Hom_{k-alg}}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\image}{im}
 \DeclareMathOperator{\Dom}{Dom}
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\rk}{rk}
@@ -72,6 +75,8 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \DeclareMathOperator{\reg}{reg}
 \DeclareMathOperator{\Ann}{Ann}
 \DeclareMathOperator{\Dol}{Dol}
+\DeclareMathOperator{\dR}{dR}
+\DeclareMathOperator{\sing}{sing}
 %\newcommand*{\name}[\num_arguments][default values]{{\color{#1}\Large #2}}
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\fedeq}{=\vcentcolon}
@@ -84,6 +89,10 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \newcommand{\cA}[0]{\mathcal{A}}
 \newcommand{\cB}[0]{\mathcal{B}}
 \newcommand{\cC}[0]{\mathcal{C}}
+\newcommand{\cE}[0]{\mathcal{E}}
+\newcommand{\sC}[0]{\mathscr{C}}
+\newcommand{\sU}[0]{\mathscr{U}}
+\newcommand{\sV}[0]{\mathscr{V}}
 \newcommand{\N}[0]{\mathbb{N}}
 \newcommand{\m}[0]{\mathfrak{m}}
 \newcommand{\R}[0]{\mathbb{R}}
@@ -4734,6 +4743,578 @@ is called the cochain complex of $\cA$ with respect to $\mathscr{A}$. We will de
 
 This notion can be further generalized from $\Ouv_X$ modules to $\Ouv_X$ presheaves. In particular, $H^\bullet(\mathscr{U},\cdot)$ is a covariant functor from a category of $\Ouv_X$ presheaves to $\Ouv_X$ modules.
 
+Furthermore, we have the following commutative diagram,
+\begin{center}
+  \begin{tikzcd}
+\mathcal{A} \arrow[d, "\alpha"] \arrow[r] & {\mathcal{C}^\bullet(\mathscr{U},\mathcal{A})} \arrow[d, "\mathscr{C}^\bullet(\alpha)"] \arrow[r] & {H^\bullet(\mathscr{U},\mathcal{A})} \arrow[d, "H^\bullet(\alpha)"] \\
+\mathcal{B} \arrow[r]                     & {\mathcal{C}^\bullet(\mathscr{U},\mathcal{B})} \arrow[r]                                          & {H^\bullet(\mathscr{U},\mathcal{B})}                               
+\end{tikzcd}
+\end{center}
+\begin{definition}
+  Let $X$ be a topological space and $\mathscr{U}=(U_i)_{i\in I},\mathscr{V}=(V_j)_{j\in J}$ be two covering. $\mathscr{V}$ is finer than $\mathscr{U}$ if for each $i\in I$ there is $j\in J$ such that $V_j\subseteq U_i$. 
+  \par In that case $\mathscr{V}$ is called a refinement of $\mathscr{U}$. We furthere define a refinement map which is a map $\varphi:J\to I$ such that $V_{j}\subseteq U_{\varphi(i)}$.
+\end{definition}
+
+\begin{definition}
+  Let $\sU,\sV$ be open covering of a topological space $X$ and $a\in\cC^q(\sU,\cA)$. Supposer $\sV$ is a refinement of $\sU$ with a refinement map $\phi:J\to I$. Then we define,
+  \begin{equation*}
+    \varphi^qa(j_0,\cdots,j_q) = a(\varphi(j_0),\cdots,\varphi(j_q))|^{U_{\varphi(j_0) \cdots \varphi(i_q)}}_{V_{j_0 \cdots j_q}}.
+  \end{equation*}
+  This defines maps $\varphi^\bullet:\cC^\bullet(\sU,\cA)\to\cC^\bullet(\sV,\cA)$ and 
+  \begin{equation*}
+    h_\varphi^\bullet:H^\bullet(\sU,\cA)\to H^\bullet(\sV,\cA).
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}
+  $h_\varphi^\bullet$ does not depend on $\varphi$. 
+  \label{lemma_refinement_cech_universal}
+\end{lemma}
+\begin{proof}
+  If $\varphi,\psi$ are two refinement maps then $\varphi^\bullet,\psi^\bullet$ are homotopic. Details can be found in \cite{Hir}.
+\end{proof}
+Suppose $\cA$ is a sheaf and $\Gamma_\cA$ be its canonical presheaf. 
+\begin{proposition}
+  The map,
+  \begin{equation*}
+    h^1:H^1(\sU,\cA)\to H^1(\sV,\cA),
+  \end{equation*}
+  is injective.
+\end{proposition}
+
+\begin{proof}
+  Details can be found in \cite{Hom}.
+\end{proof}
+The above proposition can be rephrashed by the following corollary.
+\begin{corollary}
+  Suppose we are given $c\in Z^1(\sU,\cA)$, a cocycle. Under a refinement map $\varphi$, we have $\varphi^1c\in Z^1(\sV,\cA)$. 
+\par If $\varphi^1c=\delta b$ for some $b\in\cC^0(\sV,\cA)$, then there is $\tilde{b}\in\cC^0(\sU,\cA)$ such that $\delta\tilde{b}=c$.
+\end{corollary}
+
+\begin{notation}
+  Motivated by Lemma \ref{lemma_refinement_cech_universal}, we introduce the following notation.
+  \begin{equation*}
+    h^\bullet(\sU,\sV):H^\bullet(\sU,\cA)\to H^\bullet(\sV,\cA).
+  \end{equation*}
+\end{notation}
+
+Obviously we have,
+\begin{equation*}
+  h^\bullet(\sU,\sU) = \id.
+\end{equation*}
+
+Suppose we have refinements $\mathscr{W}\leq \sV\leq \sU$, we have,
+\begin{equation*}
+  h^\bullet(\sU,\mathscr{W}) = h^\bullet(\sV,\mathscr{W})\circ h^\bullet(\sU,\sV).
+\end{equation*}
+
+\begin{definition}
+  Let $\mathscr{S}$ be a set of open covering of $X$ such that for any open covering $\sU$ of $X$, there is a refinement $\sV$ of $\sU$ contained in $\mathscr{S}$. We then define the inductive limit,
+  \begin{equation*}
+    H^\bullet(X,\mathcal{A}) = \varinjlim_{\substack{\sU\\\text{open covering}}}H^\bullet(\sU,\cA),
+  \end{equation*}
+  such that for each $\sU\in\mathscr{S}$, there is a well-define morphism,
+  \begin{equation*}
+    h^\bullet(\sU):H^\bullet(\sU,\cA)\to H^\bullet(X,\mathcal{A}).
+  \end{equation*}
+  Each element $\gamma\in H^q(X,\cA)$ is represented by an element $c\in H^q(\sU,\cA)$ such that $\delta(c) = 0$, for some $\sU\in\mathscr{S}$ such that if $c'\in H^q(\sU',\cA)$ where $\sU'\in\mathscr{S}$ and $\delta(c')=0$ also represents $\gamma$ then 
+  there is a refinement $\sU''\in\mathscr{S}$ such that 
+  \begin{equation*}
+    \exists b\in\cC^{q-1}(\sU'',\cA),\delta b = h(\sU,\sU'')c-h(\sU',\sU'')c'.
+  \end{equation*}
+\end{definition}
+
+We note that the map $H^\bullet(X,\cdot)$ is functorial. That is given $\alpha:\cA\to\cB, \beta:\cB\to\cC$, we have,
+\begin{equation*}
+  h^\bullet(\alpha):H^\bullet(X,\cA)\to H^\bullet(X,\cB).
+\end{equation*}
+
+Furthermore $h^\bullet(\beta\circ\alpha) = h^\bullet(\beta)\circ h^\bullet(\alpha)$.
+\par If $\mathcal{A}$ is a sheaf then we have,
+\begin{equation*}
+  \mathcal{A}(X)=\Gamma(X,\mathcal{A}) = H^0(X,\mathcal{A}).
+\end{equation*}
+ 
+In the case of $\Ouv_X$-modules, $H^\bullet$ and all the other ones turn out to be $\Ouv_X$-modules.
+
+\begin{remark}
+  For $a\in\cC^0(\sU,\cA)$, we have $a(i_0)\in\cA(U_{i_0})$ and $\delta a=0$ that is $a(i_0)-a(i_1) = 0$ on $U_{i_0i_1}$.
+\end{remark}
+With this we may define a global section $\tilde{a}\in\cA(X)$ glued from open cover $\{U_i\}_{i\in I}$ and $(a_i\in U_i)_{i\in I}$ that is 
+\begin{equation*}
+  \tilde{a}|_{U_i}^{X} = a_i.
+\end{equation*}
+\begin{definition}
+  Let $\cA,\cB$ be presheaves. We say 
+  \begin{equation*}
+    \alpha:\cA\to\cB
+  \end{equation*}
+  is 
+  $\begin{cases}
+    \text{injective},\\
+    \text{surjective}
+  \end{cases}$
+  if for any open set $U$ of $X$ the map $\alpha(U):\cA(U)\to\cB(U)$ is 
+  $\begin{cases}
+    \text{injective},\\
+    \text{surjective}
+  \end{cases}$
+  We define the following presheaves.
+  \begin{enumerate}[1).]
+    \item $\ker\alpha = [U\mapsto \ker\alpha(U)]$,
+    \item $\image\alpha = [U\mapsto \image \alpha(U)]$.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  Let $\cA,\cB$ be sheaves. A morphism $\alpha:\cA\to\cB$ is 
+  $\begin{cases}
+    \text{injective},\\
+    \text{surjective}
+  \end{cases}$ if for any $x\in X$, the map $\alpha_x:\cA_x\to\cB_x$ is 
+  $\begin{cases}
+    \text{injective},\\
+    \text{surjective}.
+  \end{cases}$
+  We define $\ker\alpha,\image\alpha$ to be the sheaf with stalks
+  \begin{equation*}
+    (\ker\alpha)_x = \ker\alpha_x, (\image\alpha)_x = \image\alpha_x.
+  \end{equation*}
+\end{definition}
+
+\begin{remark}
+  Given $\cA\stackrel{\alpha}{\to}\cB$ a morphism of presheaves and its corresponding sheaf morphism $\hat{\cA}\stackrel{\hat{\alpha}}{\to}\hat{\cB}$. All the above properties of $\alpha$ is transfered to $\hat{\alpha}$. The question remaining is is it true the other way around. 
+\end{remark}
+
+\begin{proposition}
+  If $\hat{\alpha}$ is injective then so is $\alpha$.
+  \label{proposition_gamma_left_exact}
+\end{proposition}
+
+\begin{remark}
+  Unfortunately, the above statement fails for the surjectivity.
+  \label{remark_gamma_left_exact}
+\end{remark}
+
+\begin{definition}
+  A sequence 
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \cA \arrow[r] & \cB \arrow[r] & \cC \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+  is exact if for any open set $U$ of $X$, the sequence 
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \cA(U) \arrow[r] & \cB(U) \arrow[r] & \cC(U) \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+  is exact.
+\end{definition}
+
+For an exact sequence of presheaves,
+\begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \cA \arrow[r] & \cB \arrow[r] & \cC \arrow[r] & 0
+\end{tikzcd}
+  \end{center}.
+
+  We have 
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & {\cC^\bullet(\sU,\cA)} \arrow[r, "\cC^\bullet(\alpha)"] & {\cC^\bullet(\sU,\cB)} \arrow[r, "\cC^\bullet(\beta)"] & {\cC^\bullet(\sU,\cA)} \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+
+  By algebra, we have a long exact sequence,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & {H^0(\sU,\cA)} \arrow[r] & {H^0(\sU,\cB)} \arrow[r] & {H^0(\sU,\cC)} \arrow[lld, "\delta_0^*"] \\
+            & {H^1(\sU,\cA)} \arrow[r] & {H^1(\sU,\cB)} \arrow[r] & {H^1(\sU,\cC)} \arrow[lld, "\delta_1^*"] \\
+            & {H^2(\sU,\cA)}           &                          &                                         
+\end{tikzcd}
+  \end{center}
+
+\begin{proposition}
+  Proposition \ref{proposition_gamma_left_exact} and Remark \ref{remark_gamma_left_exact} can be restated as follows. 
+  \par Given a exact sequence of sheaves
+    \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & {\cC^\bullet(\sU,\cA)} \arrow[r, "\cC^\bullet(\alpha)"] & {\cC^\bullet(\sU,\cB)} \arrow[r, "\cC^\bullet(\beta)"] & {\cC^\bullet(\sU,\cA)} \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+  We have a following exact sequence,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \Gamma_{\cA} \arrow[r] & \Gamma_{\cB} \arrow[r] & \Gamma_{\cC}
+\end{tikzcd}
+  \end{center}
+\end{proposition}
+
+Let us denote $\widetilde{\Gamma_{\cC}} = \Gamma_{\cA}/\Gamma_{\cB}$. Then we have an exact sequence.
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \Gamma_{\cA} \arrow[r] & \Gamma_{\cB} \arrow[r] & \widetilde{\Gamma_{\cC}}\arrow[r] & 0.
+\end{tikzcd}
+  \end{center}
+
+  The question is do we have the following equalities, 
+  \begin{equation*}
+    H^q(X,\cC) = H^q(X,\Gamma_{\cC})=H^q(X,\widetilde{\Gamma_{\cC}}).
+  \end{equation*}
+
+  \begin{definition}
+    A Hausdorff space is said to be paracompact if each open covering admits a locally finite refinement.
+  \end{definition}
+
+  \begin{theorem}
+    \label{theorem_zero_sheaf_cohomology}
+    Let $X$ be a paracompact space and $\cA$ be a presheaf. Suppose $\hat{A}=0$ then we have $H^q(X,\cA)=0$ for all $q$.
+  \end{theorem}
+
+  \begin{proposition}
+    Let $\cS$ be a presheaf and $X$ be a paracompact space. Then we have,
+    \begin{equation*}
+      H^q(X,\cS) = H^q(X,\hat{\cS}).
+    \end{equation*}
+  \end{proposition}
+
+  \begin{proof}
+    Let $\Gamma_{\hat{\cS}}$ be its canonical presheaf and $\tau:\cS\to\Gamma_{\hat{\cS}}$ be a caonnical homomorphism.
+    \begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \ker\tau \arrow[r]    & \cS \arrow[r]                & \image \tau \arrow[r]                   & 0 \\
+0 \arrow[r] & \image \tau \arrow[r] & \Gamma_{\hat{\cS}} \arrow[r] & \Gamma_{\hat{\cS}}/\image\tau \arrow[r] & 0
+\end{tikzcd}
+    \end{center}
+    By definition, we have $\ker\tau$ is a $0$-sheaf, similarly for $\Gamma_{\hat{\cS}}/\image \tau$. By Theorem \ref{theorem_zero_sheaf_cohomology}, we have,
+    \begin{equation*}
+      H^q(X,\ker\tau) = 0,H^q(X,\Gamma_{\hat{\cS}}/\image\tau)=0.
+    \end{equation*}
+    That is we have the following isomorphisms,
+    \begin{equation*}
+      H^q(X,\cS)\stackrel{\sim}{\to}H^q(X,\image\tau), H^q(X,\image\tau)\stackrel{\sim}{\to}H^q(X,\widehat{\Gamma_{\hat{\cS}}}).
+    \end{equation*}
+  \end{proof}
+
+  \begin{definition}
+    Let $\sU$ be an open covering of a topological space $X$ and $\cA,\cB$ be sheaves of abelian groups.
+    $\sU$ is called $\cA$-acyclic if it is globally finite and $H^q(U_{i_0,\cdots,i_p},\cA)=0$ for all $p\geq0$ and $q\geq1$.
+  \end{definition}
+
+  \begin{theorem}[Leray]
+    If $\sU$ is acyclic for $\cA$, then $H^q(X,\cA)\cong H^q(\sU,\cA)$.
+  \end{theorem}
+
+  \begin{proof}
+    See \cite{Hir}.
+  \end{proof}
+
+  \begin{definition}
+    A sheaf of abelian group $\cA$ is acyclic if $H^q(X,\A)=0$ for all $q\geq1$.
+  \end{definition}
+
+  \begin{definition}
+    An acyclic resolution of a sheaf of abelian groups $\cA$ is a long exact sequence,
+    \begin{center}
+      \begin{tikzcd}
+0 \arrow[r] & \cA \arrow[r, "h"] & \cA^0 \arrow[r, "h^0"] & \cA^1 \arrow[r, "h^1"] & \cA^2 \arrow[r] & {}
+\end{tikzcd}
+    \end{center}
+    such that each $\cA^p$ is acyclic for $p\geq0$.
+  \end{definition}
+
+  Now consider,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \cA(X) \arrow[r, "h_X"] & \cA^0(X) \arrow[r, "h^0_X"] & \cA^1(X) \arrow[r, "h^1_X"] & \cA^2(X) \arrow[r] & {}
+\end{tikzcd}
+  \end{center}
+
+  This is no longer an exact sequence. Thus we consider a cohomology of $\A^0(X)$.
+
+  \begin{theorem}
+    Consider an acyclic resolution,
+    \begin{center}
+      \begin{tikzcd}
+0 \arrow[r] & \cA \arrow[r, "h"] & \cA^0 \arrow[r, "h^0"] & \cA^1 \arrow[r, "h^1"] & \cA^2 \arrow[r] & {}
+\end{tikzcd}
+    \end{center}
+    We have 
+    \begin{equation*}
+      H^q(X,\cA) = H^q(\cA^0(X)).
+    \end{equation*}
+  \end{theorem}
+
+  \begin{proof}
+    For $q=0$, we have ,
+    \begin{equation*}
+      H^0(X,\cA)=\cA(X) = \ker h^0_X = \ker[\cA^0(X)\to\cA^1(X)] = H^0(\cA^0(X)).
+    \end{equation*}
+    Denote $\overline{\cA} = \image h^0\subseteq\cA^1$. Now,
+    \begin{center}
+      \begin{tikzcd}
+0 \arrow[r] & \cA \arrow[r] & \cA^0 \arrow[d, "h^0"] \arrow[r, "h^0"]         & \cA^1 \arrow[r] & {} \\
+            &               & \overline{\cA} \arrow[ru, "i"', hook] \arrow[d] &                 &    \\
+            & 0 \arrow[ru]  & 0                                               &                 &   
+\end{tikzcd}
+    \end{center}
+    We then have,
+    \begin{center}
+      \begin{tikzcd}
+(I) & 0 \arrow[r] & \cA \arrow[r]            & \cA^0 \arrow[r] & \overline{\cA} \arrow[r] & 0      \\
+(II) & 0 \arrow[r] & \overline{\cA} \arrow[r] & \cA^1 \arrow[r] & \cA^2 \arrow[r]          & \cdots
+\end{tikzcd}
+    \end{center}
+    THus we have,
+    \begin{center}
+\begin{tikzcd}
+\cA^0(X) \arrow[r] & \overline{\cA}(X) \arrow[r] & {H^1(X,\cA)} \arrow[r] & {\underbrace{H^1(X,\cA^0)}_{=0}}
+\end{tikzcd}
+    \end{center}
+    This means that 
+    \begin{equation*}
+      H^1(X,\cA) = \overline{\cA}(X)/h^0(\cA^0(X)) = {\frac {\ker\{h^1:\cA^1(X)\to\cA^2(X)\}} {h^0(\cA(X))}} = H^1(\cA^0(X)).
+    \end{equation*}
+    For $q:,1\leq q\leq \tilde{q}$, we set, $\cB=\cA^{q+1}$. We then have another acyclic resolution of $\overline{\cA}$.
+    \begin{tikzcd}
+0 \arrow[r] & \overline{\cA} \arrow[r] & \cB^0 \arrow[r] & \cB^1 \arrow[r] & \cdots
+\end{tikzcd}
+Thus we obtain $H^i(\cB^\bullet(X)) = H^{q+1}(\cA^\bullet(X))$. Therefore,
+\begin{equation*}
+  H^{q+1}(X,\cA) \cong H^q(X,\overline{\cA}).
+\end{equation*}
+By induction on the exact cohomology sequence, we have,
+\begin{equation*}
+  H^q(X,\overline{\cA})=H^q(\cB^\bullet(X))\cong H^{q+1}(X,\cA^\bullet(X)).
+\end{equation*}
+  \end{proof}
+  \subsection{deRahm and Dolbeault Theorems}
+  
+\begin{theorem}
+  Let $X$ be a smooth manifold (ie. $\G\subseteq\C^n$). Let $\cA$ be a sheaf of germs of $\cinf(X)$. Then $\cA$ is acyclic that is $H^q(X,\cA)=0$ for $q\geq1$.
+\end{theorem}
+\setcounter{claim}{0}
+\begin{proof}
+  Let $\sU$ be an open covering of $X$ with infinite index set $I$. 
+  \begin{claim}
+  \begin{equation*}
+    q\geq1\Rightarrow H^q(\sU,\cA) = 0.
+  \end{equation*}
+  \end{claim}
+  \begin{claimproof}
+  Let $(\varphi_i)_{i\in I}$ be a smooth partition of unity subordinates to $\sU$. Let $c\in\cC^q(\sU,\cA)$ be such that $\delta(c)=0$.
+  We now define 
+  \begin{equation*}
+    b(i_0,\cdots,i_{q-1}) = \sum_{i\in I}\varphi_i c(i,i_0,\cdots,i_{q-1}).
+  \end{equation*}
+  Then we have,
+  \begin{align*}
+    \delta b & = \sum_{i\in I}\sum (-1)^jc(i,i_0,\cdots,i_{j-1},i_{j+1},\cdots,i_q).\\
+    (\delta b)(i_0,\cdots,i_q) &= \sum_{i\in I}\varphi_i\sum_{j}(-1)^jc(i,\cdots,i_{j-1},i_{j+1},\cdots,i_q),\\
+    & = \sum_{i\in I} \varphi_i c(i_0,\cdots,i_q),\\
+    & = \underbrace{\left(\sum_{i\in I}\varphi_i\right)}_{=1}c(i_0,\cdots,i_q),\\
+    & = c(i_0,\cdots,i_q).
+  \end{align*}
+  \end{claimproof}
+  The statement follows from the claim.
+\end{proof}
+
+\begin{remark}
+  Let $\cE^p$ be a smooth $p$-forms on $X$. Then they are acyclic.
+\end{remark}
+
+\begin{theorem}
+  Let $\G\subseteq\R^N$ be a convex domain and $f\in\cinf_q(\G)$, with $df=0$. Then $f=du$ for some $u\in\cinf_{q-1}(\G)$.
+\end{theorem}
+
+We have an exact sequence,
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \C \arrow[r] & \cE^0 \arrow[r, "d"] & \cE^1 \arrow[r, "d"] & \cE^2 \arrow[r, "d"] & \cdots \arrow[r, "d"] & \cE^N \arrow[r, "d"] & 0
+\end{tikzcd}
+\end{center}
+
+This is an acyclic resolution of $\C$. Then we have, for $X$ connected
+\begin{equation*}
+  H^q(X,\C) \cong H^q(\cE^\bullet(X)) = {\frac {\{\text{$d$-closed $q$-forms}\}} {\{\text{$d$-exact $q$-forms}\}}} = H_{\dR}^q(X).
+\end{equation*}
+
+\begin{theorem}[de Rham]
+  \begin{equation*}
+    H^q(X,\C) \cong H^q_{\dR}(X).
+  \end{equation*}
+\end{theorem}
+
+\begin{remark}
+  \begin{equation*}
+    H^q(X,\C) \cong H^q_{\sing}(X),
+  \end{equation*}
+  where the left hand side is a sheaf cohomology and the right hand side is from topology.
+\end{remark}
+
+\begin{definition}
+  Let $X$ be a compact manifold (eg. $\G\subseteq\C^n$). We define $\Omega^p(X)$ to be a sheaf of germs of holomorphic $p$-forms.
+\end{definition}
+
+\begin{remark}
+  $\Omega^0(X)=\Ouv(X)$ a structure sheaf.
+\end{remark}
+
+\begin{remark}
+  For each $p$, we have an acyclic resolution,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \Omega^p \arrow[r] & {\cE^{p,0}} \arrow[r, "\overline{\partial}"] & {\cE^{p,1}} \arrow[r, "\overline{\partial}"] & {\cE^{p,2}} \arrow[r, "\overline{\partial}"] & \cdots \arrow[r, "\overline{\partial}"] & {\cE^{p,n}} \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+\end{remark}
+
+\begin{theorem}[Dolbeault]
+  \begin{equation*}
+    H^q(X,\Omega^p)\cong H^{p,q}(\cE^{p,\bullet}(X)) = H^{p,q}_{\Dol}(X).
+  \end{equation*}
+\end{theorem}
+
+\begin{remark}
+  For $p=0$, we have $\Omega^0(X)=\Ouv(X)$. Thus we hae,
+  \begin{equation*}
+    H^q(X,\Ouv) \cong H^{0,q}_{\Dol}(X).
+  \end{equation*}
+  That is for all $f\in\cE^{0,q}(X)$, if $\overline{\partial}f=0$ there is $u\in\cE^{0,q-1}(X)$ with $\overline{\partial}u = f$.
+\end{remark}
+
+\subsection{Global Problems}
+
+We will start with the first cousin problem. Using the terminologies we have introduced, we can rewrite the problem as follows.
+\par Let $\mathcal{H}=\mathcal{K}/\Ouv$. Then we have the exact sequene,
+\begin{center}
+  \begin{tikzcd}
+0 \arrow[r] & \Ouv \arrow[r, hook] & \mathcal{K} \arrow[r, two heads] & \mathcal{H} \arrow[r] & 0.
+\end{tikzcd}
+\end{center}
+Is it true that we have,
+\begin{center}
+  \begin{tikzcd}
+0 \arrow[r] & \Ouv(X) \arrow[r, hook] & \mathcal{K}(X) \arrow[r, two heads] & \mathcal{H}(X) \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+still exaft?
+\begin{theorem}
+  If $H^1(X,\Ouv)=0$ then the first Cousin problem is solvable.
+\end{theorem}
+
+\begin{proof}
+  We have a cohomology sequence,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \Ouv(X) \arrow[r] & \mathcal{K}(X) \arrow[r] & \mathcal{H}(X) \arrow[r] & {H^1(X,\Ouv)} \arrow[r] & \cdots
+\end{tikzcd}
+  \end{center}
+  Thus the assumption directly shows the statement.
+\end{proof}
+
+\begin{remark}
+  For $X$ any polydisk, we have $H^1(X,\Ouv)=0$.
+\end{remark}
+
+\begin{definition}
+  We define the sheaf of germs of divisors to be $\mathcal{D} = \mathcal{K}^*/\Ouv^*$. 
+\end{definition}
+
+Recall the second cousin problem, stating that is all divisors principle. We have an exact sequence,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \Ouv^* \arrow[r] & \mathcal{K}^* \arrow[r] & \mathcal{D} \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \Ouv^*(X) \arrow[r] & \mathcal{K}^*(X) \arrow[r] & \mathcal{D}(X) \arrow[r] & {H^1(X,\Ouv^*)} \arrow[r] & \cdots
+\end{tikzcd}
+  \end{center}
+  Consider the map $\Ouv\ni \mapsto \exp(2\pi if)\in\Ouv^*$. The kernel of this map is $\Z$ thus induces a following exact sequence,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \Z \arrow[r] & \Ouv \arrow[r, "f\mapsto \exp(2\pi if)"] & \Ouv^* \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+  From this we get a cohomology sequence,
+  \begin{center}
+    \begin{tikzcd}
+\cdots \arrow[r] & {H^1(X,\Ouv)} \arrow[r] & {H^1(X,\Ouv^*)} \arrow[r] & {H^2(X,\Z)} \arrow[r] & {H^2(X,\Ouv)} \arrow[r] & \cdots
+\end{tikzcd}
+  \end{center}
+  If we have $H^1(X,\Ouv),H^2(X,\Ouv)=0$ then $H^1(X,\Ouv^*)\cong H^2(X,\Z)$. Then for $H^2(X,\Z)=0$, that is all divisors are principal.
+  \begin{remark}
+  The above argument can be further generalized. if $D$ is a domain then $D\mapsto \tilde{D}\in H^1(X,\Ouv^*) \stackrel{\sim}{\mapsto}c(D)\in H^2(X,\Z)$.
+  such $c(D)$ is called the Chern class of $D$.
+\end{remark}
+  \begin{theorem}
+    If $H^1(X,\Ouv),H^2(X,\Ouv)=0$, then precisely the divisors with $c(D)=0$ are principal. 
+  \end{theorem}
+
+  \begin{remark}
+    For example, above conditions are attained when $X$ is a polydisk.
+  \end{remark}
+
+  Now we will examine extorsion problems. Let $M$ be an analytic set on $X$ and $\mathcal{I}_M$ be the corresponding ideal sheaf of $M$. Then we have,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \mathcal{I}_M \arrow[r] & \Ouv \arrow[r] & \Ouv_M = \Ouv/\mathcal{I}_M \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+
+The question is, is the sequence,
+\begin{tikzcd}
+\Ouv(X) \arrow[r] & \Ouv_M(X) \arrow[r] & 0
+\end{tikzcd}
+exact?
+
+\begin{theorem}
+  If $H^1(X,\mathcal{I}_M)=0$, then holomorphic functions on $M$ are restrictions of holomorphic functions on $X$.
+\end{theorem}
+
+\begin{proof}
+  From the sequence,\begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \mathcal{I}_M \arrow[r] & \Ouv \arrow[r] & \Ouv_M = \Ouv/\mathcal{I}_M \arrow[r] & 0
+\end{tikzcd}
+  \end{center},
+  we get a cohomology sequene,
+  \begin{center}
+    \begin{tikzcd}
+\cdots \arrow[r] & \Ouv(X) \arrow[r] & \Ouv_M(X) \arrow[r] & {H^1(X,\mathcal{I}_M)} \arrow[r] & \cdots
+\end{tikzcd}
+  \end{center}
+\end{proof}
+
+Let $x\in\C^n$ and define and $\G\subseteq\C^n$ be a domain containing the origin. We then define 
+\begin{equation*}
+  J_{0,x} = \begin{cases}
+    \Ouv_x,\quad x\not=0,\\
+  \end{cases}
+\end{equation*}
+
+We then obtain the following exact sequence,
+\begin{center}
+  \begin{tikzcd}
+0 \arrow[r] & \mathcal{K} \arrow[r] & \mathcal{O}^n \arrow[r, "{(f_1,\cdots,f_n)\mapsto\sum_{j=1}^nf_jz_j}"] & \mathcal{J}_0 \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+
+The question is for $f\in\Ouv(\mathcal{G})$ with $f(0)=0$, does there exists $f_j\in\Ouv(\G)$ such that 
+\begin{equation*}
+\sum f_jz_j = f.
+\end{equation*}
+
+This turns out to be true if $H^1(|G,\mathcal{K})=0$. Furthermore if $H^q(\G,\Ouv)=0$ for $q\geq1$, we also get the answer to be positive.
+
+\section{Solving Cauchy-Riemann equations}
+
+\begin{theorem}
+  If $\G$ is pseudoconvex then $(\CR)_q$ is solvable for $q\geq1$. That is for all $f\in\cinf_{0,q}(\G)$, $\overline{\partial}f=0$ implies that there is $u\in\cinf_{0,q-1}(\G)$ such that $\overline{\partial}u = f$.
+\end{theorem}
 
 \begin{thebibliography}{9}
 \bibitem{Lieb}
@@ -4743,5 +5324,6 @@ Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic
 \bibitem{Ra} R. Michael Range (1986) Holomorphic functions and integral representations in several complex variables, Springer, New York.
 \bibitem{LiM} Lieb, Ingo and Michel ,Joachim (2002) The Cauchy-Riemann complex: integral formulae and Neumann problem.
 \bibitem{Hir} Hirzebruch, Friedrich (1966) Topological Methods in Algebraic Geometry
+\bibitem{derham} de Rham,(1984) George Differentiable manifolds. Forms, currents, harmonic forms.
 \end{thebibliography}
 \end{document}
