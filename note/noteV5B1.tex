@@ -954,7 +954,7 @@ More details will be found in \cite{Lieb}Chapter 3.
   \begin{equation*}
     E_\C(M) = \bigoplus_{r=0,\cdots,2n}E^r(M) = \bigoplus_r\bigoplus_{p,q}E^{p,q}(M).
   \end{equation*}
-  The rank of $E_\C(M) = \sum{n \choose p}{n \choose q} = 2^n$.
+  The rank of $E_\C(M) = \sum{n \choose p}{n \choose q} = 2^{2n}$.
   \par Consider 
   \begin{equation*}
     da = \sum_{I,J} da_{I,J}\wedge dz^Id\overline{z}^J,
@@ -987,14 +987,14 @@ More details will be found in \cite{Lieb}Chapter 3.
     \item $d = \partial +\overline{\partial}$,
     \item $d\circ d = 0$, $\partial\overline{\partial}+\overline{\partial}\partial = \partial\circ\partial = \overline{\partial}\circ\overline{\partial}= 0$.
     \item Let $f$ be a function, $f$ is holomorphic if and only if $\overline{\partial}f=0$
-    \item Commutativity for $\wedge$ holds.
+    \item Graded-commutativity for $\wedge$ holds. %Should put more explicitly later
     \item Leipniz rules hold for $\partial (f\wedge g)$.
   \end{enumerate}
 \end{proposition}
 
 \begin{example}
   \begin{equation*}
-    dx_1\wedge dy_1\wedge\cdots\wedge dx_n\wedge dy_n = -\left({\frac 1 {n}}\right)^n dz_1\wedge d\overline{z}_1\wedge\cdots\wedge dz_n\wedge d\overline{z}_n.
+    dx_1\wedge dy_1\wedge\cdots\wedge dx_n\wedge dy_n = \left({\frac i {2}}\right)^n dz_1\wedge d\overline{z}_1\wedge\cdots\wedge dz_n\wedge d\overline{z}_n.
   \end{equation*}
   This is called the volume form $dV$. 
   \begin{equation*}
@@ -1009,9 +1009,9 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
   This is a form of type $(n,0)$ in $\underline{\zeta}$ defined on the open set
   \begin{equation*}
-    \C^n\times \C^n - \Delta,
+    \C^n\times \C^n \backslash \Delta,
   \end{equation*}
-  where $\Delta = \{(\underline{\zeta},\underline{z})\sep \forall j=1,\cdots,n \zeta_j = z_j\}$.
+  where $\Delta = \{(\underline{\zeta},\underline{z})\sep \forall j=1,\cdots,n,\zeta_j = z_j\}$.
 \end{example}\
 
 \begin{proposition}[Transformation Rules]
@@ -1055,12 +1055,12 @@ More details will be found in \cite{Lieb}Chapter 3.
 \end{definition}
 
 \begin{theorem}
-  If the domain is convex in the above then the Poincaré equation is solvable. (ie. all the de Rham cohomologies are $r=0$ except the $0$ term.)
+  If the domain is convex in the above then the Poincaré equation is solvable. (ie. all the de Rham cohomologies are $0$ except the $r=0$ term.)
   \par Furthermore,
   \begin{equation*}
-    Z^r = \{f\in E^r\sep df = 0\}, B^r = \{du\sep u\in E^{r-1}\}.
+    Z^r \defeq \{f\in E^r\sep df = 0\}, B^r \defeq \{du\sep u\in E^{r-1}\}.
   \end{equation*}
-  We have $B^r\subset Z^r$, $H_{dR}^r(\mathcal{G}) = Z^r/B^r$, gives the de Rham cohomology and 
+  We have $B^r\subset Z^r$, $H_{dR}^r(\mathcal{G}) \defeq Z^r/B^r$, gives the de Rham cohomology and 
   \begin{equation*}
     H_{dR}^0(\mathcal{G}) = \C.
   \end{equation*}
@@ -5308,7 +5308,7 @@ The question is for $f\in\Ouv(\mathcal{G})$ with $f(0)=0$, does there exists $f_
 \sum f_jz_j = f.
 \end{equation*}
 
-This turns out to be true if $H^1(|G,\mathcal{K})=0$. Furthermore if $H^q(\G,\Ouv)=0$ for $q\geq1$, we also get the answer to be positive.
+This turns out to be true if $H^1(\G,\mathcal{K})=0$. Furthermore if $H^q(\G,\Ouv)=0$ for $q\geq1$, we also get the answer to be positive.
 
 \section{Solving Cauchy-Riemann equations}
 
