@@ -77,6 +77,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \DeclareMathOperator{\Dol}{Dol}
 \DeclareMathOperator{\dR}{dR}
 \DeclareMathOperator{\sing}{sing}
+\DeclareMathOperator{\loc}{loc}
 %\newcommand*{\name}[\num_arguments][default values]{{\color{#1}\Large #2}}
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\fedeq}{=\vcentcolon}
@@ -133,7 +134,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 }
 
 \title{Complex Analysis in Several Variables}
-\author{So Murata}
+\author{Lecture Given By Prof. Dr. Ingo Lieb\\ Note Typed by So Murata}
 \date{WiSe 25/26, University of Bonn}
 
 \begin{document}
@@ -1109,7 +1110,7 @@ More details will be found in \cite{Lieb}Chapter 3.
     \overline{\partial}_{\underline{\zeta}}\beta = \sum_{j=1}^n d\overline{\zeta}_j\wedge d\zeta_j = \sum_{j=1}^n \omega_j,
   \end{equation*}
   such that $\omega_j = d\overline{\zeta}_j\wedge d\zeta_j$ and the power means the exterior product. 
-  This $B$ above is called the Bochner-Martinelli formel which is define on $\C^n\times \C^n$ except the diagonal. 
+  This $B$ above is called the Bochner-Martinelli formel which is defined on $\C^n\times \C^n$ except the diagonal. 
 \end{definition}
 
 \begin{remark}
@@ -1167,8 +1168,12 @@ More details will be found in \cite{Lieb}Chapter 3.
   \end{equation*}
 \end{proof}
 
+\begin{definition}
+  Let $\G\subseteq\C^n$ be a domain. $\G$ is said to have a reasonable boundary if the Stoke's theorem applies to $\G$.
+\end{definition}
+
 \begin{theorem}
-  Let $\mathcal{G}\subset\subset \C^n$ with $\partial \mathcal{G}$ is reasonable (ie. the Stoke's theorem holds.) Let $f\in\mathcal{C}^1(\overline{\mathcal{G}})$, and $z\in\G$. We have 
+  Let $\mathcal{G}\subset\subset \C^n$ with $\partial \mathcal{G}$ is reasonable Let $f\in\mathcal{C}^1(\overline{\mathcal{G}})$, and $z\in\G$. We have 
   \begin{equation*}
     f(z) = \int_{\partial \G}f(\underline{\zeta})B(\underline{\zeta},\underline{z}) - \int_\G \overline{\partial}f(\underline{\zeta})\wedge B(\underline{\zeta},\underline{z}).
   \end{equation*}
@@ -4696,7 +4701,7 @@ Let $(X,\Ouv_X)$ be a ringed space and $\cA,\cB,\cC$ be $\Ouv_X$-modules.
 \end{proposition}
 
 \begin{proof}
-  This can be shown with direct calculation. 
+  This can be shown with direct calculations. 
 \end{proof}
 
 \begin{definition}
@@ -4704,7 +4709,7 @@ Let $(X,\Ouv_X)$ be a ringed space and $\cA,\cB,\cC$ be $\Ouv_X$-modules.
   \begin{equation*}
   0\to \cC^0(\mathscr{U},\cA)\stackrel{\delta}{\to} \cC^1(\mathscr{U},\cA)\stackrel{\delta}{\to} \cC^0(\mathscr{U},\cA)\stackrel{\delta}{\to}\cdots
 \end{equation*}
-is called the cochain complex of $\cA$ with respect to $\mathscr{A}$. We will denote this by 
+is called the cochain complex of $\cA$ with respect to $\mathscr{U}$. We will denote this by 
 \begin{equation*}
   (\mathscr{C}^\bullet(\mathscr{U},\cA)).
 \end{equation*}
@@ -4815,8 +4820,15 @@ Suppose we have refinements $\mathscr{W}\leq \sV\leq \sU$, we have,
   \end{equation*}
   such that for each $\sU\in\mathscr{S}$, there is a well-define morphism,
   \begin{equation*}
-    h^\bullet(\sU):H^\bullet(\sU,\cA)\to H^\bullet(X,\mathcal{A}).
+    h^\bullet(\sU):H^\bullet(\sU,\cA)\to H^\bullet(X,\mathcal{A}),
   \end{equation*}
+  such that for any refinement map $\varphi:\sV\to\sU$, we have a commutative diagram,
+  \begin{center}
+    \begin{tikzcd}
+{H^\bullet(\sU,\cA)} \arrow[rr, "\varphi^\bullet"] \arrow[rd, "h^\bullet(\sU)"'] &                    & {H^\bullet(\sV,\cA)} \arrow[ld, "h^\bullet(\sV)"] \\
+                                                                                 & {H^\bullet(X,\cA)} &                                                  
+\end{tikzcd}
+  \end{center}
   Each element $\gamma\in H^q(X,\cA)$ is represented by an element $c\in H^q(\sU,\cA)$ such that $\delta(c) = 0$, for some $\sU\in\mathscr{S}$ such that if $c'\in H^q(\sU',\cA)$ where $\sU'\in\mathscr{S}$ and $\delta(c')=0$ also represents $\gamma$ then 
   there is a refinement $\sU''\in\mathscr{S}$ such that 
   \begin{equation*}
@@ -4892,7 +4904,7 @@ With this we may define a global section $\tilde{a}\in\cA(X)$ glued from open co
 \end{proposition}
 
 \begin{remark}
-  Unfortunately, the above statement fails for the surjectivity.
+  $\hat{\alpha}$ being surjective does not imply $\alpha$ is surjective.
   \label{remark_gamma_left_exact}
 \end{remark}
 
@@ -4903,10 +4915,10 @@ With this we may define a global section $\tilde{a}\in\cA(X)$ glued from open co
 0 \arrow[r] & \cA \arrow[r] & \cB \arrow[r] & \cC \arrow[r] & 0
 \end{tikzcd}
   \end{center}
-  is exact if for any open set $U$ of $X$, the sequence 
+  is exact if for any point $x$ of $X$, the sequence 
   \begin{center}
     \begin{tikzcd}
-0 \arrow[r] & \cA(U) \arrow[r] & \cB(U) \arrow[r] & \cC(U) \arrow[r] & 0
+0 \arrow[r] & \cA_x \arrow[r] & \cB_x \arrow[r] & \cC_x \arrow[r] & 0
 \end{tikzcd}
   \end{center}
   is exact.
@@ -4969,7 +4981,7 @@ Let us denote $\widetilde{\Gamma_{\cC}} = \Gamma_{\cA}/\Gamma_{\cB}$. Then we ha
 
   \begin{theorem}
     \label{theorem_zero_sheaf_cohomology}
-    Let $X$ be a paracompact space and $\cA$ be a presheaf. Suppose $\hat{A}=0$ then we have $H^q(X,\cA)=0$ for all $q$.
+    Let $X$ be a paracompact space and $\cA$ be a presheaf. Suppose $\hat{\cA}=0$ then we have $H^q(X,\cA)=0$ for all $q$.
   \end{theorem}
 
   \begin{proposition}
@@ -5184,6 +5196,35 @@ This is an acyclic resolution of $\C$. Then we have, for $X$ connected
   That is for all $f\in\cE^{0,q}(X)$, if $\overline{\partial}f=0$ there is $u\in\cE^{0,q-1}(X)$ with $\overline{\partial}u = f$.
 \end{remark}
 
+\begin{theorem}
+  Let $\mathcal{E}_{pq}$ be smooth forms on $\G\subseteq\C^n$. Then $H^p(\G,\mathcal{E}_{pq})=0$ for $q\geq1$. 
+\end{theorem}
+
+\begin{proof}
+  Let $\sU$ be a locally finite open covering with index set $I$. Let $(\varphi_i)_{i\in I}$ be a partition of unity subordinates to $\sU$. 
+  Let $f\in Z^q(\sU,\mathcal{E})$, then 
+  \begin{equation*}
+    a(i_0,\cdots,i_{q-1}) \defeq \sum_{i\in I}\varphi_if(i,i_0,\cdots,i_{q-1}).
+  \end{equation*}
+  Then 
+  \begin{align*}
+    (\delta a)(i_0,\cdots,i_q) & = \sum_{j=0}^q(-1)^ja(i_0,\cdots,i_{j-1},i_{j+1},\cdots,i_q),\\
+    & = \sum_{i\in I}\sum_{j=0}^q(-1)^j\varphi_if(i,i_0,\cdots,i_{j-1},i_{j+1},\cdots,i_q),\\
+    & = \sum_{i\in I}\varphi_i\sum_{j=0}^q (-1)^j f(i,i_0,\cdots,i_{j-1},i_{j+1},\cdots,i_q),\\
+    & = -\left(\sum_{i\in I}\varphi_i\right) f(i_0,\cdots,i_q),\\
+    & = -f.
+  \end{align*}
+  Therefore $f$ is also exact. For $q=1$, we have, $f(i_0,i_1)$, 
+  \begin{equation*}
+    a(i_0) = \sum_{\varphi_i}f(i,i_0), a(i_1) = \sum\varphi_if(i,i_1). 
+  \end{equation*}
+  Therefore,
+  \begin{equation*}
+    (\delta a)(i_0,i_1) = a(i_1)-a(i_0) = \sum\varphi_i(f(i,i_1)-f(i,i_0)).
+  \end{equation*}
+  The readers are encouraged to do the case when $q=1$ manually to see make sense of this proof.
+\end{proof}
+
 \subsection{Global Problems}
 
 We will start with the first cousin problem. Using the terminologies we have introduced, we can rewrite the problem as follows.
@@ -5215,7 +5256,7 @@ still exaft?
 \end{proof}
 
 \begin{remark}
-  For $X$ any polydisk, we have $H^1(X,\Ouv)=0$.
+  For any polydisk $X$, we have $H^1(X,\Ouv)=0$.
 \end{remark}
 
 \begin{definition}
@@ -5236,7 +5277,7 @@ Recall the second cousin problem, stating that is all divisors principle. We hav
   Consider the map $\Ouv\ni \mapsto \exp(2\pi if)\in\Ouv^*$. The kernel of this map is $\Z$ thus induces a following exact sequence,
   \begin{center}
     \begin{tikzcd}
-0 \arrow[r] & \Z \arrow[r] & \Ouv \arrow[r, "f\mapsto \exp(2\pi if)"] & \Ouv^* \arrow[r] & 0
+0 \arrow[r] & \Z \arrow[r] & \Ouv \arrow[r, "\substack{f\mapsto\exp(2\pi i f)\\\:}"] & \Ouv^* \arrow[r] & 0
 \end{tikzcd}
   \end{center}
   From this we get a cohomology sequence,
@@ -5247,8 +5288,11 @@ Recall the second cousin problem, stating that is all divisors principle. We hav
   \end{center}
   If we have $H^1(X,\Ouv),H^2(X,\Ouv)=0$ then $H^1(X,\Ouv^*)\cong H^2(X,\Z)$. Then for $H^2(X,\Z)=0$, that is all divisors are principal.
   \begin{remark}
-  The above argument can be further generalized. if $D$ is a domain then $D\mapsto \tilde{D}\in H^1(X,\Ouv^*) \stackrel{\sim}{\mapsto}c(D)\in H^2(X,\Z)$.
-  such $c(D)$ is called the Chern class of $D$.
+  The above argument can be further generalized. if $D$ is a domain then we have a following map.
+  \begin{equation*}
+  D\mapsto \underbrace{\tilde{D}}_{\in H^1(X,\Ouv^*)}\mapsto \underbrace{c(D)}_{\in H^2(X,\Z)}.
+  \end{equation*}
+  Such $c(D)$ is called the Chern class of $D$.
 \end{remark}
   \begin{theorem}
     If $H^1(X,\Ouv),H^2(X,\Ouv)=0$, then precisely the divisors with $c(D)=0$ are principal. 
@@ -5310,12 +5354,244 @@ The question is for $f\in\Ouv(\mathcal{G})$ with $f(0)=0$, does there exists $f_
 
 This turns out to be true if $H^1(\G,\mathcal{K})=0$. Furthermore if $H^q(\G,\Ouv)=0$ for $q\geq1$, we also get the answer to be positive.
 
-\section{Solving Cauchy-Riemann equations}
+
+\section{Vanishing of Dolbeault Spaces}
+
+Now we turn our interest to solving Cauchy-Riemann equations.
 
 \begin{theorem}
   If $\G$ is pseudoconvex then $(\CR)_q$ is solvable for $q\geq1$. That is for all $f\in\cinf_{0,q}(\G)$, $\overline{\partial}f=0$ implies that there is $u\in\cinf_{0,q-1}(\G)$ such that $\overline{\partial}u = f$.
 \end{theorem}
 
+This section studies the general solutions of these equations.
+
+\subsection{Spaces of forms}
+
+Through out this subsection, we will denote $\G\subseteq\C^n$ as a domain and $E$ be some function spaces. We will denote, 
+\begin{notation}
+  $E_{pq}$ will denote a $(p,q)$-forms with coefficient in $E$. That is 
+  \begin{equation*}
+    f = \sum_{\substack{\vert I\vert=p\\\vert J\vert q}}f_{I,J}dz^Id\overline{z}^J,
+  \end{equation*}
+  where $I\in\{1,\cdots,n\}^p,J\in\{1,\cdots,n\}^q$. 
+\end{notation}
+
+\begin{remark}
+  For $I\in\{1,\cdots,n\}^p$, we will denote $I'$ to be the tuple where $I'_1<\cdots<I'_p$. Then we denote
+  \begin{equation*}
+    f_{IJ} = \varepsilon_{I'J'}^{IJ} f_{I'J'},
+  \end{equation*}
+  where $\varepsilon_{I'J'}^{IJ}$ is the product of signs of permutations which send $I\to I',J\to J'$. Under this notation, we get
+  \begin{equation*}
+    f = {\frac 1 {p!q!}}\sum f_{IJ}dz^Id\overline{z}^J.
+  \end{equation*}
+\end{remark}
+
+\begin{definition}
+  For one dimensional case $\R$, in order to define a distribution. Let us first consider the set of test functions, that is 
+  \begin{equation*}
+    \mathcal{D} \defeq \cinf_C(\R).
+  \end{equation*}
+  A sequence $(\varphi_n)_{n\in \N}$ in $\mathcal{D}$ converges to $0$ in $\mathcal{D}$ if $(\varphi_n)_{n\in \N}$ converges uniformly to $0$ and $\supp \varphi_n$ is contained in a finite measure interval for any $n\in\N$.
+  \par A distribution is a linear continuous map $f:\mathcal{D}\to\R$ with respect to the topology given above. Thus the space of distributions of $\mathcal{D}$ is precisely the continuous dual $\mathcal{D}'$ of $\mathcal{D}$.
+  We further introduce a topology on $\mathcal{D}'$ by $(f_n)_{n\in \N}$ converges to $0$ in $\mathcal{D}'$ if $f_n(t)\to 0$ for each $t\in \mathcal{D}$. 
+\end{definition}
+
+\begin{example}
+  Let $f$ be a continuous function, then we define,
+  \begin{equation*}
+    f(t) = \int_{-\infty}^\infty f(x)t(x)dx.
+  \end{equation*}
+  From the construction, one sees that for $f:\R\to\R$ to induce a distribution it is enough to assume that $f$ is locally integrable.
+\end{example}
+
+\begin{definition}
+  The Dirac $\delta$-distribution at the origin is a distribution such that 
+  \begin{equation*}
+    \delta(f) = f(0).
+  \end{equation*}
+\end{definition}
+
+\begin{remark}
+  Such $\delta$ is not induced by any function.
+\end{remark}
+
+\begin{definition}
+  Let $t\in\mathcal{D},f\in\mathcal{D}$ then we define, 
+  \begin{equation*}
+    f'[t] = -f[t'].
+  \end{equation*}
+\end{definition}
+
+We refer to \cite{laurent} for more details about distributions.
+
+\begin{theorem}
+  Let $(f_n)_{n\in \N}$ be a sequence in $\mathcal{D}'$ then 
+  \begin{equation*}
+    f_n\stackrel{\mathcal{D}'}{\to}f\Rightarrow f_n'\stackrel{\mathcal{D}'}{\to}f'.
+  \end{equation*}
+\end{theorem}
+
+\begin{definition}
+  Let us take $E=\mathcal{D}$ the set of test functions (more generally, we can take $\mathcal{D}'$ the space of distributions). We define for $f,q\in \mathcal{D}'_{p,q}$ by 
+  \begin{equation*}
+    \langle f,g\rangle(z) = \sum f_{IJ}(z)\overline{g}_{IJ}(z).
+  \end{equation*}
+  Let $\varphi$ be a continuous function which is everywhere positive on $\G$. We then define a scalar product,
+  \begin{equation*}
+    (f,g)_\varphi \defeq \int_\G \langle f,g\rangle(z)e^{-\varphi(z)}d\lambda(z).
+  \end{equation*}
+  We will denote,
+  \begin{equation*}
+    \norm{f}_\varphi^2 = (f,f)_\varphi.
+  \end{equation*}
+  We call $(\cdot,\cdot)_\varphi$ a scalar product with respect to the weight function $\varphi$.
+\end{definition}
+
+\begin{definition}
+  We will denote $L^2_{p,q,\loc}(\G)$ to be the set of locally square integrable functions/forms on $\G$. We also define,
+  \begin{equation*}
+    L^2_{p,q}(\G,\varphi) = \{f\in \mathcal{D}'_{p,q}\sep \norm{f}_\varphi<\infty\}.
+  \end{equation*}
+\end{definition}
+
+\begin{remark}
+  $(L^2_{p,q}(\G,\varphi),(\cdot,\cdot)_\varphi)$ is a Hilbert space and we have,
+  \begin{equation*}
+    L_{p,q}^2(\G,\varphi)\subseteq L^2_{p,q,\loc}(\G).
+  \end{equation*}
+\end{remark}
+
+\begin{proposition}
+  $\mathcal{D}_{pq}$ is dense in $L^2_{pq}(\G,\varphi)$.
+\end{proposition}
+
+
+\begin{lemma}
+  Let $f\in L_{p,q,\loc}^2(\G)$, then there is a weight function $\varphi$, such that $f\in L_{p,q}^2(\G,\varphi)$.
+\end{lemma}
+
+\begin{proof}
+  Choose $\varphi_0$ such that $1\in L^2(\G,\varphi_0)$. That is 
+  \begin{equation*}
+    \int_\G e^{-\varphi(z)}\lambda(z)<\infty.
+  \end{equation*}
+  Let us take $\varphi$ such that 
+  \begin{equation*}
+    \varphi\geq \varphi_0+\log\vert f\vert^2.
+  \end{equation*}
+  Then 
+  \begin{equation*}
+    \norm{f}_{\varphi}^2 = \int_\G\vert f\vert^2e^{-\varphi}d\lambda \leq \int_\G\vert f\vert^2e^{-\varphi_0-\log\vert f\vert^2}d\lambda\leq \norm{1}_{\varphi_0}<\infty.
+  \end{equation*}
+\end{proof}
+
+  Let $f\in L_{p,q}^2(\G,\varphi)$ then $\overline{\partial}f\in\mathcal{D}_{p,q+1}(\G,\varphi)$. Let $\varphi$ be a weight such that
+  \begin{equation*}
+    L^2_{p,q+1}(\G,\varphi)\subseteq \mathcal{D}'_{p,q+1}.
+  \end{equation*}
+  If $\overline{\partial}f\in L_{p,q+1}^2(\G,\varphi)$, then we define,
+  \begin{equation*}
+    T:L_{p,q}^2(\G,\varphi)\to L^2_{p,q+1}(\G,\varphi), f\mapsto\overline{\partial}f.
+  \end{equation*}
+  We have,
+  \begin{equation*}
+    \Dom T = \{f\sep \overline{\partial}f=Tf\in L_{p,q}^2(\G,\varphi)\}\subseteq \mathcal{D}_{p,q}.
+  \end{equation*}
+
+ $T$ is densely defined.
+
+ \begin{lemma}
+  Such $T$ is a closed operator that is the graph $\Gamma_T\subseteq L_{p,q}^2(\G,\varphi)\times L_{p,q+1}^2(\G,\varphi)$ is closed.
+ \end{lemma}
+
+ \begin{proof}
+  Let $(f_n)_{n\in \N}$ be a sequence in $\Dom T$ such that $(f_n,Tf_n)\stackrel{L^2}{\to}(f,g)$. We want to show that $f\in\Dom T$ and $g = Tf$.
+  Observe that $L^2$-convergence implies $\mathcal{D}'$ convergence. Therefore, 
+  \begin{equation*}
+    Tf_n = \overline{\partial}f_n \to \overline{\partial}f.
+  \end{equation*}
+  Therefore, we conclude $f\in \Dom T, g=\overline{\partial}f = Tf$. 
+ \end{proof}
+
+ \begin{proposition}
+  $T$ is closed densely defined linear operator between Hilbert spaces.
+ \end{proposition}
+
+ \begin{definition}
+    We define $\mathcal{N}_T$ to be the null space of $T$ and $\mathcal{R}_T$ to be the range of $T$. 
+  \end{definition}
+
+  \begin{remark}
+    $\mathcal{N}_T$ is closed but $\mathcal{R}_T$ is not necessarily closed.
+  \end{remark}
+
+
+  Let $\varphi_1,\varphi_2,\varphi_3$ be weight functions. Consider
+  \begin{center}
+    \begin{tikzcd}
+{L_{p,q}^2(\G,\varphi_1)} \arrow[r, "T"] & {L_{p,q+1}^2(\G,\varphi_2)} \arrow[r, "S"] & {L_{p,q+2}^2(\G,\varphi_3)}
+\end{tikzcd}
+  \end{center}
+  where $T,S$ are both defined by $\overline{\partial}$.
+  We have $\mathcal{N}_S$ is closed, and $\overline{\partial}\circ\overline{\partial}=0$, therefore 
+  \begin{equation*}
+    \mathcal{R}_T\subseteq\mathcal{N}_S.
+  \end{equation*}
+
+The natural question to ask is when do we have an equality to the above inclusion. This question leads us to find general solutions of $(\CR)_{p,q+1}$.
+\subsection{Unbounded Operators in Hilbert Spaces}
+We first recall the definition of linear operators between Hilbert spaces.
+\begin{definition}
+  Let $H_1,H_2$ be Hilbert spaces. A linear operator is a linear map $T:H_1\to H_2$ which is defined on some subspace $\Dom T$ of $H_1$. (Thus $T$ need not be defined in the whole space.) Similarly as before, $\mathcal{R}_T$ is defined as the range of $T$ which is a subspace of $H_2$. 
+\end{definition}
+
+\begin{definition}
+  A linear operator $T:H_1\to H_2$ is densely defined if $\Dom T$ is dense in $H_1$. $T$ is closed if the graph,
+  \begin{equation*}
+    \Gamma_T \defeq \{(f,Tf)\sep f\in \Dom T\}
+  \end{equation*}
+  is closed in $H_1\times H_2$.
+\end{definition}
+\begin{proposition}
+  If $T:H_1\to H_2$ is closed then $\mathcal{N}_T$ is closed in $H_1$.
+\end{proposition}
+\begin{proposition}
+  Suppose $T:(H_1,\langle\cdot,\cdot\rangle_1)\to (H_2,\langle\cdot,\cdot\rangle_2)$ be a linear operator which is densely defined. Let $x\in\Dom T,y\in H_2$. Let us define,
+  \begin{equation*}
+    l_y(x)\to \langle Tx,y\rangle_2.
+  \end{equation*}
+  If $l_y$ is bounded then $l_y$ extends to $H_1$. Using Riesz representation theorem, we obtain a linear map $T^*:H_2\to H_1$ such that 
+  \begin{equation*}
+    l_y(x) = \langle Tx,y\rangle_2 = \langle x,T^*y\rangle_1.
+  \end{equation*}
+  We have,
+  \begin{equation*}
+    \Dom T^* = \{y\in H_2\sep \exists c \st \vert\langle Tx,y\rangle_2\vert\leq c\norm{x}_1\}.
+  \end{equation*}
+\end{proposition}
+
+\begin{definition}
+  Let $T:H_1\to H_2$ be a linear operator. The adjoint operator $T^*:H_2\to H1$ of $T$ is a linear operator such that 
+  \begin{equation*}
+    \langle Tx,y\rangle_2 = \langle x,T^*y\rangle.
+  \end{equation*}
+\end{definition}
+\begin{proposition}
+  Let $T:H_1\to H_2$ be a densely defined closed linear operator. Then its adjoint $T^*:H_2\to H_1$ is also densely defined and closed. Moreover $T^{**}=T$.
+  Furthermore, in this case, we have,
+  \begin{equation*}
+    H_1 = \mathcal{N}_T\oplus \overline{\mathcal{R}_{T^*}},H_2 = \mathcal{N}_{T^*}\oplus \overline{\mathcal{R}_{T}}.
+  \end{equation*}
+\end{proposition}
+\begin{proof}
+  Left as an exercise to the readers.
+\end{proof}
+The question we would like to study is what are the conditions for 
+\begin{equation*}
+  \mathcal{R}_T = \overline{\mathcal{R}_T},\mathcal{R}_{T^*} = \overline{\mathcal{R}_{T^*}},
+\end{equation*}
+that is when the range of either $T$ or $T^*$ closed?
 \begin{thebibliography}{9}
 \bibitem{Lieb}
 Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic Results to Advanced Topics, Springer Fachmedien Wiesbaden GmbH, Wiesbaden.
@@ -5325,5 +5601,6 @@ Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic
 \bibitem{LiM} Lieb, Ingo and Michel ,Joachim (2002) The Cauchy-Riemann complex: integral formulae and Neumann problem.
 \bibitem{Hir} Hirzebruch, Friedrich (1966) Topological Methods in Algebraic Geometry
 \bibitem{derham} de Rham,(1984) George Differentiable manifolds. Forms, currents, harmonic forms.
+\bibitem{laurent} Schwartz, Laurent (2008) Mathematics For The Physical Sciences, Dover Publications Inc.
 \end{thebibliography}
 \end{document}
