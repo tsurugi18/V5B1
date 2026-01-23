@@ -3638,6 +3638,7 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
     \item There exists a distance function $\delta$ such that $u(z) = -\log\delta(z)$ is plurisubharmonic.
     \item For any distance function $\delta$, $u(z) = -\log\delta(z)$ is plurisubharmonic.
   \end{enumerate}
+  \label{theorem_pseudo_convex_equiv}
 \end{theorem}
 
 \begin{definition}
@@ -5393,22 +5394,23 @@ Through out this subsection, we will denote $\G\subseteq\C^n$ as a domain and $E
     \mathcal{D} \defeq \cinf_C(\R).
   \end{equation*}
   A sequence $(\varphi_n)_{n\in \N}$ in $\mathcal{D}$ converges to $0$ in $\mathcal{D}$ if $(\varphi_n)_{n\in \N}$ converges uniformly to $0$ and $\supp \varphi_n$ is contained in a finite measure interval for any $n\in\N$.
-  \par A distribution is a linear continuous map $f:\mathcal{D}\to\R$ with respect to the topology given above. Thus the space of distributions of $\mathcal{D}$ is precisely the continuous dual $\mathcal{D}'$ of $\mathcal{D}$.
-  We further introduce a topology on $\mathcal{D}'$ by $(f_n)_{n\in \N}$ converges to $0$ in $\mathcal{D}'$ if $f_n(t)\to 0$ for each $t\in \mathcal{D}$. 
+\end{definition}
+\begin{definition} 
+  A distribution is a linear continuous map $f:\mathcal{D}\to\R$ where we consider. Thus the space of distributions of $\mathcal{D}$ is precisely the continuous dual $\mathcal{D}'$ of $\mathcal{D}$.
+  The topology on $\mathcal{D}'$ is defined as follows. $(f_n)_{n\in \N}$ converges to $0$ in $\mathcal{D}'$ if $f_n(t)\to 0$ for each $t\in \mathcal{D}$. 
 \end{definition}
 
 \begin{example}
-  Let $f$ be a continuous function, then we define,
+  Any locally integrable function defines a continuous dual. Let $f$ be a locally integrable funciton. Then we define,
   \begin{equation*}
-    f(t) = \int_{-\infty}^\infty f(x)t(x)dx.
+    \tilde{f}[t] = \int_{-\infty}^\infty f(x)t(x)dx.
   \end{equation*}
-  From the construction, one sees that for $f:\R\to\R$ to induce a distribution it is enough to assume that $f$ is locally integrable.
 \end{example}
 
 \begin{definition}
-  The Dirac $\delta$-distribution at the origin is a distribution such that 
+  The Dirac $\delta$-distribution at the origin is defined as.
   \begin{equation*}
-    \delta(f) = f(0).
+    \delta[f] = f(0).
   \end{equation*}
 \end{definition}
 
@@ -5433,7 +5435,7 @@ We refer to \cite{laurent} for more details about distributions.
 \end{theorem}
 
 \begin{definition}
-  Let us take $E=\mathcal{D}$ the set of test functions (more generally, we can take $\mathcal{D}'$ the space of distributions). We define for $f,q\in \mathcal{D}'_{p,q}$ by 
+  Let us take $E=\mathcal{D}$ the set of test functions (more generally, we can take $\mathcal{D}'$ the space of distributions). We define a bilinear form for $f,q\in \mathcal{D}'_{p,q}$ by 
   \begin{equation*}
     \langle f,g\rangle(z) = \sum f_{IJ}(z)\overline{g}_{IJ}(z).
   \end{equation*}
@@ -5449,7 +5451,7 @@ We refer to \cite{laurent} for more details about distributions.
 \end{definition}
 
 \begin{definition}
-  We will denote $L^2_{p,q,\loc}(\G)$ to be the set of locally square integrable functions/forms on $\G$. We also define,
+  We denote $L^2_{p,q,\loc}(\G)$ to be the set of locally square integrable functions/forms on $\G$. We also define,
   \begin{equation*}
     L^2_{p,q}(\G,\varphi) = \{f\in \mathcal{D}'_{p,q}\sep \norm{f}_\varphi<\infty\}.
   \end{equation*}
@@ -5463,9 +5465,8 @@ We refer to \cite{laurent} for more details about distributions.
 \end{remark}
 
 \begin{proposition}
-  $\mathcal{D}_{pq}$ is dense in $L^2_{pq}(\G,\varphi)$.
+  $\mathcal{D}_{p,q}$ is dense in $L^2_{p,q}(\G,\varphi)$.
 \end{proposition}
-
 
 \begin{lemma}
   Let $f\in L_{p,q,\loc}^2(\G)$, then there is a weight function $\varphi$, such that $f\in L_{p,q}^2(\G,\varphi)$.
@@ -5519,7 +5520,14 @@ We refer to \cite{laurent} for more details about distributions.
  \end{proposition}
 
  \begin{definition}
-    We define $\mathcal{N}_T$ to be the null space of $T$ and $\mathcal{R}_T$ to be the range of $T$. 
+    We define the null space $\mathcal{N}_T$ of $T$ to be
+    \begin{equation*}
+    \mathcal{N}_T \defeq \{x\in\Dom T\sep Tx = 0\}.
+    \end{equation*}
+    And the range $\mathcal{R}_T$ of $T$ to be 
+    \begin{equation*}
+      \mathcal{R}_T\defeq \{Tx\sep x\in\Dom T\}.
+    \end{equation*}
   \end{definition}
 
   \begin{remark}
@@ -5592,6 +5600,326 @@ The question we would like to study is what are the conditions for
   \mathcal{R}_T = \overline{\mathcal{R}_T},\mathcal{R}_{T^*} = \overline{\mathcal{R}_{T^*}},
 \end{equation*}
 that is when the range of either $T$ or $T^*$ closed?
+\begin{theorem}
+  Let $T:(H_1,\langle\cdot,\cdot\rangle_1)\to(H_2,\langle\cdot,\cdot\rangle_2)$ be a densely defined closed operator such that $\mathcal{R}_T\subseteq F$ for some closed subspace $F$. We have the following are equivalent.
+  \begin{enumerate}[1).]
+    \item $\mathcal{R}_T=F$,
+    \item $\exists c>0$ such that for all $y\in\Dom T^*\cap F$,
+    \begin{equation*}
+      \norm{y}_2\leq C\norm{T^*y}_1.
+    \end{equation*}
+  \end{enumerate}
+  If $\mathcal{R}_T$ is closed then we have,
+  \begin{enumerate}[1).]
+    \setcounter{enumi}{2}
+    \item $T^*$ has its range closed.
+    \item $\forall x\in\mathcal{R}_{T^*}$ there is $y\in\Dom T^*$ such that 
+    \begin{equation*}
+      \norm{y}_2\leq c\norm{x}_1.
+    \end{equation*}
+  \end{enumerate}
+  \label{theorem_closedness_range}
+\end{theorem}
+\begin{proof}
+  The complete proof can be found in \cite{Hom} 4.1.1 and 4.1.2.
+\end{proof}
+\subsection{The Basic Estimates}
+
+\begin{definition}
+  Let $\G\subseteq\C^n$ be a domain and $\varphi_1,\varphi_2,\varphi_3\in\cinf_c(\G)$ be everywhere positive test functions. Consider the sequence 
+    \begin{center}
+    \begin{tikzcd}
+{L_{p,q}^2(\G,\varphi_1)} \arrow[r, "T"] & {L_{p,q+1}^2(\G,\varphi_2)} \arrow[r, "S"] & {L_{p,q+2}^2(\G,\varphi_3)}
+\end{tikzcd}
+  \end{center}
+  We say the basic estimate holds for the sequence if there is a constant $C>0$ such that for all $f\in\Dom T^*\cap\Dom S$, we have
+  \begin{equation*}
+    \norm{f}_{\varphi_2}^2\leq C^2(\norm{T^*f}_{\varphi_1}^2+\norm{Sf}_{\varphi_3}^2).
+  \end{equation*}
+  \label{definition_basic_estimate}
+\end{definition}
+\begin{proposition}
+  Suppose the basic estimate holds, then for $f\in\mathcal{N}_S$, we have,
+  \begin{equation*}
+    \norm{f}^2_{\varphi_2}\leq C^2\norm{T^*f}_{\varphi_1}^2.
+  \end{equation*}
+  \label{proposition_basic_estimate_kernel}
+\end{proposition}
+\begin{theorem}
+  \label{theorem_solution_cr_be}
+  If the basic estimate holds then $\mathcal{R}_T = \mathcal{N}_S$. That is for any $f\in\mathcal{N}_S$ there is $u\in L_{p,q}^2(\varphi_1)$ such that $Tu=f$.
+\end{theorem}
+\begin{proof}
+  Follows from Proposition \ref{proposition_basic_estimate_kernel} together with Theorem \ref{theorem_closedness_range}.
+\end{proof}
+\begin{remark}
+  Theorem \ref{theorem_solution_cr_be} tells us that this solves $(\CR)_{p,q+1}$ in the sense of distributions.
+\end{remark}
+\begin{remark}
+  In the case of constants, Definition \ref{definition_basic_estimate} says,
+  for $a,b,c>0$ we have,
+  \begin{align*}
+    c\leq a+b&\Rightarrow c^2\leq 2(a^2+b^2),\\
+    c^2\leq a^2+b^2&\Rightarrow c\leq a+b.
+  \end{align*}
+\end{remark}
+We now move on to find conditions for the basic estimate. Let $\varphi,\psi$ be everywhere positive test functions. Set,
+\begin{align*}
+  \varphi_1 & = \varphi-2\psi,\\
+  \varphi_2 & = \varphi-\psi,\\
+  \varphi_3 & = \varphi
+\end{align*}
+Let us impose some conditions on $\psi$. Consider a chain of smooth functions
+\begin{equation*}
+  \eta_1\leq\eta_2\leq\cdots,
+\end{equation*}
+such that $\eta_i\in[0,1]$ for each $i\in\N$ and for any compact set $K$, there is $i\in\N$ such that 
+\begin{equation*}
+  K\subseteq \{\eta\equiv 1\}.
+\end{equation*}
+\begin{definition}
+  $\psi$ satisfies the following equation,
+  \begin{equation*}
+    \vert \partial\eta_n\vert^2\leq e^\psi,\tag{H}\label{equation_h_cond}
+  \end{equation*}
+  then we say $\psi$ satisfies \eqref{equation_h_cond}.
+\end{definition}
+\begin{lemma}
+  \eqref{equation_h_cond} can be fulfilled.
+\end{lemma}
+\begin{proof}
+  Let $K$ be a compact subset of $\G$. For $\psi$ to satisfy finitely many (construction)? Suppose $K\subset K'$ is also compact then $\psi$ can be extended without changing on $K$ to satisfy \eqref{equation_h_cond}. %needs revision.
+\end{proof}
+\begin{definition}
+  $\varphi,\psi$ be given. If the equation,
+  \begin{equation*}
+    L_\varphi(z;t)\geq 2(\vert\partial\psi(z)\vert^2+e^{\psi(z)})\norm{t}^2,\tag{E}\label{equation_e_cond}
+  \end{equation*}
+  where $L_\varphi$ is the Levi form is satisfied, we say $\varphi$ satisfies condition \eqref{equation_e_cond} with respect to $\psi$.
+\end{definition}
+\begin{remark}
+  If $\varphi$ satisfies \eqref{equation_e_cond}, then it is necessarily strictly plurisubharmonic. Furthermore, it admits plurisubharmonic smooth exhaustive functions. Therefore $\G$ is necessarily pseudoconvex. This follows from Theorem \ref{theorem_pseudo_convex_equiv}
+\end{remark}
+\begin{theorem}[Hörmander]
+  Let $\varphi,\psi$ be such that together they satisfy \eqref{equation_h_cond} and \eqref{equation_e_cond}. Let us put,
+  \begin{align*}
+  \varphi_1 & = \varphi-2\psi,\\
+  \varphi_2 & = \varphi-\psi,\\
+  \varphi_3 & = \varphi.
+  \label{equation_d_cond}\tag{D}
+\end{align*}
+Then the basic estimates hold with constant $C=1$. That is we have,
+\begin{equation*}
+\norm{f}^2_{\varphi_2}\leq \norm{T^*f}^2_{\varphi_1}+\norm{Sf}^2_{\varphi_3}.
+\end{equation*}
+\end{theorem}
+\begin{theorem}[Friedrich/Hörmander]
+  Suppose $\psi$ satisfies \eqref{equation_h_cond} and $\varphi_1,\varphi_2,\varphi_3$ are given as in Equation \eqref{equation_d_cond}. Then $\mathcal{D}_{p,q+1}$ is dense in $\Dom T^*\cap \Dom S$.
+  \par Moreover, $f\in\Dom T^*\cap \Dom S$ then there is a sequence $(f_j)_{j\in\N}$ in $\mathcal{D}_{p,q+1}$ such that 
+  \begin{align*}
+    f_j&\stackrel{L^2}{\to}f,\\
+    \overline{\partial}f_j&\stackrel{L^2}{\to}Sf,\\
+    T^*j&\stackrel{L^2}{\to}T^*f.\\
+  \end{align*}
+\end{theorem}
+\begin{proof}
+  The complete proof can be found in \cite{Hom} 4.1.3.
+\end{proof}
+\begin{theorem}
+  Let $\psi,\varphi$ satisfy \eqref{equation_h_cond} and \eqref{equation_e_cond}. Suppose $\varphi_1,\varphi_2,\varphi_3$ are given as in Equation \eqref{equation_d_cond}. Then, for each $f\in\mathcal{D}_{p,q+1}$, we have 
+  \begin{equation*}
+  \norm{f}^2_{\varphi_2}\leq \norm{T^*f}_{\varphi_1}+\norm{Sf}_{\varphi_3}.
+  \end{equation*}
+  That is, it satisfies the basic estimate.
+\end{theorem}
+\subsection{Proof of Basic Estimate formel}
+Since $\C^n$ admits a global coordinate therefore we can assume $p=0$ without the loss of genearlity.
+\begin{center}
+  \begin{tikzcd}
+{(\mathcal{D}_{0,q},\langle\cdot,\cdot\rangle_{\varphi_1})} \arrow[r, "T=\overline{\partial}", shift left] & {(\mathcal{D}_{0,q+1},\langle\cdot,\cdot\rangle_{\varphi_2})} \arrow[l, "T^*", shift left]
+\end{tikzcd}
+\end{center}
+Compute $T^*$ explicitly that is, for $fin\mathcal{D}_{0,q+1}$ such that 
+\begin{equation*}
+  f = \sum_{\vert J\vert = q+1}f_J d\overline{z}^J.
+\end{equation*}
+Then consider,
+\begin{equation*}
+  u = \sum_{\vert K\vert = q}u_Kd\overline{z}^K\in\mathcal{D}_{0,q}.
+\end{equation*}
+We want 
+\begin{equation*}
+  (T^*f,u)_{\varphi_1} = (f,\overline{\partial}u)_{\varphi_2}.
+\end{equation*}
+Write,
+\begin{equation*}
+  T^*f = \sum_{\vert K\vert = q}(T^*f)_Kd\overline{z}^K.
+\end{equation*}
+Note that we have,
+\begin{equation*}
+  \overline{\partial}u = \sum_K\sum_{j=1}^n \pd{u_K}{\overline{z}_j}d\overline{z}_j\wedge d\overline{z}^K.
+\end{equation*}
+Using the equation above, we have,
+\begin{align*}
+  (T^*f,u)_{\varphi_1} & =\int\sum_K (T^*f)_K\overline{u}_Ke^{-\varphi_1}d\lambda. \\
+  (f,\overline{\partial}u) & = \int\sum_K\sum_{j=1}^n \pd{u_K}{\overline{z}_j}f_{(j,K)}d\overline{z}_j\wedge d\overline{z}^Ke^{-\varphi_2}d\lambda,\\
+  & = -\int\sum_{K}\sum_j \pd{(f_{(j,K)}e^{-\varphi_1})}{z_j}\overline{u}_Ke^{\varphi_1}e^{-\varphi_2}d\lambda.
+\end{align*}
+Compute $T^*f = e^{\varphi_1}\sum_{K,j}\pd{(f_{(j,K)}e^{-\varphi_1})}{z_j}d\overline{z}^K$. 
+We set,
+\begin{equation*}
+  e^{\varphi_1}(\theta(e^{-\varphi_1}f)) \defeq e^{\varphi_1}\sum_{K,j}\pd{(f_{(j,K)}e^{-\varphi_1})}{z_j}d\overline{z}^K.
+\end{equation*}
+Compute $\vert \overline{\partial}f\vert^2$. Note we have,
+\begin{equation*}
+  \overline{\partial}f=\sum_{\vert J\vert = q+1}\pd{f_j}{\overline{z}_j}d\overline{z}_j\wedge d\overline{z}^J.
+\end{equation*}
+Therefore,
+% \begin{equation*}
+%   \vert \overline{\partial}f\vert^2 = \langle\overline{\partial}f,\overline{\partial}f\rangle   = \sum_{\vert J\vert = q+1}\sum_j \left\vert \pd{f_j}{z_j}\right\vert^2 - \sum_{\vert K\vert = q}\sum_{j\not=k}\pd{f_{(j,K)}}{\overline{z}_k}\overline{\pd{f_{(k,K)}}{z_j}}.
+% \end{equation*}
+\begin{align*}
+  \vert\overline{\partial}f\vert^2 & = \langle\overline{\partial}f,\overline{\partial}f\rangle,\\
+  & = \sum_{\vert J\vert = q+1}\sum_{\vert L\vert =q+1}\sum_j\sum_l\pd{f_J}{\overline{z}_j}\overline{\pd{f_L}{\overline{z}_l}}\cdot\varepsilon^{jJ}_{lL}.
+\end{align*}
+where,
+\begin{equation*}
+  \varepsilon_{lL}^{jJ}=\begin{cases}
+    0,\quad j\in J,\\
+    0,\quad l\in L,\\
+    0,\quad (j,J)\not=(l,L)\text{ as sets},\\
+    \sgn{jJ\choose lL}.
+  \end{cases}
+\end{equation*}
+Thus decompose into two signs, where $j=l$ or $\varepsilon_{lL}^{jJ}=1$. 
+For the first case,
+\begin{equation*}
+  \sum_{\substack{j,J}} \left\vert\pd{f_j}{\overline{z}_j}\right\vert^2. 
+\end{equation*}
+For $j\not=l$, we have $j\in L$ and $l\in J$, set $L\backslash\{j\}=J\backslash\{l\}\defeq K$. Then,
+\begin{equation*}
+  \sum_{J,L}\sum_{j\not=l}\pd{f_{J}}{\overline{z}_j}\overline{\pd{f_{L}}{\overline{z}_l}}\varepsilon_{lL}^jJ.
+\end{equation*}
+Observe that we have,
+\begin{equation*}
+  \varepsilon_{lL}^{jJ}=\varepsilon_{jlK}^{jJ}\varepsilon_{ljK}^{jlK}\varepsilon_{lL}^{ljK} = -\varepsilon_{jlK}^{jJ}\varepsilon_{lL}^{ljK}=-\varepsilon_{lK}^J\varepsilon_L^{jK}=-1.
+\end{equation*}
+Thus,
+\begin{equation*}
+  -\sum_{\vert K\vert q}\sum_{j\not=l}\pd{f_{lK}}{\overline{z}_j}\overline{\pd{f_{jK}}{\overline{z}_l}}.
+\end{equation*}
+Combining two cases together we obtain,
+\begin{equation*}
+  \vert \overline{\partial}f\vert^2 = \sum_{J,j}\left\vert\pd{f_J}{\overline{z}_j}\right\vert-\sum_{\vert K\vert =q}\sum_{j,k}\pd{f_{jK}}{\overline{z}_k}\overline{\pd{f_{kK}}{\overline{z}_j}}.
+\end{equation*}
+Choose $\varphi,\psi>0$ be smooth. Choose $\varphi_1,\varphi_2,\varphi_3$ be such that 
+  \begin{align*}
+  \varphi_1 & = \varphi-2\psi,\\
+  \varphi_2 & = \varphi-\psi,\tag{D}\\
+  \varphi_3 & = \varphi.
+\end{align*}
+And set $\psi$ so that it satisfies \eqref{equation_h_cond}, that is there is a sequence $(\eta_n)_{n\in\N}$ such that $\eta_n(\G)\subseteq[0,1]$, and for any compact set there is $n\in \N$ such that 
+\begin{equation*}
+  K\subseteq \{\eta_n=1\}.
+\end{equation*}
+And $\psi$ satisfies 
+\begin{equation*}
+  \vert \partial\eta_n\vert^2\leq e^\psi\tag{H}.
+\end{equation*}
+Let $v$ be a function on $\G$ and $\varphi$ be a weight function,
+\begin{align*}
+  \delta_j v& = e^\varphi\pd{}{z_j}(e^{-\varphi}v),\\
+  & = \pd{v}{z_j}-\pd{\varphi}{z_j}v.
+\end{align*}
+Insert $\delta$ in $T^*f$ to obtain,
+\begin{align*}
+  e^\varphi T^*f = -\sum_{\vert K\vert =q}\left(\sum_j \delta_jf_{jK}+\pd{\psi}{z_j}f_{jK}\right)d\overline{z}^K.
+\end{align*}
+Now, we compute the following scalar product. All integrals are now over $\C^n$ and have compact support in $\G$.
+\begin{align*}
+  \int \sum_{K}\sum_{j,k}\delta_jf_{jK}\overline{\delta_kf_{kK}}e^{-\varphi}d\lambda& = \int \left\vert e^\psi T^*f+\sum\pd{\psi}{z_j}f_{jK}\right\vert^2e^{-\varphi}d\lambda,\\
+  & \leq 2\int e^{2\psi}\vert T^*f\vert^2 e^{-\varphi}d\lambda+2\int \vert\partial\psi\vert^2\vert f\vert^2e^{-\varphi}d\lambda
+\end{align*}
+Now add $\int\vert\partial f\vert^2e^{-\varphi}d\lambda$ to both sides and thi yields,
+\begin{align*}\label{equation_star}
+  \int\sum_K\left(\sum_{j,k}\delta_jf_{jK}\overline{\delta_kf_{kK}}-\pd{f_{jK}}{\overline{z}_k}\overline{\pd{f_{kK}}{\overline{z}_j}}\right)e^{-\varphi}d\lambda &+ \int \sum_J\sum_j\left\vert\pd{f_J}{\overline{z}_j}\right\vert e^{-\varphi}d\lambda,\tag{$\ast$}\\
+  &\leq \norm{T^*f}_{\varphi_1}^2+\norm{Sf}_{\varphi_2}^2+2\int\vert\partial\psi\vert^2\vert f\vert^2e^{-\varphi}d\lambda.
+\end{align*}
+\begin{lemma}
+  Let $v_1,v_2\in\mathcal{D}_0$ we have,
+  \begin{equation*}
+    \int v_1\overline{\pd{}{\overline{z}_k}v_2}e^{-\varphi}d\lambda = -\int\delta_kv_1\overline{v_2}e^{-\varphi}d\lambda.
+  \end{equation*}
+  Moreover, we have,
+  \begin{equation*}
+    \delta_j\pd{}{\overline{z}_k}-\pd{}{\overline{z}_k}\delta_j={\frac {\partial^2\varphi}{\partial z_j\partial\overline{z}_k}}.
+  \end{equation*}
+\end{lemma}
+Using the lemma above, Equation \eqref{equation_star}, becomes 
+\begin{align*}
+  -\int\sum_{K}\sum_{j,k}\left(\pd{}{\overline{z}_k}\delta_jf_{jK}-\delta_j\pd{f_{jK}}{\overline{z}_k}\right)\overline{f}_{kK}e^{-\varphi}d\lambda=\int\sum_{K}\sum_{j,k}{\frac {\partial^2\varphi}{\partial z_j\partial\overline{z}_k}}f_{jK}\overline{f_{kK}}e^{-\varphi}d\lambda.
+\end{align*}
+Now this leads us to 
+\begin{align*}
+\int\sum_{K}\sum_{j,k}{\frac {\partial^2\varphi} {\partial z_j\partial\overline{z}_k}}f_{jK}\overline{f}_{kK}e^{-\varphi}d\lambda&+\int\sum_J\sum_j\left\vert\pd{f_j}{\overline{z}_j}\right\vert^2e^{-\varphi}d\lambda \tag{$\ast\ast$}\\
+&\leq 2\norm{T^*f}_{\varphi_1}^2+\norm{Sf}_{\varphi_3}^2+2\int\vert f\vert^2\vert\partial\psi\vert^2e^{-\varphi}d\lambda
+\end{align*}
+Let $\varphi$ be strictly plurisubharmonic, then 
+\begin{equation*}
+  L_\varphi(z;t)\geq c(z)\norm{t}^2,
+\end{equation*}
+where $c$ is a positive function on $\G$.
+\begin{equation*}
+  \int(c(z)-\vert\partial\psi(z)\vert^2)\vert f\vert^2 e^{-\varphi}d\lambda\leq 2\norm{T^*f}^2_{\varphi_1}+\norm{Sf}^2_{\varphi_3}.\tag{$\ast\ast\ast$}\label{equation_triple_star}
+\end{equation*}
+Finally introduce the condition \eqref{equation_e_cond} on $c$, that is 
+\begin{equation*}
+c(z)>2(\vert\partial \psi(z)\vert^2+e^{\psi(z)})\Leftrightarrow c(z)-2\vert\partial\psi\vert^2>2e^{\psi}.
+\end{equation*}
+Then Equation \eqref{equation_triple_star} is now,
+\begin{equation*}
+  2\norm{f}_{\varphi_2}^2\leq 2\norm{T^*f}_{\varphi_1}^2+\norm{Sf}_{\varphi_3}^2.
+\end{equation*}
+Thus we conclude,
+\begin{equation*}
+  \norm{f}_{\varphi_2}^2\leq \norm{T^*f}_{\varphi_1}^2+\norm{Sf}_{\varphi_3}^2.
+\end{equation*}
+\begin{proposition}
+  Suppose $\varphi,\psi$ together satisfy conditions \eqref{equation_h_cond},\eqref{equation_d_cond},\eqref{equation_e_cond}, and the triplet $(\varphi_1,\varphi_2,\varphi_3)$ is defined as in \eqref{equation_d_cond}, then the basic estimate holds in $\mathcal{D}_{0,q}$. Namely,
+  \begin{equation*}
+  \norm{f}_{\varphi_2}^2\leq \norm{T^*f}_{\varphi_1}^2+\norm{Sf}_{\varphi_3}^2.
+\end{equation*}
+\end{proposition}
+\begin{theorem}
+  \eqref{equation_h_cond},\eqref{equation_d_cond},\eqref{equation_e_cond} yield the basic estimate in $\Dom T^*\cap\Dom S$.
+\end{theorem}
+\begin{remark}
+  The theorem tells us that $\G$ must be pseudoconvex.
+\end{remark}
+\subsection{Solving $(\CR)$}
+\begin{theorem}
+  Let $f\in L^2_{0,q+1,\loc}(\G)$ where $G$ is pseudoconvex. Suppose 
+  \begin{equation*}
+  \overline{\partial}f=0.
+  \end{equation*}
+  Then there is $u\in L^2_{0,q,\loc}(\G)$ with 
+  \begin{equation*}
+    \overline{\partial}u = f.
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Will be shown in the coming lecture on this friday. Roughly, we will show there are $(\varphi_1,\varphi_2,\varphi_3)$ such that $f\in L^{0,q,\loc}(\G,\varphi_2)$ and the basic estimate holds. By the previous subsection, we know $f\in\mathcal{R}_T$ that is $f=\overline{\partial}u$ for some $u$.
+\end{proof}
+\begin{theorem}
+  $\G$ is pseudoconvex and $f\in\cinf_{0,q+1}(\G)$ with $\overline{\partial}f=0$.
+  \begin{enumerate}[1).]
+    \item for $q=0$, each solution $\overline{\partial}u=f$ is smooth,
+    \item for $q>0$, there is some $u\in \cinf_{0,q}$ with $\overline{\partial}u=f$.
+  \end{enumerate}
+\end{theorem}
+\begin{remark}
+  $\overline{\partial}$ is an elliptic operator on functions. $\overline{\partial}$ is not elliptic for $q>0$. In that case a smooth solutions will be singled out by an adjoint operator ($T^*$ essentially $\theta$), $\overline{\partial}\oplus\theta$ is elliptic.
+\end{remark}
 \begin{thebibliography}{9}
 \bibitem{Lieb}
 Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic Results to Advanced Topics, Springer Fachmedien Wiesbaden GmbH, Wiesbaden.

@@ -271,6 +271,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
 INPUT noteV5B1.aux
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb

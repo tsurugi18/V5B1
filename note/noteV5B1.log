@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.19)  15 JAN 2026 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.19)  22 JAN 2026 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,7 +781,7 @@ Overfull \hbox (2.15202pt too wide) in paragraph at lines 3586--3587
 [69]
 
 [70]
-Underfull \hbox (badness 10000) in paragraph at lines 3992--3993
+Underfull \hbox (badness 10000) in paragraph at lines 3993--3994
 
  []
 
@@ -792,19 +792,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 3992--3993
 [72]
 
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 4171--4173
+Underfull \hbox (badness 10000) in paragraph at lines 4172--4174
 
  []
 
 
 
 [74]
-Underfull \hbox (badness 10000) in paragraph at lines 4183--4185
+Underfull \hbox (badness 10000) in paragraph at lines 4184--4186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4185--4186
+Underfull \hbox (badness 10000) in paragraph at lines 4186--4187
 
  []
 
@@ -823,7 +823,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4185--4186
 [80]
 
 [81]
-Overfull \hbox (0.99467pt too wide) in paragraph at lines 4584--4585
+Overfull \hbox (0.99467pt too wide) in paragraph at lines 4585--4586
 []\OT1/cmr/bx/n/10 Definition 12.20. []\OT1/cmr/m/it/10 A $\OML/cmm/m/it/10 n$\OT1/cmr/m/it/10 -dimensional com-pact man-i-fold is a ringed space $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 O[]\OT1/cmr/m/n/10 )$
  []
 
@@ -832,7 +832,7 @@ Overfull \hbox (0.99467pt too wide) in paragraph at lines 4584--4585
 [82]
 
 [83]
-Overfull \hbox (13.25998pt too wide) in paragraph at lines 4689--4690
+Overfull \hbox (13.25998pt too wide) in paragraph at lines 4690--4691
 []\OT1/cmr/bx/n/10 Definition 12.25. []\OT1/cmr/m/it/10 A cobound-ary is an $\OMS/cmsy/m/n/10 O[]$\OT1/cmr/m/it/10 -module ho-mo-mor-phism $\OML/cmm/m/it/10 ^^N \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 C[]\OT1/cmr/m/n/10 (\U/rsfs/m/n/10 U\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
  []
 
@@ -843,7 +843,7 @@ Overfull \hbox (13.25998pt too wide) in paragraph at lines 4689--4690
 [85]
 
 [86]
-Overfull \hbox (2.71106pt too wide) in paragraph at lines 4882--4892
+Overfull \hbox (2.71106pt too wide) in paragraph at lines 4883--4893
 []\OT1/cmr/bx/n/10 Definition 12.33. []\OT1/cmr/m/it/10 Let $\OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 B$ \OT1/cmr/m/it/10 be sheaves. A mor-phism $\OML/cmm/m/it/10  \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 A ! B$ \OT1/cmr/m/it/10 is $[]$
  []
 
@@ -860,7 +860,7 @@ Overfull \hbox (2.71106pt too wide) in paragraph at lines 4882--4892
 [91]
 
 [92]
-Overfull \hbox (23.3689pt too wide) in paragraph at lines 5287--5288
+Overfull \hbox (23.3689pt too wide) in paragraph at lines 5288--5289
  [] 
  []
 
@@ -878,25 +878,49 @@ Overfull \hbox (23.3689pt too wide) in paragraph at lines 5287--5288
 
 [98]
 
-[99] (./noteV5B1.aux)
+[99]
+
+[100]
+
+[101]
+
+[102]
+
+[103]
+Overfull \hbox (54.41728pt too wide) detected at line 5847
+[]
+ []
+
+
+Overfull \hbox (13.2975pt too wide) detected at line 5861
+[]
+ []
+
+
+
+[104]
+
+[105]
+
+[106] (./noteV5B1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 18857 strings out of 473190
- 402252 string characters out of 5715799
- 859694 words of memory out of 5000000
- 41804 multiletter control sequences out of 15000+600000
- 572517 words of font info for 93 fonts, out of 8000000 for 9000
+ 18963 strings out of 473190
+ 404746 string characters out of 5715799
+ 860012 words of memory out of 5000000
+ 41910 multiletter control sequences out of 15000+600000
+ 573225 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,21n,121p,639b,1096s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on noteV5B1.pdf (99 pages, 600783 bytes).
+Output written on noteV5B1.pdf (106 pages, 622201 bytes).
 PDF statistics:
- 458 PDF objects out of 1000 (max. 8388607)
- 301 compressed objects within 4 object streams
+ 480 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
