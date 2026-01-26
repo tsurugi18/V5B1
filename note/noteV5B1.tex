@@ -1393,8 +1393,8 @@ However, the first integral term on the right hand side does not equal $0$.
 
 \subsection{Hartogos Levi problems.}
 
-The first problem is, given $n>1$, there exists adomain $\G$ such that all holomorphic functions on $\G$ extends holomorphically to a larger domain.
-\par Characterize the domains where this does not happen. 
+The first problem is, given $n>1$, there exists a domain $\G$ such that all holomorphic functions on $\G$ extends holomorphically to a larger domain.
+We will characterize the domains where this does not happen. 
 \begin{definition}
   A domain of holomorphy is a domain such that there exists a holomorphic function on it which cannnot be extended holomorphically to a larger domain.
 \end{definition}
@@ -1455,7 +1455,7 @@ Study the zero set of holomorphic function. This leads to analytic sets.
   \begin{equation*}
     f = \sum_{j\in\N_0}f_j,
   \end{equation*}
-  where $f$ is homogeneous polynomial of degree $j$. The sums and products are given by 
+  where $f_j$ is a homogeneous polynomial of degree $j$. The sums and products are given by 
   \begin{equation*}
     f+g = \sum_{i\in\N_0}f_i+g_i,\quad fg = \sum_{i=0}^n \sum_{j+k=i}f_jg_k.
   \end{equation*}
@@ -1487,14 +1487,14 @@ Study the zero set of holomorphic function. This leads to analytic sets.
 \end{corollary}
 
 \begin{definition}[Convergent Power Series]
-  For any $\underline{r}\in\N_0^n$, we define $c_{\underline{r}}\in\C$, then 
-  \begin{equation}
+  For any $\underline{r}\in\N_0^n$, we set $c_{\underline{r}}\in\C$, then 
+  \begin{equation*}
     \sum_{\underline{r}\in\N^n_0}c_{\underline{r}}
-  \end{equation}
-  converges to $c\in \C$ if for any $\varepsilon>0$, there is a finite subset $J_0\subset\N_0^n$ such that for all finite $j\subset\N_0^n$, with $ J\supset J_0$ we have,
-  \begin{equation}
+  \end{equation*}
+  converges to $c\in \C$ if for any $\varepsilon>0$, there is a finite subset $J_0\subset\N_0^n$ such that for all finite $J\subset\N_0^n$, with $ J\supset J_0$ we have,
+  \begin{equation*}
     \left\vert\sum_{\underline{r}\in J} c_{\underline{r}}-c\right\vert <\varepsilon.
-  \end{equation}
+  \end{equation*}
 \end{definition}
 
 \begin{proposition}
@@ -1504,7 +1504,7 @@ Study the zero set of holomorphic function. This leads to analytic sets.
 \begin{definition}
   Let $c_{\underline{r}}$ be a function on $M$ then 
   \begin{equation}
-    \sum_{\underline{r}\in\N_0^n}c_r \stackrel{\Rightarrow}{M} c
+    \sum_{\underline{r}\in\N_0^n}c_{\underline{r}} \stackrel{M}{\Rightarrow} c
   \end{equation}
   if and only if for any $\varepsilon>0$, there exists a finite set $J_0\subset\N_0^n$ such that for all finite set with $J\supset J_0$,
   and all $x\in M$, we have 
@@ -1516,20 +1516,20 @@ Study the zero set of holomorphic function. This leads to analytic sets.
 \begin{example}[Geometric Series]
   Let $0\leq q_i\leq 1$ for $i=1,\cdots,n$, then 
   \begin{equation}
-    \sum_{\underline{r}\in\N_0^n}\prod_{i=1}^n q_i^{r_i} = \prod_{i=1}^n{\frac 1 {1-p_i}}.
+    \sum_{\underline{r}\in\N_0^n}\prod_{i=1}^n q_i^{r_i} = \prod_{i=1}^n{\frac 1 {1-q_i}}.
   \end{equation}
 \end{example}
 
 \begin{proposition}
   Let 
   \begin{equation*}
-    f = \sum_{\underline{r}\in\N_0^n}a_{\underline{r}z^{\underline{r}}}\in\C\llbracket z\rrbracket.
+    f = \sum_{\underline{r}\in\N_0^n}a_{\underline{r}}z^{\underline{r}}\in\C\llbracket z\rrbracket.
   \end{equation*}
   Take
   \begin{equation*}
-  \underline{z}_0 = (z_{0,1},\cdots ,z_{0,n})\in\C^n, z_j^0\not=0.
+  \underline{z}_0 = (z_{1}^0,\cdots ,z_{n}^0)\in\C^n, z_j^0\not=0.
   \end{equation*}
-  Then if there exists $S>0$ such that 
+If there exists $S>0$ such that 
   \begin{equation}
     \vert a_{\underline{r}}z_0^{\underline{r}}\vert\leq S,
   \end{equation}
@@ -1541,6 +1541,7 @@ Study the zero set of holomorphic function. This leads to analytic sets.
   \begin{equation*}
     \vert z_j\vert \leq r_j<\vert z_{0,j}\vert.
   \end{equation*}
+  %later refine
 \end{proposition}
 \begin{corollary}
   A sum of power series is holomorphic function.
@@ -1565,11 +1566,9 @@ Study the zero set of holomorphic function. This leads to analytic sets.
   \end{equation*}
 \end{example}
 
-\begin{definition}
-  The convergence set is logarithmetically convex complete Reinhardt domain.
-\end{definition}
-
-Gr/FR Einfuhrung Ch I.
+\begin{remark}
+  The convergence set is logarithmetically convex complete Reinhardt domain. For details, see Chapter 1 of \cite{Gr-Fr}.
+\end{remark}
 
 \begin{definition}
   We define the ring of convergent power sereis to be 
@@ -1591,7 +1590,7 @@ Gr/FR Einfuhrung Ch I.
   \begin{equation*}
     \order(f)+\order(g) = \order(1) = 0.
   \end{equation*}
-  Therefore $\order(f) = 0$. if $f$ is holomorphic at $0$ and $f(0)\not= 0$. Then ${\frac 1 f}$ is also holomorphic at $0$, there for taking the taylor series of ${\frac 1 f}$ to be $g$, we obtain the desired unit.
+  Therefore $\order(f) = 0$. if $f$ is holomorphic at $0$ and $f(0)\not= 0$. Then ${\frac 1 f}$ is also holomorphic at $0$, therefore taking the Taylor series of ${\frac 1 f}$ to be $g$, we obtain the desired unit.
 \end{remark}
 
 \begin{remark}
@@ -1603,7 +1602,7 @@ Gr/FR Einfuhrung Ch I.
 \end{remark}
 
 \begin{definition}
-  Let $z\in\C^n$, $f,g$ be holomorphic functions defined in $z$. We denote $f\cong g$ if $f$ coincides with $g$ on some neighborhood of $z$. Such equivalence classes are called the germs of holomorphic functions.
+  Let $z\in\C^n$, $f,g$ be holomorphic functions defined in $z$. We denote $f\sim_z g$ if $f$ coincides with $g$ on some neighborhood of $z$. Such equivalence classes are called the germs of holomorphic functions. The set of those equivalence classes is denoted by $\Ouv_z$ and called the stalk at $z$.
 \end{definition}
 
 \begin{definition}
@@ -1650,14 +1649,14 @@ Gr/FR Einfuhrung Ch I.
 \end{definition}
 
 \begin{proposition}
-  $\mathcal{O}$ is a Hausdorff space. $p:\mathcal{O}\to\C^n$ is continuous and locally topological(ie. locally homeomorphic). The fiber
+  $\mathcal{O}$ is a Hausdorff space. $p:\mathcal{O}\to\C^n$ is continuous and locally topological(ie. locally homeomorphic). The fiber is
   \begin{equation}
     \mathcal{O}_z = p^{-1}(z)
   \end{equation}
   The addition and multiplication are continuous. 
   \par We have the fiber product,
   \begin{equation}
-    \mathcal{O}\times_p\mathcal{O}\stackrel{+,\cdot}{\to}\mathcal{O}
+    \mathcal{O}\times_p\mathcal{O}\stackrel{\substack{+,\cdot\\\:}}{\to}\mathcal{O}
   \end{equation}
   with 
   \begin{center}
@@ -1678,7 +1677,7 @@ Gr/FR Einfuhrung Ch I.
 
 \begin{notation}
   \begin{equation*}
-    H_n = \C\{z_1,\cdots,z_n\} = \C\{z\}.
+    H_n \defeq \C\{z_1,\cdots,z_n\} = \C\{z\}.
   \end{equation*}
 \end{notation}
 
@@ -1691,125 +1690,134 @@ Gr/FR Einfuhrung Ch I.
 \end{definition}
 
 \begin{definition}
-  $f\in H_n$ is called $z_n$-regular of order $k$ if $f_i (0^1) = 0$ for $i=0,\cdots,k-1$ and $f_k(0^1)\not=0$.
+  $f\in H_n$ is called $z_n$-regular of order $k$ if $f_i (0,\cdots,0,z_n) = 0$ for $i=0,\cdots,k-1$ and $f_k(0,\cdots,0,z_n)\not=0$.
   That is to say 
   \begin{equation*}
-    f(0^1,z_n) = az_n^k+\cdots +a \not =0.
-  \end{equation*}                                                                                                      
+    f(0,\cdots,0,z_n) = \sum_{i\geq k}^\infty c_iz_n^i\not =0,
+  \end{equation*}      
+  and $c_k\not=0$ is a constant.                                                                                                
 \end{definition}
 
 \begin{theorem}[Vorbereitungs Satz]
   Let $f\in H_n$ be $z_n$-regular of $k$. Then there are elements $e\in H_n,\omega\in H_{n-1}[z_n]$ with 
   \begin{enumerate}
     \item $e$ is a unit in $H_n$,
-    \item $\omega=z_n^k + c_1(z^1)z_n^{k-1}+\cdots + c_n(z')$.
+    \item $\omega=z_n^k + c_1(z_1,\cdots,z_{n-1})z_n^{k-1}+\cdots + c_n(z_1,\cdots,z_{n-1})$.
     \item $f = e\cdot \omega$.
   \end{enumerate}
   Furthermore, $e,\omega$ are uniquely determined and 
   \begin{equation*}
-    \omega(0^1,z_m) = z_m^k.
+    \omega(0,\cdots,0,z_n) = z_n^k.
   \end{equation*}
-  ie $c_r(0') = 0$. We call $\omega$ a Weierstrass polynomial.
+  ie $H_{n-1}\ni c_r(0,\cdots,0) = 0$. We call $\omega$ the Weierstrass polynomial of $f$.
 \end{theorem} 
 
-\begin{proof}
-  \begin{align*}
-    f(z) & = \sum_{i = 0}^{k-1}c_i(z^1)z_n^i + z_n^k + \sum_{i = k+1}^\infty c_i(z^1)z_n^i,\\
-    & = z_n^k\left(1+\sum_{i=0}^{k-1}c_i(z^1)z_n^{i-k}+\sum_{i=k+1}^\infty c_i(z^1)z_n^{r-k}\right),\\
-    & = z_n^k(1+A+B),
-  \end{align*}
-  where 
-  \begin{equation*}
-    A = \sum_{i=0}^{k-1}c_i(z^1)z_n^{i-k},\quad B=\sum_{i=k+1}^\infty c_i(z^1)z_n^{r-k}.
-  \end{equation*}
-  For $\vert z\vert \leq R$, the radius of convergence. Choose $\rho>0$ with for $\vert z^1\vert \leq R$, $\vert z_n\vert \leq \rho$, we have
-  \begin{equation*}
-    \vert B\vert <{\frac 1 2}, {\frac \rho 2}\leq \vert z_n\vert \leq \rho.
-  \end{equation*}
-  Choose $\delta>0$ for $\vert z\vert \leq \delta$ so that 
-  \begin{equation*}
-    \vert A\vert \leq {\frac 1 2}.
-  \end{equation*}
-  Let $A+B= W$, then 
-  \begin{equation*}
-    \vert W\vert \leq 1.
-  \end{equation*}
-  Thus we can consider,
-  \begin{align*}
-    \ln(1+W) & = W - {\frac {W^2} 2}+{\frac {W^3} 3}-\cdots,\\
-    & = C + D.
-  \end{align*}
-  where $C$ stands for the taylor part, and $D$ stands for the principle part in the Laurent expansion. Note that $1+A+B$ is a Laurent expansion.
-  \begin{align*}
-    f(z) & = z_n^k(1+W),\\
-    & = z_n^k\exp(\log(1+W)),\\
-    & = z_n^k\exp(C)\exp(D).
-  \end{align*}
-  In particular, we have,
-  \begin{align*}
-    \exp(-C)f(z) = z_n^k\exp(D).
-  \end{align*}
-  Observe that $\exp(-C)f(z)$ has only non-negative powers of $z_n$. By the uniqueness of Laurent expression, we conclude $z_n^k\exp(D)$ contains no negative powers of $z_n$. 
-  Examine the following 
-  \begin{align*}
-    z_n^k\exp(D) & = z_n^k\left(1+D+{\frac {D^2} {2!}}+\cdots\right),\\
-    & = z_n^k+b_1(z^1)z_n^{n-1}+\cdots + b_k(z^1),\\
-    & = \omega(z^1,z_n).
-  \end{align*}
-  Since $\exp(C)$ is invertible, it is a unit. Let $e = \exp(C)$, we obtain,
-  \begin{equation*}
-    f(z) = e\omega(z^1,z_n).
-  \end{equation*}
-  For the uniqueness, the zeros of $\omega$ is the zeros of $f$. Thus $\omega$ is determined so is the unit $e$. 
-  Consider $f(0^1,z_n) = z_n^k+\text{ higher order.}$. 
-  Also note that 
-  \begin{equation*}
-    f(0^1,z_n) = e(0^1,z_n)(z_n^k+b_1(0)z_n^{k-1}+\cdots).
-  \end{equation*}
-  Compare the powers of $z_n$, we conclude ,
-  \begin{equation*}
-    \omega(0^1,z_n) = z_n^k.
-  \end{equation*}
-\end{proof}
+% \begin{proof}
+%   By assumption, we may assume the coefficient of $z_n^k$ in $f$ is $1$.
+%   \begin{align*}
+%     f(z) & = \sum_{i = 0}^{k-1}c_i(z_1,\cdots,z_{n-1})z_n^i + z_n^k + \sum_{i = k+1}^\infty c_i(z_1,\cdots,z_{n-1})z_n^i,\\
+%     & = z_n^k\left(1+\sum_{i=0}^{k-1}c_i(z_1,\cdots,z_{n-1})z_n^{i-k}+\sum_{i=k+1}^\infty c_i(z_1,\cdots,z_{n-1})z_n^{r-k}\right),\\
+%     & = z_n^k(1+A+B),
+%   \end{align*}
+%   where 
+%   \begin{equation*}
+%     A = \sum_{i=0}^{k-1}c_i(z_1,\cdots,z_{n-1})z_n^{i-k},\quad B=\sum_{i=k+1}^\infty c_i(z_1,\cdots,z_{n-1})z_n^{r-k}.
+%   \end{equation*}
+%   For $\vert z\vert \leq R$, the radius of convergence. Choose $\rho>0$ with for 
+%   \begin{equation*} 
+%     \vert (z_1,\cdots,z_{n-1})\vert \leq R, \vert z_n\vert \leq \rho,
+%   \end{equation*}
+%    we have
+%   \begin{equation*}
+%     \vert B\vert <{\frac 1 2}, {\frac \rho 2}\leq \vert z_n\vert \leq \rho.
+%   \end{equation*}
+%   Choose $\delta>0$ for $\vert z\vert \leq \delta$ so that 
+%   \begin{equation*}
+%     \vert A\vert \leq {\frac 1 2}.
+%   \end{equation*}
+%   Let $A+B= W$, then 
+%   \begin{equation*}
+%     \vert W\vert \leq 1.
+%   \end{equation*}
+%   Thus we can consider,
+%   \begin{align*}
+%     \ln(1+W) & = W - {\frac {W^2} 2}+{\frac {W^3} 3}-\cdots,\\
+%     & = C + D.
+%   \end{align*}
+%   where $C$ stands for the taylor part, and $D$ stands for the principle part in the Laurent expansion. Note that $1+A+B$ is a Laurent expansion.
+%   \begin{align*}
+%     f(z) & = z_n^k(1+W),\\
+%     & = z_n^k\exp(\log(1+W)),\\
+%     & = z_n^k\exp(C)\exp(D).
+%   \end{align*}
+%   In particular, we have,
+%   \begin{align*}
+%     \exp(-C)f(z) = z_n^k\exp(D).
+%   \end{align*}
+%   Observe that $\exp(-C)f(z)$ has only non-negative powers of $z_n$. By the uniqueness of Laurent expression, we conclude $z_n^k\exp(D)$ contains no negative powers of $z_n$. 
+%   Examine the following 
+%   \begin{align*}
+%     z_n^k\exp(D) & = z_n^k\left(1+D+{\frac {D^2} {2!}}+\cdots\right),\\
+%     & = z_n^k+b_1(z^1)z_n^{n-1}+\cdots + b_k(z^1),\\
+%     & = \omega(z^1,z_n).
+%   \end{align*}
+%   Since $\exp(C)$ is invertible, it is a unit. Let $e = \exp(C)$, we obtain,
+%   \begin{equation*}
+%     f(z) = e\omega(z^1,z_n).
+%   \end{equation*}
+%   For the uniqueness, the zeros of $\omega$ is the zeros of $f$. Thus $\omega$ is determined so is the unit $e$. 
+%   Consider $f(0^1,z_n) = z_n^k+\text{ higher order.}$. 
+%   Also note that 
+%   \begin{equation*}
+%     f(0^1,z_n) = e(0^1,z_n)(z_n^k+b_1(0)z_n^{k-1}+\cdots).
+%   \end{equation*}
+%   Compare the powers of $z_n$, we conclude ,
+%   \begin{equation*}
+%     \omega(0^1,z_n) = z_n^k.
+%   \end{equation*}
+% \end{proof}
 
 \begin{proof}
-  Write 
+  Without loss of generality, we may assume that the coefficient of $z_n^k$ is $1$. Thus we can write,
   \begin{equation*}
-    f(z) = \sum_{i=0}^{k-1} c_i(z^1)z_n^i + z_n^k + \sum_{i>k}c_i(z^1)z_n^i.
+    f(z) = \sum_{i=0}^{k-1} c_i(z_1,\cdots,z_{n-1})z_n^i + z_n^k + \sum_{i>k}c_i(z_1,\cdots,z_{n-1})z_n^i.
   \end{equation*}
   where for all $i<k$,
   \begin{equation*}
-    c_i(0) = 0.
+    c_i(\underbrace{0,\cdots,0}_{n-1}) = 0.
   \end{equation*}
 
   \begin{equation*}
-    f(z) = z_n^k(\sum c_i^1(z')z_n^{n-i}+1\sum_{i>k}c_i(z')z_{n}^{i-k}) = z_n^k(A+1+B) = z_n^k(1+W).
+    f(z) = z_n^k\left(\sum_{i=0}^{k-1} c_i(0,\cdots,0)z_n^{n-i}+1+\sum_{i>k}c_i(0,\cdots,0)z_{n}^{i-k}\right) = z_n^k(A+1+B).
   \end{equation*}
-  Indeed if $\vert z_n\vert \leq \rho$, then 
+  where 
   \begin{equation*}
-    \vert B\vert <{\frac 1 2}.
+    A = \sum_{i=0}^{k-1}c_i(z_1,\cdots,z_{n-1})z_n^{i-k},\quad B=\sum_{i=k+1}^\infty c_i(z_1,\cdots,z_{n-1})z_n^{r-k}.
   \end{equation*}
-  For $A$, take ${\frac \rho 2}\leq \vert z_n\vert \leq \rho$, Find $\delta>0$ such that 
+  Let $W=A+B$ and $R$ be the radius of convergence. Pick $R>\rho>0$ such that 
   \begin{equation*}
-    \vert z'\vert \leq \delta.
+   \vert z_n\vert\leq\rho\Rightarrow \vert B\vert<{\frac 1 2}
   \end{equation*}
-  Then $\vert A\vert <{\frac 1 2}$. 
-  \par ${\frac 1 2}\leq\vert z_n\vert \rho$, then $\vert W\vert <1$. To see this 
+  For $A$, take ${\frac \rho 2}\leq \vert z_n\vert \leq \rho$, and find $\delta>0$ such that 
+  \begin{equation*}
+    \vert (z_1,\cdots,z_{n-1})\vert \leq \delta\Rightarrow \vert A\vert<{\frac 1 2}.
+  \end{equation*}
+  \par Together we have, $\vert W\vert <1$. Now consider,
   \begin{equation*}
     \log(1+W) = W - {\frac {W^2} 2} + {\frac {W^3} 3} - \cdots = C + D.
   \end{equation*}
-  where $C$ is the taylor expansion part and $D$ is the principal part. 
+  where $C$ is the Taylor expansion part and $D$ is the principal part. 
   \begin{equation*}
     f(z) = z_n^k\exp(\log(1+W)) = z_m^k\exp(C+D)\Rightarrow e^{-C}f(z) = z_n^k\exp D.
   \end{equation*}
-  On the left hand side, it is powers in $z_n$, so is the right hand side. Namely $D$ consists of only regular powers of $z_n$. 
+  On the left hand side, it is powers in $z_n$, so is the right hand side. That is, $D$ consists of only regular powers of $z_n$. 
   \begin{equation*}
-    z^k_n(1+D+{\frac {D^2} 2}+\cdots) = z^k_n + a_1(z')z_{n}^{k-1} + a_2(z')z_n^{k-2}+\cdots + a_n(z') + \text{Remainder}.
+    z^k_n\left(1+D+{\frac {D^2} 2}+\cdots\right) = z^k_n + a_1(z_1,\cdots,c_{n-1})z_{n}^{k-1} +\cdots + a_n(z_1,\cdots,c_{n-1}) + R,
   \end{equation*}
-  Since the Laurent development is unique we conclude the remainder part to be $0$.
+  where $R$ is the remainder. Since the Laurent development is unique we conclude $R$ to be $0$.
   \par We will set 
   \begin{equation*}
-    \omega(z',z_n) = z^k_n + a_1(z')z_{n}^{k-1} + a_2(z')z_n^{k-2}+\cdots + a_n(z'),
+    \omega(z_1,\cdots,z_n) = z^k_n + a_1(z_1,\cdots,z_{n-1})z_{n}^{k-1} + \cdots + a_n(z_1,\cdots,z_{n-1}).
   \end{equation*}
   We now have the decomposition,
   \begin{equation*}
@@ -1833,12 +1841,12 @@ Let $g\in H_n$ be $z_n$-regular of order $k$. Then for each $f \in H_n$, there a
   \begin{equation*}
     {\frac f g} = q + H,
   \end{equation*}
-  where $q$ is the taylor part, and $H$ is the principle part.
+  where $q$ is the Taylor part, and $H$ is the principle part.
 We have,
 \begin{equation*}
   f = qg + gH \Rightarrow f-qg = gH.
 \end{equation*}
-Let $r = gH$, we see $f-qg$ has only non-negative powers of $z_n$. Therefore $gH$ also contains no negative powers. In particular the power in $H$ is a polynomial of degree at most $k-1$.
+Let $r = gH$, we see $f-qg$ has only non-negative powers of $z_n$. Therefore $gH$ also contains no negative powers. The power in $H$ is a polynomial of degree at most $k-1$.
 \par Thus we obtained,
 \begin{equation*}
   f = qg + r.
@@ -1853,31 +1861,30 @@ However, observe that
 \end{equation*}
 on the left hand side, $qg$ is of order $k$, but $\deg_{z_N}r<k$. We conclude $q,r = 0$.
 \end{proof}
-\begin{corollary}
-  If in the formula 
+\begin{corollary} Consider the formula,
   \begin{equation*}
     f = qg +r.
   \end{equation*}
-  If $g=\omega$ a Weierstrass polynomial and $f$ is a polynomial in $H_{n-1}[z_n]$ of degree $m$ ,then $q$ is a polynomial of degree $n-k$ or it is identically $0$.
-  \par if $f$ is a polynomial of degree $n$ in the Weierstrass Vorbereitungs satz, then $e$ is a polynomial of degree $n-k$. 
+  If $g=\omega$ a Weierstrass polynomial and $f$ is a polynomial in $H_{n-1}[z_n]$ of degree $m$ ,then $q$ is a polynomial of degree $m-k$ or it is identically $0$.
+  \par If $f$ is a polynomial of degree $n$ in the Weierstrass Vorbereitungs satz, then $e$ is a polynomial of degree $n-k$. 
 \end{corollary}
 \begin{proof}
   For the first claim, it follows from Euclidean division. For the second claim, $f = e\omega$, then this is nothing but a division of $f$ by $\omega$. Therefore, $e$ must be a polynomial.
 \end{proof}
 \begin{corollary}
-  Suppose $f_1,\cdots,f_m\in H_n\not\{0\}$. Then there is a linear transformation, $\sigma:\C^n\to \C^n$ such that 
+  Suppose $f_1,\cdots,f_m\in H_n\backslash\{0\}$. Then there is a linear transformation, $\sigma:\C^n\to \C^n$ such that 
   $f_j\circ \sigma$ are $z_n$-regular of order $k_j$.
 \end{corollary}
 \begin{proof}
   Find a line $L$ in $H_n$ such that $f_j|_L \not=0$. Change the coordinate so that $L$ appears as an axis.
 \end{proof} 
 \begin{remark}
-  Weierstrass Vorbereitungs satz and Weierstrass Formal Division Theorem are true for over power series over completely %later
+  Weierstrass Vorbereitungs satz and Weierstrass Formal Division Theorem are equivalent and true for convergent power series over completely valued field.%later
 \end{remark}
 \begin{remark}
   A natural proof for these theorems are,
   \begin{equation*}
-    f(z) = e(z)\omega(z^1,z_n).
+    f(z) = e(z)\omega(z_1,\cdots,z_n).
   \end{equation*} 
   leads to equivalence system for the coefficients monomials.
 \end{remark}
@@ -1894,13 +1901,15 @@ on the left hand side, $qg$ is of order $k$, but $\deg_{z_N}r<k$. We conclude $q
 
 \section{Some Algebra}
 
+\subsection{Properties of Rings}
+
 In this section, we assume that $R$ is a ring and $A,B,M_1,\cdots,M_i,\cdots,$ are $R$-modules.
 
 \begin{definition}
   A $R$-module $M$ is called Noetherian if one of the following equivalent conditions holds.
   \begin{enumerate}[i).]
     \item Each submodule $N\subseteq M$ is finite (ie. finitely generated).
-    \item Each ascending sequence $M_0\subsetneq N_1 \subsetneq \cdots \subsetneq M$ stabilizes.
+    \item Each ascending sequence $N_0\subsetneq N_1 \subsetneq \cdots \subsetneq M$ stabilizes.
     \item Each non-empty set of submodules contains a maximal element.
   \end{enumerate}
   The ring $R$ itself is Noetherian if $R$ is Noetherian as a moduler over itself. (ie. ideals are finitely generated and so are other conditions hold for ideals).
@@ -1925,7 +1934,7 @@ In this section, we assume that $R$ is a ring and $A,B,M_1,\cdots,M_i,\cdots,$ a
 \end{theorem}
 
 \begin{theorem}
-  Suppose $R$ is Noetherian, and $M$ is a $R$-module. $M$ is Noetherian if and only if $M$ is finite.
+  Suppose $R$ is Noetherian and $M$ is a $R$-module. $M$ is Noetherian if and only if $M$ is finite.
 \end{theorem}
 
 \begin{definition}
@@ -1937,12 +1946,11 @@ In this section, we assume that $R$ is a ring and $A,B,M_1,\cdots,M_i,\cdots,$ a
 \end{example}
 
 \begin{theorem}[Krull's lemma]
-  Let $(R,\mathfrak{m})$ is a local Noetherian ring. Let $M$ be a finite $R$-module with two submodules $M_1,M_2\subseteq M$.
-  Suppose that for each $l\in\N$,
+  Let $(R,\mathfrak{m})$ is a local Noetherian ring. Let $M$ be a finite $R$-module with two submodules $M_1,M_2\subseteq M$. We have,
   \begin{equation*}
-    M_1\subseteq M_2 + \mathfrak{m}^lM \Rightarrow M_1\subseteq M_2.
+    \forall l\in\N,M_1\subseteq M_2 + \mathfrak{m}^lM \Rightarrow M_1\subseteq M_2.
   \end{equation*}
-  In particular, $M=R$, we set $\mathfrak{a} = \bigcup_{k\geq 0}\mathfrak{m}^k$. We have,
+  In particular, $M=R$, we set $\mathfrak{a} = \bigcap_{k\geq 0}\mathfrak{m}^k$. We have,
   \begin{equation*}
     \mathfrak{a}\subset (0)+\mathfrak{m}^l.
   \end{equation*}
@@ -1952,7 +1960,7 @@ In this section, we assume that $R$ is a ring and $A,B,M_1,\cdots,M_i,\cdots,$ a
 \begin{corollary}
   $\mathcal{C}_0^\infty$ be the ring of germs of smooth function at $0$ and $\mathfrak{m}=\{f\in\mathcal{C}^\infty_0\sep f(0) = 0\}$ be the ideal of germs at $0$. Then 
   \begin{equation*}
-    \bigcup\mathfrak{m}^l \not=(0).
+    \bigcap\mathfrak{m}^l \not=(0).
   \end{equation*}
   Therefore $\mathcal{C}^\infty_0$ is not Noetherian.
 \end{corollary}
@@ -2000,23 +2008,19 @@ We assume $R$ to be an integral domain.
   \end{enumerate}
 \end{theorem}
 
-\begin{proposition}
-  %Incomplete
-  Let $k$ be a field and $(A,\mathfrak{m})$ be a local $k$-algebra.
+\begin{definition}
+  Let $k$ be a field and $(A,\mathfrak{m})$ be a local ring. Consider
   \begin{center}
-    \begin{tikzcd}
-k \arrow[r]          & A \arrow[r]                    & A/\mathfrak{m}        \\
-a \arrow[r, maps to] & a\cdot 1_A \arrow[r, maps to]  & \overline{a\cdot 1_A} \\
-                     & f \arrow[r, "\sigma", maps to] & \overline{f}         
+\begin{tikzcd}
+k \arrow[r, "\substack{a\mapsto a\cdot1_A\\\:}"] & A \arrow[r, "\substack{a\cdot 1_A\to\overline{a\cdot 1_A}\\\:}"] & A/\mathfrak{m}
 \end{tikzcd}
   \end{center}
-  This define $\rho:A\to k$ by sending $f\mapsto\overline{f}\stackrel{\sigma^{-1}}a\in k$.
-\end{proposition}
+  Let us denote the whole map $\sigma:k\to A/\m$. If $\sigma$ is an isomorphism, we call $(A,\m)$ a local $k$-algebra. This induces $\rho:A\to k$ by sending $f\mapsto\sigma(\overline{f})^{-1}$.
+\end{definition}
 
 \begin{definition}
-  $A$ is called hensel/hensilian if it satisfies the following conditions.\\
-  \par Let $f(t)$ be a monic polynomial in $ $ Let $\omega(t) = \rho(f(t))$ where $\rho:A\to k$ which induces $\rho:A[t]\to k[t]$ by $t\mapsto t$ and $\omega(t) = \omega_1(t)\omega_2(t)$ where both of them are monic polynomial coprime to one another.\\
-  \par Then there are monic polynoial $f_1(t),f_2(t)\in A[t]$ with $f(t) = f_1(t)f_2(t)$, with 
+  $A$ is called hensel/hensilian if it satisfies the following conditions.
+  \par Let $f(t)$ be a monic polynomial in $ $ Let $\omega(t) = \rho(f(t))$ where $\rho:A\to k$ which induces $\rho:A[t]\to k[t]$ by $t\mapsto t$ and $\omega(t) = \omega_1(t)\omega_2(t)$ where both of them are monic polynomial coprime to one another. Then there are monic polynoial $f_1(t),f_2(t)\in A[t]$ with $f(t) = f_1(t)f_2(t)$, with 
   \begin{equation*}
     \rho(f_i(t)) = \omega_i(t).
   \end{equation*}
@@ -2026,7 +2030,9 @@ a \arrow[r, maps to] & a\cdot 1_A \arrow[r, maps to]  & \overline{a\cdot 1_A} \\
   Valuation rings are Hensel.
 \end{example}
 
-\section{Algebras of $H_n$}
+%Current
+
+\subsection{Algebras of $H_n$}
 
 The typical case, we have,
 \begin{equation*}
@@ -5860,10 +5866,14 @@ Using the lemma above, Equation \eqref{equation_star}, becomes
   -\int\sum_{K}\sum_{j,k}\left(\pd{}{\overline{z}_k}\delta_jf_{jK}-\delta_j\pd{f_{jK}}{\overline{z}_k}\right)\overline{f}_{kK}e^{-\varphi}d\lambda=\int\sum_{K}\sum_{j,k}{\frac {\partial^2\varphi}{\partial z_j\partial\overline{z}_k}}f_{jK}\overline{f_{kK}}e^{-\varphi}d\lambda.
 \end{align*}
 Now this leads us to 
-\begin{align*}
+\begin{align*}\label{equation_double_star}
 \int\sum_{K}\sum_{j,k}{\frac {\partial^2\varphi} {\partial z_j\partial\overline{z}_k}}f_{jK}\overline{f}_{kK}e^{-\varphi}d\lambda&+\int\sum_J\sum_j\left\vert\pd{f_j}{\overline{z}_j}\right\vert^2e^{-\varphi}d\lambda \tag{$\ast\ast$}\\
 &\leq 2\norm{T^*f}_{\varphi_1}^2+\norm{Sf}_{\varphi_3}^2+2\int\vert f\vert^2\vert\partial\psi\vert^2e^{-\varphi}d\lambda
 \end{align*}
+In particular for $q=0$, we have,
+\begin{equation*}
+  \sum_{\vert J\vert = q+1}\left\vert\pd{f_j}{\overline{z}_j}\right\vert^2\leq\norm{T^*f}^2+\norm{Sf}^2.
+\end{equation*}
 Let $\varphi$ be strictly plurisubharmonic, then 
 \begin{equation*}
   L_\varphi(z;t)\geq c(z)\norm{t}^2,
@@ -5898,7 +5908,7 @@ Thus we conclude,
 \end{remark}
 \subsection{Solving $(\CR)$}
 \begin{theorem}
-  Let $f\in L^2_{0,q+1,\loc}(\G)$ where $G$ is pseudoconvex. Suppose 
+  Let $f\in L^2_{0,q+1,\loc}(\G)$ where $\G$ is pseudoconvex. Suppose 
   \begin{equation*}
   \overline{\partial}f=0.
   \end{equation*}
@@ -5909,6 +5919,166 @@ Thus we conclude,
 \end{theorem}
 \begin{proof}
   Will be shown in the coming lecture on this friday. Roughly, we will show there are $(\varphi_1,\varphi_2,\varphi_3)$ such that $f\in L^{0,q,\loc}(\G,\varphi_2)$ and the basic estimate holds. By the previous subsection, we know $f\in\mathcal{R}_T$ that is $f=\overline{\partial}u$ for some $u$.
+  Let $p$ be strictly plurisubharmonic exhaustion function such that 
+  \begin{equation*}
+    L_p(z;t)\geq m(z)\norm{t},
+  \end{equation*}
+  is continuous positive function. Let $\chi:\R\to\R$ be such that 
+  \begin{align*}
+    s\geq0&\Rightarrow\chi(s)\equiv 0,\\
+    s>0&\Rightarrow\chi(s)>0,\chi'(s)>0,\chi''(s)>0\
+  \end{align*}
+  We then set $\varphi=\chi\circ p$. Then,
+  \begin{equation*}
+    L_\varphi(z;t)\geq \chi'(p(z))m(z)\norm{t}^2.
+  \end{equation*}
+  Choose $\psi$ at to satisfy \eqref{equation_h_cond}. To satisfy \eqref{equation_e_cond}, we need,
+  \begin{equation*}
+  L_\varphi(z;t)\geq \chi'(p(z))m(z)\norm{t}^2\geq(\vert\partial\psi\vert^2+e^\psi)\norm{t}^2.
+  \end{equation*}
+  Note that
+  \begin{equation*}
+    \chi(p(z))m(z)\geq\vert\partial \psi\vert^2+e^{\psi(z)},\chi'(p(t))\geq{\frac {\vert\partial \psi\vert^2+e^{\psi(z)}}{m(z)}}.
+  \end{equation*}
+  We then consider the following condition.
+  \begin{equation*}
+    \chi'(s)\geq\sup_{p(z)\leq s}{\frac {\vert \partial \psi(s)\vert^2+e^{\psi(z)}}{m(z)}}. \tag{$E'$}\label{equation_e_prime_condition}
+  \end{equation*}
+  We then have \eqref{equation_e_prime_condition} implies \eqref{equation_e_cond}. $\chi'$ can be  found that $\chi''>0,\chi>0$.
+  We cann still enlarge $\varphi$ and free $p$ \eqref{equation_h_cond},\eqref{equation,equation_d_cond},\eqref{equation_e_cond}. Thus 
+  \par $f$ given ($\overline{\partial}f=0$), there are $\varphi,\psi$ so that $f\in L_{0,q+1}^2(\G,\varphi_2)$ where $\varphi_2=\varphi-\psi$. 
+  Thus the basic estimate holds and $f\in\mathcal{R}_T$ by the previous subsection(be more specific). Thus there is $u\in L_{0,q}^2(\G,\varphi_1)$ with $\overline{\partial}u=f$.
+\end{proof}
+\begin{definition}
+Let $s=0,1,\cdots$. Then 
+\begin{equation*}
+  W^s \defeq \{f\in L^2(\C^n)\sep\text{all derivatives of order at most $s$ are in $L^2(\C^n)$}\}.
+\end{equation*}
+And 
+\begin{equation*}
+  W^s_{\loc}(\G)\defeq \left\{f\sep\substack{\text{All derivatives of $f$ of order less than $s$ are in $L^2(K)$}\\\text{ where $K$ runs through all compacts sets of $\G$}}\right\}.
+\end{equation*}
+Furthermore,
+\begin{equation*}
+  W^s_{0,q,\loc}(\G)
+\end{equation*}
+be $(0,q)$-forms with coefficients in $W^s_{\loc}(\G)$. Note that $W_{0,q,\loc}^0(\G)=L_{0,q,\loc}^2(\G)$.
+\end{definition}
+\begin{theorem}
+  \begin{equation*}
+    W^{s+2n}_{\loc}(\G)\subseteq \mathcal{C}^s(\G).
+  \end{equation*}
+  where $\G\subseteq\C^n$.
+\end{theorem}
+\begin{proof}
+  See any functional analysis book.
+\end{proof}
+
+\begin{definition}
+  Consider
+  \begin{align*}
+    f & = \sum_{\vert J\vert = q+1}f_Jd\overline{z}^J,\\
+  \end{align*}
+  then we define,
+  \begin{equation*}
+  \vartheta f = \sum_{\vert K\vert = q}\left(\sum_j\pd{f_j}{z_j}\right)d\overline{z}^K.
+  \end{equation*}
+  Note that $\vartheta:\mathcal{D}_{0,q+1}'\to\mathcal{D}_{0,q}'$.
+\end{definition}
+\begin{remark}
+  Check that $\vartheta\vartheta=0$. (Exercise)
+\end{remark}
+\begin{definition}
+  A function $\chi:\C^n\to\R$ is called radial is for any $z,z'\in\C^n$, 
+  \begin{equation*}
+    \norm{z}=\norm{z'}\Rightarrow \chi(z) = \chi(z').
+  \end{equation*}
+\end{definition}
+\begin{lemma}
+  \label{lemma_regularity_1}
+  Let $f\in L^2_{0,q+1}(\G)$ with compact support. Suppose $\overline{\partial}f$ and $\vartheta f$ belong to $L^2$. Then $f\in W_{0,q+1,\loc}^1(\G)$.
+\end{lemma}
+\begin{proof}
+  Let $f\in\mathcal{D}_{0,q+1}$. Recall \eqref{equation_double_star}, 
+  \begin{equation*}
+    \int\sum_{\vert J\vert=q+1}\sum_j \left\vert\pd{f_j}{\overline{z}_j}\right\vert d\lambda\leq(\norm{\overline{\partial}f}^2+\norm{\vartheta f}^2).
+  \end{equation*}
+  So the $\overline{z}$-derivatives are uniformly estimated. 
+  \par In general regular regularise. That is, we consider a smooth radial function $\chi$ 
+  \begin{equation*}
+    \chi(z)\geq0,\int_{\C^n}\chi(z)d\lambda(z)=1.
+  \end{equation*}
+  Set,
+  \begin{equation*}
+    \chi_{\varepsilon}(z) = \left({\frac 1 {\varepsilon^{2n}}}\right)\chi\left({\frac z \varepsilon}\right).
+  \end{equation*}
+  Then we set,
+  \begin{equation*}
+    f_\varepsilon(z) \defeq f\ast\chi_\varepsilon(z) = \int f(\zeta)\chi_\varepsilon(\zeta-z)d\lambda(\zeta) = \int f(z-\varepsilon\zeta)\chi(\zeta)d\lambda(\zeta).
+  \end{equation*}
+  Then $f_\varepsilon$ is smooth and approximate $f$ in $L^2$-norm uniformly and furthermore, the convergence commutes with $\overline{\partial}$. 
+\end{proof}
+\begin{lemma}
+  \label{lemma_regularity_theta_dbar}
+  Let $f\in L_{0,0}^2,\overline{\partial}f\in L_{0,1}^2$ with compact support. Then we also have $\partial f\in L_{1,0}^2$.
+\end{lemma}
+\begin{proof}
+  Assume $f\in\mathcal{D}_{0,0}$.
+  \begin{equation*}
+    \int\left\vert \pd{f}{\overline{z}_j}\right\vert d\lambda(z) = -\int{\frac {\partial^2 f}{\partial\overline{z}_j\partial z_j}}\overline{f}(z)d\lambda(z)=\int\left\vert\pd{f}{z_j}\right\vert^2d\lambda(z).
+  \end{equation*}
+  FOr the general case, regularize as above.
+\end{proof}
+\begin{theorem}
+  Let $\G$ be pseudoconvex. Let $f\in W^s_{0,q+1,\loc}(\G)$ with $\overline{\partial}f=0$. Then there is $u\in W^{s+1}_{0,q,\loc}(\G)$ with $\overline{\partial}u = f$.
+  For $q=0$, all solutions are $W^{s+1}_{0,q,\loc}(\G)$.
+\end{theorem}
+\begin{proof}
+  For $q=0$, we have some solution $\overline{\partial}u=f$. And $u\in L^2_{0,q,\loc}(\G)=W^0_{0,q}(\G)$. Choose a smooth function $\chi$ with compact support. Then we examine, $\chi u$. 
+  \par Assume $u\in W^\sigma$ whre $0\leq \sigma\leq s$. We already now that $u$ belongs to $\sigma=0$. Then consider,
+  \begin{equation*}
+    \pd{}{\overline{z}_j}\chi u = \pd{\chi}{\overline{z}_j}u+\chi\pd{u}{\overline{z}_j}\in W^\sigma.
+  \end{equation*}
+  Let $D$ be a differential operator with constant coefficient of order $\sigma$. Then,
+  \begin{equation*}
+    \pd{}{\overline{z}_j}D\chi u = D\underbrace{\pd{}{\overline{z}_j}\chi u}_{\in W^{\sigma}}\in W^{0}
+  \end{equation*}
+  By Lemma \ref{lemma_regularity_theta_dbar}, $\pd{}{z_j}D\chi u\in W^0$. Thus $\chi u\in W^{\sigma+1}$ Therefore, $u\in W^{\sigma+1}_{\log}(\G)$.
+  \par For $q>0$. We use $H_1\stackrel{T,T^*}{\leftrightarrow}H_2$. 
+  We know,
+  \begin{equation*}
+    H_1 = \mathcal{N}_T\oplus\mathcal{R}_{T^*},H_2 = \mathcal{N}_{T^*}\oplus\mathcal{R}_T.
+  \end{equation*}
+  Let $f\in\mathcal{R}_T$ then there is $u\in H_1$ such that $Tu=f$. Set 
+  \begin{equation*}
+    u = u_0+u_1,
+  \end{equation*}
+  where $Tu_1=f$ and $u_0\in\mathcal{N}_T$. Thus $u\in\mathcal{R}_{T^*}$ therefore, there is $v$ such that $u_1=T^*v$.  We then have two equations,
+  \begin{equation*}
+    Tu_1 = f,u_1 = T^*v.
+  \end{equation*}
+  In our case, we want to find $u$ with 
+  \begin{equation*}
+    \overline{\partial}u = f,u=T^*v.
+  \end{equation*}
+  \begin{align*}
+    \vartheta(e^{-\varphi_1}u) & = \vartheta(e^{-\varphi_1}T^*v),\\
+    & = \vartheta(e^{-\varphi_1}e^{\varphi_1}\vartheta(e^{-\varphi_2}v)),\\
+    & = \vartheta\circ\vartheta(e^{-\varphi_2}v)=0.\\
+    \vartheta(e^{-\varphi_1}u) & = e^{-\varphi_1}\vartheta u+Au.
+  \end{align*}
+  where $A$ is a differential operator of order $0$. Let $f\in W^s$ assume $u\in W^\sigma$ for some $0\leq \sigma\leq s$. 
+  We will show that $u\in W^{\sigma+1}$. Let $\chi$ be as above case when $q=0$.
+  \begin{align*}
+    \overline{\partial}(\chi u)& = \overline{\partial}\chi au + \chi\overline{\partial}u\in W^\sigma,\\
+    \vartheta(\chi u) & = \chi\vartheta u +bu = \chi au+bu\in W^\sigma.
+  \end{align*} 
+  Continue as for $q=0$, and for a differential operator $D$ of order $\sigma$, we have,
+  \begin{align*}
+    \overline{\partial}D(\chi u) &= D\overline{\partial}\chi u\in W^0,\\
+    \vartheta D(\chi u) & = D\vartheta \chi u \in W^0.
+  \end{align*}
+  By Lemma \ref{lemma_regularity_1}, we have $D\chi u\in W^1$ thus $\chi u\in W^{\sigma+1}$.
 \end{proof}
 \begin{theorem}
   $\G$ is pseudoconvex and $f\in\cinf_{0,q+1}(\G)$ with $\overline{\partial}f=0$.
@@ -5917,13 +6087,15 @@ Thus we conclude,
     \item for $q>0$, there is some $u\in \cinf_{0,q}$ with $\overline{\partial}u=f$.
   \end{enumerate}
 \end{theorem}
+\begin{proof}
+  $f\in W^s_{\loc}(\G)$ for all $s>2n$. Find $u\in W^{s+1}_{\loc}(\G)$. FoR $u\in W^{s+1}\subseteq\mathcal{C}^{s+1-2n}$. $u$ is uniformly differentiable and $u\in\cinf_{0,q}(\G)$. 
+\end{proof}
 \begin{remark}
   $\overline{\partial}$ is an elliptic operator on functions. $\overline{\partial}$ is not elliptic for $q>0$. In that case a smooth solutions will be singled out by an adjoint operator ($T^*$ essentially $\theta$), $\overline{\partial}\oplus\theta$ is elliptic.
 \end{remark}
 \begin{thebibliography}{9}
-\bibitem{Lieb}
-Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic Results to Advanced Topics, Springer Fachmedien Wiesbaden GmbH, Wiesbaden.
-\bibitem{Gr-Fr}Klaus Fritzsche, Hans Grauert (1974) Einführung in die Funktionentheorie mehrerer Veränderlicher, Springer, Berlin.
+\bibitem{Lieb} Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic Results to Advanced Topics, Springer Fachmedien Wiesbaden GmbH, Wiesbaden.
+\bibitem{Gr-Fr} Klaus Fritzsche, Hans Grauert (1974) Einführung in die Funktionentheorie mehrerer Veränderlicher, Springer, Berlin.
 \bibitem{Hom}Lars Hörmander (1990) An Introduction to Complex Analysis in Several Variables, North-Holland.
 \bibitem{Ra} R. Michael Range (1986) Holomorphic functions and integral representations in several complex variables, Springer, New York.
 \bibitem{LiM} Lieb, Ingo and Michel ,Joachim (2002) The Cauchy-Riemann complex: integral formulae and Neumann problem.
