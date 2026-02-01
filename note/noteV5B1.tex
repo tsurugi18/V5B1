@@ -39,6 +39,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \DeclareMathOperator{\triv}{triv}
 \DeclareMathOperator{\constant}{constant}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\hol}{hol}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\Vol}{Vol}
@@ -109,6 +110,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \newcommand{\sep}[0]{\:|\:}
 \newcommand{\pd}[2]{{\frac {\partial#1} {\partial#2}}}
 \newcommand{\bd}[0]{\partial}
+\newcommand{\cbd}[0]{\overline{\partial}}
 \newcommand{\mzeta}[0]{\underline{\zeta}}
 \newcommand{\mz}[0]{\underline{z}}
 \newcommand{\czeta}[0]{\overline{\zeta}}
@@ -420,6 +422,7 @@ A domain is an open connected subset of $\C^n$.
 \end{definition}
 
 \begin{theorem}[Maximal Principle]
+  \label{theorem_max_principle}
 Let $f$ be holomorphic on a domain $U$. If $\vert f\vert$ attains a local maximal then $f\equiv c$ for some constant $c\in \C$.
 \end{theorem}
 
@@ -1503,21 +1506,21 @@ Study the zero set of holomorphic function. This leads to analytic sets.
 
 \begin{definition}
   Let $c_{\underline{r}}$ be a function on $M$ then 
-  \begin{equation}
+  \begin{equation*}
     \sum_{\underline{r}\in\N_0^n}c_{\underline{r}} \stackrel{M}{\Rightarrow} c
-  \end{equation}
+  \end{equation*}
   if and only if for any $\varepsilon>0$, there exists a finite set $J_0\subset\N_0^n$ such that for all finite set with $J\supset J_0$,
   and all $x\in M$, we have 
-  \begin{equation}
+  \begin{equation*}
     \left\vert\sum_{\underline{r}\in J}c_{\underline{r}}(x)-c(x)\right\vert <\varepsilon.
-  \end{equation}
+  \end{equation*}
 \end{definition}
 
 \begin{example}[Geometric Series]
   Let $0\leq q_i\leq 1$ for $i=1,\cdots,n$, then 
-  \begin{equation}
+  \begin{equation*}
     \sum_{\underline{r}\in\N_0^n}\prod_{i=1}^n q_i^{r_i} = \prod_{i=1}^n{\frac 1 {1-q_i}}.
-  \end{equation}
+  \end{equation*}
 \end{example}
 
 \begin{proposition}
@@ -1530,9 +1533,9 @@ Study the zero set of holomorphic function. This leads to analytic sets.
   \underline{z}_0 = (z_{1}^0,\cdots ,z_{n}^0)\in\C^n, z_j^0\not=0.
   \end{equation*}
 If there exists $S>0$ such that 
-  \begin{equation}
+  \begin{equation*}
     \vert a_{\underline{r}}z_0^{\underline{r}}\vert\leq S,
-  \end{equation}
+  \end{equation*}
   then $f(z)$ converges for all $\underline{z}$ with 
   \begin{equation*}
     \forall j, \vert z_j\vert \leq z_{0,j}.
@@ -1615,9 +1618,9 @@ If there exists $S>0$ such that
 
 \begin{remark}
   Let $\mathcal{D}_z$ be the ring of smooth funtions defined arond $z$ and $\mathcal{C}_z$ be the continuous function defined around $z$, then we have 
-  \begin{equation}
+  \begin{equation*}
     \mathcal{O}_z\subset\mathcal{D}_z\subset\mathcal{C}_z.
-  \end{equation}
+  \end{equation*}
 \end{remark}
 
 \begin{definition}
@@ -1630,9 +1633,9 @@ If there exists $S>0$ such that
 
 \begin{definition}
   A (continuous) section in $\mathcal{O}$ corresponding to an open set $U\subset \C^n$ is such that 
-  \begin{equation}
+  \begin{equation*}
     \sigma:U\to\C ,p\circ\sigma = \id,\sigma(z)\in\mathcal{O}_z.
-  \end{equation}
+  \end{equation*}
   There exists a holomorphic function $f$ on $U$ such that 
   \begin{equation*}
     \sigma(z) = f_z = \gamma_zf.
@@ -1650,14 +1653,14 @@ If there exists $S>0$ such that
 
 \begin{proposition}
   $\mathcal{O}$ is a Hausdorff space. $p:\mathcal{O}\to\C^n$ is continuous and locally topological(ie. locally homeomorphic). The fiber is
-  \begin{equation}
+  \begin{equation*}
     \mathcal{O}_z = p^{-1}(z)
-  \end{equation}
+  \end{equation*}
   The addition and multiplication are continuous. 
   \par We have the fiber product,
-  \begin{equation}
+  \begin{equation*}
     \mathcal{O}\times_p\mathcal{O}\stackrel{\substack{+,\cdot\\\:}}{\to}\mathcal{O}
-  \end{equation}
+  \end{equation*}
   with 
   \begin{center}
     \begin{tikzcd}
@@ -1833,7 +1836,7 @@ Let $g\in H_n$ be $z_n$-regular of order $k$. Then for each $f \in H_n$, there a
 \end{equation*}
 \end{theorem}
 \begin{proof}
-  By Weierstrass Vorbereitungs satz, we may assume that $g=e\omega$ where $\omega$ is the Weierstrass polynomial of order $k$. Without loss of genearlity, we may assume $e = 1$. Thus ,we have,
+  By Weierstrass Vorbereitungs Satz, we may assume that $g=e\omega$ where $\omega$ is the Weierstrass polynomial of order $k$. Without loss of genearlity, we may assume $e = 1$. Thus ,we have,
   \begin{equation*}
     g = z_n^k\exp(D),
   \end{equation*}
@@ -1866,7 +1869,7 @@ on the left hand side, $qg$ is of order $k$, but $\deg_{z_N}r<k$. We conclude $q
     f = qg +r.
   \end{equation*}
   If $g=\omega$ a Weierstrass polynomial and $f$ is a polynomial in $H_{n-1}[z_n]$ of degree $m$ ,then $q$ is a polynomial of degree $m-k$ or it is identically $0$.
-  \par If $f$ is a polynomial of degree $n$ in the Weierstrass Vorbereitungs satz, then $e$ is a polynomial of degree $n-k$. 
+  \par If $f$ is a polynomial of degree $n$ in the Weierstrass Vorbereitungs Satz, then $e$ is a polynomial of degree $n-k$. 
 \end{corollary}
 \begin{proof}
   For the first claim, it follows from Euclidean division. For the second claim, $f = e\omega$, then this is nothing but a division of $f$ by $\omega$. Therefore, $e$ must be a polynomial.
@@ -1879,7 +1882,7 @@ on the left hand side, $qg$ is of order $k$, but $\deg_{z_N}r<k$. We conclude $q
   Find a line $L$ in $H_n$ such that $f_j|_L \not=0$. Change the coordinate so that $L$ appears as an axis.
 \end{proof} 
 \begin{remark}
-  Weierstrass Vorbereitungs satz and Weierstrass Formal Division Theorem are equivalent and true for convergent power series over completely valued field.%later
+  Weierstrass Vorbereitungs Satz and Weierstrass Formal Division Theorem are equivalent and true for convergent power series over completely valued field.%later
 \end{remark}
 \begin{remark}
   A natural proof for these theorems are,
@@ -2030,7 +2033,7 @@ k \arrow[r, "\substack{a\mapsto a\cdot1_A\\\:}"] & A \arrow[r, "\substack{a\cdot
   Valuation rings are Hensel.
 \end{example}
 
-%Current
+
 
 \subsection{Algebras of $H_n$}
 
@@ -2038,7 +2041,7 @@ The typical case, we have,
 \begin{equation*}
   H_1 = \C\{x\},
 \end{equation*}
-which is a principal ideal domain which is local with the unique maximal ring $(z)$ and all non-trivial ideals are of the form. $(z^k)$ for $k\in\N$.
+which is a principal ideal domain and also is local with the unique maximal ring $(z)$ and all non-trivial ideals are of the form. $(z^k)$ for $k\in\N$.
 
 \begin{definition}
   Let 
@@ -2069,8 +2072,8 @@ which is a principal ideal domain which is local with the unique maximal ring $(
   \begin{equation*}
     \Omega(t) = \prod_{i=1}^l(t-c_i)^{s_i},
   \end{equation*}
-  where $s = \sum_{i=1}^l s_i$ and $c_i$-s are distinct.\\
-  \par Then thereare monic polynomials $\omega_i(z,t)\in H_n[t]$ such that 
+  where $s = \sum_{i=1}^l s_i$ and $c_i$-s are distinct.
+  \par Then there are monic polynomials $\omega_i(z,t)\in H_n[t]$ such that 
   \begin{equation*}
     \omega(0,t) = (t-c_i)^{s_i}, \omega(z,t) = \prod_{i=1}^l \omega_i(z,t).
   \end{equation*}
@@ -2078,12 +2081,12 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \end{theorem}
 
 \begin{proof}
-  We prove this by induction on $l$. For $l=1$ is trivial as take $\omega_1(z,t) = \omega(z,t)$.\\
+  We prove this by induction on $l$. For $l=1$ is trivial as take $\omega_1(z,t) = \omega(z,t)$.
   \par Suppose the statement holds for $l-1$. If $\omega(0,0) = 0$, then 
   \begin{equation*}
     \Omega(t) = t_1^{s_1}\tilde{\Omega(t)}.
   \end{equation*}
-  Then this decomposition tells us that $\omega(z,t)\in H_n[t]\subset H_{n+1}$ which is $t$-regular of order $s_1$ by Weierstrass Vorbereitungs satz. We get,
+  Then this decomposition tells us that $\omega(z,t)\in H_n[t]\subset H_{n+1}$ which is $t$-regular of order $s_1$ by Weierstrass Vorbereitungs Satz. We get,
   \begin{equation*}
     \omega = \omega_1e.
   \end{equation*}
@@ -2098,7 +2101,7 @@ which is a principal ideal domain which is local with the unique maximal ring $(
   \begin{equation*}
     e(0,t) = \tilde{\Omega}(t) = \prod_{i=2}^l (t-c_i)^{s_i}.
   \end{equation*}
-  apply the induction hypothesis we get the dcomposition.\\
+  apply the induction hypothesis we get the dcomposition.
   \par For the general case, let $c_1$ be such that $\omega(c_1,0) = 0$. Then consider $\omega'(z,t)=\omega(z+c_1,t)$. 
   \begin{equation*}
     \prod_{i=1}^l \omega'_i(z,t) = \omega'(z,t).
@@ -2112,9 +2115,8 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \end{theorem}
 
 \begin{proof}
-  Let $\mathfrak{a}\subseteq H_n$ be an ideal and $f\in\mathfrak{a} ,f\not=0$.\\
-  \par Consider $\sigma:H_n\stackrel{\sim}{\to}H_n$ an automorphism such that $\sigma f$ is $z_n$-regular of order $k$. Observe that 
-  $\sigma\mathfrak{a}$ is finite so is $\mathfrak{a}$.\\
+  Let $\mathfrak{a}\subseteq H_n$ be an ideal and $f\in\mathfrak{a} ,f\not=0$. Consider $\sigma:H_n\stackrel{\sim}{\to}H_n$ an automorphism such that $\sigma f$ is $z_n$-regular of order $k$. Observe that 
+  $\sigma\mathfrak{a}$ is finite so is $\mathfrak{a}$.
   \par Let $h\in H_n$, by Weierstrass division formula, we have,
   \begin{equation*}
     h = qf+r,
@@ -2129,7 +2131,7 @@ which is a principal ideal domain which is local with the unique maximal ring $(
   \end{equation*}
   Then such map $H_n\to H_{n-1}^k$ is surjective with kernel $(f)$. 
   \begin{align*}
-    H_n&\to A = H_n/(f)\stackrel{\sim}{\to} H_{n-1}^k \\
+    H_n&\to A \defeq H_n/(f)\stackrel{\sim}{\to} H_{n-1}^k \\
     \mathfrak{a}&\mapsto \overline{\mathfrak{a}}\stackrel{\sim}{\mapsto}\{\text{finite submodule of $H_{n-1}$}\}.
   \end{align*}
   Suppose $H_{n-1}$ is Noetherian then $\overline{\mathfrak{a}}$ is finite. So there are $f_1,\cdots, f_l\in\mathfrak{a}$ such that 
@@ -2138,32 +2140,31 @@ which is a principal ideal domain which is local with the unique maximal ring $(
   \end{equation*}
   Therefore, we see 
   \begin{equation*}
-    (f,f,\cdots,f_l) = \mathfrak{a}.
+    (f,f_1,\cdots,f_l) = \mathfrak{a}.
   \end{equation*}
-  For the factorial part, let $f\in H_n$.\\
-  \par If $f$ is irreducible there is nothing to show.\\
-  \par If $f$ is not irreducible then $f = f_1f_2$ and by the defnition, we can assume $f_1,f_2$ are not units. Therefore,
+  For the factorial part, let $f\in H_n$.
+  \par If $f$ is irreducible there is nothing to show. If $f$ is not irreducible then $f = f_1f_2$ and by the defnition, we can assume $f_1,f_2$ are not units. Therefore,
   \begin{equation*}
     o(f_1),o(f_2)<o(f).
   \end{equation*}
-  Thus by induction, we see $f$ is a product of irreducible.\\
+  Thus by induction, we see $f$ is a product of irreducible.
   \par We have $H_1$ is factorial. Suppose the statement holds for $n-1$, then for an irreducible $f\in H_n$, consider,
   \begin{equation*}
     f|f_1f_2,
   \end{equation*}
-  we may assume the yare $z_n$-regular. By Weierstrass Vorbereitungs satz, we have 
+  we may assume they are $z_n$-regular. By Weierstrass Vorbereitungs Satz, we have 
   \begin{equation*}
     f=e\omega,f_1=e_1\omega_1,f_2=e_2\omega_2.
   \end{equation*}
   Since $e,e_1,e_2$ are all unit, in particular $\omega$ is irreducible. Thus if 
   \begin{equation*}
-    \omega|\omega_1\omega_2\Leftrightarrow \omega_1\omega_2 = e\omega,
+    \omega|\omega_1\omega_2\Leftrightarrow \omega_1\omega_2 = q\omega,
   \end{equation*}
   for some $q\in H_n$. By the assumption we have $q\in H_{n-1}[z_n]$. This means that 
   \begin{equation*}
     \omega|\omega_1\omega_2
   \end{equation*}
-  in $H_{n-1}[z_n]$. We have $\omega$ is prime in $H_{n-1}[z_n]$. Thus either $\omega|\omega_1$ or $\omega|\omega_2$. Using Theorem \ref{theorem_3_7}, we conclude $\omega|\omega_1$ or $\omega|\omega_2$ in $H_n$.\\
+  in $H_{n-1}[z_n]$. We have $\omega$ is prime in $H_{n-1}[z_n]$. Thus either $\omega|\omega_1$ or $\omega|\omega_2$. Using Theorem \ref{theorem_3_7}, we conclude $\omega|\omega_1$ or $\omega|\omega_2$ in $H_n$.
   \par Finally for the Henselian part, let $\omega\in H_n[t]$, and consider
   \begin{equation*}
     \rho:H_n\to\C, \rho(f) = f(0).
@@ -2183,7 +2184,7 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \end{definition}
 
 \begin{remark}
-  As we have seen $H_n$ is factorial any element $m\in H_n$ can be expressed as $m={\frac f g}$ where $f,g$ are coprime.
+  As we have seen $H_n$ is factorial, any element $m\in H_n$ can be expressed as $m={\frac f g}$ where $f,g$ are coprime.
 \end{remark}
 
 \begin{theorem}
@@ -2198,11 +2199,11 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \end{theorem}
 
 \begin{proof}
-  Without the loss of generality, we may assume that $z=0$, and $f_0,g_0\in H_n=\mathcal{O}_0$ which are $z_n$-regular. By Weierstrass Vorbereitungs satz, we have,
+  Without loss of generality, we may assume that $z=0$, and $f_0,g_0\in H_n=\mathcal{O}_0$ which are $z_n$-regular. By Weierstrass Vorbereitungs Satz, we have,
   \begin{equation*}
     f_0 = e_0\omega_0,g_0=\tilde{e_0}\tilde{\omega_0}.
   \end{equation*} 
-  By assumption $\omega_0,\overline{\omega_0}$ are relatively prime in $\mathcal{O}_0$. Sor $f,g$ are monic polynomial in $z_n$ which is a Weierstrass polynomial at $0$.
+  By assumption $\omega_0,\tilde{\omega_0}$ are relatively prime in $\mathcal{O}_0$. Sor $f,g$ are monic polynomial in $z_n$ which is a Weierstrass polynomial at $0$.
   \par Again using $f_0,g_0$ are relatively prime in $H_{n-1}[z_n]$. But this implies that $f_0,g_0$ are also relatively prime in $\mathcal{K}_{n-1}[z_n]$. Formally, there exists $A,B\in\mathcal{K}_{n-1}$ such that 
   \begin{equation*}
     Af+Bg = 1\quad(\text{in $H_{n-1}[z_n]$}),
@@ -2211,16 +2212,16 @@ which is a principal ideal domain which is local with the unique maximal ring $(
   \begin{equation*}
     af+bg = c.
   \end{equation*}
-  Note that $a,b$ are holomorphic in $0$ in $\C^n$.So $c = c(z')$. 
+  Note that $a,b$ are holomorphic in $0$ in $\C^n$, and $c = c(z_1,\cdots,z_{n-1})\in H_{n-1}$. 
   \par In a neighborhood of the origin,
   \begin{equation*}
-    U = U_{z'}\times U_{z_n},
+    U = U_{(z_1,\cdots,z_{n-1})}\times U_{z_n},
   \end{equation*}
   for $z\in U$. 
   \begin{equation*}
-    a(z)f(z)+b(z)g(z) = c(z').
+    a(z_1,\cdots,z_n)f(z_1,\cdots,z_n)+b(z_1,\cdots,z_n)g(z_1,\cdots,z_n) = c(z_1,\cdots,z_{n-1}).
   \end{equation*}
-  Let $\zeta = (\zeta',\zeta_n)$. Then $f,g$ are $(z_n-\zeta_n)$-regular of some order. And the same is true for all the common divisors of $f$ and $g$. Thus by applying Weierstrass Vorbereitungs satz to $z_n-\zeta_n$, we obtained a Weierstrass polynomial in $z_n-\zeta_n$ which divide $f,g$ simultaneously.
+  Let $\zeta = (\zeta_1,\cdots,\zeta_n)$. Then $f,g$ are $(z_n-\zeta_n)$-regular of some order. And the same is true for all the common divisors of $f$ and $g$. Thus by applying Weierstrass Vorbereitungs Satz to $z_n-\zeta_n$, we obtained a Weierstrass polynomial in $z_n-\zeta_n$ which divide $f,g$ simultaneously.
   On the other hand, we have the equation, 
   \begin{equation*}
     af+bg = c.
@@ -2240,6 +2241,7 @@ which is a principal ideal domain which is local with the unique maximal ring $(
     c(z') = 0.
   \end{equation*}
   This is a contradiction. Thus there must be a point in the neighborhood of the origin such that $f$ is $0$ but $g$ is not.
+  %later need revision
 \end{proof}
 
 \begin{remark}
@@ -2257,13 +2259,17 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \begin{definition}
   Let $U\subseteq\C^n$ be a domain. A subset $M\subseteq U$ is said to be locally analytic if for each point $x\in M$, there is a neighborhood $V= V(x)$ and finitely many functions $f_1,\cdots,f_k\in\mathcal{O}(V)$ such that 
   \begin{equation*}
-    M\cap V = \{z\sep i=1,\cdots,k, f_i(z)=0\} = V(f_1,\cdots,f_k).
+    M\cap V = \{z\in M\sep i=1,\cdots,k, f_i(z)=0\}.
+  \end{equation*}
+  We will denote,
+  \begin{equation*}
+  V(f_1,\cdots,f_k) \defeq  \{z\in M\sep i=1,\cdots,k, f_i(z)=0\}.
   \end{equation*}
   $\M$ is called analytic if it is locally analytic and closed in $U$.
 \end{definition}
 
 \begin{definition}
-  Let $U\subseteq\C^n$ be a domain. A subset $M\subseteq U$ is called a locally analytic submanifold if for any $z\in M$ there exists $W=W(z)$ a neighborhood and finitely many holomorphic functions $f_{k+1},\cdots,f_n\in\mathcal{O}(W)$ such that 
+  Let $U\subseteq\C^n$ be a domain. A subset $M\subseteq U$ is called a locally analytic submanifold if for any $z\in M$ there exists a neighborhood $W=W(z)$ of $z$ and finitely many holomorphic functions $f_{k+1},\cdots,f_n\in\mathcal{O}(W)$ such that 
   \begin{equation*}
     M\cap W = V(f_{k+1},\cdots,f_n),
   \end{equation*}
@@ -2271,7 +2277,7 @@ which is a principal ideal domain which is local with the unique maximal ring $(
   \begin{equation*}
     \left(\pd{f_i}{z_j}\right)_{\substack{i=k+1,\cdots,n\\ j=1,\cdots,n}},
   \end{equation*}
-  has the highest rank possible. \\
+  has the highest rank possible. 
   \par $M$ is called an analytic submanifold if it is locally analytic submanifold and closed.
 \end{definition}
 
@@ -2302,19 +2308,22 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \end{remark}
 
 \begin{remark}
-  Suppose $F:U\to U'$ be biholomorphic and $M\subset U$ be an analytic set then $F(M)$ is also analytic in $U'$.
+  Suppose $F:U\to U'$ is biholomorphic and $M\subset U$ is an analytic set then $F(M)$ is also analytic in $U'$.
 \end{remark}
 
 \begin{remark}
-  Suppose in $\C=\C^1$, all the locally analytic sets are discrete points.
+  In $\C=\C^1$, all the locally analytic sets are discrete points.
 \end{remark}
 
-\begin{remark}
-  Let $U$ be a domain, consider a holomorphic functions $\mathcal{O}$ and take any subset $\mathcal{M}\subset\mathcal{O}(U)$. Let us define,
+\begin{definition}
+  Let $U$ be a domain, consider holomorphic functions $\mathcal{O}(U)$ over $U$. Take any subset $\mathcal{M}\subset\mathcal{O}(U)$ and let us define,
   \begin{equation*}
-    M\defeq \{z\in\C^n\sep \forall f\in\mathcal{M}, f(z) = 0\} = V(\mathcal{M}),
+    M=V(\mathcal{M})\defeq \{z\in\C^n\sep \forall f\in\mathcal{M}, f(z) = 0\}.
   \end{equation*}
-  then $M$ is an analytic subset.
+\end{definition}
+
+\begin{remark}
+  $V(\mathcal{M})$ above is analytic.
 \end{remark}
 
 \begin{example}
@@ -2326,12 +2335,21 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \end{example}
 
 \begin{example}
+  \label{example_cusp_non_biholomorphic}
   In $\C^2$, the set $V(z_1^2-z_2^3)$ contains only regular points except for the origin.
   \par Consider the map,
   \begin{equation*}
-    \C\ni t\mapsto (t^2,t^3)\in \C^2.
+    \C\ni t\mapsto (t^3,t^2)\in \C^2.
   \end{equation*}
-  This is continuous bijection, but not biholomorphic.
+  This is a continuous bijection, but not biholomorphic.
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick,->] (-2,0) -- (2,0)node[above]{$x$};
+      \draw[thick,->] (0,-0.25) -- (0,2)node[right]{$y$};
+      \draw [black, thick, domain=0:1.5, samples=20] plot ({sqrt(\x)*(\x)},0.75*\x);
+      \draw [black, thick, domain=0:1.5, samples=20] plot ({-1*sqrt(\x)*(\x)},0.75*\x);
+    \end{tikzpicture}
+  \end{center}
 \end{example}
 
 \begin{proposition}
@@ -2349,7 +2367,7 @@ which is a principal ideal domain which is local with the unique maximal ring $(
   \end{equation*}
   Then we have,
   \begin{equation*}
-    A\cap B = V(f_1,\cdots,f_n,g_1,\cdots,g_m), A\cup B = V(f_ig_j)_{\substack{i=1,\cdots,n\\j=1,\cdots,m}}.
+    A\cap B = V(f_1,\cdots,f_n,g_1,\cdots,g_m), A\cup B = V\left(\{f_ig_j\}_{\substack{i=1,\cdots,n\\j=1,\cdots,m}}\right).
   \end{equation*}
 \end{proof}
 
@@ -2362,29 +2380,31 @@ which is a principal ideal domain which is local with the unique maximal ring $(
 \end{proposition}
 
 \begin{proof}
-  We may assume that at $z_0$, $A$ is given by $A=V(g)$ for a single holomorphic function $g$ on $W(z_0)$. Assume after change of coordinates by Weierstrass Vorbereitungs satz, we assume $g$ is a Weierstrass polynomial in $0$.
+  We may assume that for some $z_0\in A$, $A$ is given by $A=V(g)$ for a single holomorphic function $g$ on $W(z_0)$. Assume after change of coordinates by Weierstrass Vorbereitungs Satz, we assume $g$ is a Weierstrass polynomial in $z_0=0$.
   \par Write $f=f(z',z)$ where $z'$ is fixed, then $f$ is holomorphic in $z_n$ 
   The extension is given by 
   \begin{equation*}
-    f(z',z_n) = {\frac 1 {2\pi}}\int_{{\text{boundary of the ball around the critical points}}}{\frac {f(z',\zeta_n)} {(\zeta-n-z_n)}}d\zeta_n.
+    f(z',z_n) = {\frac 1 {2\pi}}\int_{{\text{boundary of the ball around the critical points}}}{\frac {f(z',\zeta_n)} {(\zeta_n-z_n)}}d\zeta_n.
   \end{equation*}
   This is holomorphic in $(z',z_n)$. This tells us that $f$ can be extended.
+  %later
 \end{proof}
 
 \begin{remark}
-  If $U$ is a domain and $A\subsetneq U$ is an analytic set then $U\backslash A$ is connected. $U\backslash A$ is not connected, then there exists two open sets $U_1,U_2$ such that $U_1\cap U_2=\emptyset$ and $U_1\cup U_2 = U\backslash A$.
+  Suppose $U$ is a domain and $A\subsetneq U$ is an analytic set such that $U\backslash A$ is connected. If $U\backslash A$ is not connected, that is there exists two open sets $U_1,U_2$ such that $U_1\cap U_2=\emptyset$ and $U_1\cup U_2 = U\backslash A$. Set,
   \begin{equation*}
     f(z) = \begin{cases}
       1 \quad (\text{on $U_1$}),\\
       0 \quad (\text{on $U_2$}).
     \end{cases}
   \end{equation*}
+  Then $f$ can be extended.
 \end{remark}
 
 \begin{remark}
 There are no isolated singularities in $\C^n$ for $n>1$. Suppose $f$ has an isolated $0$ and $f$ is holomorphic on $\overline{U}\backslash\{0\}$ and consider a line $l$,
 passing through some point $z$ in $U$ but does not cotain $0$. Then $f$ is bounded on $l\cap\partial U$. 
-In particular, $f$ is bounded by $z$ in its maximum $\vert f\vert_{\partial U}$.
+In particular, $f$ is bounded by $z$ in its maximum $\vert f\vert_{\partial U}$. %later
 \end{remark}
 
 \subsection{Some More Algebras and Topologies}
@@ -2394,9 +2414,9 @@ In particular, $f$ is bounded by $z$ in its maximum $\vert f\vert_{\partial U}$.
     f(t) = t^k+a_1t^{k-1}+\cdots a_k.
   \end{equation*}
   Then $f$ has $k$-many zeros $t_1,\cdots,t_k$ allowing multiplicity.
-  The discriminant of $f$ is 
+  \par We then define the discriminant of $f$ to be
   \begin{equation*}
-    D_f = \prod_{j<k}(t_j-t_k)^2.
+    D_f \defeq \prod_{j<k}(t_j-t_k)^2.
   \end{equation*}
 \end{definition}
 
@@ -2412,12 +2432,14 @@ In particular, $f$ is bounded by $z$ in its maximum $\vert f\vert_{\partial U}$.
   Then we define 
   \begin{equation*}
     R(f,g) = \det\begin{pmatrix}
-      a_0 & a_1 & \cdots & a_n& 0 & \cdot & 0\\
+      a_0 & a_1 & \cdots & a_n& 0 & \cdots & 0\\
       0 & a_0 & \cdots & a_{n-1} & a_n & \cdots & 0\\
-      \vdots & \ddots & \vdots & a_0 & \cdots & a_n\\
+      \vdots &\ddots & \ddots & \ddots & \ddots& \ddots & \vdots\\
+      0 & \cdots & \cdots & \cdots& \cdots & \cdots & a_n\\
       b_0 & b_1 & \cdots & b_m& 0 & \cdot & 0\\
       0 & b_0 & \cdots & b_{m-1} & b_m & \cdots & 0\\
-      \vdots & \ddots & \vdots & b_0 & \cdots & b_m\\
+      \vdots & \ddots & \ddots & \ddots & \ddots &\ddots& \vdots\\
+      0 & \cdots & \cdots & \cdots& \cdots & \cdots & b_m\\
     \end{pmatrix}
   \end{equation*}
   which is a determinant of $(n+m)(n+m)$ times matrix where we placed $a_0,\cdots,a_n$ $m$-many times and $b_0,\cdots,b_n$ $n$-many times. We call this the resultant of $f,g$. and this belongs to $\Z[a_0,\cdots,a_n,b_0,\cdots,b_m]$.
@@ -2440,28 +2462,29 @@ In particular, $f$ is bounded by $z$ in its maximum $\vert f\vert_{\partial U}$.
 
 \begin{proposition}
   \label{propositino_2_3}
-  Suppose $R$ is a factorial ring and $\omega\in R[t]$, such that
+  Suppose $R$ is a factorial ring and $\omega\in R[t]$. Let
   \begin{equation*}
-    \omega=\omega_1\cdots\omega^l,
+    \omega=\omega_1\cdots\omega_l,
   \end{equation*}
   be its prime decomposition. We have $D_\omega=0$ if and only if there are prime appearing multiple times in $\omega$.
 \end{proposition}
 
 \begin{proof}
-  Let $D_\omega=0$ for $\omega\in R[t]$. Then $\omega,\omega'$ have a common prime. Suppose that 
+  Let $D_\omega=0$ for $\omega\in R[t]$. Then $\omega,\omega'$ have a common prime. We have,
   \begin{equation*}
-    \omega' = \prod_{i=1}^n \omega_i'\prod_{j\not=i}\omega_j.
+    \omega' = \sum_{i=1}^n \omega_i'\prod_{j\not=i}\omega_j.
   \end{equation*}
+  Thus there is $\omega_i$ appearing at least twice.
 \end{proof}
 
 \begin{definition}
   Let $X,Y$ be connected, locally path connected Hausdorff spaces. 
-  Consider a continuous map $p:X\to Y$ is called an unbranched unlimited covering if for all $g\in Y$ there exists a neighborhood $V=V(g)$ such that 
+  Consider a continuous map $p:X\to Y$. It is called an unlimited unbranched covering map if for all $y\in Y$ there exists a neighborhood $V=V(y)$ of $g$ such that 
   \begin{equation*}
     p^{-1}(V) = \coprod_{i\in\N}U_i,
   \end{equation*}
-  where $U_i$-s are pairwise disjoint and $p|_{U_i}\cong V$.\\
-  \par $p:X\to Y$ a continuous map is called a covering if it is discrete (each fiber is discrete) and open in the discrete topology, $p^{-1}(\{y\})$ is an isolated points.
+  where $U_i$-s are pairwise disjoint and $p|_{U_i}\cong V$.
+  \par A continuous map $p:X\to Y$ is called a covering if it is discrete (ie. each fiber is discrete) and open in the discrete topology, $p^{-1}(\{y\})$ is an isolated points.
   We call the cardinality of $p^{-1}(\{y\})$ the number of sheets.
 \end{definition}
 
@@ -2471,12 +2494,13 @@ In particular, $f$ is bounded by $z$ in its maximum $\vert f\vert_{\partial U}$.
   \end{equation*}
   as well as
   \begin{equation*}
-    \C^\times\to\C^\times, z\mapsto z^2.
+    \C^\times\to\C^\times, z\mapsto z^2,
   \end{equation*}
+  are unlimited unbranched coverings.
 \end{example}
 
 \begin{definition}
-  Let $f:X\to Y$ be a continuous function of locally compact spaces. We say,
+  Let $f:X\to Y$ be a continuous function of locally compact spaces. 
   \begin{enumerate}
     \item $f$ is proper if for any compact set $K\subseteq Y$, $f^{-1}(K)$ is compact.
     \item $f$ is finite if it is proper and discrete.
@@ -2490,126 +2514,139 @@ In particular, $f$ is bounded by $z$ in its maximum $\vert f\vert_{\partial U}$.
   \begin{equation*}
     f(z,t) = t^k+a_1(z)t^{k-1}+\cdots+ a_k(z).
   \end{equation*}
-  where $a_i$ is holomorphic in $U$ for each $i$. Suppose there is $c$ such that $f(c,t)$ has $k$-distinct zeros in $\C$.
-  \par Then there is a neighborhood of $c$, $W$ and holomorphic functions $q_1,\cdots,q_k$ on $W$ such that 
+  where $a_i$ is holomorphic in $U$ for each $i$. Suppose there is $c$ such that $f(c,t)$ has $k$-distinct zeros $\{\alpha_1,\cdots,\alpha_k\}$ in $\C$. Then there is a neighborhood $W$ of $c$, and holomorphic functions $\varphi_1,\cdots,\varphi_k$ on $W$ such that 
   \begin{equation*}
-    f(z,t) = \prod_{i=1,\cdots,k}(t-q_i(z)).
+    f(z,t) = \prod_{i=1,\cdots,k}(t-\varphi_i(z)).
   \end{equation*}
-  In particular $q_i(c) = \alpha_x$.
+  In particular $\varphi_i(c) = \alpha_i$.
 \end{lemma}
 
 \begin{proof}
   Suppose $c=0$ and $f_0\in\mathcal{O}_0=H_{n+1}$, (ie the coefficients of $f$ are in $H_n$). We have,
   \begin{equation*}
-  f_0  = \prod_{i=1}^k (t-\alpha_x).
+  f_0  = \prod_{i=1}^k (t-\alpha_i).
   \end{equation*}
-  Since $H_n$ is hensilian, there exists germs $f_1,\cdots,f_k\in H_n[t]$ such that $f_i(0,t) = t-\alpha_{x,i}$ thus set $f_x = t-q_x$ for $q_x\in H_n$.
-  Choose a neighborhood $0\in W$, such that all the germs are given by holomorphic functions. Then $q_x:W\to\C$ with 
-  \begin{equation}
-    f(z,t) = \prod_{i}(t-q_i(z)).
-  \end{equation}
-  %need to revise the proof.
+  Since $H_n$ is hensilian, there exists germs $f_1,\cdots,f_k\in H_n[t]$ such that $f_i(0,t) = t-\alpha_{i}$ thus set $f_i = t-\varphi_i$ for $\varphi_i\in H_n$.
+  Choose a neighborhood $0\in W$, such that all the germs are given by holomorphic functions. Then $\varphi_i:W\to\C$ with 
+  \begin{equation*}
+    f(z,t) = \prod_{i}(t-\varphi_i(z)).
+  \end{equation*}
+  %need to revise the proof. later
 \end{proof}
 
+\begin{notation}
+  For a function $f:D\to\C$ defined on some domain $D$. For a subset $S\subseteq D$, we denote
+  \begin{equation*}
+    \mathcal{N}(f,S) =\vert\{s\in S\sep f(s)=0\}.
+  \end{equation*}
+\end{notation}
+
+\begin{theorem}[Argument Principle]
+  Let $D\subseteq\C$ be a domain and $f:D\to\C$ be a holomorphic function. Then we have,
+  \begin{equation*}
+    \mathcal{N}(f,D) = {\frac 1 {2\pi i}}\oint_{\bd D}{\frac {f'(z)} {f(z)}}dz.
+  \end{equation*}
+  \label{theorem_argument_principle}
+\end{theorem}
+
 \begin{lemma}
-  Let $f(t) = t^k+a_1t^{k-1}+\cdots\in\C[t]$. Suppose $f$ has zeros $\alpha_1,\cdots,\alpha_l\in\C$ with multiplicities $r_1,\cdots,r_l$. Then for any $\varepsilon>0$, there is $\delta>0$ such that 
-  \begin{equation}
-    D_\lambda = D_\varepsilon(x_\lambda), D_\delta(a)
-  \end{equation}
-  where, $a=(a_1,\cdots,a_k)\in\C^k$. Then if $b = (b_1,\cdots,b_k)\in D_\delta$ then the map,
-  \begin{equation}
-    g(t) = t^k+b_1t^{k-1}+\cdots,
-  \end{equation}
-  then $g$ has exactly $r_\lambda$ zeros in $D_\lambda$.
+  \label{lemma_zeros_exhaustion}
+  Let $\underline{a}=(a_1,\cdots,a_k)\in \C^k$ and set $f(t) = t^k+a_1t^{k-1}+\cdots\in\C[t]$. Suppose $f$ has zeros at $\alpha_1,\cdots,\alpha_l\in\C$ with multiplicities $r_1,\cdots,r_l$. Then for any $\varepsilon>0$, there is $\delta>0$ such that 
+  if $b = (b_1,\cdots,b_k)\in D_\delta\defeq D_\delta(\underline{a})$ then for each $\lambda=1,\cdots,l$, the polynomial
+  \begin{equation*}
+    g(t) = t^k+b_1t^{k-1}+\cdots+b_k,
+  \end{equation*}
+  has exactly $r_\lambda$ zeros in $D_\lambda\defeq D_\varepsilon(\alpha_\lambda)$.
 \end{lemma}
 
 \begin{proof}
   Let 
-  \begin{equation}
-    F(z,t) = t^k+z_1t^{k-1}+\cdots,
-  \end{equation}
-  holomorphic on $\C^k\times \C$. Consider,
   \begin{equation*}
-  X = V(F) \subseteq \C^{k+1} = \{F(z,t)=0\}.
+    F(\underline{z},t) = t^k+z_1t^{k-1}+\cdots,
   \end{equation*}
-  For $a\in \C^k$, we have,
+  be holomorphic on $\C^k\times \C$. Consider,
   \begin{equation*}
-    \bigcup_{i=1}^l a\times \partial D_\lambda\cap X = \emptyset.
+  X \defeq V(F) \subseteq \C^{k+1} = \{F(z,t)=0\}.
   \end{equation*}
-  Then there exists $D_\delta(a)$ such that 
+  For $\underline{a}\in \C^k$, we have,
   \begin{equation*}
-    \bigcup_{i=1}^l D_\delta(a)\times\partial D_\lambda\cap X = 0.
+    \left(\bigcup_{i=1}^l \{\underline{b}\}\times \partial D_\lambda\right)\cap X = \emptyset,
   \end{equation*}
-  For $b\in D_\delta(a)$, adn $g(t) = F(b,t)$. Then the number of zeros of $g$ in $D_\lambda$ 
+  then there exists $\delta>0$ such that
   \begin{equation*}
-    ={\frac {1} {2\pi i}}\int_{\partial D_\lambda}{\frac {g'(b;t)} {g(b;t)}}dt,
+    \left(\bigcup_{i=1}^l D_\delta(\underline{a})\times\partial D_\lambda\right)\cap X = 0.
   \end{equation*}
-  which is continuous in $b$. Thus this is constant and we can take $b = a$ and the above quantity equals to $r_\lambda$.
+  Using $F$ we can write $g(t) = F(b,t)$ for $\underline{b}\in D_\delta\defeq D_\delta(\underline{a})$. Using Theorem \ref{theorem_argument_principle}, we have for each $\lambda=1,\cdots,l$,
+  \begin{equation*}
+   \mathcal{N}(g,D_\lambda) ={\frac {1} {2\pi i}}\int_{\partial D_\lambda}{\frac {F'(\underline{b},t)} {F(\underline{b},t)}}dt,
+  \end{equation*}
+  which is an integer but the expression in the right hand side is continuous in $\underline{b}$. Thus this is constant and we can take $\underline{b} = \underline{a}$ and the above quantity equals to $r_\lambda$.
 \end{proof}
 
 \begin{lemma}
-Let $f(z,t) = t^k+a_1(z)k^{k-1}+\cdots$ on $U\times \C$ where $U\subseteq\C^k$ open. Let $X = V(f)=\{f=0\}$. Suppose $p:U\times \C\to U$ be a natural projection and $\pi=p|_X:X\to U$. We have,
+Let $f(z,t) = t^k+a_1(z)k^{k-1}+\cdots$ on $U\times \C$ where $U\subseteq\C^k$ open. Let $X = V(f)=\{f=0\}$. Suppose $p:U\times \C\to U$ is a natural projection and $\pi=p|_X:X\to U$. We have,
 \begin{enumerate}[1).]
-  \item $\pi$ is discrete (ie. the fibers are discrete).
-  \item $\pi$ is proper.
+  \item $\pi$ is discrete (i.e. the fibers are discrete).
+  \item $\pi$ is proper (i.e. the preimages of compacts sets are again comapct)
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-  The first assertion is clear. For the second part, consider a compact subset $K\subseteq U$. Then each $a_1,\cdots, a_k$ are bounded on $K$. The previous lemma says that for $z\in K$, the zeros of $f(z,t)$ is bounded by $C$ which is independent of $z$. We have,
-  \begin{equation}
+  The first assertion is clear. For the second part, consider a compact subset $K\subseteq U$. Then each $a_1,\cdots, a_k$ are bounded on $K$. Lemma \ref{lemma_zeros_exhaustion} says that for $z\in K$, the zeros of $f(z,t)$ is bounded by $C$ which is independent of $z$. We have,
+  \begin{equation*}
     \pi^{-1}(K) = V(f)\cap (K\times \{t\sep \vert t\vert\leq C\}),
-  \end{equation} 
+  \end{equation*} 
   which is clearly a compact set in $X=V(f)$.
 \end{proof}
 
 \begin{definition}
-  Let $X$ be an analytic set of a domain $U\subseteq \C^n$. $X$ is called an analytic hypersurface if for all $x\in X$, there is a neighborhood $W(x)$ and $f\in \mathcal{O}(W)$ such that $X\cap W = V(f)$.
+  \label{defintion_analytic_hypersurface}
+  Let $X$ be an analytic set of a domain $U\subseteq \C^n$. $X$ is called an analytic hypersurface if for all $x\in X$, there is a neighborhood $W$ of $x$ and $f\in \mathcal{O}(W)$ such that $X\cap W = V(f)$.
 \end{definition}
 
 \begin{remark}
-  In the definition above, if $0\in W$ and $f\in\mathcal{O}(W)$ which is $z_n$-regular at $0$. By Weierstrass Vorbereitungs satz, we have,
+  In Definition \ref{defintion_analytic_hypersurface} above, if $0\in W$ and $f\in\mathcal{O}(W)$ which is $z_n$-regular at $0$ then by Weierstrass Vorbereitungs Satz, we have,
   \begin{equation*}
     f = e\omega,
   \end{equation*}
-  where $\omega$ is a Weierstrass polynomial at $0$. So choose $W$ small enough that all the germs are given on $W$  by holomorphic function, $e$ has zeros. Thus $X\cap W = V(\omega)$.
+  where $\omega$ is a Weierstrass polynomial at $0$. So choose $W$ small enough that all the germs are given on $W$ by holomorphic function and $e$ has zeros. Thus $X\cap W = V(\omega)$.
 \end{remark}
 
 \begin{proposition}
-A hypersurface can locally be defined on $V(\omega)$ where $\omega$ is a polynomial in $z_n$ Weyerstrass polynomial at 
+A hypersurface can locally be defined on $V(\omega)$ where $\omega$ is a polynomial in $z_n$ Wierstrass polynomial at one of the points. %later 
 \end{proposition}
 \begin{proof}
-  Without the loss of generality, we my assume that $\omega$ ith 
+  Without the loss of generality, we my assume that $\omega$ has not multiple prime factor.
 \end{proof}
 
 \begin{theorem}
-  Let $f\in H_n[t]$ be monomial with no multiple prime factors. $\deg(f) = k$, suppose $f\in\mathcal{O}(U)$. The discriminant $\mathcal{O}(U)\ni D_f\not=0$.
+  Let $f\in H_n[t]$ be monomial with no multiple prime factors and $\deg(f) = k$, suppose $f\in\mathcal{O}(U)[t]$. Then the discriminant $\mathcal{O}(U)\ni D_f\not=0$.
   \par Set 
   \begin{align*}
     X = V(f)\subseteq U\times\C, S = V(D_f)\subset U, U' = U\backslash S.
   \end{align*}
   Furthermore, let 
   \begin{equation*}
-    p:U\times \C\to U, \pi = p|_X, X' = X\backslash \pi^{-1}(S)=\pi^{-1}(U).
+    p:U\times \C\to U, \pi = p|_X, X' = X\backslash \pi^{-1}(S)=\pi^{-1}(U').
   \end{equation*}
   Then we have the following statements.
   \begin{enumerate}
-    \item $X'\stackrel{\pi}{\to}U'$ unlimited unbranched covering with $k$-sheets.
-    \item $X\stackrel{\pi}{\to}U$ covering.
+    \item $X'\stackrel{\pi}{\to}U'$ is an unlimited unbranched covering with $k$-sheets.
+    \item $X\stackrel{\pi}{\to}U$ is a covering.
     \item $X'$ is locally the graph of a holomorphic function.
-    \item $X'$ connected if and only if $f$ is irreducible in $\mathcal{O}(U)^\circ[t]$ where $X'$ is locally a graph of $f$.
+    \item $X'$ is connected if and only if $f$ is irreducible in $\mathcal{O}(U)^\circ[t]$ where $X'$ is locally a graph of $f$.
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  Clearly $\pi$ is discrete and open. Take $(z_0,t_0)\in U\times \C$ such that $f(z_0,t_0)=0$. Let $W$ be a neighborhood of $(z_0,t_0)$. Choose $\varepsilon,\delta$ from the previous lemma such that 
-  for $z\in D_\delta(z_0)$ there exists at least one zero of $f(z,f)$. Still $D_\delta(t_0)$, $D_\delta\times D_\epsilon\subseteq W$, and 
+  Clearly $\pi$ is discrete and open. Take $(z_0,t_0)\in U\times \C$ such that $f(z_0,t_0)=0$. Let $W$ be a neighborhood of $(z_0,t_0)$. Choose $\varepsilon,\delta$ according to Lemma \ref{lemma_zeros_exhaustion} such that 
+  for $z\in D_\delta(z_0)$ there exists at least one zero of $f(z,f)$ in $D_\varepsilon(t_0)$. Take $\delta,\varepsilon$ small enough so that $D_\delta\times D_\epsilon\subseteq W$, and 
   \begin{equation*}
   \pi(W)\supseteq U.
   \end{equation*}
-  \par Assume that $X'$ is not connected. That is to say $X'= X'_1\cup X_2'$ for disjoint open sets $X_1',X_2'$. Take $z_0\in U'$. Then we know that 
+  \par Assume that $X'$ is not connected. That is, $X'= X'_1\cup X_2'$ for disjoint open sets $X_1',X_2'$. Take $z_0\in U'$, then we know that 
   \begin{align*}
-    f(z,t)& = \prod_{i=1,\cdots,k}t-\varphi_i(z),\text{ holomorphic close to $z_0$},\\
+    f(z,t)& = \prod_{i=1,\cdots,k}(t-\varphi_i(z)),\text{ holomorphic close to $z_0$},\\
     & = \prod_{i=1,\cdots,k_1}(t-\varphi_i(z))\prod_{i=k_1+1,\cdots,k}(t-\varphi_i(z)),\\
     & = f_1(z,t)f_2(z,t),\text{ close to $z_0$}.
   \end{align*}
@@ -2627,6 +2664,7 @@ A hypersurface can locally be defined on $V(\omega)$ where $\omega$ is a polynom
     X' = V(f) = V(f_1)\cup V(f_2),
   \end{equation*}
   which is a disjoint union.
+  %later needs revision
 \end{proof}
 
 \begin{remark}
@@ -2644,18 +2682,18 @@ A hypersurface can locally be defined on $V(\omega)$ where $\omega$ is a polynom
 Let $X_{\reg}$ be the set of regular points. Then $X'\subseteq X_{\reg}\subset X$. May of course happen that $X_{\reg}\not= X'$.
 \end{remark}
 
-\section{Functions on Analytic Sets}
+\subsection{Functions on Analytic Sets}
 
 In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\reg}\subseteq X$ the set of regular points of $X$.
 
 \begin{definition}
   \label{definition_4_1}
-  A function $f:X\to \C$ is called holomorphic at a point $z_0\in X$ if there is a neighborhood $U = U(z_0)\subseteq \C^n$ and $F:U\to \C$ such that 
+  A function $f:X\to \C$ is called holomorphic at a point $z_0\in X$ if there is a neighborhood $U = U(z_0)\subseteq \C^n$ and a holomorphic function $F:U\to \C$ such that 
   \begin{equation*}
     F|_{U\cap X} = f.
   \end{equation*}
-  In particular, it is called holomorphic if it is holomorphic at all points of $X$.\\
-  \par A function $f:X\to \C$ is weakly holomorphic, if it is continuous and holomorphic at all regular points.\\
+  In particular, it is called holomorphic if it is holomorphic at all points of $X$.
+  \par A function $f:X\to \C$ is weakly holomorphic, if it is continuous and holomorphic at all regular points.
   \par A function $f:X_{\reg}\to \C$ is normal if $f$ is holomorphic and locally bounded on $X$.
 \end{definition}
 
@@ -2668,16 +2706,17 @@ In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\
 \end{remark}
 
 \begin{example}
-  Let $X\subseteq \C^2$ such that $X = V(z^3-w^2)$. 
+  %needs revision later
+  Motivated by Example \ref{example_cusp_non_biholomorphic}. Let $X\subseteq \C^2$ such that $X = V(z^3-w^2)$. Consider the following holomorphic function,
   \begin{equation*}
-    \C\ni t\mapsto \stackrel{\varphi\text{ holomorphic}}{\longrightarrow}(t^2,t^3)\in X\subseteq \C^2.
+    \C\ni t\stackrel{\varphi\text{ holomorphic}}{\mapsto}(t^2,t^3)\in X\subseteq \C^2.
   \end{equation*}
-  Observe that $\varphi$ is a homeomorphism. Set $t=\sqrt{z}$, we get 
+  Observe that $\varphi$ is a homeomorphism. For $(z,w)\in X$, set $t=\sqrt{z}$, then we get 
   \begin{equation*}
     \varphi(\pm t) = (z,w).
   \end{equation*}
   Consider $\varphi^{-1}:X\to \C$. $\varphi^{-1}$ is continuous and holomorphic outside of the origin. Therefore, this is weakly holomorphic function.
-  However, this is not holomorphic at the origin.\\
+  However, this is not holomorphic at the origin.
   \par Suppose there is $h(z,w)$ in $U(0)$ such that 
   \begin{equation*}
     h|_X = \varphi^{-1}.
@@ -2697,7 +2736,7 @@ In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\
   \label{proposition_4_1}
   Suppose $X$ is an analytic set without singular points contained in a domain $U\subseteq\C^n$.
   $X$ is a analytic submanifold of dimension $k\leq n$. That is to say, local properties of holomorphic functions on $\C^k$ are true for holomorphic functions on $X$.
-  For example, identity theorem, maximum principle.
+  (e.g. Theorem \ref{identity_theorem}(Identity Theorem), Theorem \ref{theorem_max_principle}(Maximal Principle)).
 \end{proposition}
 
 \begin{proposition}
@@ -2707,7 +2746,7 @@ In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\
 \end{proposition}
 
 \begin{proof}
-  Since $U\cap X_{\reg}$ is a non-empty open set. Thus $f\equiv 0$ on $U\cap X_{\reg}$. By Proposition \ref{proposition_4_1}, $f\equiv 0$ on $X_{\reg}$. By the continuity of $f$, $f\equiv 0$ on $X$.
+  Note that $X_{\reg}$ is open by definition. As $U\cap X_{\reg}$ is a non-empty open set and $f\equiv 0$ on $U\cap X_{\reg}$, using Proposition \ref{proposition_4_1}, $f\equiv 0$ on $X_{\reg}$. By the continuity of $f$, $f\equiv 0$ on $X$.
 \end{proof}
 
 \begin{example}
@@ -2723,7 +2762,7 @@ In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\
       0 \quad z_2 = 0.
     \end{cases}
   \end{equation*}
-  This function cannot be continued to the origin not even continuously. We see that Riemann extension theorem does not hold in this case.
+  This function cannot be continued to the origin not even continuously. We see the case that Riemann extension theorem does not hold.
 \end{example}
 
 \begin{theorem}
@@ -2736,7 +2775,7 @@ In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\
   \begin{equation*}
     w(z,t) = t^k+a_1(z)t^{k-1}\cdots,
   \end{equation*}
-  which is defined o n$D^m\times D$. Let $f$ be a a normal function on $X$. Then htere are holomorphic functions 
+  which is defined on $D^m\times D$. Let $f$ be a a normal function on $X$. Then there are holomorphic functions 
   \begin{equation*}
     a_1(z),\cdots,a_k(z),
   \end{equation*}
@@ -2777,9 +2816,10 @@ In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\
   \end{equation*}
   on $V$. On the other hand, this is equal to 
   \begin{equation*}
-    = f(z,t)^{k}+a_1(z)ff(z,t)^{k-1}+\cdots
+    = f(z,t)^{k}+a_1(z)f(z,t)^{k-1}+\cdots
   \end{equation*}
   where $a_1,\cdots$ are defined in all of $D$.
+  %later needs revision. Unclear why the preimage is a finite union and U_i = \{(z,t_i)\sep t_i is a zero of \omega\}.
 \end{proof}
 
 \begin{remark}
@@ -2827,7 +2867,7 @@ In this section, $X\subseteq\C^n$ is used to denote some analytic set, and $X_{\
   \end{equation*}
 \end{proof}
 
-\section{More Algebras}
+\subsection{More Algebras}
 
 Let $R$ be a commutative ring with a unit.
 \begin{definition}
@@ -2883,7 +2923,7 @@ Let $R$ be a commutative ring with a unit.
 
 \begin{corollary}
   \begin{equation*}
-    \sqrt{(0)} = \bigcup_{\mathfrak{p}\in\Spec R} \mathfrak{p}.
+    \sqrt{(0)} = \bigcap_{\mathfrak{p}\in\Spec R} \mathfrak{p}.
   \end{equation*}
 \end{corollary}
 
@@ -2913,7 +2953,7 @@ Let $R$ be Noetherian. An ideal is primary if and only if it is irreducible. Fur
 
 \begin{theorem}[Lasker-Noether]
   \label{theorem_5_2}
-  Let $R$ be Noetherian and $\mathfrak{a}\subset R$ be an ideal. $\mathfrak{a}$ admits an irredundant representation if ,
+  Let $R$ be Noetheria. Then any ideal $\mathfrak{a}\subset R$ admits an irredundant representation, i.e.
   \begin{equation*}
     \mathfrak{a} = \bigcap_{i=1,\cdots,k}\mathfrak{q}_i.
   \end{equation*}
@@ -2930,7 +2970,7 @@ Let $R$ be Noetherian. An ideal is primary if and only if it is irreducible. Fur
   Consider the primary decomposition of $\mathfrak{a}\subseteq R$ where $R$ is Noetherian. Each $\mathfrak{p}_i$ of the decomposition is called the primary component of $\mathfrak{a}$. The minimal ones among such primary ideals are called either minimal/isolated. Otherwise they are called embedded.
 \end{definition}
 
-\section{Analytic germs}
+\subsection{Analytic germs}
 
 \begin{definition}
   Let $X$ be topological space and $A,B\subset X$ and $a\in X$. We say,
@@ -2955,7 +2995,7 @@ Let $R$ be Noetherian. An ideal is primary if and only if it is irreducible. Fur
   \begin{equation*}
     \mathfrak{a} =(f_1,\cdots,f_n)\subset\Ouv_a,
   \end{equation*}
-  an ideal generated by $f_1,\cdots,f_n$. such that $f_i$ converges at $U(a)$ for all $i=1,\cdots,k$. Then we define,
+  an ideal generated by $f_1,\cdots,f_n$. such that $f_i$ converges in $U(a)$ for all $i=1,\cdots,k$. Then we define,
   \begin{equation*}
     V(\mathfrak{a}) = \{x\in\C^n\sep \forall i=1,\cdots,k, f_i(x) = 0\}_a,
   \end{equation*}
@@ -2997,7 +3037,7 @@ Let $R$ be Noetherian. An ideal is primary if and only if it is irreducible. Fur
   \begin{align*}
     X\subseteq Y&\Leftrightarrow J(X)\supseteq J(Y),\\
     J(X\cap Y) & = J(X)+J(Y),\\
-    J(X\cup Y) = J(X)\cap J(Y).
+    J(X\cup Y) &= J(X)\cap J(Y).
   \end{align*}
   And for any ideal $\mathfrak{a}$, we have,
   \begin{equation*}
@@ -3006,8 +3046,8 @@ Let $R$ be Noetherian. An ideal is primary if and only if it is irreducible. Fur
   Furthermore, if $\mathfrak{a},\mathfrak{b}\subset R$, we have,
   \begin{align*}
   \mathfrak{a}\subseteq\mathfrak{b}&\Leftrightarrow V(\mathfrak{a}) \supseteq V(\mathfrak{b}),\\
-  V(\mathfrak{a}\cap\mathfrak{b}) &= V(\mathfrak{a}\underline{\mathfrak{b}}) = V(\mathfrak{a})\cup V(\mathfrak{b}),\\
-    V(\mathfrak{a},\mathfrak{b}) &= V(\mathfrak{a})\cap V(\underline{\mathfrak{b}}).
+  V(\mathfrak{a}\cap\mathfrak{b}) &= V(\mathfrak{a}\mathfrak{b}) = V(\mathfrak{a})\cup V(\mathfrak{b}),\\
+    V(\mathfrak{a},\mathfrak{b}) &= V(\mathfrak{a})\cap V(\mathfrak{b}).
   \end{align*}
 \end{proposition}
 
@@ -3036,10 +3076,10 @@ Let $R$ be Noetherian. An ideal is primary if and only if it is irreducible. Fur
 \begin{proof}
   Suppose $J(X)$ is not prime then, there are $f,g\in\Ouv_a$ with $fg\in J(X)$, such that $f,g\not\in J(X)$.
   Then we have,
-  \begin{equation}
+  \begin{equation*}
     V(f)\cup V(g) = V(fg) \supseteq X.
-  \end{equation}
-  Thus we have $X = (V(f)\cap X)\cup (V(g)\cap X)$ which neither of the factors are equal to $X$. Thus $X$ is not irreducible.\\
+  \end{equation*}
+  Thus we have $X = (V(f)\cap X)\cup (V(g)\cap X)$ which neither of the factors are equal to $X$. Thus $X$ is not irreducible.
   \par The question is if $\mathfrak{p}$ is prime then is $V(\mathfrak{p})$ irreducible? We have,
   \begin{equation*}
     JV(\mathfrak{p})\supset \mathfrak{p}.
@@ -3071,7 +3111,7 @@ where each $X_i$ is uniquely determiend by $X$.
 \end{theorem}
 
 \begin{proof}
-  Let $\mathfrak{M}$ be the set of germs which is not-empty and $\mathfrak{I}$ be the corresponding ideals. Since $\C[x]$ is Noetherian, we have, $\mathfrak{I}$ has a maximal element. Thus $\mathfrak{M}$ has a minimal element.\\
+  Let $\mathfrak{M}$ be the set of germs which is not-empty and $\mathfrak{I}$ be the corresponding ideals. Since $\C[x]$ is Noetherian, we have, $\mathfrak{I}$ has a maximal element. Thus $\mathfrak{M}$ has a minimal element.
   \par Consider $\mathfrak{M}=\{\text{ $X$ where the statement fails.}\}$. Then by the argument above, there is  a minimal element $X^0$ of $\mathfrak{M}$. Since $X^0$ is redundant we have $X^0 = X^1\cup X^2$ where $X^1,X^2$ satisfies the statement. 
   Then we can take $X_i^0$ so that $X^0$ also satisfies the statement. \\
   The uniqueness follows from Lasker-Noether theorem. Indeed, we have,
@@ -3096,6 +3136,7 @@ where each $X_i$ is uniquely determiend by $X$.
 \end{example}
 
 \begin{example}
+  %later needs more explanation
   Consider $X= V(\underbrace{z^2-uw^2}_{=f})\subseteq \C^3$. Then $f$ is irreducible but at $a=(0,0,a_3\not=0)$ then $f = (z+w\sqrt{u})(z-w\sqrt{u})$. We see that $X_0$ is prime but $X_a$ is not.
 \end{example}
 
@@ -3120,7 +3161,7 @@ where each $X_i$ is uniquely determiend by $X$.
 \end{definition}
 
 \begin{definition}
-  A domain $\G\subseteq\C^n$ is called a domain of holomorphy if each extension pair $(U,V)$ there is a holomorphic functions $f\in\Ouv(\G)$, such that $f$ cannot be extended to $(U,V)$.
+  A domain $\G\subseteq\C^n$ is called a domain of holomorphy, if for each extension pair $(U,V)$, there is a holomorphic functions $f\in\Ouv(\G)$, such that $f$ cannot be extended to $(U,V)$.
 \end{definition}
 
 \begin{definition}
@@ -3147,7 +3188,7 @@ where each $X_i$ is uniquely determiend by $X$.
 \end{definition}
 
 \begin{example}
-  For dimension $1$, all domains are domains of holomorphy. Consider a domain $\G$, and $z_0\in\bd\G$. Then the functio,
+  For dimension $1$, all domains are domains of holomorphy. Consider a domain $\G$, and $z_0\in\bd\G$. Then the function,
   \begin{equation*}
     z\mapsto{\frac 1 {z-z_0}}
   \end{equation*}
@@ -3160,34 +3201,39 @@ where each $X_i$ is uniquely determiend by $X$.
 
 \begin{proposition}
   Products of domains of holomorphy/holomorphycally convex sets are again domains of holomorphy/holomorphically convex, respectively.
-  In particular, disks and balls, (disks are products of one dimensional domains and disks and balls are convex).
+  In particular, disks and balls carry these properties, (disks are products of one dimensional domains and disks and balls are convex).
 \end{proposition}
 
 \begin{remark}
   Let $\G$ be a domain and $K\subseteq \G$ be a compact set then $\G\backslash K$ is never a domain of holomorphy nor holomorphically convex.
 \end{remark}
 
-Let $\G$ be a domain and $z\in \G$. We define,
-\begin{equation*}
-  \delta(z) = \max\{r>0\sep D_r(z)\subseteq\G\}.
-\end{equation*}
-We call $\delta(z)$ the holomorphic distance of $z$.
-\\ Furthermore, let $K\subseteq \G$ be compact, we set,
-\begin{equation*}
-  \delta(K) = \min\{\delta(z)\sep z\in K\}.
-\end{equation*}
-Finally, we define, for $0<\rho<r=\delta(K)$, 
-\begin{equation*}
-  K_\rho = \bigcup_{z\in K}D_\rho(z).
-\end{equation*}
+\begin{definition}
+  Let $\G$ be a domain and $z\in\G$. We define,
+  \begin{equation*}
+    \delta(z) = \delta_\G(z) \defeq\max\{r>0\sep D_r(z)\subseteq\G\}.
+  \end{equation*}
+  $\delta(z)$ is called the holomotphic distance of $z$. 
+  \par For a compact subset $K\subseteq\G$, we define,
+  \begin{equation*}
+    \delta(K)\defeq\min\{\delta(z)\sep z\in K\}.
+  \end{equation*}
+\end{definition}
+
+\begin{definition}
+  For a compact set $K$ of a domain $\G$ and $0<\rho<\delta(K)$, we define
+  \begin{equation*}
+    K_\rho = \bigcup_{z\in K}D_\rho(z).
+  \end{equation*}
+\end{definition}
 
 \begin{remark}
-  $\delta$ is continuous and strictly positive or everywhere $\infty$. In particular, $\delta(K)>0$ for any compact $K\subseteq\G$.
+  $\delta$ is continuous and strictly positive or everywhere $\infty$. In particular, $\delta(K)>0$ for any compact set $K\subseteq\G$.
 \end{remark}
 
 \begin{theorem}[Cartan/Thullen]
-  Let $\G$ be a domain and $K$ be a compact subset of $\G$. Take $z_0\in\hat{K}$. If $u$ is a holomorphic function on $\G$, then set
-   $p_{u,z_0}(z) $ as the power seris of $u$ around $z_0$. Then $p_{u,z_0}(z)$ converses on $D_{\delta(K)}(z_0)$.
+  Let $\G$ be a domain and $K$ be a compact subset of $\G$. Take $z_0\in\hat{K}$. For a holomorphic function $u$ on $\G$, let
+   $p_{u,z_0}(z) $ be the power series of $u$ around $z_0$. Then $p_{u,z_0}(z)$ converges on $D_{\delta(K)}(z_0)$.
 \end{theorem}
 
 \begin{proof}
@@ -3201,11 +3247,11 @@ Finally, we define, for $0<\rho<r=\delta(K)$,
   \end{equation*}
   We have,
   \begin{equation*}
-    D^\alpha u(z) = {\frac {\alpha!} {(2\pi i)^\alpha}}\int_{\vert \zeta_1-z_1\vert =\rho}\cdots\int_{\vert \zeta_n-z_n\vert =\rho}{\frac {u(\zeta)} {(\czeta-\cz)^{\alpha+(1,\cdots,1)}}}d\czeta
+    D^\alpha u(z) = {\frac {\alpha!} {(2\pi i)^\alpha}}\int_{\vert \zeta_1-z_1\vert =\rho}\cdots\int_{\vert \zeta_n-z_n\vert =\rho}{\frac {u(\zeta)} {(\mzeta-\mz)^{\alpha+(1,\cdots,1)}}}d\mzeta
   \end{equation*}
   Taking the modulo, we have,
   \begin{equation*}
-    \vert D^\alpha u(z)\vert \leq \alpha!\left({\frac 1 {2\pi}}\right)^n\vert u\vert_{K_\rho}{\frac 1 {\rho^{\vert\alpha\vert+n}}}(2\pi\rho)^n = \alpha!{\frac {\vert u\vert_{K_\rho}} {\rho^{n+1}}}.
+    \vert D^\alpha u(z)\vert \leq \alpha!\left({\frac 1 {2\pi}}\right)^n\vert u\vert_{K_\rho}{\frac 1 {\rho^{\vert\alpha\vert+n}}}(2\pi\rho)^n = \alpha!{\frac {\vert u\vert_{K_\rho}} {\rho^{\vert\alpha\vert}}}.
   \end{equation*}
   This holds for all $z\in K$. Thus it must also hold for $z_0\in \hat{K}$. That is,
   \begin{equation*}
@@ -3220,7 +3266,7 @@ Finally, we define, for $0<\rho<r=\delta(K)$,
 \end{proof}
 
 \begin{lemma}
-  Let $K\subseteq\G$ be compact. Suppose $z_0\in\G\backslash\hat{K}$. Then for each $M,\varepsilon>0$, there is a function $f\in\Ouv(\G)$ such that 
+  Let $K\subseteq\G$ be compact and $z_0\in\G\backslash\hat{K}$. For each $M,\varepsilon>0$, there is a function $f\in\Ouv(\G)$ such that 
   \begin{equation*}
     \vert f(z_0)\vert >M,\vert f\vert_K<\varepsilon.
   \end{equation*}
@@ -3231,8 +3277,7 @@ Finally, we define, for $0<\rho<r=\delta(K)$,
   \begin{equation*}
     \tilde{f}(z_0)\geq\vert \tilde{f}\vert_K.
   \end{equation*}
-  It is an exercise for the readers to show that, from the equation above, we can obtain $f\in\Ouv(\G)$ such that $f(z_0)>1 >\vert f\vert_K$.
-  \par Now take high powers of $f$.
+  It is an exercise for the readers to show that, from the equation above, we can obtain $f\in\Ouv(\G)$ such that $f(z_0)>1 >\vert f\vert_K$. Now take high powers of $f$, we obtain the claim.
 \end{proof}
 
 \begin{proposition}
@@ -3367,9 +3412,9 @@ Finally, we define, for $0<\rho<r=\delta(K)$,
 
 \begin{remark}
   If $\varphi$ is subharmonic, we have, for all $z_0\in U$, there exists $r_0>0$ such that for $r\leq r_0$,
-  \begin{equation}
-    \varphi(z_0)\leq {\frac 1 {2\pi}}\int_0^{2\pi}\varphi(z_0+re^{i\theta})d\theta.\label{mean_value_eq}
-  \end{equation}
+  \begin{equation*}
+    \varphi(z_0)\leq {\frac 1 {2\pi}}\int_0^{2\pi}\varphi(z_0+re^{i\theta})d\theta.\label{mean_value_eq}\tag{M}.
+  \end{equation*}
 \end{remark}
 
 \begin{theorem}
@@ -3766,7 +3811,7 @@ See \cite{Ra} Lemma 2.11.
   \end{equation*}
 \end{remark}
 
-\section{The Levi Problems}
+\subsection{The Levi Problems}
 
 \begin{theorem}
   Let $\G$ be holomorphically convex, then it is pseudoconvex.
@@ -4505,9 +4550,9 @@ Let $U\subseteq X$ be an open subset. For a sheaf $\mathcal{S}$ on $X$. The sect
   \tilde{\mathcal{S}}_x \defeq \bigsqcup_{U\in\mathcal{U}(x)} \mathcal{S}(U).
   \end{equation*}
   Let $f\in\mathcal{S}(U)$ and $g\in\mathcal{S}(V)$ for some open sets $U,V\subseteq X$. We define the equivalence relation $f\sim g$ if there is an open set $W\subseteq U\cap V$ such that 
-  \begin{equation}
+  \begin{equation*}
     \rho_{UW}(f) = \rho_{VW}(g).
-  \end{equation}
+  \end{equation*}
   The stalk of $\mathcal{S}$ at $x$ is then defined as,
   \begin{equation*}
   \mathcal{S}_x \defeq \tilde{\mathcal{S}}_x/\sim.
@@ -5350,7 +5395,7 @@ Let $x\in\C^n$ and define and $\G\subseteq\C^n$ be a domain containing the origi
 We then obtain the following exact sequence,
 \begin{center}
   \begin{tikzcd}
-0 \arrow[r] & \mathcal{K} \arrow[r] & \mathcal{O}^n \arrow[r, "{(f_1,\cdots,f_n)\mapsto\sum_{j=1}^nf_jz_j}"] & \mathcal{J}_0 \arrow[r] & 0
+0 \arrow[r] & \mathcal{K} \arrow[r] & \mathcal{O}^n \arrow[r, "{\substack{(f_1,\cdots,f_n)\mapsto\sum_{j=1}^nf_jz_j\\\:}}"] & \mathcal{J}_0 \arrow[r] & 0
 \end{tikzcd}
 \end{center}
 
@@ -6093,6 +6138,490 @@ be $(0,q)$-forms with coefficients in $W^s_{\loc}(\G)$. Note that $W_{0,q,\loc}^
 \begin{remark}
   $\overline{\partial}$ is an elliptic operator on functions. $\overline{\partial}$ is not elliptic for $q>0$. In that case a smooth solutions will be singled out by an adjoint operator ($T^*$ essentially $\theta$), $\overline{\partial}\oplus\theta$ is elliptic.
 \end{remark}
+\subsection{Applications}
+
+\begin{definition}
+  Let $f\in \cinf_{p,0}(\G)$ with $\cbd f=0$. The $p$-form is holomorphic it can be written as
+  \begin{equation*}
+    f = \sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert = p}}f_\alpha dz^\alpha,
+  \end{equation*}
+  where $f_\alpha$ are all holomorphic. We write,
+  \begin{equation*}
+    \Omega^p = \{\text{germs of holomorphic $p$-forms}\}.
+  \end{equation*}
+\end{definition}
+
+\begin{remark}
+  \begin{equation*}
+    \Omega^0=\Ouv,\Omega^p \cong \Ouv^{{n\choose p}}.
+  \end{equation*}
+\end{remark}
+
+\begin{theorem}
+  For $\G$ a domain in $\C^n$, the following are equivalent.
+  \begin{enumerate}[1).]
+    \item $\G$ is pseudoconvex.
+    \item $\G$ is holomorphically convex.
+    \item $\G$ is a domain of holomorphy.
+    \item $\G$ is a domain of existence.
+    \item $H^{p,q}_{\Dol}(\G)=0$ for all $q\geq1$.
+    \item $H^q(\G,\Omega^p)=0$ for all $q\geq1$, and solves the Levi problems.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  The first Cousin problem is solvable in a domain of holomorphy. Namely,
+  \begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \mathcal{O} \arrow[r] & \mathcal{M} \arrow[r]     & \mathcal{K}=\mathcal{M}/\mathcal{O} \arrow[r] & 0                           &        \\
+0 \arrow[r] & \Ouv(\G) \arrow[r]    & \mathcal{M}(\G) \arrow[r] & \mathcal{K}(\G) \arrow[r]                     & {H^1(\G,\Ouv)=0?} \arrow[r] & \cdots
+\end{tikzcd}
+  \end{center}
+\end{theorem}
+
+Consider the second Cousin problem. That is let $\G$ be a domain and $\sU=\{U_i\sep i\in I\}$ be an open covering. Consider,
+\begin{equation*}
+  f_i\in\mathcal{M}^*(U_i), f_i/f_j = h_{ji}\in\Ouv^*(U_{ij}).
+\end{equation*}
+
+Cousin II distribution ion is a solution to the second Cousin problem which is a element $f\in\mathcal{M}^*(\G)$ such that 
+\begin{equation*}
+  f/f_i = h_i\in\Ouv^*(U_i).
+\end{equation*}
+
+Consider,
+\begin{center}
+  \begin{tikzcd}
+0 \arrow[r] & \Ouv^* \arrow[r] & \mathcal{M}^* \arrow[r] & \mathcal{D}=\mathcal{M}^*/\mathcal{O}^* \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+Note that $\mathcal{D}(\G)$ is a group of divisors. Consider for $f\in\mathcal{M}^*(\G)$, the representative $(f)$ in $\mathcal{D}$ is called a principal divisor. (i.e. the Cousin II distribution solvable?).
+\begin{center}
+  \begin{tikzcd}
+\cdots \arrow[r] & \mathcal{M}^*(\G) \arrow[r] & \mathcal{D}(\G) \arrow[r] & {H^1(\G,\Ouv^*)} \arrow[r] & {\underbrace{H^1(\G,\mathcal{M}^*)}_{=0}} \arrow[r] & \cdots
+\end{tikzcd}
+\end{center}
+Since $\G$ is pseudoconvex, we have $\mathcal{D}(\G)\to H^1(\G,\Ouv^*)=0$. 
+\par We also have what so-called exponential sequence,
+\begin{center}
+  \begin{tikzcd}
+0 \arrow[r] & \Z \arrow[r] & \Ouv \arrow[r, "\substack{f\mapsto \exp(2\pi if)\\\:}"] & \Ouv^* \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+This gives a rise to a cohomology sequence,
+\begin{center}
+  \begin{tikzcd}
+\cdots \arrow[r] & {H^1(\G,\Ouv)} \arrow[r] & {H^1(\G,\Ouv^*)} \arrow[r] & {H^2(\G,\Z)} \arrow[r] & {H^2(\G,\Ouv)} \arrow[r] & \cdots
+\end{tikzcd}
+\end{center}
+Imposing the assumption that $\G$ is pseudoconvex, we get 
+\begin{equation*}
+  H^1(\G,\Ouv^*)\cong H^2(\G,\Z).
+\end{equation*}
+From these observation, we have the following theorem.
+\begin{theorem}
+  The Second Cousin problem on a pseudoconvex domain $\G$ is solvable if and only if $H^2(\G,\Z)=0$.
+\end{theorem}
+\begin{theorem}[Oka-Grauert Principle]
+  On a pseudoconvex domain, problems that can be expressed in terms of cohomology are solvable if and only if they admit continuous solutions. Or equivalently, the obstructions to solving these problems come from the topology of the domains.
+\end{theorem}
+
+\begin{example}
+  We give a counterexample to the Second Cousin problem where $\G$ pseudoconvex and simply connected. Set,
+  \begin{equation*}
+    \G = \{\vert z_1^2+z_2^2+z_3^2-1\vert<1\}\compembed\C^3.
+  \end{equation*}
+  Then $\G$ is simply connected but $H^2(\G,\Z)=\Z$. The idea to show this equality is the following. Observe first that 
+  \begin{equation*}
+    \G\cong D_1(0)\times Q,
+  \end{equation*}
+  where $Q = \{z_1^2+z_2^2+z_3^2=1\}$. Note that $Q$ can be retracted to $S^2$. Thus the second cohomology of $Q$ is the same as $S^2$ which is $\Z$. But the unit disk is contractible therefore, we obtain the claim.
+\end{example}
+\begin{theorem}[Poincaré Problem]
+  Let $\G$ be a pseudoconvex domain and $H^2(\G,\Z)=0$ If $f\in\mathcal{M}(\G)$ then there exist $g,h\in\Ouv(\G)$ such that $f=g/h$.
+\end{theorem}
+  Let $D\in\mathcal{D}(\G)$. Then it is locally given by the Cousin II distribution. Explicitlly, for $\sU=\{U_i\}_{i\in I}$ an open covering such that $f_i\in\mathcal{M}(U_i)$ is meromorphic and it is given by $f_i = {\frac {g_i} {h_i}}$. We can assume that 
+  $g_{i,x},h_{i,x}$ are relatively prime for certain point $x$. On $U_{ij}=U_i\cap U_j$, there is $u_{ij}$ such that 
+  \begin{equation*}
+    f_i=u_{ij}f_j.
+  \end{equation*}
+  where $u_{ij}$ is a holomorphic function without zeros. This tells us that there exist $u^g_{ij},u^h_{ij}$ such that on $U_{ij}$, we have,
+  \begin{equation*}
+    g_i = u^g_{ij}g_j,h_i = u^h_{ij}h_j,
+  \end{equation*}
+  and they are nowhere zero holomorphic functions. Note that collections,
+  \begin{equation*}
+    \{(U_i,g_i)\sep\text{Cousin II}\}\stackrel{\text{defines}}{\to}D^+,\{(U_i,h_i)\sep\text{Cousin II}\}\stackrel{\text{defines}}{\to}D^-.
+  \end{equation*}
+
+\begin{definition}
+  The divisor $D$ is positive if it is in the image of 
+  \begin{equation*}
+    \tilde{\Ouv}\to\mathcal{M}^*,
+  \end{equation*}
+  where $\tilde{\Ouv}_x = \Ouv_x-\{0\}$.
+\end{definition}
+\begin{lemma}
+  Let $D\in\mathcal{D}(\G)$. Then there exists $D^+,D^-$ such that $D^+$ is a positive divisor and 
+  \begin{equation*}
+    D = D^+-D^-.
+  \end{equation*}
+  Furthermore, this decomposition is unique. In particular, $D,D^+,D^-$ are principle. That is $D=(f)$ then for $f=u{\frac g h}$ where $u\in\Ouv^*(\G)$, we have ,
+  \begin{equation*}
+    (f)=(g)-(h).
+  \end{equation*}
+\end{lemma}
+\begin{definition}
+  For $0\leq r\leq n$, consider, $\bigwedge^r\Ouv$. Let $e_i\in\Ouv^n$ denote
+  \begin{equation*}
+    e_i = (\delta_{ij})_{j=1,\cdots,n}.
+  \end{equation*}
+  The basis for $\bigwedge^r\Ouv$ is 
+  \begin{equation*}
+    e_I = e_{i_1}\wedge\cdots\wedge c_{i_r},
+  \end{equation*}
+  where $1\leq i_1<\cdots<i_r\leq n$. We also have,
+  \begin{equation*}
+    \bigwedge^1\Ouv = \Ouv^n,\bigwedge^r\Ouv = \Ouv^{{n\choose r}}, \bigwedge^n\Ouv = \Ouv.
+  \end{equation*}
+  We then define,
+  \begin{equation*}
+    \bigwedge^r\Ouv\stackrel{d_r}{\to}\bigwedge^{r-1}\Ouv, d_re_{i_1}\wedge\cdots e_{i_r} = \sum_{j=1}^r (-1)^j z_{i_j}e_{i_1}\wedge\cdots e_{i_{j-1}}\wedge e_{i_{j+1}}\wedge\cdots e_{i_r}.
+  \end{equation*}
+\end{definition}
+\begin{remark}
+  By some calculations, we can show that $d_{r-1}d_r=0$.
+\end{remark}
+\begin{definition}
+  The following sequence is called a Kossul complex.
+  \label{definition_kossul_complex}
+  \begin{equation*}
+    \begin{tikzcd}
+0 \arrow[r] & \bigwedge^n\Ouv^n \arrow[r, "d_n"] & \bigwedge^{n-1}\Ouv^n \arrow[r, "d_{n-1}"] & \cdots \arrow[r, "d_2"] & \bigwedge^1\Ouv^n \arrow[r, "d_1"] & \mathcal{M} \arrow[r] & 0
+\end{tikzcd}\tag{K}\label{equation_kossul_complex}
+  \end{equation*}
+\end{definition}
+\begin{lemma}
+  The sequence \eqref{equation_kossul_complex} is exact. 
+\end{lemma}
+\begin{proof}
+  See \cite{Gr-Ra}.
+\end{proof}
+\begin{theorem}[Gleason]
+  Let $\G$ be pseudoconvex in $\C^n$ containing the origin. Let $M$ be such that 
+  \begin{equation*}
+    M \defeq \{f\in\Ouv(\G)\sep f(0)=0\}.
+  \end{equation*}
+  Then we have, 
+  \begin{equation*}
+    M = (z_1,\cdots,z_n)\Ouv(\G) = M.
+  \end{equation*}
+  That is for any $f\in M$, we have,
+  \begin{equation*}
+    f=\sum_{i=1}^n f_iz_i,
+  \end{equation*}
+  for some $f_1,\cdots,f_n\in\Ouv(\G)$.
+\end{theorem}
+Note that $\mathcal{M}_x = \{f_x\sep f_x\}$.
+\begin{proof}
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \mathcal{K}_n \arrow[r] & \Ouv^n \arrow[r, "{\substack{(f_1,\cdots,f_n)\mapsto \sum_{i=1}^n f_i\\\:}}"] & \mathcal{M} \arrow[r] & 0
+\end{tikzcd}
+  \end{center}
+  Observe that $\mathcal{M}(\G)=M$. Now the question is 
+  \begin{center}
+    \begin{tikzcd}
+\cdots \arrow[r] & \Ouv^n(\G) \arrow[r] & \mathcal{M}(\G)=M \arrow[r] & {\underbrace{H^1(\G,\mathcal{K}_n)}_{=0?}} \arrow[r] & \cdots
+\end{tikzcd}
+  \end{center} 
+  Using the Kossul complex of $\Ouv^n$, we obtain,
+  \begin{center}
+    \begin{tikzcd}
+0 \arrow[r] & \mathcal{K}_1 \arrow[r]                   & \bigwedge^1\Ouv^n \arrow[r]     & \mathcal{M} \arrow[r]       & 0      \\
+0 \arrow[r] & \mathcal{K}_2 \arrow[r]                   & \bigwedge^2\Ouv^n \arrow[r]     & \mathcal{K}_1 \arrow[r]     & 0      \\
+\vdots      & \vdots                                    & \vdots                          & \vdots                      & \vdots \\
+0 \arrow[r] & \mathcal{K}_{n-1} \arrow[r]               & \bigwedge^{n-1}\Ouv^n \arrow[r] & \mathcal{K}_{n-2} \arrow[r] & 0      \\
+0 \arrow[r] & \underbrace{\mathcal{K}_n}_{=0} \arrow[r] & \bigwedge^n\Ouv^n \arrow[r]     & \mathcal{K}_{n-1} \arrow[r] & 0     
+\end{tikzcd}
+  \end{center}
+\end{proof}
+\begin{theorem}
+  Let $\G$ be a domain containing $0$ and 
+  \begin{equation*}
+    A(\G)\defeq\{f\in\mathcal{C}^0(\overline{\G})\sep \text{$f$ is holomorphic on $\G$}\}.
+  \end{equation*} 
+  Consider $M \defeq\{f\in A(\G)\sep f(0)=0\}$. If $\G$ is strictly pseudoconvex, then $M = (z_1,\cdots,z_n)A(\G)$ (i.e. $M$ is an ideal generated by $z_1,\cdots,z_n$).
+\end{theorem}
+
+\begin{remark}
+  $\bigwedge^r \Ouv^n$ is acyclic and we have,
+  \begin{equation*}
+    H^1(\G,\mathcal{K}_1)\cong H^2(\G,\mathcal{K}_2)\cong H^3(\G,\mathcal{K}_3)\cong \cdots\cong \underbrace{H^n(\G,\mathcal{K}_n)}_{=0}.
+  \end{equation*}
+\end{remark}
+We could also take an equivalent approach. This is done by directly using double complex and $\CR$-equations. This approach can be found in the last chapter of \cite{LiM}.
+\begin{definition}
+  We define following subsets of holomorphic $p$-forms on a domain $\G$.
+  \begin{enumerate}[1).]
+    \item $Z^p_{\hol}(\G)\defeq\{f\in\cinf_{p,0}(\G)\sep \text{$f$ is holomorphic and }\partial f=0\}$ (i.e. the set of holomorphic $\partial$-closed $p$-forms). 
+    \item $B_{\hol}^p(\G)\defeq\{f\in\cinf_{p,0}(\G)\sep \text{$f$ is holomorphic and }\exists u\in \cinf_{p-1,0},f=\partial u\}$ (i.e. the coboundaries).
+  \end{enumerate}
+  We then define,
+  \begin{equation*}
+    H_{\dR,\hol}^p(\G) \defeq Z_{\hol}^p(\G)/B_{\hol}^p(\G),
+  \end{equation*}
+  which is called the holomorphic de Rham group.
+  \end{definition}
+  \begin{corollary}
+    For a domain of holomorphy $\G$ in $\C^n$, we have,
+    \begin{equation*}
+      p>n\Rightarrow H^p(\G,\C)=0.
+    \end{equation*}
+  \end{corollary}
+  \begin{lemma}
+    Let $f\in\cinf_{r}(\G)$ and suppose that $df\in\cinf_{r+1,0}(\G)$. Then there is $\tilde{f}\in\cinf_{r,0}(\G)$ such that,
+    \begin{equation*}
+      \exists g\in\cinf_{r-1,0}(\G)\st f-\tilde{f}=dg.
+    \end{equation*}
+    \label{lemma_cohomology_decomposition_pseudoconvex}
+  \end{lemma}
+  \begin{proof}
+    Write,
+    \begin{equation*}
+      f = \sum_{q=0}^k f_{r-q,q},
+    \end{equation*}
+    where $0\leq k\leq r$. Induction with respect to $k$ we have for $k=0$, $f= f_{r,0}$. Thus take $\tilde{f}=f$, we have the statement. On the induction step,
+    \begin{equation*}
+      \overline{\partial}f_{r-k,k}=0,
+    \end{equation*}
+    thus there is $u\in\cinf_{r-k,k-1}(\G)$ such that $\cbd u = f$. Then,
+    \begin{align*}
+      f-du & = f-\bd u-\cbd u,\\
+      & = \sum_{q=0}^{k-1}f_{r-q,q}-\bd u,\\
+      & = \tilde{f}+dv,\\
+      &\Rightarrow f=\tilde{f}+d(u+v).
+    \end{align*}
+    Here $\tilde{f}\in\cinf_{r,0}(\G)$ is the one we get by the induction hypothesis.
+  \end{proof}
+  \begin{theorem}
+    If $\G$ is a pseudoconvex domain in $\C^n$, then 
+    \begin{equation*}
+      H^p_{\dR,\hol}(\G)\cong \underbrace{H_{\dR}^p(\G)\cong H^p(\G,\C)}_{\text{de Rham}}.
+    \end{equation*}
+  \end{theorem}
+  \begin{proof}
+    Let $f$ be a $d$-closed $r$-form. Then by Lemma \ref{lemma_cohomology_decomposition_pseudoconvex}, we obtain $\tilde{f}\in\cinf_{r,0}(\G)$ such that 
+    \begin{equation*}
+    f-\tilde{f}=dg.
+    \end{equation*}
+    By assumption $d\tilde{f}=0$ so $\bd \tilde{f},\cbd\tilde{f}=0$. Therefore $f$ is a holomorphic $r$-form. 
+    \par We now show that $f$ is exact from $\tilde{f}$ being $\bd$-exact. Clearly if $f=dg$, then $\tilde{f}=d\tilde{g}$. Using Lemma \ref{lemma_cohomology_decomposition_pseudoconvex} to $\tilde{g}$, there is $\hat{g}_{r-1,0}$ with 
+    \begin{equation*}
+    \tilde{g}-\hat{g}=dv.
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+      d\hat{g}-d\tilde{g}=\tilde{f},\cbd\hat{g}=0,d\hat{g}=\bd\hat{g}=\tilde{f}.
+    \end{equation*}
+    Thus this yields a map,
+    \begin{equation*}
+      H_{\dR}^r\stackrel{\substack{f\mapsto \tilde{f}\\\:}}{\to} H_{\hol,\dR}^r.
+    \end{equation*}
+  \end{proof}
+  \subsection{Bounded, in Particular, strictly pseudoconvex, and pseudo convex domains}
+  \begin{definition}
+    Let $\G$ be a bounded domain in $\R^n$. Suppose $U$ is a neighborhood of $\bd\G$. A function $r:U\to\R$ is said to define $\G$ or a defining function of $\G$ if  
+    \begin{align*}
+      \G&=\{x\in U\sep r(x)<0\}\cup(\G\backslash U),\\
+      \bd\G &= \{x\in U\sep r(x)=0\}.
+    \end{align*}
+  \end{definition}
+    \begin{lemma}
+      Let $\G\subseteq\R^n$ be a domain given by the defining function $r:U\to\R$. Set 
+      \begin{equation*}
+        r_j = {\frac 1 {\pd{r}{x_j}}}, \omega_j = (-1)^j dx_1\wedge\cdots dx_{j-1}\wedge dx_{j+1}\wedge\cdots\wedge dx_n.
+      \end{equation*}
+      We have,
+    \begin{equation*}
+      {\frac 1 {r_j}}\omega_j\circ \iota = {\frac 1 {r_k}}\omega_k\circ \iota.
+    \end{equation*}
+    \label{lemma_surface_element_uniqueness}
+  \end{lemma}
+  \begin{proof}
+    Use $dr\circ\iota = 0$. 
+  \end{proof}
+  \begin{theorem}[General Stokes' Formula]
+    Let $\G$ be a bounded domain whose boundary is piecewise smooth 
+    More precisely, there is a neighborhood $U$ of $\bd \G$ and a functi on$r:U\to \R$ such that $dr\not=0$ and we have,
+    \begin{align*}
+      \G&=\{x\in U\sep r(x)<0\}\cup(\G\backslash U),\\
+      \bd\G &= \{x\in U\sep r(x)=0\}.
+    \end{align*}
+    Such $r$ is called the defining function.
+  \end{theorem}
+  \setcounter{claim}{0}
+  \begin{proof}
+    We may assme that 
+    \begin{equation*}
+      \vert dr\vert=\left(\sum_{j=1}^N\left(\pd{r}{x_j}\right)^2\right)^{{\frac 1 2}},
+    \end{equation*}
+    and $\vert dr\vert|_{\bd\G}\equiv 1$. Set 
+    \begin{equation*}
+      \omega_j = (-1)^j dx_1\wedge\cdots dx_{j-1}\wedge dx_{j+1}\wedge\cdots\wedge dx_n.
+    \end{equation*}
+    Then 
+  \begin{equation*}
+    dx_j\wedge\omega_j = dV,
+  \end{equation*}
+  which is the volume form. Let $\iota:\bd\G\to\R^n$ be an embedding. By denoting $\pd{r}{x_j}=r_j$, we have,
+  \end{proof} 
+  More general version of Stokes' theorem can be found in \cite{Li-Gr}.
+  \begin{definition}
+    Let $\G\subseteq\R^n$ be a bounded domain given by the defining function $r:U\to \R$. The surface element of $\bd\G$ is defined as,
+    \begin{equation*}
+      dS\defeq {\frac 1 {\pd{r}{x_j}}}\omega.
+    \end{equation*}
+  \end{definition}
+  \begin{lemma}
+    Let $f$ be a $n-1$-form (i.e. $f=\sum_{i=1}^nf_j\omega_j$). Then we have,
+    \begin{equation*}
+      \int_{\bd\G}f = \int_{\bd\G}\sum_{j=1}^n (f_jr_j)dS.
+    \end{equation*}
+  \end{lemma}
+  We pass these results to $\C^n=\R^{2n}$. 
+  \begin{definition}
+    Let $\G$ be a domain given by the defining function $r:U\to \R$. The surface element $dS$ is a $2n-1$-form on $\bd\G$ such that 
+    \begin{equation*}
+      \pd{r}{z_j}dS = {\frac 1 2}(\omega_{2j-1}-i\omega_{2j}),\pd{r}{\overline{z}_j}dS = {\frac 1 2}(\omega_{2j-1}+i\omega_{2j}).
+    \end{equation*}
+  \end{definition}
+  \begin{definition}
+    Suppose we have,
+    \begin{equation*}
+    f = \sum_{\substack{\alpha\in\N^n\\ \vert\alpha\vert=q+1}}f_\alpha d\overline{z}^\alpha,
+  \end{equation*}
+  then, we define,
+  \begin{equation*}
+    \vartheta f \defeq -\sum_{\substack{\alpha\in\N^n\\ \vert\alpha\vert=q}}\sum_{j=1}^n\pd{f_{j\alpha}}{z_j}d\overline{z}^\alpha.
+  \end{equation*}
+  \end{definition}
+  
+  Recall that the Hermitial product on $\G\subseteq\C^n$ is defined by,
+  \begin{equation*}
+    (f,g) = \int_{\G}\langle f,g\rangle d\lambda,
+  \end{equation*}
+  where 
+  \begin{equation*}
+    \langle f,g\rangle = \sum_{\substack{\alpha\in\N^n\\ \vert\alpha\vert=q+1}}f_\alpha\overline{g}_\alpha.
+  \end{equation*}
+
+  \begin{lemma}[Partial Integration]
+    Let $r:U\to\R$ be a function that defines a bounded domain $\G$ and $u,v$ be functions defined on $\overline{\G}$ and $f,g$ differential forms. Then we have,
+    \begin{align*}
+      \left(\pd{u}{\overline{z}_j},v\right)+\left(u,\pd{v}{\overline{z}_j}\right)& = \int_{\bd \G}u\overline{v}\pd{v}{\overline{z}_j}dS.\\
+      \left(\pd{u}{z_j},v\right)+\left(u,\pd{v}{z_j}\right)& = \int_{\bd \G}u\overline{v}\pd{v}{z_j}dS.\\
+      (\vartheta f,g) - (f,\overline{\bd}g) = \int_{\bd\G}\langle\vartheta(rf),g\rangle dS.
+    \end{align*}
+    \label{lemma_parital_integration}
+  \end{lemma}
+
+  \begin{corollary}
+    In the setting of Lemma \ref{lemma_parital_integration}, if $f$ or $g$ has a compact support then,
+    \begin{equation*}
+      (\vartheta f,g) = (f,\cbd g).
+    \end{equation*}
+    That is $\vartheta$ is a formal adjoint of $\cbd$. 
+  \end{corollary}
+
+  \begin{remark}
+    We have studied the following sequence,
+    \begin{center}
+      \begin{tikzcd}
+{L_{0,q}^2(\G)} \arrow[r, "T"] & {L_{0,q+1}^2(\G)} \arrow[r, "S"] & {L_{0,q+2}^2(\G)}
+\end{tikzcd}
+    \end{center}
+    We will denote the Hilbert adjoint of $\cbd$ as $\cbd^*$. The adjoint is defined as follows. For $f\in\Dom\cbd^*,g\in\Dom\bd$, we have
+    \begin{equation*}
+      (\cbd^*f,g)=(f,\cbd g).
+    \end{equation*}
+  \end{remark}
+
+  In order to have $\cbd^*=\vartheta$ on $\mathcal{C}^2(\overline{\G})$, we need,
+  \begin{equation*}
+    \vartheta(rf)\equiv 0\quad(\text{on $\bd\G$}).
+  \end{equation*}
+
+  \begin{definition}
+    For $l\in\Z_{\geq0}$, we define,
+    \begin{equation*}
+      \mathcal{D}_{\cbd^*}^l\defeq\Dom\cbd^*\cap\mathcal{C}^l(\overline{\G}).
+    \end{equation*}
+  \end{definition}
+
+  \begin{definition}
+    The following equation is called the first Neumann condition.
+    \par Let $r$ be a function defining a bounded domain $\G$, we have,
+    \begin{equation*}
+      \forall\alpha\in\N^{n}\st\vert\alpha\vert=q,\text{ we have } \sum_{j=1}^n f_{j\alpha}\pd{r}{z_j}=0\text{ on $\G$}.\tag{N1}\label{equation_first_neumann_condition}
+    \end{equation*}
+  \end{definition}
+
+  \begin{lemma}
+    For $l\geq1$ and $f\in L_{0,q+1}^2(\G)$, we have, $f\in\mathcal{D}_{\cbd^*}^l$ if and only if $\vartheta(rf)=0$ on $\bd\G$. That is $f$ satisfies \eqref{equation_first_neumann_condition}.
+  \end{lemma}
+
+  \begin{lemma}
+    Let $\varphi\geq0$ be a weight function and $\varphi\in\mathcal{C}^2(\G)$. We note that $\varphi\equiv0$ is also allowed. We define $L_{\cdot,\cdot}^2(\G,\varphi),\vartheta_\varphi$, accordingly. Then the first Neumann condition does not depends on $\varphi$.
+  \end{lemma}
+
+  \begin{definition}
+    Let $f\in\Dom\cbd^*_\varphi\cap\cinf(\G)$. The graph norm of $f$ is defined as,
+    \begin{equation*}
+      \norm{f}+\norm{\cbd f}+\norm{\cbd^* f}.
+    \end{equation*}
+  \end{definition}
+
+  \begin{theorem}[Hörmander-Friedrich]
+    Let $\G,\bd\G$ defined by $r:U\to\R$. We have, $\Dom\cbd^*_\varphi\cap\cinf(\G)$ is dense in $\Dom\cbd^*\cap\Dom\cbd$. That is for any $f\in \Dom\cbd^*\cap\Dom\cbd$, there is a sequence $(f_j)\in\cinf(\G)$ such that 
+    \begin{equation*}
+      f_j\stackrel{L^2}{\to}f,\cbd f_j\stackrel{L^2}{\to}\cbd f,\vartheta f_j\stackrel{L^2}{\to}\cbd^*f,
+    \end{equation*}
+    and each $f_j$ satisfies \eqref{equation_first_neumann_condition}. 
+  \end{theorem}
+
+  \begin{proof}
+    The proof can be found in \cite{LiM} chapter 5, section 4.
+  \end{proof}
+  What we want to do now is to replicate the calculation we have done before to calculate adjoints but with only one weight function $\varphi$. 
+  \begin{theorem}[Kohn-Morrey]
+    Let $\G,\bd\G$ be defined by $r$ and $\varphi\in\cinf(\G)$ be such that $\varphi\geq0$. Then for 
+    \begin{equation*}
+    f=\sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert=q+1}}f_\alpha d\overline{z}^\alpha,
+    \end{equation*}
+    , which is smooth on $\overline{\G}$ and satisfies \eqref{equation_first_neumann_condition}, we have,
+    \begin{align*}
+      \norm{\cbd f}^2_\varphi+\norm{\cbd_\varphi^*f}^2_\varphi&=\int_\G\sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert=q}}\sum_{j,k}{\frac {\partial^2\varphi}{\partial z_j\partial\overline{z}_k}}f_{j\alpha}\overline{f}_{k\alpha}e^{-\varphi}d\lambda\\
+      &+\int_\G\sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert=q+1}}\sum_j\left\vert\pd{f_j}{\overline{z}_j}\right\vert^2e^{-\varphi}d\lambda\\
+      &+\int_{\bd\G}\sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert=q}}\sum_{j,k}{\frac {\partial^2 r}{\partial z_j\bd \overline{z}_k}}f_{j\alpha}\overline{f}_{k\alpha}e^{-\varphi}dS.
+    \end{align*}
+    \label{theorem_kohn_morrey}
+  \end{theorem}
+  \begin{corollary}
+    Take $\varphi\equiv0$. Suppose $\G$ is a strictly pseudoconvex domain defined by a strictly plurisubharmonic function $r$. We then have,
+    \begin{equation*}
+      \norm{\cbd f}^2+\norm{\cbd^* f}^2\geq c\int_{\bd\G}\vert f\vert^2 dS.
+    \end{equation*}
+    This equation is called Kohn's basic estimate.
+  \end{corollary}
+  From now on, we will only use the first term of Theorem \ref{theorem_kohn_morrey}. That is 
+  \begin{equation*}
+      \norm{\cbd f}_\varphi^2+\norm{\cbd_\varphi^* f}^2\geq c\norm{f}_\varphi^2.
+    \end{equation*}
+    \begin{theorem}
+      Let $\G\compembed\C^n$ be a pseudo convex domain. Then there is a constant $c>0$, only depending on the diameter of $\G$, such that for any $f\in L^2_{0,q+1}(\G)$, $\cbd f=0$, there is $u\in L_{0,q}^2(\G)$, with $\cbd u=f$ and $\norm{u}\leq c\norm{f}$.
+      \par If $f$ is smooth then $u$ can be chosen as a smooth function.
+    \end{theorem}
 \begin{thebibliography}{9}
 \bibitem{Lieb} Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic Results to Advanced Topics, Springer Fachmedien Wiesbaden GmbH, Wiesbaden.
 \bibitem{Gr-Fr} Klaus Fritzsche, Hans Grauert (1974) Einführung in die Funktionentheorie mehrerer Veränderlicher, Springer, Berlin.
@@ -6102,5 +6631,7 @@ be $(0,q)$-forms with coefficients in $W^s_{\loc}(\G)$. Note that $W_{0,q,\loc}^
 \bibitem{Hir} Hirzebruch, Friedrich (1966) Topological Methods in Algebraic Geometry
 \bibitem{derham} de Rham,(1984) George Differentiable manifolds. Forms, currents, harmonic forms.
 \bibitem{laurent} Schwartz, Laurent (2008) Mathematics For The Physical Sciences, Dover Publications Inc.
+\bibitem{Gr-Ra} Hans Grauert, Reinhold Remmert, Analytische Stellenalgebren.
+\bibitem{Li-Gr} Hans Grauert, Ingo Lieb. Differential- und Integralrechnung III.
 \end{thebibliography}
 \end{document}
