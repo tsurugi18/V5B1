@@ -33,7 +33,25 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \newtheorem{problem}{Problem}[section] 
 \newtheorem{claim}{Claim}
 \newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}{\hfill $\blacksquare$}
-
+\makeatletter
+\newcommand\RedeclareMathOperator{%
+  \@ifstar{\def\rmo@s{m}\rmo@redeclare}{\def\rmo@s{o}\rmo@redeclare}%
+}
+% this is taken from \renew@command
+\newcommand\rmo@redeclare[2]{%
+  \begingroup \escapechar\m@ne\xdef\@gtempa{{\string#1}}\endgroup
+  \expandafter\@ifundefined\@gtempa
+     {\@latex@error{\noexpand#1undefined}\@ehc}%
+     \relax
+  \expandafter\rmo@declmathop\rmo@s{#1}{#2}}
+% This is just \@declmathop without \@ifdefinable
+\newcommand\rmo@declmathop[3]{%
+  \DeclareRobustCommand{#2}{\qopname\newmcodes@#1{#3}}%
+}
+\@onlypreamble\RedeclareMathOperator
+\makeatother
+\RedeclareMathOperator{\Re}{Re}
+\RedeclareMathOperator{\Im}{Im}
 \DeclareMathOperator{\CR}{CR}
 \DeclareMathOperator{\pre}{pre}
 \DeclareMathOperator{\triv}{triv}
@@ -79,6 +97,7 @@ mysymbol/.style={start anchor=center,end anchor=center,draw=none}
 \DeclareMathOperator{\dR}{dR}
 \DeclareMathOperator{\sing}{sing}
 \DeclareMathOperator{\loc}{loc}
+\DeclareMathOperator{\const}{const}
 %\newcommand*{\name}[\num_arguments][default values]{{\color{#1}\Large #2}}
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\fedeq}{=\vcentcolon}
@@ -3232,6 +3251,7 @@ where each $X_i$ is uniquely determiend by $X$.
 \end{remark}
 
 \begin{theorem}[Cartan/Thullen]
+  \label{theorem_cartan_thullen}
   Let $\G$ be a domain and $K$ be a compact subset of $\G$. Take $z_0\in\hat{K}$. For a holomorphic function $u$ on $\G$, let
    $p_{u,z_0}(z) $ be the power series of $u$ around $z_0$. Then $p_{u,z_0}(z)$ converges on $D_{\delta(K)}(z_0)$.
 \end{theorem}
@@ -3277,27 +3297,29 @@ where each $X_i$ is uniquely determiend by $X$.
   \begin{equation*}
     \tilde{f}(z_0)\geq\vert \tilde{f}\vert_K.
   \end{equation*}
+  %later
   It is an exercise for the readers to show that, from the equation above, we can obtain $f\in\Ouv(\G)$ such that $f(z_0)>1 >\vert f\vert_K$. Now take high powers of $f$, we obtain the claim.
 \end{proof}
 
 \begin{proposition}
-  Let $\G$ be a domain which is holomorphically convex. Let $(x_j)$ be a sequence with accumulation points in $\G$. Then there is $f\in\Ouv(\G)$ unbounded on that sequence.
+  \label{proposition_holomorphically_convex_unbounded_function}
+  Let $\G$ be a domain which is holomorphically convex. Let $(x_j)_{j\in\N}$ be a sequence with accumulation points in $\G$. Then there is $f\in\Ouv(\G)$ unbounded on that sequence.
 \end{proposition}
 
 \begin{proof}
-  Let $K_1\subseteq K_2\subseteq \cdots$ be a compact exhaustion of $\G$. That is for each compact set $K$ of $\G$ is contained in one of $K_i$. This is justified since $\G$ is a domain and topologies defined on $\R^n$. Clearly, we have,
+  Let $K_1\subseteq K_2\subseteq \cdots$ be a compact exhaustion of $\G$. That is for each compact set $K$ of $\G$ is contained in one of $K_i$. This is justified since $\G$ is a domain inheritting topologies defined on $\R^n$. Clearly, we have,
   \begin{equation*}
     \hat{K}_1\subseteq \hat{K}_2\subseteq\cdots.
   \end{equation*}
   By the assumption, this is again a compact exhaustion. From now on, let $K_j = \hat{K}_j$ without loss of generality. Pick a sequence $(j_i)_{i\in\N}$ such that 
   \begin{equation*}
-    x_{j_i}\not\in K_i,x_{j_1}\in K_{j_2},j_i\leq j_{i+1}.
+    x_{j_i}\not\in K_i,x_{j_i}\in K_{j_{i+1}}.
   \end{equation*}
-  After renumbering replace $(x_i)_{i\in\N}$ with $(x_{j_i})_{i\in\N}$. Let $(f_i)_{i\in\N}$ be a sequence in $\Ouv(\G)$. Then, 
+  After renumbering replace $(x_i)_{i\in\N}$ with $(x_{j_i})_{i\in\N}$. Let $(f_i)_{i\in\N}$ be a sequence in $\Ouv(\G)$ such that
   \begin{equation*}
     \vert f_1(x_1)\vert \geq {\frac 1 2} >\vert f\vert_{K_1},
   \end{equation*} 
-  for for $i\geq 2$,
+  for $i\geq 2$,
   \begin{equation*}
     \vert f_i(x_i)\vert > i+\sum_{k=1}^{i-1}\vert f_{k}(x_i)\vert, \vert f_i\vert_{K_i}<{\frac 1 {2^i}}.
   \end{equation*}
@@ -3324,22 +3346,24 @@ where each $X_i$ is uniquely determiend by $X$.
 \end{theorem}
 
 \begin{proof}
-  Let us first show that $1)\Rightarrow 2)$. Let $\G$ be a domain of holomorphy. and $K$ be a compact subset of $\G$. Set $z_0\in\hat{K}$ such that 
+  Let us first show that $1)\Rightarrow 2)$. Let $\G$ be a domain of holomorphy. and $K$ be a compact subset of $\G$. Set $z_0\in\hat{K}$ and let
   \begin{equation*}
     r_0=\delta(z_0),r=\delta(K).
   \end{equation*}
-  Assume that $r_0<r$ then $(D_{r_0}(z_0),D_r(z_0))$ is an extension pair. Let $u\in\Ouv(\G)$, from Cartan-Thullen, set $p_{u,z_0}(z)$ be the power series of $u$ around $z_0$. Let $F(z) = z_0$. Then $F$ converges on $D_r(z_0)$ and $F\equiv u$ on $D_{r_0}(z_0)$.
+  To obtain a contradiction, suppose that $r_0<r$ then $(D_{r_0}(z_0),D_r(z_0))$ is an extension pair. Let $u\in\Ouv(\G)$, from Theorem \ref{theorem_cartan_thullen}, set $F\defeq p_{u,z_0}(z)$ be the power series of $u$ around $z_0$. Then $F$ converges on $D_r(z_0)$ and $F\equiv u$ on $D_{r_0}(z_0)$.
   We obtained a extension $(D_{r_0}(z_0),D_{r}(z_0),F)$ of $u$ which contradicts that $\G$ is a domain of holomorphy. We conclude $r_0\geq r$. In particular, for any $z_0\in\hat{K}$ we have,
   \begin{equation*}
     \delta(z_0)\geq r.
   \end{equation*}
   This shows that $\hat{K}$ is bounded. Let $z_0\in\overline{\hat{K}}$, then there are $(z_i)_{i\in\N}$ in $\hat{K}$ such that $z_i\to z_0$. If $z_0\in\G$ then $z_0\in\hat{K}$.
-  If $z_0\in\bd\G$ then $\delta(z_j)\to 0$ as but $\delta(z)>0$. Thus $z_0\in \hat{K}$. Thus $K$ is closed and bounded, that is it is compact in $\C^n$.\\
-  \par For $2)\Rightarrow 1)$ is shown in a previous proposition. For $2)\Rightarrow 3)$, consider a compact exhaustion $(K_i)_{i\in\N}$ of $\G$. From the argument of previous propositions, we assume $K_i = \hat{K_i}$ without loss of generality. Let $\{x'_i\}_{i\in \N}$ be a sequence of rational points, which is everywhere dense in $\G$.
+  If $z_0\in\bd\G$ then $\delta(z_j)\to 0$. However, $\delta(z_j)\geq\delta(K)>0$. Thus $z_0\in \hat{K}$. We conclude $K$ is closed and bounded, that is it is compact in $\C^n$.
+  \par For $2)\Rightarrow 1)$ is shown in a Proposition \ref{proposition_holomorphically_convex_unbounded_function}. Indeed it constructs $f$ such that it cannot be extended beyond $\bd\G$.
+  \par For $2)\Rightarrow 3)$, consider a compact exhaustion $(K_i)_{i\in\N}$ of $\G$. From the argument of Proposition \ref{proposition_holomorphically_convex_unbounded_function}, we assume $K_i = \hat{K_i}$ without loss of generality. Let $\{x'_i\}_{i\in \N}$ be a sequence of rational points, which is everywhere dense in $\G$.
   Consider another sequence,
   \begin{equation*}
     x'_1,x'_1,x'_2,x'_1,x'_2,x'_3,\cdots,
   \end{equation*}
+  %later what is rational point?
   that each element occurs infinitely many times. Rename this to $(x_i)_{i\in\N}$ and set $D_i = D_{\delta(x_i)}(x_i)$. Observe that $\overline{D_i}\cap\bd\G\not=\emptyset$. 
   Take $y_i\in D_i\backslash K_i$, and $\tilde{f}\in\Ouv(\G)$ with $\vert\tilde{f}(y_i)\vert >\vert \tilde{f}_j\vert_{K_i}$. As in the proof of the previous proposition %check
   we have $f_i\in\Ouv(\G)$, $f_i(y_i) = 1$ and $\vert f_i\vert_{K_i}<{\frac 1 {2^i}}$.
@@ -3364,6 +3388,25 @@ where each $X_i$ is uniquely determiend by $X$.
   \end{equation*}
   and $F\equiv f$ on $D_r(z)$. F has zeros of order $j_p$ at $y_{j_p}\in\overline{D_r(z)}$. $F$ is holomorphic function with unbounded zeros on compact set $\overline{D_r(z)}$. Such $F$ does not exist thus we derived a contradiction. Therefore, $f$ cannot be extended.
 \end{proof}
+\begin{definition}
+  A function $f:X\to\R$ is upper semicontinuous if for any $x_0\in X$, we have,
+  \begin{equation*}
+    \limsup_{x\to x_0}f(x)\leq f(x_0).
+  \end{equation*}
+\end{definition}
+\begin{example}
+  The following function is upper semicontinuous.
+    \begin{center}
+    \begin{tikzpicture}
+      \draw[thick,->] (-2,0) -- (2,0)node[above]{$x$};
+      \draw[thick,->] (0,-1) -- (0,2)node[right]{$y$};
+      \draw [black, thick, domain=-1:0.7, samples=20] plot (\x,\x-0.25);
+      \draw [black, thick, domain=0.7:1.5, samples=20] plot (\x,\x+0.25);
+      \draw[fill=white] (0.7,0.45) circle (0.05);
+      \draw[fill=black] (0.7,0.95) circle (0.05);
+    \end{tikzpicture}
+  \end{center}
+\end{example}
 \begin{remark}
   Let $f\in\Ouv(U)$ and $a\in U$. If we have,
   \begin{equation*}
@@ -3373,13 +3416,13 @@ where each $X_i$ is uniquely determiend by $X$.
   \begin{equation*}
     o:U\to\Z,
   \end{equation*}
-  which is upper semi-continuous. Thus for a compact subset $K\subseteq U$, $o(f)$ is bounded on $K$.
+  which is upper semicontinuous. Thus for a compact subset $K\subseteq U$, $o(f)$ is bounded on $K$.
 \end{remark}
 
 \subsection{Pseudoconvexity}
 
 \begin{definition}
-  A function $h:U\to \R$ where $U\subset\C$ is harmonic if it is $l^2$ and $\Delta h = 0$ where 
+  A function $h:U\to \R$ where $U\subset\C$ is harmonic if it is $\mathcal{C}^2$ and $\Delta h = 0$ where 
   \begin{equation*}
     \Delta = {\frac {\partial^2} {\partial x^2}}+{\frac {\partial^2} {\partial y^2}} = 4{\frac {\partial^2} {\partial z\partial\overline{z}}}.
   \end{equation*}
@@ -3396,11 +3439,11 @@ where each $X_i$ is uniquely determiend by $X$.
 
 \begin{theorem}[Fejer's theorem]
   Let $\Gamma = \{z\in\C\sep \vert z\vert=1\}$.
-  Then the functions $\{\Re p(z)\sep p\text{ is holomorphic polynomial}\}$ is dense in $\mathcal{C}_\R^0(\Gamma)$.
+  Then the functions $\{\Re (p(z))\sep p\text{ is a holomorphic polynomial}\}$ is dense in $\mathcal{C}_\R^0(\Gamma)$.
 \end{theorem}
 
 \begin{definition}
-  Let $U\subseteq \C$ and $\varphi:U\to\R\cup\{-\infty\}$. $\varphi$ is said to be subharmonic if is it upper semi-continuous nad for each $D\subset\subset U$, a disk, and for each continuous functional $h$ on $\overline{D}$ which is holomorphic on $D$, if $h\geq \varphi$ on $\Gamma$ then $h\geq\varphi$ on all of $\overline{D}$.
+  Let $U\subseteq \C$ and $\varphi:U\to\R\cup\{-\infty\}$. $\varphi$ is said to be subharmonic if is it upper semi-continuous and for each $D\subset\subset U$, a disk, and for each continuous functional $h$ on $\overline{D}$ which is holomorphic on $D$, we have, if $h\geq \varphi$ on $\Gamma$ then $h\geq\varphi$ on all of $\overline{D}$.
 \end{definition}
 
 \begin{remark}
@@ -3432,28 +3475,33 @@ where each $X_i$ is uniquely determiend by $X$.
     \item If $\varphi\not\equiv -\infty$ which is subharmonic then $\varphi$ is locally integrable.
     \item Let $\varphi,\psi$ be subharmonic then so is their sum $\varphi+\psi$.
     \item $\varphi$ is subharmonic if and only if at each point $z_0\in U$, there is a neighborhood $V(z_0)$ of $z_0$ such that $\varphi$ is subharmonic on $V(z_0)$. 
-    \item Let $\varphi$
+    \item Let $(\varphi_n)_{n\in\N}$ be a sequence of subharmonic functions which converges locally uniformly to $\varphi$, then $\varphi$ is subharmonic.
+    \item Let $(\varphi_n)_{n\in\N}$ be a sequence of monotonically decreasing subharmonic functions converging to $\varphi$, then $\varphi$ is again subharmonic.
     \item Let $f$ be holomorphic function then $\log\vert f\vert,\vert f\vert$ are subharmonic.
   \end{enumerate}
 \end{remark}
 
 \begin{theorem}
-  Let $\varphi$ be subharmonic in $\G$, a domain. Suppose $\varphi\not\equiv -\infty$. Then $\varphi$ is locally integrable.
+  Let $\varphi$ be subharmonic in a domain $\G$. Suppose $\varphi\not\equiv -\infty$. Then $\varphi$ is locally integrable.
 \end{theorem}
 
 \begin{proof}
-  Let $z_0\in\G$ with $\varphi(z_0)>-\infty$. And $D= D_r(z_)\subset\subset\G$, Assume that $h:\overline{D}\to\R$ is continuous and $h\geq \varphi$ on $\overline{D}$. 
+  Let $z_0\in\G$ with $\varphi(z_0)>-\infty$ and $D= D_r(z_0)\subset\subset\G$. Assume that $h:\overline{D}\to\R$ is continuous and $h\geq \varphi$ on $\overline{D}$. 
   \begin{align*}
     \int_{\overline{D}}h(z)d\lambda(z) & = \int_0^r\rho d\rho\int_0^{2\pi}h(z_0+\rho e^{i\theta})d\theta,\\
-    &\geq \int_0^r\rho d\rho\int_0^{2\pi}h(z+\rho e^{i\theta})
+    &\geq \int_0^r\rho d\rho\int_0^{2\pi}\varphi(z+\rho e^{i\theta})d\theta
   \end{align*}
+  Using Equation \ref{mean_value_eq}, we have 
+  \begin{equation*}
+    \int_{\overline{D}}h(z)d\lambda(z)\geq {\frac {r^2} 2}2\pi\varphi(z_0) = \pi r^2\varphi(z_0).
+  \end{equation*}
 \end{proof}
 \begin{remark}
-Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is a closed set by definition.
+Let $M = \{z\in U\sep \varphi\text{ is not integrable in $D(z)$}\}$. Then $M$ is a closed set by definition.
 \end{remark}
 
 \begin{remark}
-  Let $z_0\in M$ where $M$ is as above, $D_r(z)$ has points $z$ with $\varphi(z)-\infty$. Thus in the setting of the previous theorem, 
+  Let $z_0\in M$ where $M$ is as above, $D_r(z_0)$ has points $z$ with $\varphi(z)>-\infty$. Thus in the setting of the previous theorem, $\varphi$ is integrable in some $D_\rho(z)$ containing $z_0$.
 \end{remark}
 
 \begin{theorem}
@@ -3461,11 +3509,11 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
 \end{theorem}
 
 \begin{proof}
-  Assume $\Delta\varphi(z_1)<0$. That is there exist $r>0,z_1\in U$ $\Delta\varphi<0$ on $\overline{D_r(z_1)}$. Let $h$ be continuous on $\overline{D_r(z_1)}$ which is harmonic on $D_r(z_1)$. Then 
+  Assume $\Delta\varphi(z_1)<0$. That is there exist $r>0$ and $z_1\in U$ such that $\Delta\varphi<0$ on $\overline{D_r(z_1)}$. Let $h$ be continuous on $\overline{D_r(z_1)}$ which is harmonic on $D_r(z_1)$ and $h\equiv\varphi$ on $\bd D_r(z_1)$. Then 
   \begin{equation*}
     \varphi\leq h
   \end{equation*}
-  on $\partial D_r(z_1)$. Set $\psi = \varphi-h$. If $\varphi$ were subharmonic then $\psi\leq0$ on $\overline{D_r(z_1)}$. Suppose $\psi$ takes minimum at $z_0$. We have on $D_r(z)$, 
+  on $\overline{D_r(z_1)}$ and on the boundary this is $0$. Set $\psi \defeq \varphi-h$. If $\varphi$ were subharmonic then $\psi\leq0$ on $\overline{D_r(z_1)}$. Suppose $\psi$ takes minimum at $z_0$. We have on $D_r(z)$, 
   \begin{equation*}
     \Delta\psi=\Delta\varphi
   \end{equation*}
@@ -3473,14 +3521,14 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
   \begin{equation*}
     \Delta\psi(z_0)<0,
   \end{equation*}
-  which is not possible thus $\varphi$ is not subharmonic.
+  which is not possible thus $\varphi$ is not subharmonic.%later don't understand \Delta\psi=\Delta\varphi
   \par Assume $\Delta\varphi>0$ and $\varphi$ is not subharmonic. Then there exists a continuous function $h$ on $\overline{D_r(z_0)}$ with $\varphi\leq h$ on $\bd D_r(z_0)$ but $\varphi>h$ somewhere. Set $\psi=\varphi-h$.
-  Similar to the previous case we have $\psi\leq0$ on $\bd D_r(z_0)$ therefore $\psi\varphi>0$ somewhere on $D_r(z_0)$ thus has a maximum in $D_r(z_0)$ There $\Delta\psi>0$. 
+  Similar to the previous case we have $\psi\leq0$ on $\bd D_r(z_0)$ therefore $\psi>0$ somewhere on $D_r(z_0)$ thus has a maximum in $D_r(z_0)$ and there $\Delta\psi>0$. 
   \par So $\varphi$ is subharmonic if $\Delta\varphi>0$. On the other hands, $\Delta\varphi\geq0$ then 
   \begin{equation*}
     \varphi_\varepsilon\defeq \varphi+\varepsilon\vert z\vert^2, \Delta\varphi_\varepsilon>0.
   \end{equation*}
-  $\varphi_\varepsilon$ is subharmonic so is $\varphi$.
+  $\varphi_\varepsilon$ is subharmonic so is $\varphi$.%later
 \end{proof}
 
 \begin{theorem}
@@ -3518,6 +3566,7 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
   \begin{equation*}
     {\frac {\partial^2} {\partial z\partial\overline{z}}}(f\overline{f}) = \left\vert{\frac {\partial f} {\partial z}}\right\vert^2\geq0.
   \end{equation*} 
+  %later what is P and p?
 \end{proof}
 
 \subsection{Plurisubharmonic functions}
@@ -3551,11 +3600,11 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
 \end{proof}
 
 \begin{example}
-  Suppose $f$ be holomorphic then $\vert f\vert,\log\vert f\vert,\vert f\vert^2 = f\overline{f}$ are all plurisubharmonic.
+  Suppose $f$ is holomorphic then $\vert f\vert,\log\vert f\vert,\vert f\vert^2 = f\overline{f}$ are all plurisubharmonic.
 \end{example}
 
 \begin{example}
-  Suppose $f$ be holomorphic and $V(f) = \{f=0\}$. That is $\log\vert f\vert = -\infty$ on $V(f)$. Thus $V(f)$ has Lebesgue measure $0$.
+  Suppose $f$ is holomorphic and $V(f) = \{f=0\}$. That is $\log\vert f\vert = -\infty$ on $V(f)$. Thus $V(f)$ has Lebesgue measure $0$.
 \end{example}
 
 \begin{remark}
@@ -3568,11 +3617,11 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
 \begin{definition}[Levi form]
   Let $\varphi\in\mathcal{C}^2(U,\R)$. The Levi matrix of $\varphi$ is 
   \begin{equation*}
-    L_\varphi(z) = \left({\frac {\partial^2f} {\partial z_j\overline{z}_k}}\right)_{j,k=1,\cdots,n}.
+    L_\varphi(z) = \left({\frac {\partial^2\varphi} {\partial z_j\partial\overline{z}_k}}\right)_{j,k=1,\cdots,n}.
   \end{equation*}
   The Levi form of $\varphi$ is 
   \begin{equation*}
-    L_\varphi(z,t) = \sum_{j,k=1,\cdots,n}{\frac {\partial^2f} {\partial z_j\partial \overline{z}_k}}(z)t_j\overline{t}_k.
+    L_\varphi(z,t) = \sum_{j,k=1,\cdots,n}{\frac {\partial^2\varphi} {\partial z_j\partial \overline{z}_k}}(z)t_j\overline{t}_k.
   \end{equation*}
 \end{definition}
 
@@ -3584,7 +3633,7 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
     \end{pmatrix}
     L_\varphi(z)
     \begin{pmatrix}
-      t_1\\\vdots\\ t_n
+      \overline{t_1}\\\vdots\\ \overline{t_n}
     \end{pmatrix}.
   \end{equation*}
 \end{remark}
@@ -3649,11 +3698,11 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
 \end{theorem}
 
 \begin{theorem}
-  Let $F:U\to V$ be biholomorphic and $\varphi:V\to\R\cup\{-\infty\}$ is plurisubharmonic. Then $varphi\circ F$ is also plurisubharmonic on $U$.
+  Let $F:U\to V$ be biholomorphic and $\varphi:V\to\R\cup\{-\infty\}$ is plurisubharmonic. Then $\varphi\circ F$ is also plurisubharmonic on $U$.
 \end{theorem}
 
 \begin{definition}
-  Let $\G\subseteq\C^n$ be a domain. It is called a pseudoconvex if $\G$ has a strictly plurisubharmonic $\mathcal{C}^2$ exhaustive function $\varphi$. That is $\varphi:\G\to\R$ is a strictly plurisubharmonic and 
+  Let $\G\subseteq\C^n$ be a domain. It is said to be pseudoconvex if $\G$ has a strictly plurisubharmonic $\mathcal{C}^2$ exhaustive function $\varphi$. That is $\varphi:\G\to\R$ is a strictly plurisubharmonic and 
   \begin{equation*}
     \G_c \defeq \{z\in\G\sep \varphi(z)<c\}\subset\subset \G.
   \end{equation*}
@@ -3698,11 +3747,11 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
   \begin{equation*}
     U\cap\G = \{x\in U\sep r(x)<0\},\bd\G=\{r=0\}.
   \end{equation*}
-  \par Let $k\in\N$. $\G$ is said to have $\mathcal{C}^k$ boundary with a  boundary function $r$ such that if $\tilde{r}$ is another boundary function of $\mathcal{C}^k$-class. We have,
-  $\tilde{r} = hr$ for some $h>0$ where $h$ is $\mathcal{C}^k$ outside $\bd\G$ and of $\C^{k-1}$ everywhere.
+  \par Let $k\in\N$. $\G$ is said to have $\mathcal{C}^k$ boundary with a boundary function $r$ such that if $\tilde{r}$ is another boundary function of $\mathcal{C}^k$-class, we have,
+  $\tilde{r} = hr$ for some $h>0$ where $h$ is $\mathcal{C}^k$ outside $\bd\G$ and of $\mathcal{C}^{k-1}$ everywhere.
 \end{definition}
 \begin{remark}
-  For a domain $\G\compembed\R^n$. Then 
+  For a domain $\G\compembed\R^n$, we have,
   \begin{equation*}
     \delta(x) = 
     \begin{cases}
@@ -3714,7 +3763,7 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
 \end{remark}
 
 \begin{proposition}
-  Let $\G\compembed\C^n$ with $\mathcal{C}^k$ boundary with $r:U(\bd\G)\to\R$ a boundary function that is plurisubharmonic. Then $\G$ is pseudoconvex.
+  Let $\G\compembed\C^n$ with $\mathcal{C}^k$ boundary with boundary function $r:U(\bd\G)\to\R$. If it is plurisubharmonic, then $\G$ is pseudoconvex.
 \end{proposition}
 
 \begin{proof}
@@ -3731,7 +3780,7 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
   \begin{equation*}
     \varphi(z)+A\norm{z}.
   \end{equation*}
-  It is plurisubharmonic on all of $\G$ if $A$ is large enough.
+  It is plurisubharmonic on all of $\G$ if $A$ is large enough. %later how large should A be and why is it plurisubharmonic?
 \end{proof}
 
 \begin{definition}
@@ -3739,7 +3788,7 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
   \begin{equation*}
     \sum_{j,k=1}^n \secconjder{j}{k}r(z)t_j\overline{t}_k\geq0,\tag{L}\label{levi_cond}
   \end{equation*}
-  for all $t\in\C^n$ with 
+  for all $\underline{t}\in\C^n$ with 
   \begin{equation*}
     \sum \pd{r}{j}(z)t_j=0.
   \end{equation*}
@@ -3750,7 +3799,7 @@ Let $M = \{z\in U\sep \varphi\text{is not integrable in $D(z)$}\}$. Then $M$ is 
   \begin{equation*}
     \sum_{j,k=1}^n \secconjder{j}{k}r(z)t_j\overline{t}_k>0,\tag{SL}\label{slevi_cond}
   \end{equation*}
-  for all $t\in\C^n\backslash\{0\}$ with 
+  for all $\underline{t}\in\C^n\backslash\{0\}$ with 
   \begin{equation*}
     \sum \pd{r}{j}(z)t_j=0.
   \end{equation*}
@@ -3777,7 +3826,7 @@ See \cite{Ra} Lemma 2.11.
 \end{proof}
 
 \begin{definition}
-  Let $\G\compembed\C^n$ with smooth boundary. It is pseudoconvex if the boundary function satisfies \eqref{slevi_cond}.
+  Let $\G\compembed\C^n$ with smooth boundary. It is strictly pseudoconvex if the boundary function satisfies \eqref{slevi_cond}.
 \end{definition}
 
 \begin{proposition}
@@ -3805,7 +3854,7 @@ See \cite{Ra} Lemma 2.11.
 \end{definition}
 
 \begin{remark}
-  The set of critical values in $\R$ have measure $0$. And there is always a sequence $\G_r\compembed\G$ where $\G_v$ is strictly pseudoconvex and $\G_r\compembed\G_{r+1}$. Moreover,
+  The set of critical values in $\R$ have measure $0$. And there is always a sequence $(\G_r)_{r\in\N}$ where for each $r$, $\G_r \compembed\G$,$\G_r$ is strictly pseudoconvex, and $\G_r\compembed\G_{r+1}$. Moreover,
   \begin{equation*}
     \bigcup\G_{r} = \G.
   \end{equation*}
@@ -3837,8 +3886,8 @@ See \cite{Ra} Lemma 2.11.
   \end{equation*}
   with 
   \begin{align*}
-    \sum_{i=1}^{m_j}\vert f_i^j\vert^2 >j\quad\text{on $K_{j+2}-K_{j+1}^\circ$},\\
-    \sum_{i=1}^{m_j}\vert f_i^j\vert^2
+    \sum_{i=1}^{m_j}\vert f_i^j\vert^2 &>j\quad\text{on $K_{j+2}-K_{j+1}^\circ$},\\
+    \sum_{i=1}^{m_j}\vert f_i^j\vert^2&<\left({\frac 1 2}\right)^j\quad\text{on $K_{j}$}.
   \end{align*}
   Set 
   \begin{equation*}
@@ -3885,7 +3934,8 @@ We will consider $(p,q)$-forms which are given by
   & = \sum_{\substack{\vert I\vert = p\\ \vert J\vert = q}}f_{I,J}dz^I\wedge d\overline{z}^J.
 \end{align*}
 
-In general $f\in\mathcal{C}^\infty(U)$, we set,
+%later what does it mean? -> In general $f\in\mathcal{C}^\infty(U)$, we set,
+We set,
 \begin{equation*}
   E^{p,q}(U) = \mathcal{C}_{p,q}^\infty (U).
 \end{equation*}
@@ -3895,7 +3945,7 @@ Also we denote,
   \overline{\partial}f = \sum\overline{\partial}f_{I,J}\wedge dz^I\wedge d\overline{z}^J.
 \end{equation*}
 
-That is for a function $f$, 
+That is for a function $f\in\cinf(U)$, 
 \begin{equation*}
   \overline{\partial}f = \sum\pd{f}{\overline{z}_j}d\overline{z}_j.
 \end{equation*}
@@ -3913,7 +3963,7 @@ We call $u$ is closed if $\overline{\partial}u = 0$ and exact if such $f$ in the
 \par If we get rid of $p$, we have,
 \begin{equation*}
   f\leftrightarrow {n\choose p}\text{tuple of $(0,q)$-forms}.
-\end{equation*} 
+\end{equation*}
 
 \subsection{Solving Cauchy-Riemann equation - First step}
 Recall Bochner-Martinelli integral formula.
@@ -3923,7 +3973,7 @@ Recall Bochner-Martinelli integral formula.
 \end{equation*}
 
 
-Set $\G,\bd\G\compembed\C^n,f\in\mathcal{C}^1(\overline{G}),z\in\G$.
+Set $\G,\bd\G\compembed\C^n,f\in\mathcal{C}^1(\overline{\G}),z\in\G$.
 
 \begin{equation*}
   f(z) = \int_{\bd\G}f(\zeta)B(\zeta,z)-\int_\G\overline{\partial}f(\zeta)\wedge B(\zeta,z).
@@ -3946,7 +3996,7 @@ Set $\G,\bd\G\compembed\C^n,f\in\mathcal{C}^1(\overline{G}),z\in\G$.
     u_j(z) &= -\int_{\C^n}f_jd\overline{\zeta}_j\wedge B(\zeta,z),\\
     & = \constant \int{\frac {f_j(\zeta)(\overline{\zeta}_j-\overline{z}_j)} {\norm{\zeta-z}^{2n}}}dV(\zeta).
   \end{align*}
-  Let $L_z$ be a linear partial differnetial opeartor (first order) constant coefficients. 
+  Let $L_z$ be a linear partial differnetial opeartor (first order) with constant coefficients. 
   \begin{align*}
     L_z u_j(z) & = \constant L_z\int {\frac {f(\zeta)(\overline{\zeta}_j-\overline{z}_j)} {\norm{\zeta-z}^{2n}}}dV(\zeta),\\
     & = \constant L_z\int_{\C^n}{\frac {f(z+w)w_j} {\norm{w}^{2n}}}dV(w),\\
@@ -4023,7 +4073,7 @@ Set $\G,\bd\G\compembed\C^n,f\in\mathcal{C}^1(\overline{G}),z\in\G$.
 \end{remark}
 
 
-Suppose we have constructed a solution operator $T$. For $Tf$, we want $f\in\mathcal{C}^1(\G)\cap L^1(\G)$. You can have estimates in terms of $L^1,L^p,L^\infty$. BUt if $f\in\mathcal{C}^\infty(\G)$, there is $u\in\mathcal{C}^\infty(\G), \pd{u}{\overline{z}}=f$, we have weak range approximation. For more detail, see \cite{Lieb} Function Theory.
+Suppose we have constructed a solution operator $T$. For $Tf$, we want $f\in\mathcal{C}^1(\G)\cap L^1(\G)$. You can have estimates in terms of $L^1,L^p,L^\infty$. But if $f\in\mathcal{C}^\infty(\G)$, there is $u\in\mathcal{C}^\infty(\G), \pd{u}{\overline{z}}=f$, we have weak range approximation. For more detail, see \cite{Lieb}.
 
 \begin{definition}
   Let $f\in\mathcal{C}^\infty_{0,q}(D),\overline{\partial}f = 0$. We denote $f\in E(k)$ or say $f$ is of complexity $k$ if $f_J=0$ for all $J$ that contains $l$ greater than $k$.
@@ -4041,7 +4091,7 @@ Suppose we have constructed a solution operator $T$. For $Tf$, we want $f\in\mat
 \end{theorem} 
 
 \begin{proof}
-  Suppose $f = \sum_{\vert J\vert = q}f_Jd\overline{z}^J\in\mathcal{C}^\infty_{0,q}(D')$.  We will prove the statement by the induction on $k$ for $E(k)$.\\
+  Suppose $f = \sum_{\vert J\vert = q}f_Jd\overline{z}^J\in\mathcal{C}^\infty_{0,q}(D')$.  We will prove the statement by the induction on $k$ for $E(k)$.
   \par For $k=0$, there is nothing to show.
   \par Suppose the statement holds for $k-1$, then 
   \begin{equation*}
@@ -4115,7 +4165,7 @@ Construct $u_{d+1}$ by taking $u'_{d+1}\in\mathcal{C}^\infty(D)$ such that
 \end{equation*}
 We also have 
 \begin{equation*}
-  \cpd(\underbrace{u'_{d+1}-u_d}_{\text{ a holomorphic function on $D_d$}}) = 0\on D_d.
+  \cpd(\underbrace{u'_{d+1}-u_d}_{\text{\makebox[0pt][c]{a holomorphic function on $D_d$}}}) = 0\on D_d.
 \end{equation*}
 Let $p$ be a Taylor polynomial of $u'_{d+1}-u_d$ about $0$ degree chosen sufficiently large so that 
 \begin{equation*}
@@ -4124,7 +4174,7 @@ Let $p$ be a Taylor polynomial of $u'_{d+1}-u_d$ about $0$ degree chosen suffici
 Set $u_{d+1} = u'_{d+1}-p$. Continus this procedure get a sequence $u_0,u_1,\cdots$. Take $u= \lim_{d\to\infty}u_d$. We observe this is locally uniform. Therefore, $u$ is continuous.
 \par Consider $u-u_m$ then 
 \begin{equation*}
-  \lim_{\substack{d\to\infty\\ d>m}}(\underbrace{u_d-u_m}_{\text{holomorphic function for $d$ large enough}}).
+  \lim_{\substack{d\to\infty\\ d>m}}(\overbrace{u_d-u_m}^{\text{\makebox[0pt][c]{holomorphic function for $d$ large enough}}}).
 \end{equation*}
 Thus $u$ is of $\cinf$. In particular,
 \begin{equation*}
@@ -4145,11 +4195,11 @@ Thus $u$ is of $\cinf$. In particular,
 
 
 \begin{remark}
-  Lemma\ref{lemma_dolbeault} can be restated by the following way.
+  Theorem \ref{lemma_dolbeault} can be restated by the following way.
   \begin{equation*}
     H^{0,q}_{\Dol}(D) = 0,
   \end{equation*}
-  for any $q\geq1$. Thisis shown by first showing the case when $q=1$, and by induction for higher cases.
+  for any $q\geq1$. This is proved by first showing the case when $q=1$, then b the induction for higher cases.
 \end{remark}
 
 For $n=1$ and $\G$ be an arbitrary domain. Suppose we want to solve the equation,
@@ -4159,6 +4209,8 @@ For $n=1$ and $\G$ be an arbitrary domain. Suppose we want to solve the equation
     \pd{u(z)}{\cz} = f(z)
   \end{cases}.
 \end{equation*}
+
+%current Current
 
 Take $\G_0\compembed\G_1\compembed\cdots\compembed\G$ such that it exhausts $\G$. Suppose $\bd\G$ is reasonable(ie. the Stoke's theorem can be applied). 
 Solve $u_j\in\cinf(\G)$ such that 
@@ -4171,7 +4223,7 @@ To do so, we need an approximation theorem. Namely, the Range Approximation Theo
 \end{equation*}
 $u$ was not constructed by a linear operator, 
 \begin{equation*}
-\cinf_{0,q}\ni f\stackrel{T}{\mapsto}Tf\in\cinf_{0,q-1}. \cpd Tf = f.
+\cinf_{0,q}\ni f\stackrel{T}{\mapsto}Tf\in\cinf_{0,q-1},\cpd Tf = f.
 \end{equation*}
 Using Functional analysis, we know that such $T$ does not exists. Let $f\in\cinf_{0,q},\cpd f= 0$, bounded on $D$.
 \subsection{Applying the Cauchy-Riemann equation}
@@ -6593,13 +6645,13 @@ We could also take an equivalent approach. This is done by directly using double
   \begin{proof}
     The proof can be found in \cite{LiM} chapter 5, section 4.
   \end{proof}
-  What we want to do now is to replicate the calculation we have done before to calculate adjoints but with only one weight function $\varphi$. 
+  What we want to do now is to replicate the calculation we have done before to calculate adjoints but with only one weight function $\varphi$, but taking accout of boundary integrals. In general boundary integral $=0$ because of (missing) (some integrals).
   \begin{theorem}[Kohn-Morrey]
     Let $\G,\bd\G$ be defined by $r$ and $\varphi\in\cinf(\G)$ be such that $\varphi\geq0$. Then for 
     \begin{equation*}
     f=\sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert=q+1}}f_\alpha d\overline{z}^\alpha,
     \end{equation*}
-    , which is smooth on $\overline{\G}$ and satisfies \eqref{equation_first_neumann_condition}, we have,
+    which is smooth on $\overline{\G}$ and satisfies \eqref{equation_first_neumann_condition}, we have,
     \begin{align*}
       \norm{\cbd f}^2_\varphi+\norm{\cbd_\varphi^*f}^2_\varphi&=\int_\G\sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert=q}}\sum_{j,k}{\frac {\partial^2\varphi}{\partial z_j\partial\overline{z}_k}}f_{j\alpha}\overline{f}_{k\alpha}e^{-\varphi}d\lambda\\
       &+\int_\G\sum_{\substack{\alpha\in\N^n\\\vert\alpha\vert=q+1}}\sum_j\left\vert\pd{f_j}{\overline{z}_j}\right\vert^2e^{-\varphi}d\lambda\\
@@ -6619,9 +6671,256 @@ We could also take an equivalent approach. This is done by directly using double
       \norm{\cbd f}_\varphi^2+\norm{\cbd_\varphi^* f}^2\geq c\norm{f}_\varphi^2.
     \end{equation*}
     \begin{theorem}
-      Let $\G\compembed\C^n$ be a pseudo convex domain. Then there is a constant $c>0$, only depending on the diameter of $\G$, such that for any $f\in L^2_{0,q+1}(\G)$, $\cbd f=0$, there is $u\in L_{0,q}^2(\G)$, with $\cbd u=f$ and $\norm{u}\leq c\norm{f}$.
+      Let $\G\compembed\C^n$ be a pseudoconvex domain. Then there is a constant $c>0$, only depending on the diameter of $\G$, such that for any $f\in L^2_{0,q+1}(\G)$, $\cbd f=0$, there is $u\in L_{0,q}^2(\G)$, with $\cbd u=f$ and $\norm{u}\leq c\norm{f}$.
       \par If $f$ is smooth then $u$ can be chosen as a smooth function.
     \end{theorem}
+
+    In the equality of Theorem \ref{theorem_kohn_morrey}, instead of considering the whole, we may take only a single summation term on the right hand side, we aim to derive the following inequality.
+
+    \begin{theorem}[Adjusted Kohn-Morrey]
+      Let $\G$ be a strictly pseudoconvex domain and $\varphi\in\mathcal{C}^2(\overline{\G})$ be a weight function. Then for $f\in L^2_{0,q}(\G,\varphi)$, we have,
+      \begin{equation*}
+        \int\sum_K\sum_{j,k}{\frac {\partial^2\varphi}{\partial z_j\overline{\partial}\overline{z}_k}}f_{jK}\overline{f}_{kK}e^{-\varphi}d\lambda\leq\norm{\cbd f}_\varphi^2+\norm{\cbd_\varphi^*f}^2_{\varphi}.
+      \end{equation*}
+    \end{theorem}
+
+    \begin{proof}
+      choose $\varphi(z) = t\norm{z}^2$ and $t>0$ will be chosen later.
+      \begin{equation*}
+        t\norm{f}^2_\varphi\leq\norm{\cbd f}_\varphi^2+\norm{\cbd^*_\varphi}_{\varphi}^2. 
+      \end{equation*}
+      In a favorable situation, we have,
+      \begin{equation*}
+        L_{0,q+1}^2(\G,\varphi) = \mathcal{N}_{\cbd_\varphi^*}\oplus\mathcal{R}_{\cbd},L^2_{0,q}(\G,\varphi) = \mathcal{N}_{\cbd}\oplus\mathcal{R}_{\cbd^*_\varphi}. 
+      \end{equation*}
+      Therefore for $f\in L^2(\G,\varphi)_{0,q+1}$ with $\cbd f=0$, we have $f\in\mathcal{R}_{\cbd}$. That is $f=\cbd u$ for some $u\in\Dom\cbd\subseteq L_{0,q}^2(\G,\varphi)$.
+      We may assume that 
+      \begin{equation*}
+        u=\cbd_\varphi^*v,v\in\Dom\cbd^*_\varphi,
+      \end{equation*}
+      and $\cbd v=0$. Apply this to $v$, we have,
+      \begin{align*}
+        t\norm{v}^2_\varphi&\leq\norm{\cbd_\varphi^* v}_\varphi^2,\\
+        \norm{u}_{\varphi}^2&=(u,u)_\varphi = (u,\cbd_\varphi^* v)_\varphi,\\
+        & = (\cbd u,v)_\varphi=(f,v)_\varphi,\\
+        & \leq \norm{f}_\varphi\norm{v}_{\varphi},\\
+        &\leq {\frac 1{\sqrt{t}}}\norm{f}_\varphi\norm{\cbd_\varphi^* v}_\varphi,\\
+        & = {\frac 1{\sqrt{t}}}\norm{f}_\varphi\norm{u}_\varphi.
+      \end{align*}
+      Therefore, we have a solution $u$ with,
+      \begin{equation*}
+        \norm{u}_\varphi\leq{\frac 1 {\sqrt{t}}}\norm{f}_\varphi.
+      \end{equation*}
+      Compute,
+      \begin{align*}
+        \int_\G\vert u\vert^2e^{-t\norm{z}^2}d\lambda & = {\frac 1 t}\int_\G \vert f\vert^2e^{-t\norm{z}^2}d\lambda,\\
+        & \leq {\frac 1 t}\int_\G \vert f\vert^2 d\lambda.
+      \end{align*}
+      For $\delta>\diam\G$, we have,
+      \begin{equation*}
+        e^{-t\delta^2}\int_\G\vert u\vert^2d\lambda \leq \int_\G\vert u\vert^2e^{-t\norm{z}^2}d\lambda.
+      \end{equation*}
+      This implies,
+      \begin{equation*}
+        \int_\G\vert u\vert^2d\lambda \leq {\frac {e^{t\delta^2}} t}\int_\G \vert f\vert^2d\lambda, \norm{u}^2\leq e\delta^2\norm{f}^2.
+      \end{equation*}
+      As $\G$ is bounded and pseudoconvex, take $\delta=\diam\G$, we may take a exhaustion by strictly pseudoconvex domains,
+      \begin{equation*}
+        \G_1\subset\G_2\subset\cdots\subset\G.
+      \end{equation*}
+      For $f\in L^2_{0,q+1}(\G)$, solve the Cauchy-Riemann equation on each domain $\G_i$ and denote the solution $u_i$, (i.e. $\cbd u_i=f$ on $\G_i$) with the inequality,
+      \begin{equation*}
+        \norm{u_i}^2\leq e\delta^2\norm{f}^2.
+      \end{equation*}
+      Choose $t={\frac 1 {\delta^2}}$. Now we have a sequence of bounded $L^2$ functions $(u_i)_{i\in \N}$. Without loss of genearlity, we assume
+      \begin{equation*}
+        u_i\stackrel{\text{\makebox[0pt][c]{weakly in $L^2$}}}{\longrightarrow} u\in L_{0,q}^2(\G), u_i\stackrel{\mathcal{D}'}{\to}u.
+      \end{equation*}
+      Of course we have,
+      \begin{equation*}
+        \norm{u}^2\leq e\delta^2\norm{f}^2.
+      \end{equation*}
+      Furthermore, for $i\geq j$, we have,
+      \begin{equation*}
+        \cbd u_i=\cbd u_j\text{ on $\G_j$} \Rightarrow \cbd u = f \text{ on $\G$}.
+      \end{equation*}
+    \end{proof}
+    \begin{theorem}
+      Let $\G\compembed\C^n$ be pseudoconvex and $f\in L^2_{0,q+1}(\G),\cbd f=0$. Then there is $u\in L^2_{0,q}(\G)$ such that 
+      \begin{equation*}
+        \cbd u = f,\norm{u}^2\leq e\delta^2\norm{f}^2.
+      \end{equation*}
+      $u$ carries any regularity that $f$ has.
+    \end{theorem}
+    \begin{notation}
+      $\norm{\cdot}_{W^k}$ denotes the Sobolev norm of order $k$.
+    \end{notation}
+    \begin{lemma}
+      Let $u\in W^s(\R^n)$ for $s\geq0$ and let us denote its Fourier transform $\hat{u}$. We have,
+      \begin{equation*}
+        \norm{u}_{W^s}=\norm{\hat{u}(1+\norm{x}^2)^{{\frac s 2}}}.
+      \end{equation*}
+    \end{lemma}
+    \begin{definition}
+      Let $\G$ be a strictly pseudoconex domain. The Bergman projection is an orthogonal projection,
+      \begin{equation*}
+        P:L^2(\G)\to L^2(\G)\cap\Ouv(\G).
+      \end{equation*}
+    \end{definition}
+    \begin{theorem}[Kohn]
+      Let $\G\compembed\C^n$ be a strictly pseudoconvex domain and $f\in L_{0,q}^2(\G)$ for $q\geq1$. 
+      \begin{enumerate}[1).]
+        \item If $f\in\Dom\cbd\cap\Dom\cbd^*$, we have,
+        \begin{equation*}
+          \norm{f}_{W^{k+{\frac 1 2}}} \leq c(\norm{\cbd f}_{W^k}+\norm{\cbd^* f}_{W^k}+\norm{f}).
+        \end{equation*}
+        \item There is $c>0$ such that 
+        \begin{equation*}
+          \norm{u-Pu}_{W^{k+{\frac 1 2}}}\leq c(\norm{\cbd u}_{W^k}+\norm{u}_{W^k})
+        \end{equation*}
+      \end{enumerate}
+    \end{theorem}
+    \begin{theorem}[Sobolev]
+      Let $\G\compembed\R^N$ be a domain and $d=\left[{\frac N 2}\right]+1$. Then 
+      \begin{equation*}
+        W^{s+d}(\overline{\G})\subseteq\mathcal{C}^s(\overline{\G}),
+      \end{equation*} 
+      where $\mathcal{C}^s(\overline{\G})$ denotes the space of functions whose derivative of order up to $s$ are bounded.
+    \end{theorem}
+    \begin{theorem}
+      Let $\G$ be strictly pseudoconevx with $\bd\G$ smooth and $f\in \cinf_{0,q}(\G)$ with $\cbd f=0,q\geq1$. Then there is $u\in\cinf_{0,q+1}(\overline{\G})$ with $\cbd u = f$.
+      Moreover, the canonical solution $u$ satisfying either 
+      \begin{equation*}
+        \begin{cases}
+          \vartheta u = 0,\\
+          Pu = 0,
+        \end{cases}
+      \end{equation*}
+      has this property. (Recall $\vartheta$ is formal adjoint of $\cbd$).
+    \end{theorem}
+    For $f$ defined on $\G\compembed\C$, set 
+    \begin{equation*}
+      u(z) = \int_\G C(\zeta,z)f(\zeta).
+    \end{equation*}
+    %find what properties $u$ carries.
+    Now take $f$ as a $(p,q)$-form on $\G$. We want to find a kernel $K(\zeta,z)$ such that 
+    \begin{equation*}
+      u(z) = \int_\G f(\zeta)K(\zeta,z), \cbd u(z)=f(z).
+    \end{equation*}
+    \begin{theorem}
+      Let $\G\subseteq\C^n$ be a strictly pseudoconvex domain and $f_0\in L^\infty_{0,1}(\G)\cap\cinf(\G)$ with $\cbd f = 0$. Then there is a solution $u\in L^\infty(\G)\cap\cinf(\G)$ with $\cbd u = f$. Furthermore, there is a constant $C\geq0$, which is independent of $f$ such that 
+      \begin{equation*}
+        \norm{u}_{L^\infty}\leq C\norm{f}_{L^\infty}.
+      \end{equation*}
+    \end{theorem}
+    \begin{remark}[Henkin-Ramírez]
+      $C$ is invariant under small pertubation of $\G$ but not under larger pertubations.
+    \end{remark}
+    \begin{definition}
+      Let $f:\R\to\R$. The Hölder norm of $f$ order $k$ is 
+      \begin{equation*}
+        \norm{f}_{\mathcal{C}^k}\defeq\inf\{C\geq0\sep \forall x,y\in\R,\vert f(x)-f(y)\vert\leq C\vert x-y\vert^{{\frac 1 2}}\}.
+      \end{equation*}
+    \end{definition}
+    \begin{theorem}
+      Let $\G\subseteq\C^n$ be a strictly pseudoconvex domain. There is a linear continuous operator $S: L_{0,q+1}^1\to L_{0,q}^1$ with 
+      \begin{equation*}
+        \cbd f=0\Rightarrow \cbd Sf = f. 
+      \end{equation*}
+      $Sf$ is smooth in $\G$ if $f$ is smooth (i.e. $S$ is the solution operator).
+      \begin{equation*}
+        \norm{Sf}_{\mathcal{C}^{k+{\frac 1 2}}}\leq \const\norm{f}_{\mathcal{C}^k}.
+      \end{equation*}
+      This constant is invariant under small pertubations.
+    \end{theorem}
+    \begin{proof}
+      The proof can be found in \cite{LiM}.
+    \end{proof}
+    \begin{theorem}
+      \label{theorem_hermitian_metric_holder_norm_inequality}
+      Let $\G\subseteq\C^n$ be a strictly pseudoconex domain, then there is a Hermitian metric on $\C^n$ such that 
+      \begin{enumerate}[i).]
+        \item for $f\in L^2_{0,q+1}(\G),f\in\Dom\cbd\cap\Dom\cbd^*$, 
+        \begin{equation*}
+          \norm{f}_{\mathcal{C}^{k+{\frac 1 2}}}\leq \const(\norm{\cbd f}_{\mathcal{C}^k}+\norm{\cbd^*f}_{\mathcal{C}^k}+\norm{f}_{L^2}).
+        \end{equation*}
+        \item for $f\in L_{0,0}^2(\G)$, we have,
+        \begin{equation*}
+          \norm{f-Pf}_{\cC^{k+{\frac 1 2}}}\leq\const (\norm{\cbd f}_{\cC^k}+\norm{f}_{L^2}).
+        \end{equation*}
+      \end{enumerate}
+      Note that the metric is used to define $L^2$-space, the projection $P$, and the adjoint $\cbd^*$.
+    \end{theorem}
+    \begin{remark}[Beals-Greiner-Stanton]$\:$
+      \par The Theorem \ref{theorem_hermitian_metric_holder_norm_inequality} holds for arbitrary metrics.
+    \end{remark}
+    \section{What now?}
+    \subsection{Stein Manifolds}
+    We will examine how the results we have seen can be studied further. One canonical generalization of these results would be to consider complex manifolds instead of $\C^n$. 
+    \begin{definition}
+      Let $X$ be a $n$-dimensional complex manifold. $X$ is said to be Stein if 
+      \begin{enumerate}[i).]
+        \item it has countable topology (i.e. admits a countable basis of the topology),
+        \item it is holomorphically convex,
+        \item it is holomorphically separable (i.e. for any $x\not=y,\exists f\in\Ouv(X)$ such that $f(x)\not=f(y)$),
+        \item for all $x\in X$, there is a global holomorphic coordinates (i.e. there is $f_1,\cdots,f_m\in\Ouv(X)$ that give local coordinate at $x$).
+      \end{enumerate}
+    \end{definition}
+    \begin{remark}
+      $\G\subseteq\C^n$ is a Stein manifold if and only if it is a domain of holomorphy.
+    \end{remark}
+    Our motivation is to show natural domains of existence for holomorphic functions (in $\C^n$) are complex manifold $X\stackrel{P}{\to}\C^n$ where $X$ is an unbranced Riemann domain.
+    \begin{definition}
+      $X$ is pseudoconvex if there is smooth, strictly plurisubharmonic exhaustive functions.
+    \end{definition}
+    \begin{theorem}
+      $X$ is Stein if and only if it is pseudoconvex.
+    \end{theorem}
+    \begin{proof}
+      We will not give the full proof, however we will note some tools which we need to utilise to show the statement. Namely, $\cbd$-complex, $(p,q)$-forms, instead of $(0,q)$-forms, $L^2$ spaces with respect to a hermitian metrix.
+    \end{proof}
+    \begin{theorem}[Cartan-Thullen-Oka]
+      $X$ is a domain of holomorphy of $\C^n$ then $X$ is Stein.
+    \end{theorem}
+    \begin{theorem}[Behnke-Stein]
+      Open Riemann surfaces are Stein.
+    \end{theorem}
+    \begin{theorem}[Remmert]
+       $X$ is $n$-dimensional Stein manifold if and only if $\phi:X\to\C^{2n+1}$ biholomorphic embedding.
+    \end{theorem}
+    \begin{theorem}
+      The second and second Cousin problems are solvable in $\C^n$.
+    \end{theorem}
+    \begin{theorem}[Cartan-Serre]
+      If $S$ is a coherent analytic sheaf on a Stein manifold $X$, then $H^q(X,S)=0$ for all $q\geq1$.
+    \end{theorem}
+    \begin{remark}
+      In the first and the last condition of Stein manifolds are redundant. 
+    \end{remark}
+    \begin{theorem}[Grauert]
+      \label{theorem_grauert_stein}
+      $X$ is Stein if and only if it is holomorphically convex and for all $x\in X$, there are holormophic functions $f_1,\cdots,f_k\in\Ouv(X)$ such that $x$ is isolated in $V(f_1,\cdots,f_k)$.
+    \end{theorem}
+    \begin{theorem}[Radó]
+      All connected Riemann surfaces have countable topology.
+    \end{theorem}
+    \subsection{Complex Spaces}
+    \begin{definition}
+      A topological space $X$ is Stein if it is holomorphically convex and for all $x\in X$, there are holormophic functions $f_1,\cdots,f_k\in\Ouv(X)$ such that $x$ is isolated in $V(f_1,\cdots,f_k)$ (as per Theorem \ref{theorem_grauert_stein}).
+    \end{definition}
+    \begin{theorem}
+      A topological space $X$ is Stein if and only if it is pseudoconvex.
+    \end{theorem}
+    \begin{theorem}[Cartan-Serre]
+      If $S$ is a coherent analytic sheaf on a Stein space $X$, then $H^q(X,S)=0$ for all $q\geq1$.
+    \end{theorem}
+    Let $X$ be a topological space and $S\subset X$ be a subset. Suppose $X\backslash S$ is a connected $n$-dimensional manifold. One can use the arsenal of differential forms to study this and consider $S$ on a boundary which can be totally pathological.
+    \begin{theorem}[Milestones of Complex Analysis]$\:$
+      \begin{enumerate}[I).]
+        \item (Hironaka) Let $X$ be a complex space, then there is $X'\stackrel{\pi}{\to}X$ where $X'$ is a complex manifold and $\pi$ is holomorphic and biholomorphic over the regular points. That is to say, we can desingularize complex spaces.
+        \item (Grauert) Let $p:X\to Y$ be a holomorphic map between complex spaces which is proper (i.e. each compact set in $Y$ has its preimage compact in $X$ under $p$). Then $R^ip\mathcal{S}$ where $\mathcal{S}$ is coherent sheaf on $X$ are coherent.
+      \end{enumerate}
+    \end{theorem} 
 \begin{thebibliography}{9}
 \bibitem{Lieb} Fischer, Wolfgang and Lieb, Ingo (2012) A Course in Complex Analysis: From Basic Results to Advanced Topics, Springer Fachmedien Wiesbaden GmbH, Wiesbaden.
 \bibitem{Gr-Fr} Klaus Fritzsche, Hans Grauert (1974) Einführung in die Funktionentheorie mehrerer Veränderlicher, Springer, Berlin.
