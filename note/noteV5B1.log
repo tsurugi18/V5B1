@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.19)  6 FEB 2026 13:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.19)  8 FEB 2026 17:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -694,21 +694,6 @@ Overfull \hbox (2.15202pt too wide) in paragraph at lines 3686--3687
 [72]
 
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 4275--4277
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4287--4289
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4289--4290
-
- []
-
-
 
 [74]
 
@@ -727,13 +712,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 4289--4290
 [81]
 
 [82]
-Overfull \hbox (7.51001pt too wide) in paragraph at lines 4793--4794
+
+[83]
+Overfull \hbox (7.51001pt too wide) in paragraph at lines 4803--4804
 []\OT1/cmr/bx/n/10 Definition 7.25. []\OT1/cmr/m/it/10 A cobound-ary is an $\OMS/cmsy/m/n/10 O[]$\OT1/cmr/m/it/10 -module ho-mo-mor-phism $\OML/cmm/m/it/10 ^^N \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 C[]\OT1/cmr/m/n/10 (\U/rsfs/m/n/10 U\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 A\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
  []
 
 
-
-[83]
 
 [84]
 
@@ -752,7 +737,7 @@ Overfull \hbox (7.51001pt too wide) in paragraph at lines 4793--4794
 [91]
 
 [92]
-Overfull \hbox (23.3689pt too wide) in paragraph at lines 5391--5392
+Overfull \hbox (23.3689pt too wide) in paragraph at lines 5403--5404
  [] 
  []
 
@@ -777,22 +762,22 @@ Overfull \hbox (23.3689pt too wide) in paragraph at lines 5391--5392
 [101]
 
 [102]
-Overfull \hbox (54.41728pt too wide) detected at line 5950
-[]
- []
-
-
-Overfull \hbox (13.2975pt too wide) detected at line 5964
+Overfull \hbox (54.41728pt too wide) detected at line 5962
 []
  []
 
 
 
 [103]
+Overfull \hbox (13.2975pt too wide) detected at line 5976
+[]
+ []
+
+
 
 [104]
 
-LaTeX Warning: Reference `equation,equation_d_cond' on page 105 undefined on input line 6045.
+LaTeX Warning: Reference `equation,equation_d_cond' on page 105 undefined on input line 6057.
 
 
 
@@ -803,12 +788,12 @@ LaTeX Warning: Reference `equation,equation_d_cond' on page 105 undefined on inp
 [107]
 
 [108]
-Overfull \hbox (4.90002pt too wide) in paragraph at lines 6230--6231
+Overfull \hbox (4.90002pt too wide) in paragraph at lines 6242--6243
  [] 
  []
 
 
-Overfull \hbox (15.48022pt too wide) in paragraph at lines 6267--6268
+Overfull \hbox (15.48022pt too wide) in paragraph at lines 6279--6280
  [] 
  []
 
@@ -853,15 +838,15 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 19893 strings out of 473190
- 428024 string characters out of 5715799
- 877231 words of memory out of 5000000
- 42840 multiletter control sequences out of 15000+600000
+ 19902 strings out of 473190
+ 428265 string characters out of 5715799
+ 870346 words of memory out of 5000000
+ 42849 multiletter control sequences out of 15000+600000
  571373 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,21n,121p,639b,1096s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on noteV5B1.pdf (123 pages, 693797 bytes).
+Output written on noteV5B1.pdf (123 pages, 694676 bytes).
 PDF statistics:
  540 PDF objects out of 1000 (max. 8388607)
  357 compressed objects within 4 object streams

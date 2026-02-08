@@ -4210,8 +4210,6 @@ For $n=1$ and $\G$ be an arbitrary domain. Suppose we want to solve the equation
   \end{cases}.
 \end{equation*}
 
-%current Current
-
 Take $\G_0\compembed\G_1\compembed\cdots\compembed\G$ such that it exhausts $\G$. Suppose $\bd\G$ is reasonable(ie. the Stoke's theorem can be applied). 
 Solve $u_j\in\cinf(\G)$ such that 
 \begin{equation*}
@@ -4229,7 +4227,10 @@ Using Functional analysis, we know that such $T$ does not exists. Let $f\in\cinf
 \subsection{Applying the Cauchy-Riemann equation}
 
 \begin{definition}[Meromorphic functions]
-  
+  Let $\G\subseteq\C^n$ be open. $f:\G\to\C$ is meromorphpic if for any $z\in\G$ there is a neighborhood $U$ such that there are $g,h\in\Ouv(U)$ with,
+  \begin{equation*}
+    \forall z\in U\backslash h^{-1}(0), f(z) = {\frac {g(z)} {h(z)}}.
+  \end{equation*} 
 \end{definition}
 
 \begin{definition}
@@ -4272,32 +4273,37 @@ We now want to find a meromorphic function $f$ on $\G$ such that $f-f_i$ is holo
   A solution of such a $\Delta=(U_i,f_i)_{i\in I}$ is a meromorphic function $f$ on $\G$ with $f/f_i$ is holomorphic without zeros on $U_i$. That is a meromorphic function $f$ on $\G$ such that $\Delta$ and $(\G,f)$ concincide.
 \end{definition}
 
-\par\textbf{Second Cousin Problem}
-Are all divisors of a domain $\G$ principal?\\
-\par\textbf{Third Cousin Problem}
-  Suppose $\G$ be a domain containing the origin. Let $\Ouv(\G)$ be an algebra of holomorphic functions and set 
-  \begin{equation*}
-    M_0 = \{f\in\Ouv(\G)\sep f(0) = 0\}.
+\begin{definition}[Second Cousin Problem]
+  Given a divisor $\Delta$ of $\G$, the solution of the second Cousin problem is a principle diisor $(\G,f)$ that coincides with $\Delta$.
+\end{definition}
+  \begin{definition}[Third Cousin Problem]
+    The third Cousin problem is solvable on a domain $\G$ containing the origin, if the set
+    \begin{equation*}
+      M_0 = \{f\in\Ouv(\G)\sep f(0)=0\},
+    \end{equation*}
+    is the ideal $(z_1,\cdots,z_n)$. That is for any $f\in\Ouv(\G)$, the Diophantine equation,
+    \begin{equation*}
+    \sum_{j=1}^n f_j(z)z_j = f(z),
   \end{equation*}
-  Is it true that $M_0 = (z_1,\cdots,z_n)$? That is for any $f\in\Ouv(\G)$ with $f(0) = 0$, do we find a solution to the following Diophantine equation,
-  \begin{equation*}
-    \sum_{j=1}^n f_j(z)z_j = f(z).
-  \end{equation*}
+  is solvable.
+  \end{definition}
 
-  \par\textbf{Fourth Cousin Problem}
-  Let $M\subseteq\G$ be anaanalytic set and $f$ be a holomorphic function on $M$. Is there a holomorphic function $F$ on $\G$ such that $F|_M = f$?\\
-  \par\textbf{Fifth Cousin Problem} Let $M$ be an analytic set of codimension $1$. Is there. a holomorphic function $f$ on $\G$ such that $V(f) = M$.\\
-
+  \begin{definition}[Fourth Cousin Problem]
+    Let $\G$ be a domain, $M\subseteq\G$ be an analytic set and $f\in\Ouv(M)$. A solution of the fourth cousin problem of $f$ is a holomorphic function $F\in\Ouv(\G)$ such that $F|_M=f$.
+  \end{definition}
+\begin{definition}[Fifth Cousin Problem]
+  Let $\G$ be a domain and $M\subseteq\G$ be an analytic set of codimension $1$. The fifth Cousin problem is solvable on $M$ if there is $f\in\Ouv(\G)$ such that $V(f) = M$. 
+\end{definition}
   $(U_i,f_i)_{i\in I}$ be a principal part distribution such that $U_i\compembed \G$. Let $\{q_i\}_{i\in I}$ be a partition of unity subordinate to $\{U_i\}_{i\in I}$. Set 
   \begin{equation*}
     g_i = \sum\varphi_if_{ji}\on U_i,\text{ where } f_{ji} = f_i-f_j\on U_{ij}.
   \end{equation*}
   Then we have,
   \begin{align*}
-    \cpd g_i - \cpd g_k &= \cpd\sum\varphi_jf_{ji}-\sum\varphi_j f_{jk},\\
+    \cpd g_i - \cpd g_k &= \cpd\sum\varphi_jf_{ji}-\cpd\sum\varphi_j f_{jk},\\
 & = \cpd\sum\varphi_j(f_{ji}-f_{jk}),\\
 & = \cpd\sum_j f_{ki}\varphi_j,\\
-&= f_{ki}\underbrace{\sum\cpd\varphi_j}_{=0\text{as $\cpd$ is a closed $(0,1)$ form}} = 0.
+&= f_{ki}\underbrace{\sum\cpd\varphi_j}_{\mathrlap{\!\text{$=0$ as $\cpd$ is a closed $(0,1)$ form}}} = 0.
   \end{align*}
   Set $r = \cpd g_i$ on $U_i$. Globally defined on all of $\G$.
 
@@ -4351,7 +4357,7 @@ Particularly, $f-f_i$ is holomorphic thus $f$ solves the First Cousin problem. T
     \varphi(\G_0) = \{1\}, \varphi(M) = \{0\}.
   \end{equation*}
   We first show that $f\in\cinf_{0,q}(\G_0), \overline{\bd} f = 0$ then there is $F\in\cinf_{0,q}(\G)$ such that $\overline{\bd}F=0$ and $F|_{\G_0} = f$ that is $F\circ j = f$.
-  \par Indeed $\varphi(f\circ p)\circ j=f$. Therefore take 
+  \par Indeed $(\varphi(f\circ p))\circ j=f$. Therefore take 
   \begin{equation*}
     F = \varphi(f\circ p) - z_nu,
   \end{equation*}
@@ -4365,8 +4371,7 @@ Particularly, $f-f_i$ is holomorphic thus $f$ solves the First Cousin problem. T
     \Rightarrow & \overline{\partial}u = {\frac 1 {z_n}}\overline{\partial}\varphi\circ(f\circ p)\in\cinf_{0,q+1}(\G).
   \end{align*}
   This is $\overline{\partial}$-closed. Thus there is $v\in\cinf_{0,q}$ such that $\overline{\partial}F=0$ and $F\circ j = f$.
-  \par We now show that $\G_0$ satisfies the assumption in $\C^{n-1}$. 
-  \par Indeed If $f\in\cinf_{0,q}(\G_0)$ and $\overline{\partial}f=0$ extend $f$ to $F$ as before. There is $u\in\cinf_{0,q-1}(\G)$ with $\overline{\partial}u=F$. Take $v = u\circ j$, we then have,
+  \par We now show that $\G_0$ satisfies the assumption in $\C^{n-1}$. Indeed if $f\in\cinf_{0,q}(\G_0)$ and $\overline{\partial}f=0$ extend $f$ to $F$ as before. There is $u\in\cinf_{0,q-1}(\G)$ with $\overline{\partial}u=F$. Take $v = u\circ j$, we then have,
   \begin{equation*}
     \overline{\partial}v = f.
   \end{equation*}
@@ -4378,7 +4383,7 @@ Our next goal is to study $(\CR)_{0,q}$ solvability on pseudoconvex domains, nam
 \end{equation*}
 for $q\geq 1$ and all $p$.
 \section{Sheaves of cohomology}
-The main reference if \cite{Hir} but the exponsition with more details will be found in \cite{Gr-Fr}.
+The main reference is \cite{Hir}. \cite{Gr-Fr} also contains the exponsition with more details.
 \subsection{Sheaves}
 
 \begin{definition}
@@ -4389,34 +4394,34 @@ The main reference if \cite{Hir} but the exponsition with more details will be f
 Let $U\subseteq X$ be an open subset. For a sheaf $\mathcal{S}$ on $X$. The section of $\mathcal{S}$ over $U$ is a continuous map $s:U\to \mathcal{S}$ such that $\pi\circ s = \id$. The stalk of $\mathcal{S}$ at $x\in X$ is the preimage $S_x = \pi^{-1}(x)$. 
 \end{definition}
 
-\begin{proposition}[Fundamental Properties of Sheaves]Let $S$ be a sheaf on $X$. 
+\begin{proposition}[Fundamental Properties of Sheaves]Let $\mathcal{S}$ be a sheaf on $X$. 
   \begin{enumerate}[1).]
-    \item For a section $s:U\to S$, $s(U)$ is open. In particular, $\pi|_{s(U)}:s(U)\to U$ is a homeomorphism.
-    \item $\{s(U)\}_{U\subset X\text{ open}}$ forms a basis of the topology of $S$. 
-    \item $S_x$ carries the discrete topology. 
-    \item $\sigma\in S_x$ then there is a neighborhood $U=U(x)$ of $x$ and a section $s:U\to S$ such that $s(x) = \sigma$.
+    \item For a section $s:U\to \mathcal{S}$, $s(U)$ is open. In particular, $\pi|_{s(U)}:s(U)\to U$ is a homeomorphism.
+    \item $\{s(U)\}_{\substack{U\subset X\\\text{ open}}}$ forms a basis of the topology of $\mathcal{S}$. 
+    \item $\mathcal{S}_x$ carries the discrete topology. 
+    \item $\sigma\in \mathcal{S}_x$ then there is a neighborhood $U=U(x)$ of $x$ and a section $s:U\to \mathcal{S}$ such that $s(x) = \sigma$.
     \item Let $s,t$ be sections such that $s(x_0) = t(x_0)$. Then there is a neighborhood $U= U(x_0)$ such that $s\equiv t$ on $U$.
   \end{enumerate}
 \end{proposition}
 
 \begin{definition}
   A subsheaf $(\mathcal{S}',\pi')$ of a sheaf $\mathcal{S}\stackrel{\pi}{\to}X$ is a pair such that $\mathcal{S}'\subseteq\mathcal{S}$ is an open subset and $\pi' = \pi|_{\mathcal{S}}$.
-  \par In particular, for a open subset$M\subseteq X$, $\pi^{-1}(M)$ is a subsheaf which is called a restriction of $\mathcal{S}$ to $M$.
+  \par In particular, for a open subset $M\subseteq X$, $\pi^{-1}(M)$ is a subsheaf which is called a restriction of $\mathcal{S}$ to $M$.
 \end{definition}
 
 \begin{notation}
-  We denote the set of all sections over $U$ as $\Gamma(U,S)$. 
+  We denote the set of all sections over $U$ as $\Gamma(U,\mathcal{S})$. 
 \end{notation}
 
 \begin{remark}
-  Clearly if $S'\subseteq S$ is a subsheaf we have,
+  Clearly if $\mathcal{S}'\subseteq \mathcal{S}$ is a subsheaf we have,
   \begin{equation*}
-    \Gamma(U,S')\subseteq\Gamma(U,S).
+    \Gamma(U,\mathcal{S}')\subseteq\Gamma(U,\mathcal{S}).
   \end{equation*}
 \end{remark}
 
 \begin{definition}
-  Let $(\mathcal{S},\pi_{\mathcal{S}}),(\mathcal{T},\pi_{\mathcal{T}})$ be sheaves on $X$. A morphism $\varphi:\mathcal{S}\to\mathcal{T}$ of sheaves is a continuous map such that the following diagram commute,
+  Let $(\mathcal{S},\pi_{\mathcal{S}}),(\mathcal{T},\pi_{\mathcal{T}})$ be sheaves on $X$. A morphism $\varphi:\mathcal{S}\to\mathcal{T}$ of sheaves is a continuous map such that the following diagram commutes,
   \begin{center}
     \begin{tikzcd}
 \mathcal{S} \arrow[rd, "\pi_{\mathcal{S}}"'] \arrow[rr, "\varphi"] &   & \mathcal{T} \arrow[ld, "\pi_{\mathcal{T}}"] \\
@@ -4498,7 +4503,7 @@ Let $U\subseteq X$ be an open subset. For a sheaf $\mathcal{S}$ on $X$. The sect
   $\Ker\varphi$ is a subsheaf of $\mathcal{S}$. 
 \end{proposition}
 \begin{proof}
-  Let $s:U\to\mathcal{S}$ be a section such that $s(x)\in\Ker\varphi$ for some $x\in X$. Then 
+  Let $s:U\to\mathcal{S}$ be a section such that $s(x)\in\Ker\varphi$ for some $x\in X$. Then %later
 \end{proof}
 
 \begin{remark}
@@ -4561,20 +4566,20 @@ Let $U\subseteq X$ be an open subset. For a sheaf $\mathcal{S}$ on $X$. The sect
     \begin{enumerate}[i).]
       \item it is a sheaf of abelian groups,
       \item $\mathcal{A}_x$ is an $\mathcal{R}_x$-module for each $x\in X$,
-      \item for each open $U\subseteq X$, $\Gamma(U,\mathcal{R})\times \Gamma(U,\mathcal{A})\ni(r,a)\mapsto ra = [U\ni x\mapsto r(x)a(x)]$ is an element of $\Gamma(U,\mathcal{A})$ ie, defines a section over $U$.
+      \item for each open $U\subseteq X$, $\Gamma(U,\mathcal{R})\times \Gamma(U,\mathcal{A})\ni(r,a)\mapsto ra = [U\ni x\mapsto r(x)a(x)]$ is an element of $\Gamma(U,\mathcal{A})$ (i.e. defines a section over $U$ thus an action).
     \end{enumerate}
   \end{definition}
 
   \begin{definition}
-    A presheaf $F$ of sets is a contravariant functor on the category of open sets of $X$ with values in the category of sets. That is for two open sets $V\subseteq U\subseteq X$, recall that the inclusion relation is represented by an inclusion map $\iota:V\to U$. Since $F$ is contravariant, this induces a morphism of set,
+    A presheaf $\mathscr{F}$ of sets is a contravariant functor on the category of open sets of $X$ with values in the category of sets. That is for two open sets $V\subseteq U\subseteq X$, recall that the inclusion relation is represented by an inclusion map $\iota:V\to U$. Since $\mathscr{F}$ is contravariant, this induces a morphism of set,
     \begin{equation*}
-      \rho_{UV} \defeq F(V\hookrightarrow U),
+      \rho_{UV} \defeq \mathscr{F}(V\hookrightarrow U),
     \end{equation*}
     which we call a restriction map.
   \end{definition}
 
   \begin{definition}
-    A homomorphism of presheaves is a functorial morphism (ie. a natural transformation between two contravariant functors.) That is a collection of map $(\varphi_U)_U:\mathcal{S}\to\mathcal{T}$ such that the following diagram commutes for all $V\subseteq U$ open,
+    A homomorphism of presheaves is a functorial morphism (i.e. a natural transformation between two contravariant functors.) That is a collection of map $(\varphi_U)_U:\mathcal{S}\to\mathcal{T}$ such that the following diagram commutes for all $V\subseteq U$ open,
     \begin{center}
       \begin{tikzcd}
 \mathcal{S}(U) \arrow[r, "\varphi_U"] \arrow[d, "\rho_{UV}^{\mathcal{S}}"'] & \mathcal{T}(U) \arrow[d, "\rho_{UV}^{\mathcal{T}}"] \\
@@ -4615,7 +4620,7 @@ Let $U\subseteq X$ be an open subset. For a sheaf $\mathcal{S}$ on $X$. The sect
   \end{equation*}
   where $\mathcal{S}_x\ni(f,x)\stackrel{\pi}{\mapsto}x\in X$. We equip $\widehat{\mathcal{S}}$ with the topology by defining the base open sets as
   \begin{equation*}
-    \forall U\subseteq X\text{ open}, s\in\mathcal{S}(U), \{\rho_{Ux}(f)=f(x)\sep x\in U\}.
+    \forall U\subseteq X\text{ open}, s\in\mathcal{S}(U), \{\rho_{Ux}(f)=f(x)\sep x\in U\}.%later possible typo
   \end{equation*}
 \end{definition}
 
@@ -4674,13 +4679,13 @@ Let $U\subseteq X$ be an open subset. For a sheaf $\mathcal{S}$ on $X$. The sect
 \begin{definition}
   A ringed space is a pair $(X,\Ouv)$ such that 
   \begin{enumerate}[i).]
-    \item $X$, is a topological space, 
-    \item $\Ouv\subseteq\mathcal{C}^0(X)$ a subsheaf of rings of continuous functio
+    \item $X$ is a topological space, 
+    \item $\Ouv\subseteq\mathcal{C}^0(X)$ a subsheaf of rings of continuous function.
   \end{enumerate}
   Given two ringed spaces $(X,\Ouv),(Y,\mathcal{R})$, a morphism of ringed spaces $(X,\Ouv)\stackrel{f}{\to}(Y,\mathcal{R})$ is a map such that 
   \begin{enumerate}[i).]
     \item $f:X\to Y$ is continuous,
-    \item for any $U\subset Y$ open, and $s\in\mathcal{R}(U)$, then $s\circ f\in\Ouv(f^{-1}(U))$. 
+    \item for any $U\subset Y$ open, and $s\in\mathcal{R}(U)$, we have $s\circ f\in\Ouv(f^{-1}(U))$. 
   \end{enumerate}
 \end{definition}
 
@@ -4733,31 +4738,36 @@ Alternatively, we could define $\mathcal{T}/\mathcal{S}$ to be the sheafificatio
   We would expect it to be isomorphism, however, it turnes out that the map is neither injective nor surjective.
 \end{remark}
 
-This leads to the following question. Given a surjective map $\alpha:\mathcal{T}\to\mathcal{S}$, is it true that the associated map $\Gamma(\alpha):\Gamma_\cT\to\Gamma_\cS$ is again surjective?
-
-This question then leads us to the theory of cohomology. That is we want to study when these canonically associated morphisms turn out to be isomorphisms.
+This leads to the following question. 
+\par Given a surjective map $\alpha:\mathcal{T}\to\mathcal{S}$, is it true that the associated map $\Gamma(\alpha):\Gamma_\cT\to\Gamma_\cS$ is again surjective?
+\par This question then leads us to the theory of cohomology. That is we want to study when these canonically associated morphisms turn out to be isomorphisms.
 
 \begin{definition}
   Let $M$ be an analytical set of a domain $\G\subseteq\C^n$. We define the associated sheaf of ideal to be,
   \begin{equation*}
-    \G\supseteq U\mapsto \mathcal{I}(U) = \{f\in\Ouv(U)\sep f|_{M\cap U} \equiv 0\}.
+    \G\supseteq U\mapsto \mathcal{I}_M(U) = \{f\in\Ouv(U)\sep f|_{M\cap U} \equiv 0\}.
   \end{equation*}
-  Clearly, $\cI\subseteq\Ouv_\G$ as sheaves of abelian groups. The associated quotient sheaf is then defined as,
+  Clearly, $\cI_M\subseteq\Ouv_\G$ as sheaves of abelian groups. The associated quotient sheaf is then defined as,
   \begin{equation*}
-    \tilde{\Ouv_M}\defeq\Ouv_\G/\cI|_M.
+    \widetilde{\Ouv_M}\defeq\Ouv_\G/\cI.
+  \end{equation*}
+  With this, we define a structure sheaf of $M$ as
+  \begin{equation*}
+    \Ouv_M\defeq \widetilde{\Ouv_M}|_M.
   \end{equation*}
 \end{definition}
 
 \begin{remark}
-  The pair $(M,\tilde{\Ouv}_M)$ is a ringed space.
+  The pair $(M,\Ouv_M)$ is a ringed space. Also we call $\widetilde{\Ouv_M}$ to be the sheaf of weakly holomorphic functions on $M$.
 \end{remark}
 
 \begin{definition}
-  A complex space is a ringed space $(X,\Ouv_X)$ such that for all $x\in X$ there is a neighborhood $U=U(x)$ of $x$ and an isomorphism $\varphi:(U,\Ouv_X|_U)\to (M,\Ouv_M)$ where $(M,\Ouv_M)$ is an analytic with its structure sheaf in some open set $V\subseteq\C^n$ for some $n\in\N$. A morphism of ringed spaces between complex spaces are called a holomorphic map.
+  A complex space is a ringed space $(X,\Ouv_X)$ such that for all $x\in X$ there is a neighborhood $U$ of $x$ and an isomorphism $\varphi:(U,\Ouv_X|_U)\to (M,\Ouv_M)$
+   where $M$ is an analytic set in some open set $V\subseteq\C^n$ and $\Ouv_M$ is its structure sheaf. A morphism of ringed spaces between complex spaces are called a holomorphic map.
 \end{definition}
 
 \begin{example}
-  Let $(M,\Ouv_M)$ be a complex space, then $(M,\tilde{\Ouv}_M)$ is realized as collections of weakly holomorphic functions, We note that $\tilde{\Ouv}_M\subseteq \Ouv_M$. We can even prove that $(M,\tilde{\Ouv}_M)$ is a complex space but this is not a trivial statement.
+  Let $(M,\Ouv_M)$ be a complex space, then $(M,\widetilde{\Ouv_M})$ is realized as collections of weakly holomorphic functions, We note that $\widetilde{\Ouv_M}\supseteq \Ouv_M$. We can even prove that $(M,\widetilde{\Ouv_M})$ is a complex space but this is not a trivial statement.
 \end{example}
 
 \begin{remark}
@@ -4861,11 +4871,11 @@ Furthermore, we have the following commutative diagram,
 \end{center}
 \begin{definition}
   Let $X$ be a topological space and $\mathscr{U}=(U_i)_{i\in I},\mathscr{V}=(V_j)_{j\in J}$ be two covering. $\mathscr{V}$ is finer than $\mathscr{U}$ if for each $i\in I$ there is $j\in J$ such that $V_j\subseteq U_i$. 
-  \par In that case $\mathscr{V}$ is called a refinement of $\mathscr{U}$. We furthere define a refinement map which is a map $\varphi:J\to I$ such that $V_{j}\subseteq U_{\varphi(i)}$.
+  \par In that case $\mathscr{V}$ is called a refinement of $\mathscr{U}$. We furthere define a refinement map which is a map $\varphi:J\to I$ such that $V_{j}\subseteq U_{\varphi(j)}$.
 \end{definition}
 
 \begin{definition}
-  Let $\sU,\sV$ be open covering of a topological space $X$ and $a\in\cC^q(\sU,\cA)$. Supposer $\sV$ is a refinement of $\sU$ with a refinement map $\phi:J\to I$. Then we define,
+  Let $\sU,\sV$ be open coverings of a topological space $X$ and $a\in\cC^q(\sU,\cA)$. Suppose $\sV$ is a refinement of $\sU$ with a refinement map $\varphi:J\to I$. We define,
   \begin{equation*}
     \varphi^qa(j_0,\cdots,j_q) = a(\varphi(j_0),\cdots,\varphi(j_q))|^{U_{\varphi(j_0) \cdots \varphi(i_q)}}_{V_{j_0 \cdots j_q}}.
   \end{equation*}
@@ -4896,8 +4906,7 @@ Suppose $\cA$ is a sheaf and $\Gamma_\cA$ be its canonical presheaf.
 \end{proof}
 The above proposition can be rephrashed by the following corollary.
 \begin{corollary}
-  Suppose we are given $c\in Z^1(\sU,\cA)$, a cocycle. Under a refinement map $\varphi$, we have $\varphi^1c\in Z^1(\sV,\cA)$. 
-\par If $\varphi^1c=\delta b$ for some $b\in\cC^0(\sV,\cA)$, then there is $\tilde{b}\in\cC^0(\sU,\cA)$ such that $\delta\tilde{b}=c$.
+  Suppose we are given $c\in B^1(\sU,\cA)$, a cocycle. Under a refinement map $\varphi$, we have $\varphi^1c\in B^1(\sV,\cA)$. In other words, if $\varphi^1c=\delta b$ for some $b\in\cC^0(\sV,\cA)$, then there is $\tilde{b}\in\cC^0(\sU,\cA)$ such that $\delta\tilde{b}=c$.
 \end{corollary}
 
 \begin{notation}
@@ -4918,38 +4927,41 @@ Suppose we have refinements $\mathscr{W}\leq \sV\leq \sU$, we have,
 \end{equation*}
 
 \begin{definition}
-  Let $\mathscr{S}$ be a set of open covering of $X$ such that for any open covering $\sU$ of $X$, there is a refinement $\sV$ of $\sU$ contained in $\mathscr{S}$. We then define the inductive limit,
+  Let $\mathscr{S}$ be a set of open coverings of $X$ such that for any open covering $\sU$ of $X$, there is a refinement $\sV$ of $\sU$ contained in $\mathscr{S}$. We then define the inductive limit,
   \begin{equation*}
-    H^\bullet(X,\mathcal{A}) = \varinjlim_{\substack{\sU\\\text{open covering}}}H^\bullet(\sU,\cA),
+    H^\bullet(X,\mathcal{A}) = \varinjlim_{\substack{\sU\\\text{\makebox[0pt][c]{open covering}}}}H^\bullet(\sU,\cA),
   \end{equation*}
-  such that for each $\sU\in\mathscr{S}$, there is a well-define morphism,
+  as an $\Ouv_X$-module such that for each $\sU\in\mathscr{S}$, there is a well-defined morphism,
   \begin{equation*}
     h^\bullet(\sU):H^\bullet(\sU,\cA)\to H^\bullet(X,\mathcal{A}),
   \end{equation*}
-  such that for any refinement map $\varphi:\sV\to\sU$, we have a commutative diagram,
+  satisfying that for any refinement map $\varphi:\sV\to\sU$, we have a commutative diagram,
   \begin{center}
     \begin{tikzcd}
 {H^\bullet(\sU,\cA)} \arrow[rr, "\varphi^\bullet"] \arrow[rd, "h^\bullet(\sU)"'] &                    & {H^\bullet(\sV,\cA)} \arrow[ld, "h^\bullet(\sV)"] \\
                                                                                  & {H^\bullet(X,\cA)} &                                                  
 \end{tikzcd}
   \end{center}
-  Each element $\gamma\in H^q(X,\cA)$ is represented by an element $c\in H^q(\sU,\cA)$ such that $\delta(c) = 0$, for some $\sU\in\mathscr{S}$ such that if $c'\in H^q(\sU',\cA)$ where $\sU'\in\mathscr{S}$ and $\delta(c')=0$ also represents $\gamma$ then 
-  there is a refinement $\sU''\in\mathscr{S}$ such that 
+  % Each element $\gamma\in H^q(X,\cA)$ is represented by an element $c\in H^q(\sU,\cA)$ such that $\delta(c) = 0$, for some $\sU\in\mathscr{S}$ such that if $c'\in H^q(\sU',\cA)$ where $\sU'\in\mathscr{S}$ and $\delta(c')=0$ also represents $\gamma$ then 
+  % there is a refinement $\sU''\in\mathscr{S}$ such that 
+  Each element $\gamma\in H^q(X,\cA)$ is represented by the following equivalence relation. For each $\sU,\sU'\in\mathscr{S}$ and $c'\in Z^q(\sU,\cA),c'\in Z^q(\sU',\cA)$, $c\sim c'$ if there is a refinement $\sU''$ of $\sU$ and $\sU'$ and $b\in \cC^{q-1}(\sU'',\cA)$ such that 
   \begin{equation*}
-    \exists b\in\cC^{q-1}(\sU'',\cA),\delta b = h(\sU,\sU'')c-h(\sU',\sU'')c'.
+    \delta b = h(\sU,\sU'')c-h(\sU',\sU'')c'.
   \end{equation*}
 \end{definition}
 
 We note that the map $H^\bullet(X,\cdot)$ is functorial. That is given $\alpha:\cA\to\cB, \beta:\cB\to\cC$, we have,
-\begin{equation*}
-  h^\bullet(\alpha):H^\bullet(X,\cA)\to H^\bullet(X,\cB).
-\end{equation*}
+\begin{align*}
+  &h^\bullet(\alpha):H^\bullet(X,\cA)\to H^\bullet(X,\cB),\\
+  &h^\bullet(\beta\circ\alpha) = h^\bullet(\beta)\circ h^\bullet(\alpha).
+\end{align*}
 
-Furthermore $h^\bullet(\beta\circ\alpha) = h^\bullet(\beta)\circ h^\bullet(\alpha)$.
-\par If $\mathcal{A}$ is a sheaf then we have,
+\begin{remark}
+  \par If $\mathcal{A}$ is a sheaf then we have,
 \begin{equation*}
   \mathcal{A}(X)=\Gamma(X,\mathcal{A}) = H^0(X,\mathcal{A}).
 \end{equation*}
+\end{remark}
  
 In the case of $\Ouv_X$-modules, $H^\bullet$ and all the other ones turn out to be $\Ouv_X$-modules.
 
@@ -5003,7 +5015,7 @@ With this we may define a global section $\tilde{a}\in\cA(X)$ glued from open co
 \end{remark}
 
 \begin{proposition}
-  If $\hat{\alpha}$ is injective then so is $\alpha$.
+  If $\hat{\alpha}$ is injective then $\alpha$ is also injective.
   \label{proposition_gamma_left_exact}
 \end{proposition}
 
@@ -5047,7 +5059,7 @@ For an exact sequence of presheaves,
     \begin{tikzcd}
 0 \arrow[r] & {H^0(\sU,\cA)} \arrow[r] & {H^0(\sU,\cB)} \arrow[r] & {H^0(\sU,\cC)} \arrow[lld, "\delta_0^*"] \\
             & {H^1(\sU,\cA)} \arrow[r] & {H^1(\sU,\cB)} \arrow[r] & {H^1(\sU,\cC)} \arrow[lld, "\delta_1^*"] \\
-            & {H^2(\sU,\cA)}           &                          &                                         
+            & {H^2(\sU,\cA)} \arrow[r] & {\cdots}                         &                                         
 \end{tikzcd}
   \end{center}
 
@@ -5127,14 +5139,14 @@ Let us denote $\widetilde{\Gamma_{\cC}} = \Gamma_{\cA}/\Gamma_{\cB}$. Then we ha
   \end{proof}
 
   \begin{definition}
-    A sheaf of abelian group $\cA$ is acyclic if $H^q(X,\A)=0$ for all $q\geq1$.
+    A sheaf of abelian group $\cA$ is acyclic if $H^q(X,\cA)=0$ for all $q\geq1$.
   \end{definition}
 
   \begin{definition}
     An acyclic resolution of a sheaf of abelian groups $\cA$ is a long exact sequence,
     \begin{center}
       \begin{tikzcd}
-0 \arrow[r] & \cA \arrow[r, "h"] & \cA^0 \arrow[r, "h^0"] & \cA^1 \arrow[r, "h^1"] & \cA^2 \arrow[r] & {}
+0 \arrow[r] & \cA \arrow[r, "h"] & \cA^0 \arrow[r, "h^0"] & \cA^1 \arrow[r, "h^1"] & \cA^2 \arrow[r] & {\cdots}
 \end{tikzcd}
     \end{center}
     such that each $\cA^p$ is acyclic for $p\geq0$.
@@ -5143,17 +5155,17 @@ Let us denote $\widetilde{\Gamma_{\cC}} = \Gamma_{\cA}/\Gamma_{\cB}$. Then we ha
   Now consider,
   \begin{center}
     \begin{tikzcd}
-0 \arrow[r] & \cA(X) \arrow[r, "h_X"] & \cA^0(X) \arrow[r, "h^0_X"] & \cA^1(X) \arrow[r, "h^1_X"] & \cA^2(X) \arrow[r] & {}
+0 \arrow[r] & \cA(X) \arrow[r, "h_X"] & \cA^0(X) \arrow[r, "h^0_X"] & \cA^1(X) \arrow[r, "h^1_X"] & \cA^2(X) \arrow[r] & {\cdots}
 \end{tikzcd}
   \end{center}
 
-  This is no longer an exact sequence. Thus we consider a cohomology of $\A^0(X)$.
+  This is no longer an exact sequence. Thus we consider a cohomology of $\cA^0(X)$.
 
   \begin{theorem}
     Consider an acyclic resolution,
     \begin{center}
       \begin{tikzcd}
-0 \arrow[r] & \cA \arrow[r, "h"] & \cA^0 \arrow[r, "h^0"] & \cA^1 \arrow[r, "h^1"] & \cA^2 \arrow[r] & {}
+0 \arrow[r] & \cA \arrow[r, "h"] & \cA^0 \arrow[r, "h^0"] & \cA^1 \arrow[r, "h^1"] & \cA^2 \arrow[r] & {\cdots}
 \end{tikzcd}
     \end{center}
     We have 
@@ -5205,7 +5217,7 @@ By induction on the exact cohomology sequence, we have,
   H^q(X,\overline{\cA})=H^q(\cB^\bullet(X))\cong H^{q+1}(X,\cA^\bullet(X)).
 \end{equation*}
   \end{proof}
-  \subsection{deRahm and Dolbeault Theorems}
+  \subsection{DeRham and Dolbeault Theorems}
   
 \begin{theorem}
   Let $X$ be a smooth manifold (ie. $\G\subseteq\C^n$). Let $\cA$ be a sheaf of germs of $\cinf(X)$. Then $\cA$ is acyclic that is $H^q(X,\cA)=0$ for $q\geq1$.
@@ -5233,9 +5245,9 @@ By induction on the exact cohomology sequence, we have,
     & = c(i_0,\cdots,i_q).
   \end{align*}
   \end{claimproof}
-  The statement follows from the claim.
+  \par The statement follows from the claim.
 \end{proof}
-
+%Current current
 \begin{remark}
   Let $\cE^p$ be a smooth $p$-forms on $X$. Then they are acyclic.
 \end{remark}
